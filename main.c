@@ -6,6 +6,7 @@ static MojitoClient *client;
 static GtkWidget *window, *master_box;
 
 typedef enum {
+  AUTH_INVALID = 0,
   AUTH_USERNAME,
   AUTH_USERNAME_PASSWORD
 } ServiceAuthType;
@@ -20,12 +21,27 @@ typedef struct {
 
 #define GROUP "MojitoService"
 
+static ServiceAuthType
+authtype_from_string (const char *s)
+{
+  if (s == NULL) {
+    return AUTH_INVALID;
+  } else if (g_ascii_strcasecmp (s, "username") == 0) {
+    return AUTH_USERNAME;
+  } else if (g_ascii_strcasecmp (s, "password") == 0) {
+    return AUTH_USERNAME_PASSWORD;
+  } else {
+    return AUTH_INVALID;
+  }
+}
+
 static ServiceInfo *
 get_info_for_service (const char *name)
 {
   char *filename, *path, *authstring;
   GKeyFile *keys;
   ServiceInfo *info;
+  ServiceAuthType auth;
 
   g_assert (name);
 
@@ -49,17 +65,20 @@ get_info_for_service (const char *name)
     return NULL;
   }
 
+  authstring = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
+  auth = authtype_from_string (authstring);
+  g_free (authstring);
+
+  if (auth == AUTH_INVALID) {
+    g_key_file_free (keys);
+    return NULL;
+  }
+
   info = g_slice_new0 (ServiceInfo);
   info->name = g_key_file_get_string (keys, GROUP, "Name", NULL);
   info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
-
-  authstring = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
-  if (g_ascii_strcasecmp (authstring, "username") == 0) {
-    info->auth = AUTH_USERNAME;
-  } else if (g_ascii_strcasecmp (authstring, "password") == 0) {
-    info->auth = AUTH_USERNAME_PASSWORD;
-  }
+  info->auth = auth;
 
   g_key_file_free (keys);
 
