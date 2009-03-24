@@ -63,6 +63,13 @@ construct_ui (const char *service_name)
   if (keys == NULL)
     return;
 
+  /* Sanity check for required keys */
+  if (!g_key_file_has_key (keys, "MojitoService", "Name", NULL) ||
+      !g_key_file_has_key (keys, "MojitoService", "AuthType", NULL)) {
+    g_key_file_free (keys);
+    return;
+  }
+
   box = gtk_vbox_new (FALSE, 4);
 
   s = g_key_file_get_string (keys, "MojitoService", "Name", NULL);
