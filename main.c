@@ -1,9 +1,12 @@
 #include <gtk/gtk.h>
+#include <gconf/gconf-client.h>
 #include <mojito-client/mojito-client.h>
 
 static MojitoClient *client;
 
 static GtkWidget *window, *master_box;
+
+static GConfClient *gconf;
 
 typedef enum {
   AUTH_INVALID = 0,
@@ -231,6 +234,8 @@ main (int argc, char **argv)
   gtk_init (&argc, &argv);
 
   client = mojito_client_new ();
+
+  gconf = gconf_client_get_default ();
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   master_box = gtk_vbox_new (FALSE, 8);
