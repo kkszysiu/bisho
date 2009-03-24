@@ -1,6 +1,6 @@
 [MojitoService]
 Name=Twitter
 Icon=mojito-twitter
-Description=Twitter is pointless.
+Description=Twitter is a service for friends, family, and co–workers to communicate and stay connected through the exchange of quick, frequent answers to one simple question: What are you doing?
 Link=http://www.twitter.com/
 AuthType=password
