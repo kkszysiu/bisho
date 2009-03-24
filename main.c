@@ -37,8 +37,12 @@ on_link_event (GtkTextTag  *tag,
                gpointer     user_data)
 {
   if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
+    GtkWidget *widget = GTK_WIDGET (object);
     const char *url = user_data;
-    g_debug ("clicked %s", url);
+
+    gtk_show_uri (gtk_widget_get_screen (widget), url,
+                  event->button.time, NULL);
+
     return TRUE;
   }
   return FALSE;
