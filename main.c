@@ -12,6 +12,7 @@ typedef enum {
 } ServiceAuthType;
 
 typedef struct {
+  char *name;
   char *display_name;
   char *description;
   char *link;
@@ -75,6 +76,7 @@ get_info_for_service (const char *name)
   }
 
   info = g_slice_new0 (ServiceInfo);
+  info->name = g_strdup (name);
   info->display_name = g_key_file_get_string (keys, GROUP, "Name", NULL);
   info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
