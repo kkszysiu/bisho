@@ -3,3 +3,4 @@ Name=Flickr
 Icon=mojito-flickr
 Description=Flickr is a photo sharing website.
 Link=http://www.flickr.com/
+AuthType=username
