@@ -1,0 +1,6 @@
+[MojitoService]
+Name=Twitter
+Icon=mojito-twitter
+Description=Twitter is pointless.
+Link=http://www.twitter.com/
+AuthType=password

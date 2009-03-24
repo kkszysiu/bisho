@@ -1,0 +1,5 @@
+[MojitoService]
+Name=Last.fm
+Icon=mojito-lastfm
+Description=Last.fm is a playlist sharing site
+Link=http://www.last.fm/
