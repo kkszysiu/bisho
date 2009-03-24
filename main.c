@@ -113,6 +113,28 @@ on_link_event (GtkTextTag  *tag,
   return FALSE;
 }
 
+static GtkWidget *
+make_expander_header (ServiceInfo *info)
+{
+  GtkWidget *box, *image, *label;
+  g_assert (info);
+
+  box = gtk_hbox_new (FALSE, 4);
+
+  if (info->icon) {
+    image = gtk_image_new_from_pixbuf (info->icon);
+    gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
+  }
+
+  label = gtk_label_new (info->display_name);
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_box_pack_start (GTK_BOX (box), label, TRUE, TRUE, 0);
+
+  gtk_widget_show_all (box);
+
+  return box;
+}
+
 static void
 construct_ui (const char *service_name)
 {
@@ -128,14 +150,11 @@ construct_ui (const char *service_name)
   if (info == NULL)
     return;
 
-  expander = gtk_expander_new (info->display_name);
+  expander = gtk_expander_new (NULL);
+  gtk_expander_set_label_widget (GTK_EXPANDER (expander),
+                                 make_expander_header (info));
 
   box = gtk_vbox_new (FALSE, 4);
-
-  label = gtk_label_new (info->display_name);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_widget_show (label);
-  gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
 
   text = gtk_text_view_new ();
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
