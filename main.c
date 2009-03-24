@@ -38,7 +38,7 @@ authtype_from_string (const char *s)
 static ServiceInfo *
 get_info_for_service (const char *name)
 {
-  char *filename, *path, *authstring;
+  char *filename, *path, *real_path, *image_path, *authstring;
   GKeyFile *keys;
   ServiceInfo *info;
   ServiceAuthType auth;
@@ -51,7 +51,7 @@ get_info_for_service (const char *name)
 
   keys = g_key_file_new ();
 
-  if (!g_key_file_load_from_data_dirs (keys, path, NULL, G_KEY_FILE_NONE, NULL)) {
+  if (!g_key_file_load_from_data_dirs (keys, path, &real_path, G_KEY_FILE_NONE, NULL)) {
     g_free (path);
     g_key_file_free (keys);
     return NULL;
@@ -82,12 +82,14 @@ get_info_for_service (const char *name)
 
   g_key_file_free (keys);
 
+  path = g_path_get_dirname (real_path);
+  g_free (real_path);
   filename = g_strconcat (name, ".png", NULL);
-  path = g_build_filename ("mojito", "services", filename, NULL);
+  image_path = g_build_filename (path, filename, NULL);
   g_free (filename);
 
-  info->icon = gdk_pixbuf_new_from_file (path, NULL);
-  g_free (path);
+  info->icon = gdk_pixbuf_new_from_file (image_path, NULL);
+  g_free (image_path);
 
   return info;
 }
