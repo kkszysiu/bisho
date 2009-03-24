@@ -115,7 +115,7 @@ static void
 construct_ui (const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *box, *label, *text;
+  GtkWidget *expander, *box, *label, *text;
   GtkTextBuffer *buffer;
   GtkTextIter end;
   char *s;
@@ -125,6 +125,8 @@ construct_ui (const char *service_name)
   info= get_info_for_service (service_name);
   if (info == NULL)
     return;
+
+  expander = gtk_expander_new (info->display_name);
 
   box = gtk_vbox_new (FALSE, 4);
 
@@ -183,7 +185,9 @@ construct_ui (const char *service_name)
   g_free (s);
 
   gtk_widget_show (box);
-  gtk_container_add (GTK_CONTAINER (master_box), box);
+  gtk_container_add (GTK_CONTAINER (expander), box);
+  gtk_widget_show (expander);
+  gtk_container_add (GTK_CONTAINER (master_box), expander);
 }
 
 static void
