@@ -12,10 +12,10 @@ typedef enum {
 
 typedef struct {
   char *name;
-  char *icon_name;
   char *description;
   char *link;
   ServiceAuthType auth;
+  GdkPixbuf *icon;
 } ServiceInfo;
 
 #define GROUP "MojitoService"
@@ -35,13 +35,12 @@ get_info_for_service (const char *name)
 
   keys = g_key_file_new ();
 
-  if (g_key_file_load_from_data_dirs (keys, path, NULL, G_KEY_FILE_NONE, NULL)) {
-    g_free (path);
-  } else {
+  if (!g_key_file_load_from_data_dirs (keys, path, NULL, G_KEY_FILE_NONE, NULL)) {
     g_free (path);
     g_key_file_free (keys);
     return NULL;
   }
+  g_free (path);
 
   /* Sanity check for required keys */
   if (!g_key_file_has_key (keys, GROUP, "Name", NULL) ||
@@ -52,7 +51,6 @@ get_info_for_service (const char *name)
 
   info = g_slice_new0 (ServiceInfo);
   info->name = g_key_file_get_string (keys, GROUP, "Name", NULL);
-  info->icon_name = g_key_file_get_string (keys, GROUP, "Icon", NULL);
   info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
 
@@ -64,6 +62,13 @@ get_info_for_service (const char *name)
   }
 
   g_key_file_free (keys);
+
+  filename = g_strconcat (name, ".png", NULL);
+  path = g_build_filename ("mojito", "services", filename, NULL);
+  g_free (filename);
+
+  info->icon = gdk_pixbuf_new_from_file (path, NULL);
+  g_free (path);
 
   return info;
 }
