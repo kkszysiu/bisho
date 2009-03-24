@@ -5,11 +5,27 @@ static MojitoClient *client;
 
 static GtkWidget *window, *master_box;
 
-static GKeyFile *
-get_keys_for_service (const char *name)
+typedef enum {
+  AUTH_USERNAME,
+  AUTH_USERNAME_PASSWORD
+} ServiceAuthType;
+
+typedef struct {
+  char *name;
+  char *icon_name;
+  char *description;
+  char *link;
+  ServiceAuthType auth;
+} ServiceInfo;
+
+#define GROUP "MojitoService"
+
+static ServiceInfo *
+get_info_for_service (const char *name)
 {
-  char *filename, *path;
+  char *filename, *path, *authstring;
   GKeyFile *keys;
+  ServiceInfo *info;
 
   g_assert (name);
 
@@ -21,12 +37,35 @@ get_keys_for_service (const char *name)
 
   if (g_key_file_load_from_data_dirs (keys, path, NULL, G_KEY_FILE_NONE, NULL)) {
     g_free (path);
-    return keys;
   } else {
     g_free (path);
     g_key_file_free (keys);
     return NULL;
   }
+
+  /* Sanity check for required keys */
+  if (!g_key_file_has_key (keys, GROUP, "Name", NULL) ||
+      !g_key_file_has_key (keys, GROUP, "AuthType", NULL)) {
+    g_key_file_free (keys);
+    return NULL;
+  }
+
+  info = g_slice_new0 (ServiceInfo);
+  info->name = g_key_file_get_string (keys, GROUP, "Name", NULL);
+  info->icon_name = g_key_file_get_string (keys, GROUP, "Icon", NULL);
+  info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
+  info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
+
+  authstring = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
+  if (g_ascii_strcasecmp (authstring, "username") == 0) {
+    info->auth = AUTH_USERNAME;
+  } else if (g_ascii_strcasecmp (authstring, "password") == 0) {
+    info->auth = AUTH_USERNAME_PASSWORD;
+  }
+
+  g_key_file_free (keys);
+
+  return info;
 }
 
 static gboolean
@@ -38,9 +77,9 @@ on_link_event (GtkTextTag  *tag,
 {
   if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
     GtkWidget *widget = GTK_WIDGET (object);
-    const char *url = user_data;
+    ServiceInfo *info = user_data;
 
-    gtk_show_uri (gtk_widget_get_screen (widget), url,
+    gtk_show_uri (gtk_widget_get_screen (widget), info->link,
                   event->button.time, NULL);
 
     return TRUE;
@@ -51,35 +90,23 @@ on_link_event (GtkTextTag  *tag,
 static void
 construct_ui (const char *service_name)
 {
-  GKeyFile *keys;
+  ServiceInfo *info;
   GtkWidget *box, *label, *text;
   GtkTextBuffer *buffer;
   GtkTextIter end;
-  char *s;
 
   g_assert (service_name);
 
-  keys = get_keys_for_service (service_name);
-  if (keys == NULL)
+  info= get_info_for_service (service_name);
+  if (info == NULL)
     return;
-
-  /* Sanity check for required keys */
-  if (!g_key_file_has_key (keys, "MojitoService", "Name", NULL) ||
-      !g_key_file_has_key (keys, "MojitoService", "AuthType", NULL)) {
-    g_key_file_free (keys);
-    return;
-  }
 
   box = gtk_vbox_new (FALSE, 4);
 
-  s = g_key_file_get_string (keys, "MojitoService", "Name", NULL);
-  if (s) {
-    label = gtk_label_new (s);
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-    gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
-    g_free (s);
-  }
+  label = gtk_label_new (info->name);
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_widget_show (label);
+  gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
 
   text = gtk_text_view_new ();
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
@@ -91,15 +118,12 @@ construct_ui (const char *service_name)
   gtk_box_pack_start (GTK_BOX (box), text, FALSE, FALSE, 0);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text));
 
-  s = g_key_file_get_string (keys, "MojitoService", "Description", NULL);
-  if (s) {
+  if (info->description) {
     gtk_text_buffer_get_end_iter (buffer, &end);
-    gtk_text_buffer_insert (buffer, &end, s, -1);
-    g_free (s);
+    gtk_text_buffer_insert (buffer, &end, info->description, -1);
   }
 
-  s = g_key_file_get_string (keys, "MojitoService", "Link", NULL);
-  if (s) {
+  if (info->link) {
     GtkTextTag *tag;
 
     gtk_text_buffer_get_end_iter (buffer, &end);
@@ -108,7 +132,7 @@ construct_ui (const char *service_name)
                                       "foreground", "blue",
                                       "underline", PANGO_UNDERLINE_SINGLE,
                                       NULL);
-    g_signal_connect (tag, "event", G_CALLBACK (on_link_event), s);
+    g_signal_connect (tag, "event", G_CALLBACK (on_link_event), info);
 
     gtk_text_buffer_insert (buffer, &end, "  ", -1);
     gtk_text_buffer_insert_with_tags (buffer, &end,
