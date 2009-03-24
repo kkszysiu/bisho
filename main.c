@@ -87,6 +87,7 @@ get_info_for_service (const char *name)
 
   g_key_file_free (keys);
 
+  /* TODO: this should be specified in the key file or something */
   path = g_path_get_dirname (real_path);
   g_free (real_path);
   filename = g_strconcat (name, ".png", NULL);
