@@ -136,8 +136,9 @@ construct_ui (const char *service_name)
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (text), FALSE);
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text), GTK_WRAP_WORD);
-  /* TODO: something like this */
-  gtk_widget_modify_base (text, GTK_STATE_NORMAL, &text->style->bg[GTK_STATE_NORMAL]);
+  /* TODO: something like this
+     gtk_widget_modify_base (text, GTK_STATE_NORMAL, &text->style->bg[GTK_STATE_NORMAL]);
+  */
   gtk_widget_show (text);
   gtk_box_pack_start (GTK_BOX (box), text, FALSE, FALSE, 0);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text));
