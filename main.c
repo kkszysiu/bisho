@@ -141,6 +141,50 @@ make_expander_header (ServiceInfo *info)
 }
 
 static void
+set_gconf_key (ServiceInfo *info, const char *key_suffix, const char *value)
+{
+  char *key;
+
+  key = g_strdup_printf ("/apps/mojito/services/%s/%s",
+                         info->name, key_suffix);
+
+  /* TODO: block gconf notify when we have one */
+  gconf_client_set_string (gconf, key, value, NULL);
+
+  g_free (key);
+}
+
+static gboolean
+on_user_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
+{
+  ServiceInfo *info = user_data;
+
+  set_gconf_key (info, "user", gtk_entry_get_text (GTK_ENTRY (widget)));
+
+  return FALSE;
+}
+
+static char *
+get_gconf_key (ServiceInfo *info, const char *key_suffix)
+{
+  char *key, *value;
+  GError *error = NULL;
+
+  key = g_strdup_printf ("/apps/mojito/services/%s/%s",
+                         info->name, key_suffix);
+
+  value = gconf_client_get_string (gconf, key, &error);
+  if (error) {
+    g_message ("Cannot get key %s: %s", key, error->message);
+    g_error_free (error);
+  }
+
+  g_free (key);
+
+  return value;
+}
+
+static void
 construct_ui (const char *service_name)
 {
   ServiceInfo *info;
@@ -193,6 +237,35 @@ construct_ui (const char *service_name)
                                       "Launch site for more information", -1,
                                       tag, NULL);
     gtk_text_buffer_insert (buffer, &end, ".", -1);
+  }
+
+  switch (info->auth) {
+  case AUTH_USERNAME:
+    {
+      GtkWidget *table, *entry;
+
+      table = gtk_table_new (2, 2, FALSE);
+
+      label = gtk_label_new ("Username:");
+      gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+
+      entry = gtk_entry_new ();
+      gtk_entry_set_text (GTK_ENTRY (entry), get_gconf_key (info, "user"));
+      /* TODO: connect to gconf notify */
+      g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_user_entry_left), info);
+      gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 0, 1);
+
+      gtk_widget_show_all (table);
+      gtk_box_pack_start (GTK_BOX (box), table, FALSE, FALSE, 0);
+    }
+    break;
+  case AUTH_USERNAME_PASSWORD:
+    {
+    }
+    break;
+  case AUTH_INVALID:
+    /* Should never see this, so ignore it */
+    break;
   }
 
   /* TODO: i18n problem here, 'a Advogato account' should be 'an Advogato'. Drop
