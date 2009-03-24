@@ -312,6 +312,7 @@ main (int argc, char **argv)
   gconf = gconf_client_get_default ();
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window), "Web Services Settings");
   master_box = gtk_vbox_new (FALSE, 8);
   gtk_container_set_border_width (GTK_CONTAINER (master_box), 8);
   gtk_widget_show (master_box);
