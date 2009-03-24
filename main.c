@@ -12,7 +12,7 @@ typedef enum {
 } ServiceAuthType;
 
 typedef struct {
-  char *name;
+  char *display_name;
   char *description;
   char *link;
   ServiceAuthType auth;
@@ -75,7 +75,7 @@ get_info_for_service (const char *name)
   }
 
   info = g_slice_new0 (ServiceInfo);
-  info->name = g_key_file_get_string (keys, GROUP, "Name", NULL);
+  info->display_name = g_key_file_get_string (keys, GROUP, "Name", NULL);
   info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
   info->auth = auth;
@@ -127,7 +127,7 @@ construct_ui (const char *service_name)
 
   box = gtk_vbox_new (FALSE, 4);
 
-  label = gtk_label_new (info->name);
+  label = gtk_label_new (info->display_name);
   gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
   gtk_widget_show (label);
   gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
