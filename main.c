@@ -206,7 +206,7 @@ main (int argc, char **argv)
   client = mojito_client_new ();
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  master_box = gtk_vbox_new (TRUE, 8);
+  master_box = gtk_vbox_new (FALSE, 8);
   gtk_container_set_border_width (GTK_CONTAINER (master_box), 8);
   gtk_widget_show (master_box);
   gtk_container_add (GTK_CONTAINER (window), master_box);
