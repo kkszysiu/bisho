@@ -49,6 +49,24 @@ make_expander_header (ServiceInfo *info)
   return box;
 }
 
+static GList *expander_list = NULL;
+
+static void
+expanded_cb (GObject *object, GParamSpec *param_spec, gpointer user_data)
+{
+  GtkExpander *just_expanded = GTK_EXPANDER (object);
+  GList *l;
+
+  if (gtk_expander_get_expanded (just_expanded)) {
+    for (l = expander_list; l; l = l->next) {
+      GtkExpander *expander = l->data;
+      if (expander != just_expanded && gtk_expander_get_expanded (expander))
+        gtk_expander_set_expanded (expander, FALSE);
+    }
+  }
+}
+
+
 static void
 construct_ui (const char *service_name)
 {
@@ -65,6 +83,9 @@ construct_ui (const char *service_name)
     return;
 
   expander = gtk_expander_new (NULL);
+  expander_list = g_list_prepend (expander_list, expander);
+  g_signal_connect (expander, "notify::expanded", G_CALLBACK (expanded_cb), NULL);
+
   gtk_expander_set_label_widget (GTK_EXPANDER (expander),
                                  make_expander_header (info));
 
