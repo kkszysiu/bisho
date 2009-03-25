@@ -4,6 +4,8 @@
 
 static GConfClient *gconf = NULL;
 
+#define DATA_GCONF_KEY "bisho:gconf-key"
+
 static void
 set_gconf_key (ServiceInfo *info, const char *key_suffix, const char *value)
 {
@@ -24,7 +26,7 @@ on_gconf_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data
   ServiceInfo *info = user_data;
   const char *key;
 
-  key = g_object_get_data (G_OBJECT (widget), "bisho:gconf-key");
+  key = g_object_get_data (G_OBJECT (widget), DATA_GCONF_KEY);
   set_gconf_key (info, key, gtk_entry_get_text (GTK_ENTRY (widget)));
 
   return FALSE;
@@ -61,7 +63,7 @@ new_entry_from_gconf (ServiceInfo *info, const char *key)
   if (!gconf) gconf = gconf_client_get_default ();
 
   entry = gtk_entry_new ();
-  g_object_set_data (G_OBJECT (entry), "bisho:gconf-key", (gpointer)key);
+  g_object_set_data (G_OBJECT (entry), DATA_GCONF_KEY, (gpointer)key);
   gtk_entry_set_text (GTK_ENTRY (entry), get_gconf_key (info, key));
   /* TODO: connect to gconf notify */
   g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_gconf_entry_left), info);
