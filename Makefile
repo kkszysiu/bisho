@@ -5,3 +5,6 @@ LDFLAGS=`pkg-config --libs $(PKGS)`
 
 bisho: main.c service-info.c
 	$(LINK.c) -o $@ $^
+
+clean:
+	rm -f bisho
