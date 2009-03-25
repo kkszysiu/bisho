@@ -1,14 +1,12 @@
 #include <gtk/gtk.h>
-#include <gconf/gconf-client.h>
 #include <mojito-client/mojito-client.h>
 
 #include "service-info.h"
+#include "entry.h"
 
 static MojitoClient *client;
 
 static GtkWidget *window, *master_box;
-
-static GConfClient *gconf;
 
 static gboolean
 on_link_event (GtkTextTag  *tag,
@@ -49,50 +47,6 @@ make_expander_header (ServiceInfo *info)
   gtk_widget_show_all (box);
 
   return box;
-}
-
-static void
-set_gconf_key (ServiceInfo *info, const char *key_suffix, const char *value)
-{
-  char *key;
-
-  key = g_strdup_printf ("/apps/mojito/services/%s/%s",
-                         info->name, key_suffix);
-
-  /* TODO: block gconf notify when we have one */
-  gconf_client_set_string (gconf, key, value, NULL);
-
-  g_free (key);
-}
-
-static gboolean
-on_user_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
-{
-  ServiceInfo *info = user_data;
-
-  set_gconf_key (info, "user", gtk_entry_get_text (GTK_ENTRY (widget)));
-
-  return FALSE;
-}
-
-static char *
-get_gconf_key (ServiceInfo *info, const char *key_suffix)
-{
-  char *key, *value;
-  GError *error = NULL;
-
-  key = g_strdup_printf ("/apps/mojito/services/%s/%s",
-                         info->name, key_suffix);
-
-  value = gconf_client_get_string (gconf, key, &error);
-  if (error) {
-    g_message ("Cannot get key %s: %s", key, error->message);
-    g_error_free (error);
-  }
-
-  g_free (key);
-
-  return value;
 }
 
 static void
@@ -160,10 +114,7 @@ construct_ui (const char *service_name)
       label = gtk_label_new ("Username:");
       gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
-      entry = gtk_entry_new ();
-      gtk_entry_set_text (GTK_ENTRY (entry), get_gconf_key (info, "user"));
-      /* TODO: connect to gconf notify */
-      g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_user_entry_left), info);
+      entry = new_entry_from_gconf (info, "user");
       gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 0, 1);
 
       gtk_widget_show_all (table);
@@ -218,8 +169,6 @@ main (int argc, char **argv)
   gtk_init (&argc, &argv);
 
   client = mojito_client_new ();
-
-  gconf = gconf_client_get_default ();
 
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (window), "Web Services Settings");
