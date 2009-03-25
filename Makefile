@@ -3,8 +3,8 @@ CPPFLAGS=`pkg-config --cflags $(PKGS)`
 CFLAGS=-g -Wall
 LDFLAGS=`pkg-config --libs $(PKGS)`
 
-bisho: main.c service-info.c
-	$(LINK.c) -o $@ $^
+bisho: Makefile main.c service-info.c service-info.h
+	$(LINK.c) -o $@ $(filter %.c, $^)
 
 clean:
 	rm -f bisho
