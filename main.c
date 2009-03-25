@@ -109,7 +109,7 @@ construct_ui (const char *service_name)
     {
       GtkWidget *table, *entry;
 
-      table = gtk_table_new (2, 2, FALSE);
+      table = gtk_table_new (1, 2, FALSE);
 
       label = gtk_label_new ("Username:");
       gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
