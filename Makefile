@@ -3,4 +3,5 @@ CPPFLAGS=`pkg-config --cflags $(PKGS)`
 CFLAGS=-g -Wall
 LDFLAGS=`pkg-config --libs $(PKGS)`
 
-all: main
+bisho: main.c service-info.c
+	$(LINK.c) -o $@ $^
