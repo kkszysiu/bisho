@@ -2,9 +2,22 @@
 #include <gconf/gconf-client.h>
 #include "service-info.h"
 
+static gboolean done_init = FALSE;
 static GConfClient *gconf = NULL;
 
 #define DATA_GCONF_KEY "bisho:gconf-key"
+
+static void
+init (void)
+{
+  g_assert (gconf == NULL);
+
+  gconf = gconf_client_get_default ();
+
+  gconf_client_add_dir (gconf, "/apps/mojito/services", GCONF_CLIENT_PRELOAD_RECURSIVE, NULL);
+
+  done_init = TRUE;
+}
 
 static void
 set_gconf_key (ServiceInfo *info, const char *key, const char *value)
@@ -34,7 +47,7 @@ new_entry_from_gconf (ServiceInfo *info, const char *key_suffix)
   g_assert (info);
   g_assert (key);
 
-  if (!gconf) gconf = gconf_client_get_default ();
+  if (!done_init) init ();
 
   key = g_strdup_printf ("/apps/mojito/services/%s/%s", info->name, key_suffix);
 
