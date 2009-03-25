@@ -25,21 +25,6 @@ on_gconf_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data
   return FALSE;
 }
 
-static char *
-get_gconf_key (ServiceInfo *info, const char *key)
-{
-  char *value;
-  GError *error = NULL;
-
-  value = gconf_client_get_string (gconf, key, &error);
-  if (error) {
-    g_message ("Cannot get key %s: %s", key, error->message);
-    g_error_free (error);
-  }
-
-  return value;
-}
-
 GtkWidget *
 new_entry_from_gconf (ServiceInfo *info, const char *key_suffix)
 {
@@ -56,7 +41,7 @@ new_entry_from_gconf (ServiceInfo *info, const char *key_suffix)
   entry = gtk_entry_new ();
   g_object_set_data_full (G_OBJECT (entry), DATA_GCONF_KEY, key, g_free);
 
-  value = get_gconf_key (info, key);
+  value = gconf_client_get_string (gconf, key, NULL);
   gtk_entry_set_text (GTK_ENTRY (entry), value);
   g_free (value);
 
