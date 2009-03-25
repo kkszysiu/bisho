@@ -38,7 +38,7 @@ make_expander_header (ServiceInfo *info)
   box = gtk_hbox_new (FALSE, 4);
 
   if (info->icon) {
-    image = gtk_image_new_from_pixbuf (info->icon);
+    image = gtk_image_new_from_file (info->icon);
     gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
   }
 

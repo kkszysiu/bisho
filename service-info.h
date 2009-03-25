@@ -10,7 +10,7 @@ typedef struct {
   char *description;
   char *link;
   ServiceAuthType auth;
-  GdkPixbuf *icon;
+  char *icon;
 } ServiceInfo;
 
 ServiceInfo * get_info_for_service (const char *name);

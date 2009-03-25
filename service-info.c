@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+#include <glib.h>
 #include "service-info.h"
 
 #define GROUP "MojitoService"
@@ -20,7 +20,7 @@ authtype_from_string (const char *s)
 ServiceInfo *
 get_info_for_service (const char *name)
 {
-  char *filename, *path, *real_path, *image_path, *authstring;
+  char *filename, *path, *real_path, *authstring;
   GKeyFile *keys;
   ServiceInfo *info;
   ServiceAuthType auth;
@@ -69,11 +69,13 @@ get_info_for_service (const char *name)
   path = g_path_get_dirname (real_path);
   g_free (real_path);
   filename = g_strconcat (name, ".png", NULL);
-  image_path = g_build_filename (path, filename, NULL);
+  info->icon = g_build_filename (path, filename, NULL);
   g_free (filename);
 
-  info->icon = gdk_pixbuf_new_from_file (image_path, NULL);
-  g_free (image_path);
+  if (!g_file_test (info->icon, G_FILE_TEST_EXISTS)) {
+    g_free (info->icon);
+    info->icon = NULL;
+  }
 
   return info;
 }
