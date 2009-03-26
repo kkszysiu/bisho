@@ -1,2 +1,16 @@
 *~
 bisho
+.deps
+Makefile.in
+Makefile
+aclocal.m4
+autom4te.cache
+*.o
+compile
+config.*
+configure
+depcomp
+install-sh
+missing
+stamp-h1
+INSTALL
