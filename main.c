@@ -74,7 +74,6 @@ construct_ui (const char *service_name)
   GtkWidget *expander, *box, *label, *text;
   GtkTextBuffer *buffer;
   GtkTextIter end;
-  char *s;
 
   g_assert (service_name);
 
@@ -169,21 +168,6 @@ construct_ui (const char *service_name)
     /* Should never see this, so ignore it */
     break;
   }
-
-  /* TODO: i18n problem here, 'a Advogato account' should be 'an Advogato'. Drop
-     this label? */
-  s = g_strdup_printf (
-                       "<small>"
-                       "You'll need a %s account and an Internet connection"
-                       "to use this web service."
-                       "</small>",
-                       info->display_name);
-  label = gtk_label_new (NULL);
-  gtk_label_set_markup (GTK_LABEL (label), s);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_widget_show (label);
-  gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
-  g_free (s);
 
   gtk_widget_show (box);
   gtk_container_add (GTK_CONTAINER (expander), box);
