@@ -6,3 +6,6 @@ bisho_SOURCES = \
 	service-info.c service-info.h
 bisho_CPPFLAGS = $(DEPS_CFLAGS)
 bisho_LDFLAGS = $(DEPS_LIBS)
+
+desktopdir = $(datadir)/applications
+dist_desktop_DATA = bisho.desktop
