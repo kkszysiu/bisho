@@ -45,7 +45,7 @@ new_entry_from_gconf (ServiceInfo *info, const char *key_suffix)
   char *key, *value;
 
   g_assert (info);
-  g_assert (key);
+  g_assert (key_suffix);
 
   if (!done_init) init ();
 
