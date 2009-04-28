@@ -44,6 +44,15 @@ expanded_cb (GObject *object, GParamSpec *param_spec, gpointer user_data)
   }
 }
 
+/* A small hack to change the colours that the text view renders with. Not
+   guaranteed to work but it works with many themes. */
+static void
+hack_style (GtkWidget *widget, GtkStyle *old_style, gpointer user_data)
+{
+  g_signal_handlers_block_by_func (widget, hack_style, user_data);
+  gtk_widget_modify_base (widget, GTK_STATE_NORMAL, &widget->style->bg[GTK_STATE_NORMAL]);
+  g_signal_handlers_unblock_by_func (widget, hack_style, user_data);
+}
 
 static void
 construct_ui (const char *service_name)
@@ -76,9 +85,7 @@ construct_ui (const char *service_name)
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
   gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (text), FALSE);
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text), GTK_WRAP_WORD);
-  /* TODO: something like this
-     gtk_widget_modify_base (text, GTK_STATE_NORMAL, &text->style->bg[GTK_STATE_NORMAL]);
-  */
+  g_signal_connect (text, "style-set", G_CALLBACK (hack_style), NULL);
   gtk_widget_show (text);
   gtk_box_pack_start (box, text, FALSE, FALSE, 0);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text));
