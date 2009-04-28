@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
-
+#include <mux/mux-expanding-item.h>
 #include "service-info.h"
 #include "entry.h"
 
@@ -27,41 +27,19 @@ on_link_event (GtkTextTag  *tag,
   return FALSE;
 }
 
-static GtkWidget *
-make_expander_header (ServiceInfo *info)
-{
-  GtkWidget *box, *image, *label;
-  g_assert (info);
-
-  box = gtk_hbox_new (FALSE, 4);
-
-  if (info->icon) {
-    image = gtk_image_new_from_file (info->icon);
-    gtk_box_pack_start (GTK_BOX (box), image, FALSE, FALSE, 0);
-  }
-
-  label = gtk_label_new (info->display_name);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_box_pack_start (GTK_BOX (box), label, TRUE, TRUE, 0);
-
-  gtk_widget_show_all (box);
-
-  return box;
-}
-
 static GList *expander_list = NULL;
 
 static void
 expanded_cb (GObject *object, GParamSpec *param_spec, gpointer user_data)
 {
-  GtkExpander *just_expanded = GTK_EXPANDER (object);
+  MuxExpandingItem *just_expanded = MUX_EXPANDING_ITEM (object);
   GList *l;
 
-  if (gtk_expander_get_expanded (just_expanded)) {
+  if (mux_expanding_item_get_active (just_expanded)) {
     for (l = expander_list; l; l = l->next) {
-      GtkExpander *expander = l->data;
-      if (expander != just_expanded && gtk_expander_get_expanded (expander))
-        gtk_expander_set_expanded (expander, FALSE);
+      MuxExpandingItem *expander = l->data;
+      if (expander != just_expanded && mux_expanding_item_get_active (expander))
+        mux_expanding_item_set_active (expander, FALSE);
     }
   }
 }
@@ -71,7 +49,9 @@ static void
 construct_ui (const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *expander, *box, *label, *text;
+  GtkWidget *expander, *label, *text;
+  GtkBox *box;
+  MuxExpandingItem *m;
   GtkTextBuffer *buffer;
   GtkTextIter end;
 
@@ -81,14 +61,16 @@ construct_ui (const char *service_name)
   if (info == NULL)
     return;
 
-  expander = gtk_expander_new (NULL);
+  expander = mux_expanding_item_new ();
+  m = MUX_EXPANDING_ITEM (expander);
+
   expander_list = g_list_prepend (expander_list, expander);
   g_signal_connect (expander, "notify::expanded", G_CALLBACK (expanded_cb), NULL);
 
-  gtk_expander_set_label_widget (GTK_EXPANDER (expander),
-                                 make_expander_header (info));
+  mux_expanding_item_set_icon_from_file (m, info->icon);
+  mux_expanding_item_set_label (m, info->display_name);
 
-  box = gtk_vbox_new (FALSE, 4);
+  box = mux_expanding_item_get_content_box (m);
 
   text = gtk_text_view_new ();
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
@@ -98,7 +80,7 @@ construct_ui (const char *service_name)
      gtk_widget_modify_base (text, GTK_STATE_NORMAL, &text->style->bg[GTK_STATE_NORMAL]);
   */
   gtk_widget_show (text);
-  gtk_box_pack_start (GTK_BOX (box), text, FALSE, FALSE, 0);
+  gtk_box_pack_start (box, text, FALSE, FALSE, 0);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text));
 
   if (info->description) {
@@ -169,9 +151,7 @@ construct_ui (const char *service_name)
     break;
   }
 
-  gtk_widget_show (box);
-  gtk_container_add (GTK_CONTAINER (expander), box);
-  gtk_widget_show (expander);
+  gtk_widget_show_all (expander);
   gtk_container_add (GTK_CONTAINER (master_box), expander);
 }
 
