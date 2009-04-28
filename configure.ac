@@ -15,7 +15,7 @@ AM_PROG_CC_C_O
 # TODO: bit nasty, should we use gnome-common?
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(DEPS, mojito-client gtk+-2.0 gconf-2.0)
+PKG_CHECK_MODULES(DEPS, mojito-client gtk+-2.0 gconf-2.0 mux)
 
 AC_OUTPUT([
         Makefile
