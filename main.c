@@ -159,7 +159,7 @@ construct_ui (const char *service_name)
   }
 
   gtk_widget_show_all (expander);
-  gtk_container_add (GTK_CONTAINER (master_box), expander);
+  gtk_box_pack_start (GTK_BOX (master_box), expander, FALSE, FALSE, 0);
 }
 
 static void
