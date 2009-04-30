@@ -1,3 +1,5 @@
+SUBDIRS = tools
+
 bin_PROGRAMS = bisho
 
 bisho_SOURCES = \
