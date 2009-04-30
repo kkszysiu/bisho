@@ -3,6 +3,8 @@
 #include <mux/mux-expanding-item.h>
 #include "service-info.h"
 #include "entry.h"
+#include "mojito-keyfob-bindings.h"
+#include "mojito-keyfob-callout-ginterface.h"
 
 static MojitoClient *client;
 
