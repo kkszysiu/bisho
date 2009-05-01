@@ -73,6 +73,8 @@ construct_ui (BishoWindow *window, const char *service_name)
   mux_expanding_item_set_label (m, info->display_name);
 
   box = mux_expanding_item_get_content_box (m);
+  gtk_container_set_border_width (GTK_CONTAINER (box), 8);
+  gtk_box_set_spacing (box, 8);
 
   text = gtk_text_view_new ();
   gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
