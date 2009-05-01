@@ -2,6 +2,7 @@
 #include <mojito-client/mojito-client.h>
 #include <mux/mux-expanding-item.h>
 #include "bisho-window.h"
+#include "bisho-utils.h"
 #include "mojito-keyfob-callout-ginterface.h"
 #include "service-info.h"
 #include "entry.h"
@@ -37,23 +38,6 @@ on_link_event (GtkTextTag  *tag,
   return FALSE;
 }
 
-static GList *expander_list = NULL;
-
-static void
-expanded_cb (GObject *object, GParamSpec *param_spec, gpointer user_data)
-{
-  MuxExpandingItem *just_expanded = MUX_EXPANDING_ITEM (object);
-  GList *l;
-
-  if (mux_expanding_item_get_active (just_expanded)) {
-    for (l = expander_list; l; l = l->next) {
-      MuxExpandingItem *expander = l->data;
-      if (expander != just_expanded && mux_expanding_item_get_active (expander))
-        mux_expanding_item_set_active (expander, FALSE);
-    }
-  }
-}
-
 /* A small hack to change the colours that the text view renders with. Not
    guaranteed to work but it works with many themes. */
 static void
@@ -84,9 +68,7 @@ construct_ui (BishoWindow *window, const char *service_name)
   expander = mux_expanding_item_new ();
   m = MUX_EXPANDING_ITEM (expander);
 
-  expander_list = g_list_prepend (expander_list, expander);
-  g_signal_connect (expander, "notify::expanded", G_CALLBACK (expanded_cb), NULL);
-
+  bisho_utils_make_exclusive_expander (m);
   mux_expanding_item_set_icon_from_file (m, info->icon);
   mux_expanding_item_set_label (m, info->display_name);
 
