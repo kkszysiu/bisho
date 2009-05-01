@@ -4,7 +4,8 @@
 typedef enum {
   AUTH_INVALID = 0,
   AUTH_USERNAME,
-  AUTH_USERNAME_PASSWORD
+  AUTH_USERNAME_PASSWORD,
+  AUTH_OAUTH
 } ServiceAuthType;
 
 typedef struct {
