@@ -16,6 +16,7 @@ bin_PROGRAMS = bisho
 
 bisho_SOURCES = \
 	main.c \
+	bisho-window.c bisho-window.h \
 	entry.c entry.h \
 	service-info.c service-info.h \
 	mojito-keyfob-callout-ginterface.c mojito-keyfob-callout-ginterface.h \
