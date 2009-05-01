@@ -12,6 +12,8 @@ authtype_from_string (const char *s)
     return AUTH_USERNAME;
   } else if (g_ascii_strcasecmp (s, "password") == 0) {
     return AUTH_USERNAME_PASSWORD;
+  } else if (g_ascii_strcasecmp (s, "oauth") == 0) {
+    return AUTH_OAUTH;
   } else {
     return AUTH_INVALID;
   }
