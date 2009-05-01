@@ -148,6 +148,14 @@ construct_ui (BishoWindow *window, const char *service_name)
       gtk_box_pack_start (GTK_BOX (box), table, FALSE, FALSE, 0);
     }
     break;
+  case AUTH_OAUTH:
+    {
+      GtkWidget *l;
+      l = gtk_label_new ("TODO: OAuth");
+      gtk_widget_show (l);
+      gtk_box_pack_start (GTK_BOX (box), l, FALSE, FALSE, 0);
+    }
+    break;
   case AUTH_INVALID:
     /* Should never see this, so ignore it */
     break;
