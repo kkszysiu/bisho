@@ -70,6 +70,8 @@ construct_ui (BishoWindow *window, const char *service_name)
 
   bisho_utils_make_exclusive_expander (m);
   mux_expanding_item_set_icon_from_file (m, info->icon);
+  /* TODO: only set the label if the icon doesn't have the name in already. This
+     will require a new field in the keys and ServiceInfo */
   mux_expanding_item_set_label (m, info->display_name);
 
   box = mux_expanding_item_get_content_box (m);
@@ -203,8 +205,8 @@ bisho_window_init (BishoWindow *self)
   gtk_widget_show (self->priv->master_box);
   gtk_container_add (GTK_CONTAINER (self), self->priv->master_box);
 
-  /* TODO move? */
   self->priv->client = mojito_client_new ();
+  /* TODO move to a separate populate() function? */
   mojito_client_get_services (self->priv->client, client_get_services_cb, self);
 }
 
