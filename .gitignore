@@ -14,3 +14,7 @@ install-sh
 missing
 stamp-h1
 INSTALL
+*-ginterface.[ch]
+*.pyc
+*-bindings.h
+marshals.[ch]
