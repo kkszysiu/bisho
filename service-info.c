@@ -2,6 +2,7 @@
 #include "service-info.h"
 
 #define GROUP "MojitoService"
+#define GROUP_OAUTH "OAuth"
 
 static ServiceAuthType
 authtype_from_string (const char *s)
@@ -64,6 +65,19 @@ get_info_for_service (const char *name)
   info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
   info->auth = auth;
+
+  switch (auth) {
+  case AUTH_OAUTH:
+    info->oauth.consumer_key = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerKey", NULL);
+    info->oauth.consumer_secret = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerSecret", NULL);
+    info->oauth.access_token_url = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenURL", NULL);
+    info->oauth.authorize_url = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseURL", NULL);
+    info->oauth.request_token_url = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenURL", NULL);
+    info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
+    break;
+  default:
+    break;
+  }
 
   g_key_file_free (keys);
 

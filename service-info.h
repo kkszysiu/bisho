@@ -15,6 +15,16 @@ typedef struct {
   char *link;
   ServiceAuthType auth;
   char *icon;
+  union {
+    struct {
+      char *consumer_key;
+      char *consumer_secret;
+      char *access_token_url;
+      char *authorize_url;
+      char *request_token_url;
+      char *callback;
+    } oauth;
+  };
 } ServiceInfo;
 
 ServiceInfo * get_info_for_service (const char *name);
