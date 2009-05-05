@@ -2,7 +2,5 @@ bisho-utils.c
 bisho-window.c
 entry.c
 main.c
-marshals.c
-mojito-keyfob-callout-ginterface.c
 service-info.c
 bisho.desktop.in
