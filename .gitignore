@@ -18,3 +18,10 @@ INSTALL
 *.pyc
 *-bindings.h
 marshals.[ch]
+intltool-*
+mkinstalldirs
+po/Makefile*
+po/POTFILES
+po/stamp-it
+bisho.desktop
+po/.intltool-merge-cache
