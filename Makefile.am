@@ -2,27 +2,12 @@ SUBDIRS = tools po
 
 bin_PROGRAMS = bisho
 
-%.c: %.list Makefile.am
-	glib-genmarshal --body --prefix=mojito_marshal $< > $@
-
-%.h: %.list Makefile.am
-	glib-genmarshal --header --prefix=mojito_marshal $< > $@
-
-%-ginterface.c: ${datadir}/mojito/dbus/%.xml Makefile.am
-	python $(top_srcdir)/tools/glib-ginterface-gen.py --include='"marshals.h"' --filename=$(basename $@) $< Mojito_
-
-%-bindings.h: ${datadir}/mojito/dbus/%.xml
-	dbus-binding-tool --mode=glib-client --output=$@ --prefix=$(subst -,_,$*) $^
-
 bisho_SOURCES = \
 	main.c \
 	bisho-window.c bisho-window.h \
 	bisho-utils.c bisho-utils.h \
 	entry.c entry.h \
-	service-info.c service-info.h \
-	mojito-keyfob-callout-ginterface.c mojito-keyfob-callout-ginterface.h \
-	mojito-keyfob-bindings.h \
-	marshals.c marshals.h
+	service-info.c service-info.h
 
 bisho_CPPFLAGS = $(DEPS_CFLAGS)
 bisho_LDFLAGS = $(DEPS_LIBS)
@@ -32,10 +17,5 @@ desktop_in_files = bisho.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-BUILT_SOURCES = \
-	mojito-keyfob-callout-ginterface.c mojito-keyfob-callout-ginterface.h \
-	mojito-keyfob-bindings.h \
-	marshals.c marshals.h
-
-CLEANFILES = $(BUILT_SOURCES) $(desktop_DATA)
+CLEANFILES = $(desktop_DATA)
 EXTRA_DIST = $(desktop_in_files)

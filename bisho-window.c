@@ -4,10 +4,8 @@
 #include <mux/mux-expanding-item.h>
 #include "bisho-window.h"
 #include "bisho-utils.h"
-#include "mojito-keyfob-callout-ginterface.h"
 #include "service-info.h"
 #include "entry.h"
-#include "mojito-keyfob-bindings.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -16,9 +14,7 @@ struct _BishoWindowPrivate {
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_WINDOW, BishoWindowPrivate))
 
-static void callout_iface_init (gpointer g_iface, gpointer iface_data);
-G_DEFINE_TYPE_WITH_CODE (BishoWindow, bisho_window, GTK_TYPE_WINDOW,
-                         G_IMPLEMENT_INTERFACE (MOJITO_TYPE_KEYFOB_CALLOUT_IFACE, callout_iface_init));
+G_DEFINE_TYPE (BishoWindow, bisho_window, GTK_TYPE_WINDOW);
 
 static gboolean
 on_link_event (GtkTextTag  *tag,
@@ -179,26 +175,6 @@ client_get_services_cb (MojitoClient *client,
   for (l = services; l; l = l->next) {
     construct_ui (window, l->data);
   }
-}
-
-static void
-need_authentication (MojitoKeyfobCalloutIface *self,
-                     unsigned int id, const char *base_url,
-                     const char *access_token_function,
-                     const char *authorize_function,
-                     const char *request_token_function,
-                     const char *callback_url,
-                     const char *key, const char *secret,
-                     DBusGMethodInvocation *context)
-{
-  mojito_keyfob_callout_iface_return_from_need_authentication (context);
-}
-
-static void
-callout_iface_init (gpointer g_iface, gpointer iface_data)
-{
-  MojitoKeyfobCalloutIfaceClass *klass = (MojitoKeyfobCalloutIfaceClass*)g_iface;
-  mojito_keyfob_callout_iface_implement_need_authentication (klass, need_authentication);
 }
 
 static void
