@@ -1,4 +1,4 @@
-SUBDIRS = tools
+SUBDIRS = tools po
 
 bin_PROGRAMS = bisho
 
