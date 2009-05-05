@@ -1,3 +1,4 @@
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
 #include <mux/mux-expanding-item.h>
@@ -105,7 +106,7 @@ construct_ui (BishoWindow *window, const char *service_name)
 
     gtk_text_buffer_insert (buffer, &end, "  ", -1);
     gtk_text_buffer_insert_with_tags (buffer, &end,
-                                      "Launch site for more information", -1,
+                                      _("Launch site for more information"), -1,
                                       tag, NULL);
     gtk_text_buffer_insert (buffer, &end, ".", -1);
   }
@@ -117,7 +118,7 @@ construct_ui (BishoWindow *window, const char *service_name)
 
       table = gtk_table_new (1, 2, FALSE);
 
-      label = gtk_label_new ("Username:");
+      label = gtk_label_new (_("Username:"));
       gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
       entry = new_entry_from_gconf (info, "user");
@@ -133,13 +134,13 @@ construct_ui (BishoWindow *window, const char *service_name)
 
       table = gtk_table_new (2, 2, FALSE);
 
-      label = gtk_label_new ("Username:");
+      label = gtk_label_new (_("Username:"));
       gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
       entry = new_entry_from_gconf (info, "user");
       gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 0, 1);
 
-      label = gtk_label_new ("Password:");
+      label = gtk_label_new (_("Password:"));
       gtk_table_attach (GTK_TABLE (table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
       entry = new_entry_from_gconf (info, "password");
@@ -198,7 +199,7 @@ bisho_window_init (BishoWindow *self)
 {
   self->priv = GET_PRIVATE (self);
 
-  gtk_window_set_title (GTK_WINDOW (self), "Web Services Settings");
+  gtk_window_set_title (GTK_WINDOW (self), _("Web Services Settings"));
 
   self->priv->master_box = gtk_vbox_new (FALSE, 8);
   gtk_container_set_border_width (GTK_CONTAINER (self->priv->master_box), 8);
