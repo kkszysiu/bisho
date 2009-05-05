@@ -5,3 +5,4 @@ main.c
 marshals.c
 mojito-keyfob-callout-ginterface.c
 service-info.c
+bisho.desktop.in

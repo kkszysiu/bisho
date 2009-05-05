@@ -28,11 +28,14 @@ bisho_CPPFLAGS = $(DEPS_CFLAGS)
 bisho_LDFLAGS = $(DEPS_LIBS)
 
 desktopdir = $(datadir)/applications
-dist_desktop_DATA = bisho.desktop
+desktop_in_files = bisho.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 BUILT_SOURCES = \
 	mojito-keyfob-callout-ginterface.c mojito-keyfob-callout-ginterface.h \
 	mojito-keyfob-bindings.h \
 	marshals.c marshals.h
 
-CLEANFILES = $(BUILT_SOURCES)
+CLEANFILES = $(BUILT_SOURCES) $(desktop_DATA)
+EXTRA_DIST = $(desktop_in_files)
