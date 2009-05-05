@@ -182,10 +182,23 @@ client_get_services_cb (MojitoClient *client,
 }
 
 static void
+need_authentication (MojitoKeyfobCalloutIface *self,
+                     unsigned int id, const char *base_url,
+                     const char *access_token_function,
+                     const char *authorize_function,
+                     const char *request_token_function,
+                     const char *callback_url,
+                     const char *key, const char *secret,
+                     DBusGMethodInvocation *context)
+{
+  mojito_keyfob_callout_iface_return_from_need_authentication (context);
+}
+
+static void
 callout_iface_init (gpointer g_iface, gpointer iface_data)
 {
-  //MojitoKeyfobCalloutIfaceClass *klass = (MojitoKeyfobCalloutIfaceClass*)g_iface;
-  //mojito_keyfob_callout_iface_implement_need_authentication (klass, need_authentication);
+  MojitoKeyfobCalloutIfaceClass *klass = (MojitoKeyfobCalloutIfaceClass*)g_iface;
+  mojito_keyfob_callout_iface_implement_need_authentication (klass, need_authentication);
 }
 
 static void
