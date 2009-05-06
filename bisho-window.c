@@ -6,6 +6,7 @@
 #include "bisho-utils.h"
 #include "service-info.h"
 #include "entry.h"
+#include "bisho-oauth-pane.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -149,10 +150,10 @@ construct_ui (BishoWindow *window, const char *service_name)
     break;
   case AUTH_OAUTH:
     {
-      GtkWidget *l;
-      l = gtk_label_new ("TODO: OAuth");
-      gtk_widget_show (l);
-      gtk_box_pack_start (GTK_BOX (box), l, FALSE, FALSE, 0);
+      GtkWidget *pane;
+      pane = bisho_oauth_pane_new (info);
+      gtk_widget_show (pane);
+      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     }
     break;
   case AUTH_INVALID:
