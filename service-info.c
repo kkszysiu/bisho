@@ -68,6 +68,7 @@ get_info_for_service (const char *name)
 
   switch (auth) {
   case AUTH_OAUTH:
+    info->oauth.server = g_key_file_get_string (keys, GROUP_OAUTH, "Server", NULL);
     info->oauth.consumer_key = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerKey", NULL);
     info->oauth.consumer_secret = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerSecret", NULL);
     info->oauth.access_token_url = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenURL", NULL);
