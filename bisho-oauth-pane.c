@@ -19,13 +19,16 @@ static const GnomeKeyringPasswordSchema oauth_schema = {
 /* TODO: make this a widget subclass and this private data */
 typedef struct {
   ServiceInfo *info;
+  RestProxy *proxy;
   GtkWidget *label;
   GtkWidget *button;
 } WidgetData;
 
 typedef enum {
   LOGGED_OUT,
-  LOGGED_IN
+  WORKING,
+  CONTINUE_AUTH,
+  LOGGED_IN,
 } ButtonState;
 
 static void update_widgets (WidgetData *data, ButtonState state);
@@ -75,24 +78,25 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
 {
   WidgetData *data = user_data;
   ServiceInfo *info = data->info;
-  RestProxy *proxy;
   GError *error = NULL;
   char *url;
 
-  proxy = oauth_proxy_new (info->oauth.consumer_key, info->oauth.consumer_secret, info->oauth.base_url, FALSE);
+  update_widgets (data, WORKING);
 
-  /* TODO: async and change button title/disable*/
-  oauth_proxy_auth_step (OAUTH_PROXY (proxy), info->oauth.request_token_function, &error);
+  /* TODO: async */
+  oauth_proxy_auth_step (OAUTH_PROXY (data->proxy), info->oauth.request_token_function, &error);
   if (error) {
     /* TODO */
     g_warning ("%s", error->message);
+    update_widgets (data, LOGGED_OUT);
     return;
   }
 
-  url = create_url (info, oauth_proxy_get_token (OAUTH_PROXY (proxy)));
+  url = create_url (info, oauth_proxy_get_token (OAUTH_PROXY (data->proxy)));
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
 
-  /* TODO wait for dbus call from callback. For now pop up a lame dialog or something */
+  /* TODO wait for dbus call from callback */
+  update_widgets (data, CONTINUE_AUTH);
 }
 
 
@@ -119,21 +123,59 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
+continue_clicked (GtkWidget *button, gpointer user_data)
+{
+  WidgetData *data = user_data;
+  GError *error = NULL;
+
+  update_widgets (data, WORKING);
+
+  /* TODO: async */
+  oauth_proxy_auth_step (OAUTH_PROXY (data->proxy), data->info->oauth.access_token_function, &error);
+  if (error) {
+    /* TODO */
+    g_warning ("%s", error->message);
+    update_widgets (data, LOGGED_OUT);
+    return;
+  }
+
+  g_debug ("got token %s\nsecret %s",
+           oauth_proxy_get_token (OAUTH_PROXY (data->proxy)),
+           oauth_proxy_get_token_secret (OAUTH_PROXY (data->proxy)));
+
+  update_widgets (data, LOGGED_IN);
+}
+
+static void
 update_widgets (WidgetData *data, ButtonState state)
 {
   g_signal_handlers_disconnect_by_func (data->button, log_out_clicked, data);
+  g_signal_handlers_disconnect_by_func (data->button, continue_clicked, data);
   g_signal_handlers_disconnect_by_func (data->button, log_in_clicked, data);
 
   switch (state) {
-  case LOGGED_IN:
-    gtk_label_set_text (GTK_LABEL (data->label), _("Logged in"));
-    gtk_button_set_label (GTK_BUTTON (data->button), _("Log me out"));
-    g_signal_connect (data->button, "clicked", G_CALLBACK (log_out_clicked), data);
-    break;
   case LOGGED_OUT:
+    gtk_widget_set_sensitive (data->button, TRUE);
     gtk_label_set_text (GTK_LABEL (data->label), _("Log in pending"));
     gtk_button_set_label (GTK_BUTTON (data->button), _("Log me in"));
     g_signal_connect (data->button, "clicked", G_CALLBACK (log_in_clicked), data);
+    break;
+  case WORKING:
+    gtk_widget_set_sensitive (data->button, FALSE);
+    gtk_label_set_text (GTK_LABEL (data->label), _("Log in pending..."));
+    gtk_button_set_label (GTK_BUTTON (data->button), _("Working..."));
+    break;
+  case CONTINUE_AUTH:
+    gtk_widget_set_sensitive (data->button, TRUE);
+    gtk_label_set_text (GTK_LABEL (data->label), _("Press Continue to continue the log in."));
+    gtk_button_set_label (GTK_BUTTON (data->button), _("Continue"));
+    g_signal_connect (data->button, "clicked", G_CALLBACK (continue_clicked), data);
+    break;
+  case LOGGED_IN:
+    gtk_widget_set_sensitive (data->button, TRUE);
+    gtk_label_set_text (GTK_LABEL (data->label), _("Logged in"));
+    gtk_button_set_label (GTK_BUTTON (data->button), _("Log me out"));
+    g_signal_connect (data->button, "clicked", G_CALLBACK (log_out_clicked), data);
     break;
   }
 }
@@ -162,6 +204,9 @@ bisho_oauth_pane_new (ServiceInfo *info)
 
   data = g_slice_new0 (WidgetData);
   data->info = info;
+  data->proxy = oauth_proxy_new (info->oauth.consumer_key,
+                                 info->oauth.consumer_secret,
+                                 info->oauth.base_url, FALSE);
 
   table = gtk_table_new (2, 2, TRUE);
 
