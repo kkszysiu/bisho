@@ -68,12 +68,12 @@ get_info_for_service (const char *name)
 
   switch (auth) {
   case AUTH_OAUTH:
-    info->oauth.server = g_key_file_get_string (keys, GROUP_OAUTH, "Server", NULL);
     info->oauth.consumer_key = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerKey", NULL);
     info->oauth.consumer_secret = g_key_file_get_string (keys, GROUP_OAUTH, "ConsumerSecret", NULL);
-    info->oauth.access_token_url = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenURL", NULL);
-    info->oauth.authorize_url = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseURL", NULL);
-    info->oauth.request_token_url = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenURL", NULL);
+    info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
+    info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
+    info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
+    info->oauth.access_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
     info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
     break;
   default:

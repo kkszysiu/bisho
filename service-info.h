@@ -17,12 +17,12 @@ typedef struct {
   char *icon;
   union {
     struct {
-      char *server;
       char *consumer_key;
       char *consumer_secret;
-      char *access_token_url;
-      char *authorize_url;
-      char *request_token_url;
+      char *base_url;
+      char *request_token_function;
+      char *authorize_function;
+      char *access_token_function;
       char *callback;
     } oauth;
   };
