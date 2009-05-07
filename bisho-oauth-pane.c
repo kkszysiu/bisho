@@ -23,7 +23,12 @@ typedef struct {
   GtkWidget *button;
 } WidgetData;
 
-static void update_widgets (WidgetData *data, gboolean logged_in);
+typedef enum {
+  LOGGED_OUT,
+  LOGGED_IN
+} ButtonState;
+
+static void update_widgets (WidgetData *data, ButtonState state);
 
 static GtkWidget *
 make_disclaimer_label (ServiceInfo *info)
@@ -95,7 +100,11 @@ static void
 delete_done_cb (GnomeKeyringResult result, gpointer user_data)
 {
   WidgetData *data = user_data;
-  update_widgets (data, result != GNOME_KEYRING_RESULT_OK);
+
+  if (GNOME_KEYRING_RESULT_OK)
+    update_widgets (data, LOGGED_OUT);
+  else
+    update_widgets (data, LOGGED_IN);
 }
 
 static void
@@ -110,19 +119,22 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
-update_widgets (WidgetData *data, gboolean logged_in)
+update_widgets (WidgetData *data, ButtonState state)
 {
   g_signal_handlers_disconnect_by_func (data->button, log_out_clicked, data);
   g_signal_handlers_disconnect_by_func (data->button, log_in_clicked, data);
 
-  if (logged_in) {
+  switch (state) {
+  case LOGGED_IN:
     gtk_label_set_text (GTK_LABEL (data->label), _("Logged in"));
     gtk_button_set_label (GTK_BUTTON (data->button), _("Log me out"));
     g_signal_connect (data->button, "clicked", G_CALLBACK (log_out_clicked), data);
-  } else {
+    break;
+  case LOGGED_OUT:
     gtk_label_set_text (GTK_LABEL (data->label), _("Log in pending"));
     gtk_button_set_label (GTK_BUTTON (data->button), _("Log me in"));
     g_signal_connect (data->button, "clicked", G_CALLBACK (log_in_clicked), data);
+    break;
   }
 }
 
@@ -132,7 +144,11 @@ find_key_cb (GnomeKeyringResult result,
              gpointer user_data)
 {
   WidgetData *data = user_data;
-  update_widgets (data, result == GNOME_KEYRING_RESULT_OK);
+
+  if (result == GNOME_KEYRING_RESULT_OK)
+    update_widgets (data, LOGGED_IN);
+  else
+    update_widgets (data, LOGGED_OUT);
 }
 
 GtkWidget *
@@ -168,7 +184,7 @@ bisho_oauth_pane_new (ServiceInfo *info)
   gtk_widget_show (label);
   gtk_table_attach (GTK_TABLE (table), label, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
-  update_widgets (data, FALSE);
+  update_widgets (data, LOGGED_OUT);
 
   gnome_keyring_find_password (&oauth_schema, find_key_cb, data, NULL,
                                "server", info->oauth.base_url,
