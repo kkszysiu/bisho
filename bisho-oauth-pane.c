@@ -71,7 +71,7 @@ create_url (ServiceInfo *info, const char *token)
 }
 
 static void
-log_in_clicked (GtkButton *button, gpointer user_data)
+log_in_clicked (GtkWidget *button, gpointer user_data)
 {
   WidgetData *data = user_data;
   ServiceInfo *info = data->info;
