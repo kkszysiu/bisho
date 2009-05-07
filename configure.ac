@@ -21,7 +21,7 @@ IT_PROG_INTLTOOL([0.40], [no-xml])
 # TODO: bit nasty, should we use gnome-common?
 CFLAGS="$CFLAGS -Wall"
 
-PKG_CHECK_MODULES(DEPS, mojito-client gtk+-2.0 gconf-2.0 mux gnome-keyring-1)
+PKG_CHECK_MODULES(DEPS, mojito-client gtk+-2.0 gconf-2.0 mux gnome-keyring-1 libsoup-2.4 rest)
 
 AC_OUTPUT([
         Makefile
