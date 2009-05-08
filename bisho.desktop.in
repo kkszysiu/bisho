@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Web Services Settings
-_Comment=m_zone and status config
+_Name=Web Services
+_Comment=m_zone, status & more
 Exec=bisho
 Icon=bisho
 StartupNotify=true
