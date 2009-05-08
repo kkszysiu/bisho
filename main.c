@@ -6,6 +6,8 @@ main (int argc, char **argv)
 {
   GtkWidget *window;
 
+  g_thread_init (NULL);
+
   gtk_init (&argc, &argv);
 
   window = bisho_window_new ();
