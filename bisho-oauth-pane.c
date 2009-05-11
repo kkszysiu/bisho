@@ -120,6 +120,8 @@ log_out_clicked (GtkButton *button, gpointer user_data)
                                  "server", data->info->oauth.base_url,
                                  "consumer-key", data->info->oauth.consumer_key,
                                  NULL);
+
+  update_widgets (data, LOGGED_OUT);
 }
 
 static char *
