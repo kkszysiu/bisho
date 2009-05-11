@@ -166,13 +166,28 @@ continue_clicked (GtkWidget *button, gpointer user_data)
                            oauth_proxy_get_token_secret (OAUTH_PROXY (data->proxy)));
 
   /* TODO async */
-  gnome_keyring_store_password_sync (&oauth_schema, NULL,
-                                     data->info->display_name, encoded,
-                                     "server", data->info->oauth.base_url,
-                                     "consumer-key", data->info->oauth.consumer_key,
-                                     NULL);
+  GnomeKeyringResult result;
+  GnomeKeyringAttributeList *attrs;
+  guint32 id;
+  attrs = gnome_keyring_attribute_list_new ();
+  gnome_keyring_attribute_list_append_string (attrs, "server", data->info->oauth.base_url);
+  gnome_keyring_attribute_list_append_string (attrs, "consumer-key", data->info->oauth.consumer_key);
 
-  update_widgets (data, LOGGED_IN);
+  result = gnome_keyring_item_create_sync (NULL,
+                                           GNOME_KEYRING_ITEM_GENERIC_SECRET,
+                                           data->info->display_name,
+                                           attrs, encoded,
+                                           TRUE, &id);
+
+  if (result == GNOME_KEYRING_RESULT_OK) {
+    gnome_keyring_item_grant_access_rights_sync (NULL,
+                                                 "mojito",
+                                                 LIBEXECDIR "/mojito-core",
+                                                 id, GNOME_KEYRING_ACCESS_READ);
+    update_widgets (data, LOGGED_IN);
+  } else {
+    update_widgets (data, LOGGED_OUT);
+  }
 }
 
 static void
