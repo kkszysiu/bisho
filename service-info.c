@@ -75,6 +75,8 @@ get_info_for_service (const char *name)
       if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
         info->oauth.consumer_key = g_strdup (key);
         info->oauth.consumer_secret = g_strdup (secret);
+      } else {
+        g_printerr ("Cannot find keys for %s\n", info->name);
       }
       info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
       info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
