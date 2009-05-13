@@ -2,6 +2,7 @@
 #define __BISHO_WINDOW_H__
 
 #include <gtk/gtk.h>
+#include <mux/mux-window.h>
 
 G_BEGIN_DECLS
 
@@ -31,12 +32,12 @@ typedef struct _BishoWindow      BishoWindow;
 typedef struct _BishoWindowClass BishoWindowClass;
 
 struct _BishoWindow {
-  GtkWindow parent;
+  MuxWindow parent;
   BishoWindowPrivate *priv;
 };
 
 struct _BishoWindowClass {
-  GtkWindowClass parent_class;
+  MuxWindowClass parent_class;
 };
 
 GType bisho_window_get_type (void) G_GNUC_CONST;

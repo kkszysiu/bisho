@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
 #include <mux/mux-expanding-item.h>
+#include <mux/mux-window.h>
 #include "bisho-window.h"
 #include "bisho-utils.h"
 #include "service-info.h"
@@ -15,7 +16,7 @@ struct _BishoWindowPrivate {
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_WINDOW, BishoWindowPrivate))
 
-G_DEFINE_TYPE (BishoWindow, bisho_window, GTK_TYPE_WINDOW);
+G_DEFINE_TYPE (BishoWindow, bisho_window, MUX_TYPE_WINDOW);
 
 static gboolean
 on_link_event (GtkTextTag  *tag,
