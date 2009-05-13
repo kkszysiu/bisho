@@ -97,8 +97,9 @@ construct_ui (BishoWindow *window, const char *service_name)
     gtk_text_buffer_get_end_iter (buffer, &end);
 
     tag = gtk_text_buffer_create_tag (buffer, NULL,
-                                      "foreground", "blue",
+                                      "foreground", "#009bce",
                                       "underline", PANGO_UNDERLINE_SINGLE,
+                                      "scale", PANGO_SCALE_SMALL,
                                       NULL);
     g_signal_connect (tag, "event", G_CALLBACK (on_link_event), info);
 
