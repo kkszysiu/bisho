@@ -27,6 +27,5 @@ PKG_CHECK_MODULES(DEPS, mojito-client mojito-keystore gtk+-2.0 gconf-2.0 mux >= 
 
 AC_OUTPUT([
         Makefile
-        tools/Makefile
         po/Makefile.in
 ])
