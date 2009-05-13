@@ -188,6 +188,8 @@ bisho_window_class_init (BishoWindowClass *klass)
 static void
 bisho_window_init (BishoWindow *self)
 {
+  GtkWidget *label;
+
   self->priv = GET_PRIVATE (self);
 
   gtk_window_set_title (GTK_WINDOW (self), _("Web Services Settings"));
@@ -196,6 +198,12 @@ bisho_window_init (BishoWindow *self)
   gtk_container_set_border_width (GTK_CONTAINER (self->priv->master_box), 8);
   gtk_widget_show (self->priv->master_box);
   gtk_container_add (GTK_CONTAINER (self), self->priv->master_box);
+
+  label = gtk_label_new (_("Set up your social networks to see new updates in m_zone and the status panel."));
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+  gtk_widget_show (label);
+  gtk_box_pack_start (GTK_BOX (self->priv->master_box), label, FALSE, FALSE, 0);
 
   self->priv->client = mojito_client_new ();
   /* TODO move to a separate populate() function? */
