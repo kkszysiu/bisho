@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
 #include <mux/mux-expanding-item.h>
+#include <mux/mux-banner.h>
 #include <mux/mux-window.h>
 #include "bisho-window.h"
 #include "bisho-utils.h"
@@ -18,40 +19,11 @@ struct _BishoWindowPrivate {
 
 G_DEFINE_TYPE (BishoWindow, bisho_window, MUX_TYPE_WINDOW);
 
-static gboolean
-on_link_event (GtkTextTag  *tag,
-               GObject     *object,
-               GdkEvent    *event,
-               GtkTextIter *iter,
-               gpointer     user_data)
-{
-  if (event->type == GDK_BUTTON_PRESS && event->button.button == 1) {
-    GtkWidget *widget = GTK_WIDGET (object);
-    ServiceInfo *info = user_data;
-
-    gtk_show_uri (gtk_widget_get_screen (widget), info->link,
-                  event->button.time, NULL);
-
-    return TRUE;
-  }
-  return FALSE;
-}
-
-/* A small hack to change the colours that the text view renders with. Not
-   guaranteed to work but it works with many themes. */
-static void
-hack_style (GtkWidget *widget, GtkStyle *old_style, gpointer user_data)
-{
-  g_signal_handlers_block_by_func (widget, hack_style, user_data);
-  gtk_widget_modify_base (widget, GTK_STATE_NORMAL, &widget->style->bg[GTK_STATE_NORMAL]);
-  g_signal_handlers_unblock_by_func (widget, hack_style, user_data);
-}
-
 static void
 construct_ui (BishoWindow *window, const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *expander, *label, *text;
+  GtkWidget *expander, *label, *banner;
   GtkBox *box;
   MuxExpandingItem *m;
   GtkTextBuffer *buffer;
@@ -77,14 +49,10 @@ construct_ui (BishoWindow *window, const char *service_name)
   gtk_container_set_border_width (GTK_CONTAINER (box), 8);
   gtk_box_set_spacing (box, 8);
 
-  text = gtk_text_view_new ();
-  gtk_text_view_set_editable (GTK_TEXT_VIEW (text), FALSE);
-  gtk_text_view_set_cursor_visible (GTK_TEXT_VIEW (text), FALSE);
-  gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text), GTK_WRAP_WORD);
-  g_signal_connect (text, "style-set", G_CALLBACK (hack_style), NULL);
-  gtk_widget_show (text);
-  gtk_box_pack_start (box, text, FALSE, FALSE, 0);
-  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text));
+  banner = mux_banner_new ();
+  gtk_widget_show (banner);
+  gtk_box_pack_start (box, banner, FALSE, FALSE, 0);
+  buffer = mux_banner_get_buffer (MUX_BANNER (banner));
 
   if (info->description) {
     gtk_text_buffer_get_end_iter (buffer, &end);
@@ -96,12 +64,7 @@ construct_ui (BishoWindow *window, const char *service_name)
 
     gtk_text_buffer_get_end_iter (buffer, &end);
 
-    tag = gtk_text_buffer_create_tag (buffer, NULL,
-                                      "foreground", "#009bce",
-                                      "underline", PANGO_UNDERLINE_SINGLE,
-                                      "scale", PANGO_SCALE_SMALL,
-                                      NULL);
-    g_signal_connect (tag, "event", G_CALLBACK (on_link_event), info);
+    tag = mux_banner_create_link_tag (MUX_BANNER (banner), info->link);
 
     gtk_text_buffer_insert (buffer, &end, "  ", -1);
     gtk_text_buffer_insert_with_tags (buffer, &end,
