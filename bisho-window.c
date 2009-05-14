@@ -40,12 +40,11 @@ construct_ui (BishoWindow *window, const char *service_name)
   m = MUX_EXPANDING_ITEM (expander);
 
   bisho_utils_make_exclusive_expander (m);
-  mux_expanding_item_set_icon_from_file (m, info->icon);
-  /* TODO: only set the label if the icon doesn't have the name in already. This
-     will require a new field in the keys and ServiceInfo */
-#if 0
-  mux_expanding_item_set_label (m, info->display_name);
-#endif
+  if (info->icon) {
+    mux_expanding_item_set_icon_from_file (m, info->icon);
+  } else {
+    mux_expanding_item_set_label (m, info->display_name);
+  }
 
   box = mux_expanding_item_get_content_box (m);
   gtk_container_set_border_width (GTK_CONTAINER (box), 8);
