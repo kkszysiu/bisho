@@ -13,6 +13,7 @@
 struct _BishoWindowPrivate {
   MojitoClient *client;
   GtkWidget *master_box;
+  GtkWidget *banner;
 };
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_WINDOW, BishoWindowPrivate))
@@ -169,9 +170,27 @@ bisho_window_init (BishoWindow *self)
   gtk_widget_show (label);
   gtk_box_pack_start (GTK_BOX (self->priv->master_box), label, FALSE, FALSE, 0);
 
+  self->priv->banner = mux_banner_new ();
+  gtk_box_pack_start (GTK_BOX (self->priv->master_box), self->priv->banner, FALSE, FALSE, 0);
+
   self->priv->client = mojito_client_new ();
   /* TODO move to a separate populate() function? */
   mojito_client_get_services (self->priv->client, client_get_services_cb, self);
+}
+
+void
+bisho_window_change_banner (BishoWindow *window, ServiceInfo *info)
+{
+  char *s;
+
+  g_return_if_fail (BISHO_IS_WINDOW (window));
+  g_return_if_fail (info);
+
+  s = g_strdup_printf (_("%s login changed."), info->display_name);
+  mux_banner_set_text (MUX_BANNER (window->priv->banner), s);
+  g_free (s);
+
+  gtk_widget_show (window->priv->banner);
 }
 
 GtkWidget *

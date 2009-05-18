@@ -3,6 +3,7 @@
 
 #include <gtk/gtk.h>
 #include <mux/mux-window.h>
+#include "service-info.h"
 
 G_BEGIN_DECLS
 
@@ -43,6 +44,8 @@ struct _BishoWindowClass {
 GType bisho_window_get_type (void) G_GNUC_CONST;
 
 GtkWidget * bisho_window_new (void);
+
+void bisho_window_change_banner (BishoWindow *window, ServiceInfo *info);
 
 G_END_DECLS
 
