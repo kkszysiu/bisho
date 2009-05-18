@@ -16,10 +16,10 @@ G_BEGIN_DECLS
   (G_TYPE_CHECK_CLASS_CAST ((klass),                                    \
                             BISHO_TYPE_WINDOW,                          \
                             BishoWindowClass))
-#define IS_BISHO_WINDOW(obj)                                            \
+#define BISHO_IS_WINDOW(obj)                                            \
   (G_TYPE_CHECK_INSTANCE_TYPE ((obj),                                   \
                                BISHO_TYPE_WINDOW))
-#define IS_BISHO_WINDOW_CLASS(klass)                                    \
+#define BISHO_IS_WINDOW_CLASS(klass)                                    \
   (G_TYPE_CHECK_CLASS_TYPE ((klass),                                    \
                             BISHO_TYPE_WINDOW))
 #define BISHO_WINDOW_GET_CLASS(obj)                                     \
