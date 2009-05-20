@@ -167,13 +167,28 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
+got_auth (RestXmlNode *node, WidgetData *data)
+{
+  RestXmlNode *user;
+  const char *name;
+
+  user = rest_xml_node_find (node, "user");
+  name = rest_xml_node_get_attr (user, "fullname");
+  if (name == NULL || name[0] == '\0')
+    name = rest_xml_node_get_attr (user, "username");
+
+  update_widgets (data, LOGGED_IN, name);
+
+  rest_xml_node_unref (node);
+}
+
+static void
 continue_clicked (GtkWidget *button, gpointer user_data)
 {
   WidgetData *data = user_data;
   RestProxyCall *call;
-  RestXmlNode *node, *user;
+  RestXmlNode *node;
   const char *token;
-  const char *name;
 
   update_widgets (data, WORKING, NULL);
 
@@ -186,13 +201,15 @@ continue_clicked (GtkWidget *button, gpointer user_data)
 
   node = get_xml (call);
 
+  if (node == NULL) {
+    update_widgets (data, LOGGED_OUT, NULL);
+    return;
+  }
+
   token = rest_xml_node_find (node, "token")->content;
   flickr_proxy_set_token (FLICKR_PROXY (data->proxy), token);
 
-  user = rest_xml_node_find (node, "user");
-  name = rest_xml_node_get_attr (user, "fullname");
-  if (name == NULL || name[0] == '\0')
-    name = rest_xml_node_get_attr (user, "username");
+  got_auth (node, data);
 
   /* TODO async */
   GnomeKeyringResult result;
@@ -213,7 +230,6 @@ continue_clicked (GtkWidget *button, gpointer user_data)
                                                  "mojito",
                                                  LIBEXECDIR "/mojito-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
-    update_widgets (data, LOGGED_IN, name);
   } else {
     update_widgets (data, LOGGED_OUT, NULL);
   }
@@ -271,10 +287,29 @@ find_key_cb (GnomeKeyringResult result,
 {
   WidgetData *data = user_data;
 
-  if (result == GNOME_KEYRING_RESULT_OK)
-    update_widgets (data, LOGGED_IN, NULL);
-  else
+  if (result == GNOME_KEYRING_RESULT_OK) {
+    RestProxyCall *call;
+    RestXmlNode *node;
+
+    flickr_proxy_set_token (FLICKR_PROXY (data->proxy), string);
+
+    call = rest_proxy_new_call (data->proxy);
+    rest_proxy_call_set_function (call, "flickr.auth.checkToken");
+
+    /* TODO async */
+    if (!rest_proxy_call_run (call, NULL, NULL))
+      g_error ("Cannot check token");
+
+    node = get_xml (call);
+    if (node) {
+      got_auth (node, data);
+    } else {
+      /* The token isn't valid so fake a log out */
+      log_out_clicked (NULL, data);
+    }
+  } else {
     update_widgets (data, LOGGED_OUT, NULL);
+  }
 }
 
 GtkWidget *
