@@ -84,14 +84,31 @@ get_xml (RestProxyCall *call)
                                           rest_proxy_call_get_payload (call),
                                           rest_proxy_call_get_payload_length (call));
 
-  if (strcmp (root->name, "rsp") != 0)
-    g_error ("Unexpected response from Flickr");
+  if (root == NULL) {
+    g_message ("Invalid XML from Flickr:\n%s\n",
+               rest_proxy_call_get_payload (call));
+    goto done;
+  }
 
-  if (strcmp (rest_xml_node_get_attr (root, "stat"), "ok") != 0)
-    g_error ("Error from Flickr");
+  if (strcmp (root->name, "rsp") != 0) {
+    g_message ("Unexpected response from Flickr:\n%s\n",
+               rest_proxy_call_get_payload (call));
+    rest_xml_node_unref (root);
+    root = NULL;
+    goto done;
+  }
 
+  if (strcmp (rest_xml_node_get_attr (root, "stat"), "ok") != 0) {
+    RestXmlNode *node;
+    node = rest_xml_node_find (root, "err");
+    g_message ("Error from Flickr: %s", rest_xml_node_get_attr (node, "msg"));
+    rest_xml_node_unref (root);
+    root = NULL;
+    goto done;
+  }
+
+  done:
   g_object_unref (call);
-
   return root;
 }
 
