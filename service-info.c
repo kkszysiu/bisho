@@ -35,7 +35,10 @@ authtype_from_string (const char *s)
     return AUTH_USERNAME_PASSWORD;
   } else if (g_ascii_strcasecmp (s, "oauth") == 0) {
     return AUTH_OAUTH;
+  } else if (g_ascii_strcasecmp (s, "flickr") == 0) {
+    return AUTH_FLICKR;
   } else {
+    g_message ("Unknown authentication type '%s'\n", s);
     return AUTH_INVALID;
   }
 }
@@ -104,7 +107,22 @@ get_info_for_service (const char *name)
       info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
     }
     break;
-  default:
+  case AUTH_FLICKR:
+    {
+      const char *key, *secret;
+
+      if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
+        info->flickr.api_key = g_strdup (key);
+        info->flickr.shared_secret = g_strdup (secret);
+      } else {
+        g_printerr ("Cannot find keys for %s\n", info->name);
+      }
+    }
+    break;
+  case AUTH_USERNAME:
+  case AUTH_USERNAME_PASSWORD:
+  case AUTH_INVALID:
+    /* Nothing to do */
     break;
   }
 

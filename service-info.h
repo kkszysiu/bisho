@@ -24,7 +24,8 @@ typedef enum {
   AUTH_INVALID = 0,
   AUTH_USERNAME,
   AUTH_USERNAME_PASSWORD,
-  AUTH_OAUTH
+  AUTH_OAUTH,
+  AUTH_FLICKR
 } ServiceAuthType;
 
 typedef struct {
@@ -44,6 +45,10 @@ typedef struct {
       char *access_token_function;
       char *callback;
     } oauth;
+    struct {
+      char *api_key;
+      char *shared_secret;
+    } flickr;
   };
 } ServiceInfo;
 
