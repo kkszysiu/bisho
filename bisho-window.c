@@ -28,6 +28,7 @@
 #include "service-info.h"
 #include "entry.h"
 #include "bisho-oauth-pane.h"
+#include "bisho-flickr-pane.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -138,6 +139,14 @@ construct_ui (BishoWindow *window, const char *service_name)
     {
       GtkWidget *pane;
       pane = bisho_oauth_pane_new (info);
+      gtk_widget_show (pane);
+      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+    }
+    break;
+  case AUTH_FLICKR:
+    {
+      GtkWidget *pane;
+      pane = bisho_flickr_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     }
