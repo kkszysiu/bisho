@@ -5,3 +5,4 @@ main.c
 service-info.c
 bisho.desktop.in
 bisho-oauth-pane.c
+bisho-flickr-pane.c
