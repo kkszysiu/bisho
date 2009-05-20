@@ -130,7 +130,7 @@ delete_done_cb (GnomeKeyringResult result, gpointer user_data)
 {
   WidgetData *data = user_data;
 
-  if (GNOME_KEYRING_RESULT_OK)
+  if (result == GNOME_KEYRING_RESULT_OK)
     update_widgets (data, LOGGED_OUT, NULL);
   else
     update_widgets (data, LOGGED_IN, NULL);
