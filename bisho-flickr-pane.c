@@ -53,7 +53,7 @@ typedef enum {
   LOGGED_IN,
 } ButtonState;
 
-static void update_widgets (WidgetData *data, ButtonState state);
+static void update_widgets (WidgetData *data, ButtonState state, const char *name);
 
 static GtkWidget *
 make_disclaimer_label (ServiceInfo *info)
@@ -103,7 +103,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   RestProxyCall *call;
   RestXmlNode *node;
 
-  update_widgets (data, WORKING);
+  update_widgets (data, WORKING, NULL);
 
   /* TODO: async */
   call = rest_proxy_new_call (data->proxy);
@@ -121,7 +121,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
 
   /* TODO wait for dbus call from callback */
-  update_widgets (data, CONTINUE_AUTH);
+  update_widgets (data, CONTINUE_AUTH, NULL);
 }
 
 
@@ -131,9 +131,9 @@ delete_done_cb (GnomeKeyringResult result, gpointer user_data)
   WidgetData *data = user_data;
 
   if (GNOME_KEYRING_RESULT_OK)
-    update_widgets (data, LOGGED_OUT);
+    update_widgets (data, LOGGED_OUT, NULL);
   else
-    update_widgets (data, LOGGED_IN);
+    update_widgets (data, LOGGED_IN, NULL);
 }
 
 static void
@@ -146,7 +146,7 @@ log_out_clicked (GtkButton *button, gpointer user_data)
                                  "api-key", data->info->flickr.api_key,
                                  NULL);
 
-  update_widgets (data, LOGGED_OUT);
+  update_widgets (data, LOGGED_OUT, NULL);
 }
 
 static void
@@ -157,7 +157,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   RestXmlNode *node;
   const char *token;
 
-  update_widgets (data, WORKING);
+  update_widgets (data, WORKING, NULL);
 
   call = rest_proxy_new_call (data->proxy);
   rest_proxy_call_set_function (call, "flickr.auth.getToken");
@@ -190,16 +190,16 @@ continue_clicked (GtkWidget *button, gpointer user_data)
                                                  "mojito",
                                                  LIBEXECDIR "/mojito-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
-    update_widgets (data, LOGGED_IN);
+    update_widgets (data, LOGGED_IN, NULL);
   } else {
-    update_widgets (data, LOGGED_OUT);
+    update_widgets (data, LOGGED_OUT, NULL);
   }
 
   rest_xml_node_unref (node);
 }
 
 static void
-update_widgets (WidgetData *data, ButtonState state)
+update_widgets (WidgetData *data, ButtonState state, const char *name)
 {
   g_signal_handlers_disconnect_by_func (data->button, log_out_clicked, data);
   g_signal_handlers_disconnect_by_func (data->button, continue_clicked, data);
@@ -227,7 +227,14 @@ update_widgets (WidgetData *data, ButtonState state)
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (data->button, TRUE);
-    gtk_label_set_text (GTK_LABEL (data->label), _("Logged in"));
+    if (name) {
+      char *s;
+      s = g_strdup_printf (_("Logged in as %s"), name);
+      gtk_label_set_text (GTK_LABEL (data->label), s);
+      g_free (s);
+    } else {
+      gtk_label_set_text (GTK_LABEL (data->label), _("Logged in"));
+    }
     gtk_button_set_label (GTK_BUTTON (data->button), _("Log me out"));
     g_signal_connect (data->button, "clicked", G_CALLBACK (log_out_clicked), data);
     break;
@@ -242,9 +249,9 @@ find_key_cb (GnomeKeyringResult result,
   WidgetData *data = user_data;
 
   if (result == GNOME_KEYRING_RESULT_OK)
-    update_widgets (data, LOGGED_IN);
+    update_widgets (data, LOGGED_IN, NULL);
   else
-    update_widgets (data, LOGGED_OUT);
+    update_widgets (data, LOGGED_OUT, NULL);
 }
 
 GtkWidget *
@@ -283,7 +290,7 @@ bisho_flickr_pane_new (ServiceInfo *info)
   gtk_widget_show (label);
   gtk_table_attach (GTK_TABLE (table), label, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
-  update_widgets (data, LOGGED_OUT);
+  update_widgets (data, LOGGED_OUT, NULL);
 
   gnome_keyring_find_password (&flickr_schema, find_key_cb, data, NULL,
                                "server", FLICKR_SERVER,
