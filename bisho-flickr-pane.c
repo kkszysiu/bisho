@@ -154,8 +154,9 @@ continue_clicked (GtkWidget *button, gpointer user_data)
 {
   WidgetData *data = user_data;
   RestProxyCall *call;
-  RestXmlNode *node;
+  RestXmlNode *node, *user;
   const char *token;
+  const char *name;
 
   update_widgets (data, WORKING, NULL);
 
@@ -170,6 +171,11 @@ continue_clicked (GtkWidget *button, gpointer user_data)
 
   token = rest_xml_node_find (node, "token")->content;
   flickr_proxy_set_token (FLICKR_PROXY (data->proxy), token);
+
+  user = rest_xml_node_find (node, "user");
+  name = rest_xml_node_get_attr (user, "fullname");
+  if (name == NULL || name[0] == '\0')
+    name = rest_xml_node_get_attr (user, "username");
 
   /* TODO async */
   GnomeKeyringResult result;
@@ -190,7 +196,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
                                                  "mojito",
                                                  LIBEXECDIR "/mojito-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
-    update_widgets (data, LOGGED_IN, NULL);
+    update_widgets (data, LOGGED_IN, name);
   } else {
     update_widgets (data, LOGGED_OUT, NULL);
   }
