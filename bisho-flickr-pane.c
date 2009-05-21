@@ -17,6 +17,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <config.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gnome-keyring.h>
@@ -326,6 +327,7 @@ bisho_flickr_pane_new (ServiceInfo *info)
   data = g_slice_new0 (WidgetData);
   data->info = info;
   data->proxy = flickr_proxy_new (info->flickr.api_key, info->flickr.shared_secret);
+  rest_proxy_set_user_agent (data->proxy, "Bisho/" VERSION);
 
   table = gtk_table_new (2, 2, TRUE);
 

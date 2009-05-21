@@ -17,6 +17,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <config.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gnome-keyring.h>
@@ -269,6 +270,7 @@ bisho_oauth_pane_new (ServiceInfo *info)
   data->proxy = oauth_proxy_new (info->oauth.consumer_key,
                                  info->oauth.consumer_secret,
                                  info->oauth.base_url, FALSE);
+  rest_proxy_set_user_agent (data->proxy, "Bisho/" VERSION);
 
   table = gtk_table_new (2, 2, TRUE);
 
