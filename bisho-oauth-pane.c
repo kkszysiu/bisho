@@ -75,7 +75,6 @@ create_url (ServiceInfo *info, const char *token)
   char *s;
 
   g_assert (info);
-  g_assert (info->oauth.callback);
   g_assert (token);
 
   base = soup_uri_new (info->oauth.base_url);
@@ -84,7 +83,7 @@ create_url (ServiceInfo *info, const char *token)
 
   soup_uri_set_query_from_fields (uri,
                                   "oauth_token", token,
-                                  "oauth_callback", info->oauth.callback,
+                                  "oauth_callback", info->oauth.callback ?: "",
                                   NULL);
 
   s = soup_uri_to_string (uri, FALSE);
