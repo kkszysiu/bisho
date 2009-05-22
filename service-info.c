@@ -99,6 +99,8 @@ get_info_for_service (const char *name)
         info->oauth.consumer_secret = g_strdup (secret);
       } else {
         g_printerr ("Cannot find keys for %s\n", info->name);
+        /* Yes, we're leaking.  Live with it */
+        return NULL;
       }
       info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
       info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
@@ -116,6 +118,8 @@ get_info_for_service (const char *name)
         info->flickr.shared_secret = g_strdup (secret);
       } else {
         g_printerr ("Cannot find keys for %s\n", info->name);
+        /* Yes, we're leaking.  Live with it */
+        return NULL;
       }
     }
     break;
