@@ -12,7 +12,7 @@ bisho_SOURCES = \
 	service-info.c service-info.h
 
 bisho_CPPFLAGS = $(DEPS_CFLAGS) -DLIBEXECDIR=\"@libexecdir@\" -Wall -Wmissing-declarations
-bisho_LDFLAGS = $(DEPS_LIBS)
+bisho_LDADD = $(DEPS_LIBS)
 
 desktopdir = $(datadir)/applications
 desktop_in_files = bisho.desktop.in
