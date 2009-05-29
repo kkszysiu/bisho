@@ -179,8 +179,6 @@ got_auth (RestXmlNode *node, WidgetData *data)
     name = rest_xml_node_get_attr (user, "username");
 
   update_widgets (data, LOGGED_IN, name);
-
-  rest_xml_node_unref (node);
 }
 
 static void
@@ -304,6 +302,7 @@ find_key_cb (GnomeKeyringResult result,
     node = get_xml (call);
     if (node) {
       got_auth (node, data);
+      rest_xml_node_unref (node);
     } else {
       /* The token isn't valid so fake a log out */
       log_out_clicked (NULL, data);
