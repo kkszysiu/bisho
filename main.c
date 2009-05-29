@@ -17,6 +17,8 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <config.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include "bisho-window.h"
 
@@ -26,6 +28,10 @@ main (int argc, char **argv)
   GtkWidget *window;
 
   g_thread_init (NULL);
+
+  bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
 
   gtk_init (&argc, &argv);
 
