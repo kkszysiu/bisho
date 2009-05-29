@@ -84,8 +84,8 @@ get_info_for_service (const char *name)
 
   info = g_slice_new0 (ServiceInfo);
   info->name = g_strdup (name);
-  info->display_name = g_key_file_get_string (keys, GROUP, "Name", NULL);
-  info->description = g_key_file_get_string (keys, GROUP, "Description", NULL);
+  info->display_name = g_key_file_get_locale_string (keys, GROUP, "Name", NULL, NULL);
+  info->description = g_key_file_get_locale_string (keys, GROUP, "Description", NULL, NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
   info->auth = auth;
 
