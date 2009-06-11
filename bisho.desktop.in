@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Web Services
-_Comment=m_zone, status & more
+_Comment=myzone, status & more
 Exec=bisho
 Icon=bisho
 StartupNotify=true
