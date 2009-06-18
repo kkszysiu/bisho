@@ -1,0 +1,102 @@
+# bisho
+# Copyright (C) 2009 Intel
+# This file is distributed under the same license as the PACKAGE package.
+# Zhu Yanhai <yanhai.zhu@intel.com>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bisho\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-06-18 02:50+0000\n"
+"PO-Revision-Date: 2009-06-18 10:52:+0800\n"
+"Last-Translator: Zhu Yanhai <yanhai.zhu@intel.com>\n"
+"Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "访问站点以获取更多信息"
+
+#: ../bisho-window.c:105 ../bisho-window.c:121
+msgid "Username:"
+msgstr "用户名"
+
+#: ../bisho-window.c:127
+msgid "Password:"
+msgstr "密码"
+
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Web Services设置"
+
+#: ../bisho-window.c:196
+#, fuzzy
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr "设置你的社交网络以便在m_zone和状态面板中显示最近更新"
+
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "%s 的登录已经改变"
+
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Web服务"
+
+#: ../bisho.desktop.in.h:2
+#, fuzzy
+msgid "myzone, status & more"
+msgstr "m_zone,当前状态及其他"
+
+#: ../bisho-oauth-pane.c:62 ../bisho-flickr-pane.c:65
+#, c-format
+msgid ""
+"You'll need an account with %s and an Internet connection to use this web "
+"service."
+msgstr "你需要一个%s的账号和一个可用的Internet连续来使用该Web服务"
+
+#: ../bisho-oauth-pane.c:222 ../bisho-flickr-pane.c:251
+msgid "Log in pending"
+msgstr "等待登录"
+
+#: ../bisho-oauth-pane.c:223 ../bisho-flickr-pane.c:252
+msgid "Log me in"
+msgstr "登录"
+
+#: ../bisho-oauth-pane.c:228 ../bisho-flickr-pane.c:257
+msgid "Log in pending..."
+msgstr "等待登录..."
+
+#: ../bisho-oauth-pane.c:229 ../bisho-flickr-pane.c:258
+msgid "Working..."
+msgstr "工作中..."
+
+#: ../bisho-oauth-pane.c:233 ../bisho-flickr-pane.c:262
+msgid "Press Continue to continue the log in."
+msgstr "按回车键继续登录"
+
+#: ../bisho-oauth-pane.c:234 ../bisho-flickr-pane.c:263
+msgid "Continue"
+msgstr "继续"
+
+#: ../bisho-oauth-pane.c:239 ../bisho-flickr-pane.c:274
+msgid "Logged in"
+msgstr "登录"
+
+#: ../bisho-oauth-pane.c:240 ../bisho-flickr-pane.c:276
+msgid "Log me out"
+msgstr "登出"
+
+#: ../bisho-oauth-pane.c:277 ../bisho-flickr-pane.c:333
+msgid "<b>Status:</b>"
+msgstr "<b>当前状态</b>:"
+
+#: ../bisho-flickr-pane.c:270
+#, c-format
+msgid "Logged in as %s"
+msgstr "以%s的身份登录"
