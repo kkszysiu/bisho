@@ -1,0 +1,129 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Moblin UX\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# <informal verb tense>
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "Si deseas más información, ve al sitio web"
+
+# User
+#: ../bisho-window.c:105
+#: ../bisho-window.c:121
+msgid "Username:"
+msgstr "Usuario:"
+
+# Password
+#: ../bisho-window.c:127
+msgid "Password:"
+msgstr "Contraseña:"
+
+# settings of the web services
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Ajustes de los servicios web"
+
+# <informal verb tense>
+# configure your social networks you you'll see their updates in the m_zone and in the status panel.
+#: ../bisho-window.c:196
+msgid "Set up your social networks to see new updates in m_zone and the status panel."
+msgstr "Configura tus redes sociales para poder ver las nuevas actualizaciones en la zona_m y en el panel del estado."
+
+# <is %s the access provider?>
+# the login name (to access) %s has been changed
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "Ha cambiado el nombre de acceso a %s."
+
+# web services
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Servicios web"
+
+# m_zone, status, etc.
+#: ../bisho.desktop.in.h:2
+msgid "m_zone, status & more"
+msgstr "mizona, estado, etc."
+
+# <Informal verb tense>
+# <is %s the access provider?>
+# To use this web service you have to have an account with %s and an Internet connection.
+#: ../bisho-oauth-pane.c:62
+#: ../bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Para usar este servicio web debes tener una cuenta en %s y una conexión de Internet."
+
+# pending access
+#: ../bisho-oauth-pane.c:222
+#: ../bisho-flickr-pane.c:253
+msgid "Log in pending"
+msgstr "Acceso pendiente"
+
+# I want to come in
+#: ../bisho-oauth-pane.c:223
+#: ../bisho-flickr-pane.c:254
+msgid "Log me in"
+msgstr "Quiero entrar"
+
+# pending access...
+#: ../bisho-oauth-pane.c:228
+#: ../bisho-flickr-pane.c:259
+msgid "Log in pending..."
+msgstr "Acceso pendiente..."
+
+# We're (working) on it...
+#: ../bisho-oauth-pane.c:229
+#: ../bisho-flickr-pane.c:260
+msgid "Working..."
+msgstr "Estamos en ello..."
+
+# <informal verb tense>
+# If you want to continue, select Continue.
+#: ../bisho-oauth-pane.c:233
+#: ../bisho-flickr-pane.c:264
+msgid "Press Continue to continue the log in."
+msgstr "Si quieres seguir, selecciona Continuar."
+
+# Continue
+#: ../bisho-oauth-pane.c:234
+#: ../bisho-flickr-pane.c:265
+msgid "Continue"
+msgstr "Continuar"
+
+# <informal verb tense>
+# You're connected
+#: ../bisho-oauth-pane.c:239
+#: ../bisho-flickr-pane.c:276
+msgid "Logged in"
+msgstr "Estás conectado"
+
+# I want to log out
+#: ../bisho-oauth-pane.c:240
+#: ../bisho-flickr-pane.c:278
+msgid "Log me out"
+msgstr "Quiero desconectarme"
+
+#: ../bisho-oauth-pane.c:277
+#: ../bisho-flickr-pane.c:334
+msgid "<b>Status:</b>"
+msgstr "<b>Estado:</b>"
+
+# <informal verb tense>
+# You are connected as %s
+#: ../bisho-flickr-pane.c:272
+#, c-format
+msgid "Logged in as %s"
+msgstr "Estás conectado como %s"
+
