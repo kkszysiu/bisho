@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "Accéder au site pour plus d'information"
+
+#: ../bisho-window.c:105
+#: ../bisho-window.c:121
+msgid "Username:"
+msgstr "Nom d'utilisateur :"
+
+#: ../bisho-window.c:127
+msgid "Password:"
+msgstr "Mot de passe :"
+
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Paramètres des services Web"
+
+#: ../bisho-window.c:196
+msgid "Set up your social networks to see new updates in m_zone and the status panel."
+msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour de mazone et du panneau d'état."
+
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "%s login changé."
+
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Services Web"
+
+#: ../bisho.desktop.in.h:2
+msgid "m_zone, status & more"
+msgstr "mazone, statut & plus..."
+
+#: ../bisho-oauth-pane.c:62
+#: ../bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Vous avez besoin d'un compte avec %s et d'une connexion Internet pour utiliser ce service Web."
+
+#: ../bisho-oauth-pane.c:222
+#: ../bisho-flickr-pane.c:253
+msgid "Log in pending"
+msgstr "Connexion en cours"
+
+#: ../bisho-oauth-pane.c:223
+#: ../bisho-flickr-pane.c:254
+msgid "Log me in"
+msgstr "Connecte-moi"
+
+#: ../bisho-oauth-pane.c:228
+#: ../bisho-flickr-pane.c:259
+msgid "Log in pending..."
+msgstr "Connexion en cours..."
+
+#: ../bisho-oauth-pane.c:229
+#: ../bisho-flickr-pane.c:260
+msgid "Working..."
+msgstr "En cours..."
+
+#: ../bisho-oauth-pane.c:233
+#: ../bisho-flickr-pane.c:264
+msgid "Press Continue to continue the log in."
+msgstr "Appuyez sur Continuer pour continuer le processus de connexion."
+
+#: ../bisho-oauth-pane.c:234
+#: ../bisho-flickr-pane.c:265
+msgid "Continue"
+msgstr "Continuer"
+
+#: ../bisho-oauth-pane.c:239
+#: ../bisho-flickr-pane.c:276
+msgid "Logged in"
+msgstr "Connecté"
+
+#: ../bisho-oauth-pane.c:240
+#: ../bisho-flickr-pane.c:278
+msgid "Log me out"
+msgstr "Déconnecte-moi"
+
+#: ../bisho-oauth-pane.c:277
+#: ../bisho-flickr-pane.c:334
+msgid "<b>Status:</b>"
+msgstr "<b>Statut :</b>"
+
+#: ../bisho-flickr-pane.c:272
+#, c-format
+msgid "Logged in as %s"
+msgstr "Connecté comme %s"
+
