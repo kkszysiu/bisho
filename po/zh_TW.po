@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: TAIWAN\n"
+
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "打開網站以獲取更多資訊"
+
+#: ../bisho-window.c:105
+#: ../bisho-window.c:121
+msgid "Username:"
+msgstr "使用者名稱："
+
+#: ../bisho-window.c:127
+msgid "Password:"
+msgstr "密碼："
+
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "網路服務設定"
+
+#: ../bisho-window.c:196
+msgid "Set up your social networks to see new updates in m_zone and the status panel."
+msgstr "設定你的社交網路來檢視在「我的區域」和狀態面版的更新。"
+
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "%s的登入資料已變更。"
+
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "網路服務"
+
+#: ../bisho.desktop.in.h:2
+msgid "m_zone, status & more"
+msgstr "我的區域，狀態等等"
+
+#: ../bisho-oauth-pane.c:62
+#: ../bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "你需要%s的帳戶和網際網路連結來使用此網路服務。"
+
+#: ../bisho-oauth-pane.c:222
+#: ../bisho-flickr-pane.c:253
+msgid "Log in pending"
+msgstr "登入中"
+
+#: ../bisho-oauth-pane.c:223
+#: ../bisho-flickr-pane.c:254
+msgid "Log me in"
+msgstr "讓我登入"
+
+#: ../bisho-oauth-pane.c:228
+#: ../bisho-flickr-pane.c:259
+msgid "Log in pending..."
+msgstr "登入中......"
+
+#: ../bisho-oauth-pane.c:229
+#: ../bisho-flickr-pane.c:260
+msgid "Working..."
+msgstr "進行中......"
+
+#: ../bisho-oauth-pane.c:233
+#: ../bisho-flickr-pane.c:264
+msgid "Press Continue to continue the log in."
+msgstr "按「繼續」按鈕來繼續登入。"
+
+#: ../bisho-oauth-pane.c:234
+#: ../bisho-flickr-pane.c:265
+msgid "Continue"
+msgstr "繼續"
+
+#: ../bisho-oauth-pane.c:239
+#: ../bisho-flickr-pane.c:276
+msgid "Logged in"
+msgstr "已登入"
+
+#: ../bisho-oauth-pane.c:240
+#: ../bisho-flickr-pane.c:278
+msgid "Log me out"
+msgstr "登出"
+
+#: ../bisho-oauth-pane.c:277
+#: ../bisho-flickr-pane.c:334
+msgid "<b>Status:</b>"
+msgstr "<b>狀態：</b>"
+
+#: ../bisho-flickr-pane.c:272
+#, c-format
+msgid "Logged in as %s"
+msgstr "以%s名義登入"
+
