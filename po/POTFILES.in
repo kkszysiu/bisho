@@ -1,8 +1,8 @@
-bisho-utils.c
-bisho-window.c
-entry.c
-main.c
-service-info.c
-bisho.desktop.in
-bisho-oauth-pane.c
-bisho-flickr-pane.c
+data/bisho.desktop.in
+src/bisho-utils.c
+src/bisho-window.c
+src/entry.c
+src/main.c
+src/service-info.c
+src/bisho-oauth-pane.c
+src/bisho-flickr-pane.c

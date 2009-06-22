@@ -1,7 +1,7 @@
 AC_PREREQ(2.53)
 AC_INIT(bisho, 0.10.2)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
-AM_CONFIG_HEADER(config.h)
+AM_CONFIG_HEADER(src/config.h)
 
 AC_CANONICAL_HOST
 
@@ -24,5 +24,7 @@ PKG_CHECK_MODULES(DEPS, mojito-client mojito-keystore gtk+-2.0 gconf-2.0 mux >= 
 
 AC_OUTPUT([
         Makefile
+        data/Makefile
+        src/Makefile
         po/Makefile.in
 ])
