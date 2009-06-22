@@ -20,9 +20,9 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
-#include <mux/mux-expanding-item.h>
-#include <mux/mux-banner.h>
-#include <mux/mux-window.h>
+#include "mux-expanding-item.h"
+#include "mux-banner.h"
+#include "mux-window.h"
 #include "bisho-window.h"
 #include "bisho-utils.h"
 #include "service-info.h"

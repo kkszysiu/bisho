@@ -21,7 +21,7 @@
 #define __BISHO_WINDOW_H__
 
 #include <gtk/gtk.h>
-#include <mux/mux-window.h>
+#include "mux-window.h"
 #include "service-info.h"
 
 G_BEGIN_DECLS

@@ -18,7 +18,7 @@
  */
 
 #include <gtk/gtk.h>
-#include <mux/mux-expanding-item.h>
+#include "mux-expanding-item.h"
 #include "bisho-utils.h"
 
 static GList *expander_list = NULL;

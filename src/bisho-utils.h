@@ -21,7 +21,7 @@
 #define __BISHO_UTILS_H__
 
 #include <gtk/gtk.h>
-#include <mux/mux-expanding-item.h>
+#include "mux-expanding-item.h"
 
 G_BEGIN_DECLS
 

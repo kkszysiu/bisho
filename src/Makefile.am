@@ -7,7 +7,13 @@ bisho_SOURCES = \
 	bisho-flickr-pane.c bisho-flickr-pane.h \
 	bisho-utils.c bisho-utils.h \
 	entry.c entry.h \
-	service-info.c service-info.h
+	service-info.c service-info.h \
+	mux-banner.c mux-banner.h \
+	mux-expander.c mux-expander.h \
+	mux-expanding-item.c mux-expanding-item.h \
+	mux-frame.c mux-frame.h \
+	mux-icon-button.c mux-icon-button.h \
+	mux-window.c mux-window.h
 
 bisho_CPPFLAGS = $(DEPS_CFLAGS) \
 	-DLIBEXECDIR=\"@libexecdir@\" \
