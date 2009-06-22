@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: GLS <tomas.galicia@intel.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "Inicie o site para maiores informações"
+
+#: ../bisho-window.c:105
+#: ../bisho-window.c:121
+#, fuzzy
+msgid "Username:"
+msgstr "Nome do usuário:"
+
+#: ../bisho-window.c:127
+#, fuzzy
+msgid "Password:"
+msgstr "Senha:"
+
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Configurações do serviço na web"
+
+#: ../bisho-window.c:196
+msgid "Set up your social networks to see new updates in m_zone and the status panel."
+msgstr "Estabeleça suas redes sociais para ver novas atualizações na MinhaZona e no painel de status."
+
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "Login modificado: %s."
+
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Serviços na web"
+
+#: ../bisho.desktop.in.h:2
+msgid "m_zone, status & more"
+msgstr "MinhaZona, status e mais"
+
+#: ../bisho-oauth-pane.c:62
+#: ../bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Você vai precisar de uma conta com %s e uma conexão na Internet para usar este serviço na web."
+
+#: ../bisho-oauth-pane.c:222
+#: ../bisho-flickr-pane.c:253
+msgid "Log in pending"
+msgstr "Login pendente"
+
+# Do my log in
+#: ../bisho-oauth-pane.c:223
+#: ../bisho-flickr-pane.c:254
+msgid "Log me in"
+msgstr "Faça meu login"
+
+#: ../bisho-oauth-pane.c:228
+#: ../bisho-flickr-pane.c:259
+msgid "Log in pending..."
+msgstr "Login pendente..."
+
+#: ../bisho-oauth-pane.c:229
+#: ../bisho-flickr-pane.c:260
+msgid "Working..."
+msgstr "Processando..."
+
+#: ../bisho-oauth-pane.c:233
+#: ../bisho-flickr-pane.c:264
+msgid "Press Continue to continue the log in."
+msgstr "Pressione Continuar para continuar o login."
+
+#: ../bisho-oauth-pane.c:234
+#: ../bisho-flickr-pane.c:265
+#, fuzzy
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../bisho-oauth-pane.c:239
+#: ../bisho-flickr-pane.c:276
+msgid "Logged in"
+msgstr "Logado  "
+
+#: ../bisho-oauth-pane.c:240
+#: ../bisho-flickr-pane.c:278
+msgid "Log me out"
+msgstr "Faça meu logout"
+
+#: ../bisho-oauth-pane.c:277
+#: ../bisho-flickr-pane.c:334
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+#: ../bisho-flickr-pane.c:272
+#, c-format
+msgid "Logged in as %s"
+msgstr "Logado como: %s"
+
