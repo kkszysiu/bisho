@@ -229,10 +229,19 @@ update_widgets (WidgetData *data, ButtonState state)
     gtk_button_set_label (GTK_BUTTON (data->button), _("Working..."));
     break;
   case CONTINUE_AUTH:
-    gtk_widget_set_sensitive (data->button, TRUE);
-    gtk_label_set_text (GTK_LABEL (data->label), _("Press Continue to continue the log in."));
-    gtk_button_set_label (GTK_BUTTON (data->button), _("Continue"));
-    g_signal_connect (data->button, "clicked", G_CALLBACK (continue_clicked), data);
+    {
+      char *s;
+
+      gtk_widget_set_sensitive (data->button, TRUE);
+
+      s = g_strdup_printf (_("Once you have logged in to %s, press Continue."),
+                           data->info->display_name);
+      gtk_label_set_text (GTK_LABEL (data->label), s);
+      g_free (s);
+
+      gtk_button_set_label (GTK_BUTTON (data->button), _("Continue"));
+      g_signal_connect (data->button, "clicked", G_CALLBACK (continue_clicked), data);
+    }
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (data->button, TRUE);
@@ -281,6 +290,7 @@ bisho_oauth_pane_new (ServiceInfo *info)
   gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
   data->label = gtk_label_new ("");
+  gtk_label_set_line_wrap (GTK_LABEL (data->label), TRUE);
   gtk_misc_set_alignment (GTK_MISC (data->label), 0.0, 0.5);
   gtk_widget_show (data->label);
   gtk_table_attach (GTK_TABLE (table), data->label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
