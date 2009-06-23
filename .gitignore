@@ -25,3 +25,4 @@ po/POTFILES
 po/stamp-it
 bisho.desktop
 po/.intltool-merge-cache
+*.gmo
