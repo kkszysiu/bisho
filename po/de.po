@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+
+# "You find more information on the web site"
+#: ../bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "Mehr Informationen findest du auf der Website"
+
+#: ../bisho-window.c:105
+#: ../bisho-window.c:121
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: ../bisho-window.c:127
+msgid "Password:"
+msgstr "Kennwort:"
+
+#: ../bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Web-Service-Einstellungen"
+
+#: ../bisho-window.c:196
+msgid "Set up your social networks to see new updates in m_zone and the status panel."
+msgstr "Um neue Updates in &quot;MeineZone&quote; und auf der Status Seite zu sehen, musst du erst deine sozialen Netzwerke einrichten."
+
+# "the login data for %s has been changed"
+#: ../bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "Die Anmeldungsdaten fuer %s wurden geändert."
+
+#: ../bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Web-Services"
+
+#: ../bisho.desktop.in.h:2
+msgid "m_zone, status & more"
+msgstr "MeineZone, Status & mehr"
+
+#: ../bisho-oauth-pane.c:62
+#: ../bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Du brauchst ein Konto mit %s und eine Internetverbindung um diesen Web-Service zu nutzen."
+
+#: ../bisho-oauth-pane.c:222
+#: ../bisho-flickr-pane.c:253
+msgid "Log in pending"
+msgstr "Anmeldung läuft"
+
+#: ../bisho-oauth-pane.c:223
+#: ../bisho-flickr-pane.c:254
+msgid "Log me in"
+msgstr "Melde mich an"
+
+#: ../bisho-oauth-pane.c:228
+#: ../bisho-flickr-pane.c:259
+msgid "Log in pending..."
+msgstr "Anmeldung läuft..."
+
+# "is being processed"
+# (note: if the context has the meaning of "busy...", then we could also use "Beschäftigt..." instead)
+#: ../bisho-oauth-pane.c:229
+#: ../bisho-flickr-pane.c:260
+msgid "Working..."
+msgstr "Wird bearbeitet..."
+
+#: ../bisho-oauth-pane.c:233
+#: ../bisho-flickr-pane.c:264
+msgid "Press Continue to continue the log in."
+msgstr "Klicke Fortsetzen um mit der Anmeldung fortzufahren."
+
+#: ../bisho-oauth-pane.c:234
+#: ../bisho-flickr-pane.c:265
+msgid "Continue"
+msgstr "Fortsetzen"
+
+#: ../bisho-oauth-pane.c:239
+#: ../bisho-flickr-pane.c:276
+msgid "Logged in"
+msgstr "Angemeldet"
+
+#: ../bisho-oauth-pane.c:240
+#: ../bisho-flickr-pane.c:278
+msgid "Log me out"
+msgstr "Melde mich ab"
+
+#: ../bisho-oauth-pane.c:277
+#: ../bisho-flickr-pane.c:334
+msgid "<b>Status:</b>"
+msgstr "<b>Status:</b>"
+
+#: ../bisho-flickr-pane.c:272
+#, c-format
+msgid "Logged in as %s"
+msgstr "Angemeldet als %s"
+
