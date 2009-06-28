@@ -1,5 +1,4 @@
 *~
-bisho
 .deps
 Makefile.in
 Makefile
@@ -20,9 +19,12 @@ INSTALL
 marshals.[ch]
 intltool-*
 mkinstalldirs
+*.gmo
 po/Makefile*
 po/POTFILES
 po/stamp-it
-bisho.desktop
+data/bisho.desktop
+data/callback.schemas
 po/.intltool-merge-cache
-*.gmo
+src/bisho
+src/bisho-url-callback
