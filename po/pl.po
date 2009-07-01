@@ -1,8 +1,17 @@
+# pl locale
+# Copyright (C) 2009 Intel Corporation
+# This file is distributed under the same license as the moblin-menus package.
+# Andrzej Zaborowski <andrew.zaborowski@intel.com>, 2009.
+#
+# I'm aware of the GNOME-PL translation guidelines (aviary.pl) and I
+# advise they be ignored for the sake of usability.  This is not GNOME
+# and programs should be easy to understand here.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Moblin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-26 08:48+0000\n"
+"POT-Creation-Date: 2009-07-01 09:16+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrzej Zaborowski <andrew.zaborowski@intel.com>\n"
 "Language-Team: Moblin\n"
@@ -51,7 +60,7 @@ msgstr "Login na %s został zmieniony."
 #: ../src/bisho-flickr-pane.c:65
 #, c-format
 msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Do tego web-serwisu potrzebne jest konto na %s i połączenie z Internetem."
+msgstr "Do korzystania z tego web-serwisu potrzebne jest konto na %s i połączenie z Internetem."
 
 #: ../src/bisho-oauth-pane.c:222
 #: ../src/bisho-flickr-pane.c:251
@@ -73,33 +82,40 @@ msgstr "Oczekiwanie na dostęp..."
 msgid "Working..."
 msgstr "Pracujemy nad tym..."
 
-#: ../src/bisho-oauth-pane.c:233
-#: ../src/bisho-flickr-pane.c:262
-msgid "Press Continue to continue the log in."
-msgstr "Wciśnij Dalej aby kontynuować logowanie."
+#: ../src/bisho-oauth-pane.c:237
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Po zalogowaniu się na %s należy wcisnąć Dalej."
 
-#: ../src/bisho-oauth-pane.c:234
+#: ../src/bisho-oauth-pane.c:242
 #: ../src/bisho-flickr-pane.c:263
 msgid "Continue"
 msgstr "Dalej"
 
-#: ../src/bisho-oauth-pane.c:239
+#: ../src/bisho-oauth-pane.c:248
 #: ../src/bisho-flickr-pane.c:274
 msgid "Logged in"
 msgstr "Zalogowano"
 
-#: ../src/bisho-oauth-pane.c:240
+#: ../src/bisho-oauth-pane.c:249
 #: ../src/bisho-flickr-pane.c:276
 msgid "Log me out"
 msgstr "Chcę się wylogować"
 
-#: ../src/bisho-oauth-pane.c:277
+#: ../src/bisho-oauth-pane.c:286
 #: ../src/bisho-flickr-pane.c:333
 msgid "<b>Status:</b>"
 msgstr "<b>Stan:</b>"
+
+#: ../src/bisho-flickr-pane.c:262
+msgid "Once you have logged in to Flickr, press Continue."
+msgstr "Po zalogowaniu się na Flickr należy wcisnąć Dalej."
 
 #: ../src/bisho-flickr-pane.c:270
 #, c-format
 msgid "Logged in as %s"
 msgstr "Zalogowano jako %s"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Wciśnij Dalej aby kontynuować logowanie."
 
