@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Moblin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-06-26 08:48+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andrzej Zaborowski <andrew.zaborowski@intel.com>\n"
+"Language-Team: Moblin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../data/bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Web-serwisy"
+
+#: ../data/bisho.desktop.in.h:2
+msgid "myzone, status & more"
+msgstr "myzone, status, itd."
+
+#: ../src/bisho-window.c:93
+msgid "Launch site for more information"
+msgstr "Po dalsze informacje wejdź na stronę www"
+
+#: ../src/bisho-window.c:105
+#: ../src/bisho-window.c:121
+msgid "Username:"
+msgstr "Użytkownik:"
+
+#: ../src/bisho-window.c:127
+msgid "Password:"
+msgstr "Hasło:"
+
+#: ../src/bisho-window.c:189
+msgid "Web Services Settings"
+msgstr "Ustawienia Web-serwisów"
+
+#: ../src/bisho-window.c:196
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Skonfiguruj swoje serwisy społecznościowe żeby widzieć zmiany statusów w myzone i na panelu stanu."
+
+#: ../src/bisho-window.c:217
+#, c-format
+msgid "%s login changed."
+msgstr "Login na %s został zmieniony."
+
+#: ../src/bisho-oauth-pane.c:62
+#: ../src/bisho-flickr-pane.c:65
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Do tego web-serwisu potrzebne jest konto na %s i połączenie z Internetem."
+
+#: ../src/bisho-oauth-pane.c:222
+#: ../src/bisho-flickr-pane.c:251
+msgid "Log in pending"
+msgstr "Oczekiwanie na dostęp"
+
+#: ../src/bisho-oauth-pane.c:223
+#: ../src/bisho-flickr-pane.c:252
+msgid "Log me in"
+msgstr "Zaloguj mnie"
+
+#: ../src/bisho-oauth-pane.c:228
+#: ../src/bisho-flickr-pane.c:257
+msgid "Log in pending..."
+msgstr "Oczekiwanie na dostęp..."
+
+#: ../src/bisho-oauth-pane.c:229
+#: ../src/bisho-flickr-pane.c:258
+msgid "Working..."
+msgstr "Pracujemy nad tym..."
+
+#: ../src/bisho-oauth-pane.c:233
+#: ../src/bisho-flickr-pane.c:262
+msgid "Press Continue to continue the log in."
+msgstr "Wciśnij Dalej aby kontynuować logowanie."
+
+#: ../src/bisho-oauth-pane.c:234
+#: ../src/bisho-flickr-pane.c:263
+msgid "Continue"
+msgstr "Dalej"
+
+#: ../src/bisho-oauth-pane.c:239
+#: ../src/bisho-flickr-pane.c:274
+msgid "Logged in"
+msgstr "Zalogowano"
+
+#: ../src/bisho-oauth-pane.c:240
+#: ../src/bisho-flickr-pane.c:276
+msgid "Log me out"
+msgstr "Chcę się wylogować"
+
+#: ../src/bisho-oauth-pane.c:277
+#: ../src/bisho-flickr-pane.c:333
+msgid "<b>Status:</b>"
+msgstr "<b>Stan:</b>"
+
+#: ../src/bisho-flickr-pane.c:270
+#, c-format
+msgid "Logged in as %s"
+msgstr "Zalogowano jako %s"
+
