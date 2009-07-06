@@ -1,3 +1,13 @@
-* Add license headers to source
-* Fix COPYING
 * Add blaa to README
+* Demuxification
+- mux-banner.h
+  Custom, keep locally
+- mux-expander.h
+  Internal to mux-expanding-item
+- mux-expanding-item.h
+  Replace with nbtk-gtk-expander
+- mux-frame.h
+  Replace with nbtk-gtk-frame
+- mux-window.h
+- mux-icon-button.h
+  Internal to mux-window
