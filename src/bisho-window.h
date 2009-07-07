@@ -66,6 +66,8 @@ GtkWidget * bisho_window_new (void);
 
 void bisho_window_change_banner (BishoWindow *window, ServiceInfo *info);
 
+void bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params);
+
 G_END_DECLS
 
 #endif /* __BISHO_WINDOW_H__ */

@@ -234,3 +234,18 @@ bisho_window_new (void)
 {
   return g_object_new (BISHO_TYPE_WINDOW, NULL);
 }
+
+void
+bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params)
+{
+  GHashTableIter iter;
+  gpointer key, value;
+
+  g_debug ("Got a callback with ID %s", id);
+
+  g_hash_table_iter_init (&iter, params);
+  while (g_hash_table_iter_next (&iter, &key, &value)) {
+    g_debug ("%s=%s", (char*)key, (char*)value);
+  }
+}
+
