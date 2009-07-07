@@ -21,11 +21,33 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <unique/unique.h>
+#include <libsoup/soup.h>
 #include "bisho-window.h"
 
 enum {
   COMMAND_CALLBACK = 1
 };
+
+static void
+handle_uri (BishoWindow *window, const char *s)
+{
+  SoupURI *uri = NULL;
+  GHashTable *params = NULL;
+
+  uri = soup_uri_new (s);
+  if (strcmp (uri->scheme, "x-bisho") != 0)
+    goto done;
+
+  params = soup_form_decode (uri->query);
+
+  bisho_window_callback (window, uri->path, params);
+
+ done:
+  if (params)
+    g_hash_table_unref (params);
+  if (uri)
+    soup_uri_free (uri);
+}
 
 static UniqueResponse
 unique_message_cb (UniqueApp *app,
@@ -34,6 +56,7 @@ unique_message_cb (UniqueApp *app,
                    guint time_, gpointer user_data)
 {
   GtkWindow *window = GTK_WINDOW (user_data);
+  char **uris;
 
   switch (command) {
   case UNIQUE_ACTIVATE:
@@ -41,18 +64,13 @@ unique_message_cb (UniqueApp *app,
     gtk_window_present (window);
     break;
   case COMMAND_CALLBACK:
-    {
-      char **urls;
+    gtk_window_set_screen (window, unique_message_data_get_screen (message));
+    gtk_window_present (window);
 
-      gtk_window_set_screen (window, unique_message_data_get_screen (message));
-      gtk_window_present (window);
-
-      urls = unique_message_data_get_uris (message);
-      if (urls) {
-        g_debug ("Got URL %s", urls[0]);
-      }
-      g_strfreev (urls);
-    }
+    uris = unique_message_data_get_uris (message);
+    if (uris)
+      handle_uri (BISHO_WINDOW (window), uris[0]);
+    g_strfreev (uris);
     break;
   default:
     break;
@@ -74,6 +92,8 @@ main (int argc, char **argv)
   textdomain (GETTEXT_PACKAGE);
 
   gtk_init (&argc, &argv);
+
+  /* TODO: use GOption to parse arguments */
 
   app = unique_app_new_with_commands ("com.intel.Bisho", NULL,
                                       "callback", COMMAND_CALLBACK,
@@ -105,6 +125,9 @@ main (int argc, char **argv)
   g_signal_connect (window, "delete-event", gtk_main_quit, NULL);
 
   gtk_widget_show (window);
+
+  if (argc == 2)
+    handle_uri (BISHO_WINDOW (window), argv[1]);
 
   gtk_main ();
 
