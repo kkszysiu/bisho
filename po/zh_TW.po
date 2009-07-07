@@ -4,30 +4,30 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-30 04:11+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Last-Translator: GLSJPN_Yukari <yukarix.yamashita@intel.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
-msgstr "網路服務"
+msgstr "網絡服務"
 
 #: ../data/bisho.desktop.in.h:2
-#, fuzzy
 msgid "myzone, status & more"
-msgstr "我的區域，狀態等等"
+msgstr "我的地區 (myzone)，狀態以及更多"
 
 #: ../src/bisho-window.c:93
 msgid "Launch site for more information"
-msgstr "打開網站以獲取更多資訊"
+msgstr "開起網站了解更多信息"
 
-#: ../src/bisho-window.c:105 ../src/bisho-window.c:121
+#: ../src/bisho-window.c:105
+#: ../src/bisho-window.c:121
 msgid "Username:"
-msgstr "使用者名稱："
+msgstr "使用者："
 
 #: ../src/bisho-window.c:127
 msgid "Password:"
@@ -35,72 +35,74 @@ msgstr "密碼："
 
 #: ../src/bisho-window.c:189
 msgid "Web Services Settings"
-msgstr "網路服務設定"
+msgstr "網絡服務設置"
 
 #: ../src/bisho-window.c:196
-#, fuzzy
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr "設定你的社交網路來檢視在「我的區域」和狀態面版的更新。"
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "設置您的社交網絡，尋看我的地區 (myzone) 和狀態控制板的最新信息。"
 
 #: ../src/bisho-window.c:217
 #, c-format
 msgid "%s login changed."
-msgstr "%s的登入資料已變更。"
+msgstr "%s 登入改變。"
 
-#: ../src/bisho-oauth-pane.c:62 ../src/bisho-flickr-pane.c:65
+#: ../src/bisho-oauth-pane.c:62
+#: ../src/bisho-flickr-pane.c:65
 #, c-format
-msgid ""
-"You'll need an account with %s and an Internet connection to use this web "
-"service."
-msgstr "你需要%s的帳戶和網際網路連結來使用此網路服務。"
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "您需要一個帳戶與 %s 和網際網路連接才能使用此網絡服務。"
 
-#: ../src/bisho-oauth-pane.c:222 ../src/bisho-flickr-pane.c:251
+#: ../src/bisho-oauth-pane.c:222
+#: ../src/bisho-flickr-pane.c:251
 msgid "Log in pending"
-msgstr "登入中"
+msgstr "登入等後中"
 
-#: ../src/bisho-oauth-pane.c:223 ../src/bisho-flickr-pane.c:252
+#: ../src/bisho-oauth-pane.c:223
+#: ../src/bisho-flickr-pane.c:252
 msgid "Log me in"
-msgstr "讓我登入"
+msgstr "會員登入"
 
-#: ../src/bisho-oauth-pane.c:228 ../src/bisho-flickr-pane.c:257
+#: ../src/bisho-oauth-pane.c:228
+#: ../src/bisho-flickr-pane.c:257
 msgid "Log in pending..."
-msgstr "登入中......"
+msgstr "登入等後中..."
 
-#: ../src/bisho-oauth-pane.c:229 ../src/bisho-flickr-pane.c:258
+#: ../src/bisho-oauth-pane.c:229
+#: ../src/bisho-flickr-pane.c:258
 msgid "Working..."
-msgstr "進行中......"
+msgstr "繼續中..."
 
 #: ../src/bisho-oauth-pane.c:237
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
-msgstr ""
+msgstr "一旦你登錄到 %s ，請按一下繼續。"
 
-#: ../src/bisho-oauth-pane.c:242 ../src/bisho-flickr-pane.c:263
+#: ../src/bisho-oauth-pane.c:242
+#: ../src/bisho-flickr-pane.c:263
 msgid "Continue"
 msgstr "繼續"
 
-#: ../src/bisho-oauth-pane.c:248 ../src/bisho-flickr-pane.c:274
+#: ../src/bisho-oauth-pane.c:248
+#: ../src/bisho-flickr-pane.c:274
 msgid "Logged in"
-msgstr "已登入"
+msgstr "會員登入"
 
-#: ../src/bisho-oauth-pane.c:249 ../src/bisho-flickr-pane.c:276
+#: ../src/bisho-oauth-pane.c:249
+#: ../src/bisho-flickr-pane.c:276
 msgid "Log me out"
-msgstr "登出"
+msgstr "會員登出"
 
-#: ../src/bisho-oauth-pane.c:286 ../src/bisho-flickr-pane.c:333
+#: ../src/bisho-oauth-pane.c:286
+#: ../src/bisho-flickr-pane.c:333
 msgid "<b>Status:</b>"
 msgstr "<b>狀態：</b>"
 
 #: ../src/bisho-flickr-pane.c:262
 msgid "Once you have logged in to Flickr, press Continue."
-msgstr ""
+msgstr "一旦你登入到 Flickr ，請按一下繼續。"
 
 #: ../src/bisho-flickr-pane.c:270
 #, c-format
 msgid "Logged in as %s"
-msgstr "以%s名義登入"
+msgstr "%s 登入"
 
-#~ msgid "Press Continue to continue the log in."
-#~ msgstr "按「繼續」按鈕來繼續登入。"
