@@ -20,11 +20,51 @@
 #include <config.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+#include <unique/unique.h>
 #include "bisho-window.h"
+
+enum {
+  COMMAND_CALLBACK = 1
+};
+
+static UniqueResponse
+unique_message_cb (UniqueApp *app,
+                   UniqueCommand  command,
+                   UniqueMessageData *message,
+                   guint time_, gpointer user_data)
+{
+  GtkWindow *window = GTK_WINDOW (user_data);
+
+  switch (command) {
+  case UNIQUE_ACTIVATE:
+    gtk_window_set_screen (window, unique_message_data_get_screen (message));
+    gtk_window_present (window);
+    break;
+  case COMMAND_CALLBACK:
+    {
+      char **urls;
+
+      gtk_window_set_screen (window, unique_message_data_get_screen (message));
+      gtk_window_present (window);
+
+      urls = unique_message_data_get_uris (message);
+      if (urls) {
+        g_debug ("Got URL %s", urls[0]);
+      }
+      g_strfreev (urls);
+    }
+    break;
+  default:
+    break;
+  }
+
+  return UNIQUE_RESPONSE_OK;
+}
 
 int
 main (int argc, char **argv)
 {
+  UniqueApp *app;
   GtkWidget *window;
 
   g_thread_init (NULL);
@@ -35,13 +75,41 @@ main (int argc, char **argv)
 
   gtk_init (&argc, &argv);
 
+  app = unique_app_new_with_commands ("com.intel.Bisho", NULL,
+                                      "callback", COMMAND_CALLBACK,
+                                      NULL);
+
+  if (unique_app_is_running (app)) {
+    UniqueResponse response;
+
+    if (argc != 2) {
+      response = unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
+    } else {
+      UniqueMessageData *msg;
+      msg = unique_message_data_new ();
+      unique_message_data_set_uris (msg, argv + 1);
+      response = unique_app_send_message (app, COMMAND_CALLBACK, msg);
+      unique_message_data_free (msg);
+    }
+
+    if (response == UNIQUE_RESPONSE_OK)
+      goto done;
+  }
+
   window = bisho_window_new ();
+
+  unique_app_watch_window (app, GTK_WINDOW (window));
+
+  g_signal_connect (app, "message-received", G_CALLBACK (unique_message_cb), window);
 
   g_signal_connect (window, "delete-event", gtk_main_quit, NULL);
 
   gtk_widget_show (window);
 
   gtk_main ();
+
+ done:
+  g_object_unref (app);
 
   return 0;
 }
