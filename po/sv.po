@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-31 15:06+0100\n"
+"POT-Creation-Date: 2009-06-30 04:11+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Last-Translator: GLSSVE_GMartinson <gmartinson@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,94 +12,96 @@ msgstr ""
 "X-Poedit-Language: Swedish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../bisho-window.c:93
+#: ../data/bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Webbtjänster"
+
+#: ../data/bisho.desktop.in.h:2
+msgid "myzone, status & more"
+msgstr "Myzone, status etc."
+
+#: ../src/bisho-window.c:93
 msgid "Launch site for more information"
 msgstr "Använd webbplatsen för mer information"
 
-#: ../bisho-window.c:105
-#: ../bisho-window.c:121
-#, fuzzy
+#: ../src/bisho-window.c:105
+#: ../src/bisho-window.c:121
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: ../bisho-window.c:127
-#, fuzzy
+#: ../src/bisho-window.c:127
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../bisho-window.c:189
+#: ../src/bisho-window.c:189
 msgid "Web Services Settings"
 msgstr "Inställningar för webbtjänster"
 
-#: ../bisho-window.c:196
-msgid "Set up your social networks to see new updates in m_zone and the status panel."
-msgstr "Ställ in ditt sociala nätverk för att se uppdateringar i myzone och i statusfältet."
+#: ../src/bisho-window.c:196
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Gör dina nätverksinställningar för att se uppdateringar i Myzone och statusfältet."
 
-#: ../bisho-window.c:217
+#: ../src/bisho-window.c:217
 #, c-format
 msgid "%s login changed."
 msgstr "Inloggning ändrad för: %s"
 
-#: ../bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Webbtjänster"
-
-#: ../bisho.desktop.in.h:2
-msgid "m_zone, status & more"
-msgstr "Visa fler detaljer"
-
-#: ../bisho-oauth-pane.c:62
-#: ../bisho-flickr-pane.c:65
+#: ../src/bisho-oauth-pane.c:62
+#: ../src/bisho-flickr-pane.c:65
 #, c-format
 msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Du behöver ett konto med %s och tillgång till internet för att använda denna webbservice."
+msgstr "Du behöver ett konto med %s och tillgång till internet för att använda denna webbtjänst."
 
-#: ../bisho-oauth-pane.c:222
-#: ../bisho-flickr-pane.c:253
+#: ../src/bisho-oauth-pane.c:222
+#: ../src/bisho-flickr-pane.c:251
 msgid "Log in pending"
 msgstr "Inloggning pågår"
 
-#: ../bisho-oauth-pane.c:223
-#: ../bisho-flickr-pane.c:254
+#: ../src/bisho-oauth-pane.c:223
+#: ../src/bisho-flickr-pane.c:252
 msgid "Log me in"
 msgstr "Logga in "
 
-#: ../bisho-oauth-pane.c:228
-#: ../bisho-flickr-pane.c:259
+#: ../src/bisho-oauth-pane.c:228
+#: ../src/bisho-flickr-pane.c:257
 msgid "Log in pending..."
 msgstr "Inloggning pågår..."
 
-#: ../bisho-oauth-pane.c:229
-#: ../bisho-flickr-pane.c:260
+#: ../src/bisho-oauth-pane.c:229
+#: ../src/bisho-flickr-pane.c:258
 msgid "Working..."
 msgstr "Vi är på g..."
 
-#: ../bisho-oauth-pane.c:233
-#: ../bisho-flickr-pane.c:264
-msgid "Press Continue to continue the log in."
-msgstr "Tryck blanksteg för att fortsätta inloggningen."
+#: ../src/bisho-oauth-pane.c:237
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "När du loggat in på %s, klicka på fortsätt."
 
-#: ../bisho-oauth-pane.c:234
-#: ../bisho-flickr-pane.c:265
+#: ../src/bisho-oauth-pane.c:242
+#: ../src/bisho-flickr-pane.c:263
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: ../bisho-oauth-pane.c:239
-#: ../bisho-flickr-pane.c:276
+#: ../src/bisho-oauth-pane.c:248
+#: ../src/bisho-flickr-pane.c:274
 msgid "Logged in"
 msgstr "Inloggad"
 
-#: ../bisho-oauth-pane.c:240
-#: ../bisho-flickr-pane.c:278
+#: ../src/bisho-oauth-pane.c:249
+#: ../src/bisho-flickr-pane.c:276
 msgid "Log me out"
 msgstr "Stäng och logga ut"
 
-#: ../bisho-oauth-pane.c:277
-#: ../bisho-flickr-pane.c:334
+#: ../src/bisho-oauth-pane.c:286
+#: ../src/bisho-flickr-pane.c:333
 msgid "<b>Status:</b>"
 msgstr "<b>status:</b>"
 
-#: ../bisho-flickr-pane.c:272
+#: ../src/bisho-flickr-pane.c:262
+msgid "Once you have logged in to Flickr, press Continue."
+msgstr "När du loggat in på Flickr, klicka på fortsätt."
+
+#: ../src/bisho-flickr-pane.c:270
 #, c-format
 msgid "Logged in as %s"
 msgstr "Loggar in som %s"
