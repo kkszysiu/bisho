@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-02 13:17+0200\n"
-"PO-Revision-Date: 2009-05-22 22:25+0200\n"
+"POT-Creation-Date: 2009-07-08 09:17+0000\n"
+"PO-Revision-Date: 2009-07-08 21:53+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -16,48 +16,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../data/bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Servizi web"
+
+#: ../data/bisho.desktop.in.h:2
+msgid "myzone, status & more"
+msgstr "myzone, stato e altro"
+
 # (ndt) è una specie di pulsante/collegamento
-#: ../bisho-window.c:93
+#: ../src/bisho-window.c:94
 msgid "Launch site for more information"
 msgstr "Apri il sito web per maggiori informazioni"
 
-#: ../bisho-window.c:105 ../bisho-window.c:121
+#: ../src/bisho-window.c:106 ../src/bisho-window.c:122
 msgid "Username:"
 msgstr "Nome utente:"
 
-#: ../bisho-window.c:127
+#: ../src/bisho-window.c:128
 msgid "Password:"
 msgstr "Password:"
 
-#: ../bisho-window.c:189
+#: ../src/bisho-window.c:198
 msgid "Web Services Settings"
 msgstr "Impostazioni dei servizi web"
 
-#: ../bisho-window.c:196
+#: ../src/bisho-window.c:205
 msgid ""
-"Set up your social networks to see new updates in m_zone and the status "
+"Set up your social networks to see new updates in myzone and the status "
 "panel."
 msgstr ""
 "Impostare i social network a cui si partecipa per visualizzare aggiornamenti "
-"all'interno della m_zone e nel pannello di stato."
+"all'interno della myzone e nel pannello di stato."
 
 # (ndt) un po' lunga e libera, ma c'è spazio
 # si vede quando si modificano le credenziali
 # di un servizio web
-#: ../bisho-window.c:217
+#: ../src/bisho-window.c:226
 #, c-format
 msgid "%s login changed."
 msgstr "Informazioni di accesso di %s modificate."
 
-#: ../bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Servizi web"
-
-#: ../bisho.desktop.in.h:2
-msgid "m_zone, status & more"
-msgstr "m_zone, stato e altro"
-
-#: ../bisho-oauth-pane.c:62 ../bisho-flickr-pane.c:65
+#: ../src/bisho-oauth-pane.c:62 ../src/bisho-flickr-pane.c:65
 #, c-format
 msgid ""
 "You'll need an account with %s and an Internet connection to use this web "
@@ -66,45 +66,53 @@ msgstr ""
 "Sono necessari un account con %s e una connessione a Internet per utilizzare "
 "questo servizio web."
 
-#: ../bisho-oauth-pane.c:222 ../bisho-flickr-pane.c:253
+#: ../src/bisho-oauth-pane.c:222 ../src/bisho-flickr-pane.c:251
 msgid "Log in pending"
 msgstr "Accesso in corso"
 
 # (ndt) pulsante
-#: ../bisho-oauth-pane.c:223 ../bisho-flickr-pane.c:254
+#: ../src/bisho-oauth-pane.c:223 ../src/bisho-flickr-pane.c:252
 msgid "Log me in"
 msgstr "Accedi"
 
-#: ../bisho-oauth-pane.c:228 ../bisho-flickr-pane.c:259
+#: ../src/bisho-oauth-pane.c:228 ../src/bisho-flickr-pane.c:257
 msgid "Log in pending..."
 msgstr "Accesso..."
 
-#: ../bisho-oauth-pane.c:229 ../bisho-flickr-pane.c:260
+#: ../src/bisho-oauth-pane.c:229 ../src/bisho-flickr-pane.c:258
 msgid "Working..."
 msgstr "In lavorazione..."
 
-#: ../bisho-oauth-pane.c:233 ../bisho-flickr-pane.c:264
-msgid "Press Continue to continue the log in."
-msgstr "Premere «Continua» per continuare l'accesso."
+#: ../src/bisho-oauth-pane.c:237
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Una volta eseguito l'accesso a %s, fare clic su «Continua»."
 
 # (ndt) pulsante
-#: ../bisho-oauth-pane.c:234 ../bisho-flickr-pane.c:265
+#: ../src/bisho-oauth-pane.c:242 ../src/bisho-flickr-pane.c:263
 msgid "Continue"
 msgstr "Continua"
 
-#: ../bisho-oauth-pane.c:239 ../bisho-flickr-pane.c:276
+#: ../src/bisho-oauth-pane.c:248 ../src/bisho-flickr-pane.c:274
 msgid "Logged in"
 msgstr "Accesso effettuato"
 
-#: ../bisho-oauth-pane.c:240 ../bisho-flickr-pane.c:278
+#: ../src/bisho-oauth-pane.c:249 ../src/bisho-flickr-pane.c:276
 msgid "Log me out"
 msgstr "Disconnetti"
 
-#: ../bisho-oauth-pane.c:277 ../bisho-flickr-pane.c:334
+#: ../src/bisho-oauth-pane.c:286 ../src/bisho-flickr-pane.c:333
 msgid "<b>Status:</b>"
 msgstr "<b>Stato:</b>"
 
-#: ../bisho-flickr-pane.c:272
+#: ../src/bisho-flickr-pane.c:262
+msgid "Once you have logged in to Flickr, press Continue."
+msgstr "Una volta eseguito l'accesso a Flickr, fare clic su «Continua»."
+
+#: ../src/bisho-flickr-pane.c:270
 #, c-format
 msgid "Logged in as %s"
 msgstr "Accesso effettuato come %s"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Premere «Continua» per continuare l'accesso."
