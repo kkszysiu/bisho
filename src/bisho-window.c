@@ -35,6 +35,8 @@ struct _BishoWindowPrivate {
   MojitoClient *client;
   GtkWidget *master_box;
   GtkWidget *banner;
+  /* Hash of string (identifier) to pane widget */
+  GHashTable *panes;
 };
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_WINDOW, BishoWindowPrivate))
@@ -141,6 +143,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       pane = bisho_oauth_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+      g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
   case AUTH_FLICKR:
@@ -149,6 +152,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       pane = bisho_flickr_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+      g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
   case AUTH_FACEBOOK:
@@ -157,6 +161,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       pane = bisho_facebook_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+      g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
   case AUTH_INVALID:
@@ -208,6 +213,8 @@ bisho_window_init (BishoWindow *self)
 
   self->priv->banner = mux_banner_new ();
   gtk_box_pack_start (GTK_BOX (self->priv->master_box), self->priv->banner, FALSE, FALSE, 0);
+
+  self->priv->panes = g_hash_table_new (g_str_hash, g_str_equal);
 
   self->priv->client = mojito_client_new ();
   /* TODO move to a separate populate() function? */
