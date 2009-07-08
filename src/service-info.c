@@ -24,8 +24,8 @@
 #define GROUP "MojitoService"
 #define GROUP_OAUTH "OAuth"
 
-static ServiceAuthType
-authtype_from_string (const char *s)
+ServiceAuthType
+service_info_authtype_from_string (const char *s)
 {
   if (s == NULL) {
     return AUTH_INVALID;
@@ -76,7 +76,7 @@ get_info_for_service (const char *name)
   }
 
   authstring = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
-  auth = authtype_from_string (authstring);
+  auth = service_info_authtype_from_string (authstring);
   g_free (authstring);
 
   if (auth == AUTH_INVALID) {

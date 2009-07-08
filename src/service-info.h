@@ -61,4 +61,6 @@ typedef struct {
 
 ServiceInfo * get_info_for_service (const char *name);
 
+ServiceAuthType service_info_authtype_from_string (const char *s);
+
 #endif /* _SERVICE_INFO_H */
