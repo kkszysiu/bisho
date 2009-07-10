@@ -4,5 +4,6 @@ src/bisho-window.c
 src/entry.c
 src/main.c
 src/service-info.c
+src/bisho-facebook-pane.c
 src/bisho-oauth-pane.c
 src/bisho-flickr-pane.c
