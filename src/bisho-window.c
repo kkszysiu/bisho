@@ -91,9 +91,8 @@ construct_ui (BishoWindow *window, const char *service_name)
 
     gtk_text_buffer_insert (buffer, &end, "  ", -1);
     gtk_text_buffer_insert_with_tags (buffer, &end,
-                                      _("Launch site for more information"), -1,
+                                      _("Launch site for more information."), -1,
                                       tag, NULL);
-    gtk_text_buffer_insert (buffer, &end, ".", -1);
   }
 
   switch (info->auth) {
