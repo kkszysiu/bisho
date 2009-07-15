@@ -96,7 +96,7 @@ msgstr "<b>当前状态</b>:"
 
 #: ../src/bisho-flickr-pane.c:262
 msgid "Once you have logged in to Flickr, press Continue."
-msgstr ""
+msgstr "当您登入Flickr以后,请按回车键."
 
 #: ../src/bisho-flickr-pane.c:270
 #, c-format
