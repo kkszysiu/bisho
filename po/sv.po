@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-30 04:11+0000\n"
+"POT-Creation-Date: 2009-07-15 09:18+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSSVE_GMartinson <gmartinson@gmail.com>\n"
 "Language-Team: \n"
@@ -20,8 +20,8 @@ msgstr "Webbtjänster"
 msgid "myzone, status & more"
 msgstr "Myzone, status etc."
 
-#: ../src/bisho-window.c:93
-msgid "Launch site for more information"
+#: ../src/bisho-window.c:94
+msgid "Launch site for more information."
 msgstr "Använd webbplatsen för mer information"
 
 #: ../src/bisho-window.c:105
@@ -33,76 +33,90 @@ msgstr "Användarnamn:"
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../src/bisho-window.c:189
+#: ../src/bisho-window.c:197
 msgid "Web Services Settings"
 msgstr "Inställningar för webbtjänster"
 
-#: ../src/bisho-window.c:196
+#: ../src/bisho-window.c:204
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Gör dina nätverksinställningar för att se uppdateringar i Myzone och statusfältet."
 
-#: ../src/bisho-window.c:217
+#: ../src/bisho-window.c:225
 #, c-format
 msgid "%s login changed."
 msgstr "Inloggning ändrad för: %s"
 
+#: ../src/bisho-facebook-pane.c:110
 #: ../src/bisho-oauth-pane.c:62
 #: ../src/bisho-flickr-pane.c:65
 #, c-format
 msgid "You'll need an account with %s and an Internet connection to use this web service."
 msgstr "Du behöver ett konto med %s och tillgång till internet för att använda denna webbtjänst."
 
+#: ../src/bisho-facebook-pane.c:307
 #: ../src/bisho-oauth-pane.c:222
 #: ../src/bisho-flickr-pane.c:251
 msgid "Log in pending"
 msgstr "Inloggning pågår"
 
+#: ../src/bisho-facebook-pane.c:308
 #: ../src/bisho-oauth-pane.c:223
 #: ../src/bisho-flickr-pane.c:252
 msgid "Log me in"
 msgstr "Logga in "
 
+#: ../src/bisho-facebook-pane.c:313
 #: ../src/bisho-oauth-pane.c:228
 #: ../src/bisho-flickr-pane.c:257
 msgid "Log in pending..."
 msgstr "Inloggning pågår..."
 
+#: ../src/bisho-facebook-pane.c:314
 #: ../src/bisho-oauth-pane.c:229
 #: ../src/bisho-flickr-pane.c:258
 msgid "Working..."
 msgstr "Vi är på g..."
+
+#: ../src/bisho-facebook-pane.c:318
+msgid "Press Continue to continue the log in."
+msgstr "Klicka på Fortsätt för att fortsätta inloggningen."
+
+#: ../src/bisho-facebook-pane.c:319
+#: ../src/bisho-oauth-pane.c:242
+#: ../src/bisho-flickr-pane.c:263
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: ../src/bisho-facebook-pane.c:326
+#: ../src/bisho-flickr-pane.c:270
+#, c-format
+msgid "Logged in as %s"
+msgstr "Loggar in som %s"
+
+#: ../src/bisho-facebook-pane.c:330
+#: ../src/bisho-oauth-pane.c:248
+#: ../src/bisho-flickr-pane.c:274
+msgid "Logged in"
+msgstr "Inloggad"
+
+#: ../src/bisho-facebook-pane.c:332
+#: ../src/bisho-oauth-pane.c:249
+#: ../src/bisho-flickr-pane.c:276
+msgid "Log me out"
+msgstr "Stäng och logga ut"
+
+#: ../src/bisho-facebook-pane.c:396
+#: ../src/bisho-oauth-pane.c:286
+#: ../src/bisho-flickr-pane.c:333
+msgid "<b>Status:</b>"
+msgstr "<b>status:</b>"
 
 #: ../src/bisho-oauth-pane.c:237
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "När du loggat in på %s, klicka på fortsätt."
 
-#: ../src/bisho-oauth-pane.c:242
-#: ../src/bisho-flickr-pane.c:263
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../src/bisho-oauth-pane.c:248
-#: ../src/bisho-flickr-pane.c:274
-msgid "Logged in"
-msgstr "Inloggad"
-
-#: ../src/bisho-oauth-pane.c:249
-#: ../src/bisho-flickr-pane.c:276
-msgid "Log me out"
-msgstr "Stäng och logga ut"
-
-#: ../src/bisho-oauth-pane.c:286
-#: ../src/bisho-flickr-pane.c:333
-msgid "<b>Status:</b>"
-msgstr "<b>status:</b>"
-
 #: ../src/bisho-flickr-pane.c:262
 msgid "Once you have logged in to Flickr, press Continue."
 msgstr "När du loggat in på Flickr, klicka på fortsätt."
-
-#: ../src/bisho-flickr-pane.c:270
-#, c-format
-msgid "Logged in as %s"
-msgstr "Loggar in som %s"
 
