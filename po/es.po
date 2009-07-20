@@ -19,7 +19,7 @@ msgstr "Servicios web"
 
 #: ../data/bisho.desktop.in.h:2
 msgid "myzone, status & more"
-msgstr "myzone, estado y más"
+msgstr "MiZona, estado, etc."
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
@@ -40,7 +40,7 @@ msgstr "Configuración de los servicios web"
 
 #: ../src/bisho-window.c:204
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configure sus redes sociales para ver las nuevas actualizaciones en myzone y el panel de estado."
+msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en MiZona y en el panel de estado."
 
 #: ../src/bisho-window.c:225
 #, c-format
@@ -115,9 +115,9 @@ msgstr "<b>Estado:</b>"
 #: ../src/bisho-oauth-pane.c:237
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
-msgstr "Una vez que se haya conectado a %s, presione Continuar"
+msgstr "Cuando te hayas conectado a %s, pulsa Continuar."
 
 #: ../src/bisho-flickr-pane.c:262
 msgid "Once you have logged in to Flickr, press Continue."
-msgstr "Una vez que se haya conectado a Flickr, presione Continuar"
+msgstr "Cuando te hayas conectado a Flickr, pulsa Continuar."
 
