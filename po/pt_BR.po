@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-15 09:18+0000\n"
+"POT-Creation-Date: 2009-07-22 09:20+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: GLSPTB_Gabor <gaborx.k.becht@intel.com>\n"
+"Last-Translator: GLSJPN_Yukari <yukarix.yamashita@intel.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr "Serviços na web"
 
 #: ../data/bisho.desktop.in.h:2
 msgid "myzone, status & more"
-msgstr "Minhazona, status e mais"
+msgstr "MinhaZona, status e mais"
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
@@ -40,7 +40,7 @@ msgstr "Configurações dos serviços na web"
 
 #: ../src/bisho-window.c:204
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configure suas redes sociais para ver novas atualizações na minhazona e o no painel de status."
+msgstr "Configure suas redes sociais para ver novas atualizações na MinhaZona e o no painel de status."
 
 #: ../src/bisho-window.c:225
 #, c-format
