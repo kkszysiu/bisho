@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-22 09:20+0000\n"
+"POT-Creation-Date: 2009-07-27 09:21+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
 "Language-Team: \n"
@@ -18,8 +18,8 @@ msgid "Web Services"
 msgstr "Servicios web"
 
 #: ../data/bisho.desktop.in.h:2
-msgid "myzone, status & more"
-msgstr "MiZona, estado, etc."
+msgid "myzone & status"
+msgstr "MiZona y estado"
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
