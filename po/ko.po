@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-15 09:18+0000\n"
+"POT-Creation-Date: 2009-07-27 09:21+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSKOR_SunKim <sunx.kim@intel.com>\n"
 "Language-Team: \n"
@@ -18,8 +18,8 @@ msgid "Web Services"
 msgstr "웹 서비스"
 
 #: ../data/bisho.desktop.in.h:2
-msgid "myzone, status & more"
-msgstr "마이 존, 상태 & 기타"
+msgid "myzone & status"
+msgstr "마이존 & 상태 "
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
@@ -40,7 +40,7 @@ msgstr "웹 서비스 설정"
 
 #: ../src/bisho-window.c:204
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "마이 존의 새로운 업데이트 및 상태 패널을 보기 위해 귀하의 소셜 네트워크를 설정하십시오. "
+msgstr "마이존의 새로운 업데이트 및 상태 패널을 보기 위해 귀하의 소셜 네트워크를 설정하십시오. "
 
 #: ../src/bisho-window.c:225
 #, c-format
