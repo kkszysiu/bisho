@@ -25,6 +25,7 @@
 #include <rest/facebook-proxy.h>
 #include <rest/rest-xml-parser.h>
 #include "service-info.h"
+#include "bisho-utils.h"
 #include "bisho-facebook-pane.h"
 
 /* TODO: use mojito-keyring */
@@ -79,26 +80,6 @@ decode (const char *string, char **token, char **token_secret)
   g_strfreev (encoded_keys);
 
   return ret;
-}
-
-static char *
-encode (const char *token, const char *secret)
-{
-  char *encoded_token, *encoded_secret;
-  char *string;
-
-  g_assert (token);
-  g_assert (secret);
-
-  encoded_token = g_base64_encode ((guchar*)token, strlen (token));
-  encoded_secret = g_base64_encode ((guchar*)secret, strlen (secret));
-
-  string = g_strconcat (encoded_token, " ", encoded_secret, NULL);
-
-  g_free (encoded_token);
-  g_free (encoded_secret);
-
-  return string;
 }
 
 static GtkWidget *
@@ -259,7 +240,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   secret = rest_xml_node_find (node, "secret")->content;
   uid = rest_xml_node_find (node, "uid")->content;
 
-  password = encode (session_key, secret);
+  password = bisho_utils_encode_tokens (session_key, secret);
   facebook_proxy_set_session_key (FACEBOOK_PROXY (data->proxy), session_key);
   facebook_proxy_set_app_secret (FACEBOOK_PROXY (data->proxy), secret);
 
