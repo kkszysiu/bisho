@@ -38,7 +38,8 @@ handle_uri (BishoWindow *window, const char *s)
   if (strcmp (uri->scheme, "x-bisho") != 0)
     goto done;
 
-  params = soup_form_decode (uri->query);
+  if (uri->query)
+    params = soup_form_decode (uri->query);
 
   bisho_window_callback (window, uri->path, params);
 
