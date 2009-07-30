@@ -242,9 +242,19 @@ find_key_cb (GnomeKeyringResult result,
 }
 
 static void
+bisho_pane_oauth_continue_auth (BishoPane *pane, GHashTable *params)
+{
+  g_debug (__FUNCTION__);
+}
+
+static void
 bisho_pane_oauth_class_init (BishoPaneOauthClass *klass)
 {
-    g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
+  BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
+
+  pane_class->continue_auth = bisho_pane_oauth_continue_auth;
+
+  g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
 }
 
 static void
