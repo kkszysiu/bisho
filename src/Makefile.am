@@ -4,6 +4,7 @@ bisho_SOURCES = \
 	main.c \
 	bisho-window.c bisho-window.h \
 	bisho-pane.c bisho-pane.h \
+	bisho-pane-oauth.c bisho-pane-oauth.h \
 	bisho-oauth-pane.c bisho-oauth-pane.h \
 	bisho-flickr-pane.c bisho-flickr-pane.h \
 	bisho-facebook-pane.c bisho-facebook-pane.h \
