@@ -245,14 +245,10 @@ bisho_window_new (void)
 void
 bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params)
 {
-  GHashTableIter iter;
-  gpointer key, value;
+  BishoPane *pane;
 
-  g_debug ("Got a callback with ID %s", id);
-
-  g_hash_table_iter_init (&iter, params);
-  while (g_hash_table_iter_next (&iter, &key, &value)) {
-    g_debug ("%s=%s", (char*)key, (char*)value);
-  }
+  pane = g_hash_table_lookup (window->priv->panes, id);
+  if (pane)
+    bisho_pane_continue_auth (pane, params);
 }
 
