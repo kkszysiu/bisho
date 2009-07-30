@@ -28,7 +28,6 @@ msgid "Web Services"
 msgstr "Web-serwisy"
 
 #: ../data/bisho.desktop.in.h:2
-#, fuzzy
 msgid "myzone & status"
 msgstr "myzone i stan"
 
