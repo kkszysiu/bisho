@@ -152,7 +152,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       pane = bisho_flickr_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-      g_hash_table_insert (window->priv->panes, info->name, pane);
+      //g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
   case AUTH_FACEBOOK:
@@ -161,7 +161,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       pane = bisho_facebook_pane_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-      g_hash_table_insert (window->priv->panes, info->name, pane);
+      //g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
   case AUTH_INVALID:
