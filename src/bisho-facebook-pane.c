@@ -25,6 +25,7 @@
 #include <rest/facebook-proxy.h>
 #include <rest/rest-xml-parser.h>
 #include "service-info.h"
+#include "bisho-pane.h"
 #include "bisho-utils.h"
 #include "bisho-facebook-pane.h"
 
@@ -80,22 +81,6 @@ decode (const char *string, char **token, char **token_secret)
   g_strfreev (encoded_keys);
 
   return ret;
-}
-
-static GtkWidget *
-make_disclaimer_label (ServiceInfo *info)
-{
-  char *s;
-  GtkWidget *label;
-
-  s = g_strdup_printf (_("You'll need an account with %s and an Internet connection to use this web service."),
-                       info->display_name);
-  label = gtk_label_new (s);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-  g_free (s);
-
-  return label;
 }
 
 static RestXmlNode *
@@ -389,7 +374,7 @@ bisho_facebook_pane_new (ServiceInfo *info)
   gtk_widget_show (data->button);
   gtk_table_attach (GTK_TABLE (table), data->button, 1, 2, 0, 1, 0, 0, 0, 0);
 
-  label = make_disclaimer_label (info);
+  label = bisho_pane_make_disclaimer_label (info);
   gtk_widget_show (label);
   gtk_table_attach (GTK_TABLE (table), label, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
