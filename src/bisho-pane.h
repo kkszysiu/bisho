@@ -23,7 +23,6 @@ typedef struct _BishoPaneClass BishoPaneClass;
 
 struct _BishoPane {
   GtkTable parent;
-  ServiceInfo *info;
 };
 
 struct _BishoPaneClass {
@@ -34,6 +33,8 @@ struct _BishoPaneClass {
 GType bisho_pane_get_type (void) G_GNUC_CONST;
 
 void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
+
+GtkWidget * bisho_pane_make_disclaimer_label (ServiceInfo *info);
 
 G_END_DECLS
 
