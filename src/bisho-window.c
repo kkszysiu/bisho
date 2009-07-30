@@ -27,7 +27,7 @@
 #include "bisho-utils.h"
 #include "service-info.h"
 #include "entry.h"
-#include "bisho-oauth-pane.h"
+#include "bisho-pane-oauth.h"
 #include "bisho-flickr-pane.h"
 #include "bisho-facebook-pane.h"
 
@@ -140,7 +140,7 @@ construct_ui (BishoWindow *window, const char *service_name)
   case AUTH_OAUTH:
     {
       GtkWidget *pane;
-      pane = bisho_oauth_pane_new (info);
+      pane = bisho_pane_oauth_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
       g_hash_table_insert (window->priv->panes, info->name, pane);
