@@ -27,6 +27,8 @@ G_BEGIN_DECLS
 
 void bisho_utils_make_exclusive_expander (MuxExpandingItem *item);
 
+char * bisho_utils_encode_tokens (const char *token, const char *secret);
+
 G_END_DECLS
 
 #endif /* __BISHO_UTILS_H__ */

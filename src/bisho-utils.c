@@ -17,6 +17,7 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <string.h>
 #include <gtk/gtk.h>
 #include "mux-expanding-item.h"
 #include "bisho-utils.h"
@@ -47,3 +48,24 @@ bisho_utils_make_exclusive_expander (MuxExpandingItem *item)
 
   g_signal_connect (item, "notify::expanded", G_CALLBACK (expanded_cb), NULL);
 }
+
+char *
+bisho_utils_encode_tokens (const char *token, const char *secret)
+{
+  char *encoded_token, *encoded_secret;
+  char *string;
+
+  g_assert (token);
+  g_assert (secret);
+
+  encoded_token = g_base64_encode ((guchar*)token, strlen (token));
+  encoded_secret = g_base64_encode ((guchar*)secret, strlen (secret));
+
+  string = g_strconcat (encoded_token, " ", encoded_secret, NULL);
+
+  g_free (encoded_token);
+  g_free (encoded_secret);
+
+  return string;
+}
+
