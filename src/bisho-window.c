@@ -28,7 +28,7 @@
 #include "service-info.h"
 #include "entry.h"
 #include "bisho-pane-oauth.h"
-#include "bisho-flickr-pane.h"
+#include "bisho-pane-flickr.h"
 #include "bisho-facebook-pane.h"
 
 struct _BishoWindowPrivate {
@@ -149,7 +149,7 @@ construct_ui (BishoWindow *window, const char *service_name)
   case AUTH_FLICKR:
     {
       GtkWidget *pane;
-      pane = bisho_flickr_pane_new (info);
+      pane = bisho_pane_flickr_new (info);
       gtk_widget_show (pane);
       gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
       g_hash_table_insert (window->priv->panes, info->name, pane);

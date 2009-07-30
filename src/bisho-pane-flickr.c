@@ -25,7 +25,7 @@
 #include <rest/flickr-proxy.h>
 #include <rest/rest-xml-parser.h>
 #include "service-info.h"
-#include "bisho-flickr-pane.h"
+#include "bisho-pane-flickr.h"
 
 /* TODO: use mojito-keyring */
 static const GnomeKeyringPasswordSchema flickr_schema = {
@@ -317,7 +317,7 @@ bisho_pane_flickr_init (BishoPaneFlickr *self)
 }
 
 GtkWidget *
-bisho_flickr_pane_new (ServiceInfo *info)
+bisho_pane_flickr_new (ServiceInfo *info)
 {
   BishoPaneFlickr *pane;
   BishoPaneFlickrPrivate *priv;
