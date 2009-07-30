@@ -244,7 +244,10 @@ find_key_cb (GnomeKeyringResult result,
 static void
 bisho_pane_oauth_continue_auth (BishoPane *pane, GHashTable *params)
 {
-  g_debug (__FUNCTION__);
+  /* TODO: check the current state */
+  /* TODO: handle the arguments */
+
+  continue_clicked (NULL, pane);
 }
 
 static void
