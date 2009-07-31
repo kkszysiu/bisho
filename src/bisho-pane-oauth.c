@@ -133,12 +133,15 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
-continue_clicked (GtkWidget *button, gpointer user_data)
+bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
 {
-  BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
+  BishoPaneOauth *pane = BISHO_PANE_OAUTH (_pane);
   BishoPaneOauthPrivate *priv = pane->priv;
   GError *error = NULL;
   char *encoded;
+
+  /* TODO: check the current state */
+  /* TODO: handle the arguments */
 
   update_widgets (pane, WORKING);
 
@@ -178,6 +181,12 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   } else {
     update_widgets (pane, LOGGED_OUT);
   }
+}
+
+static void
+continue_clicked (GtkWidget *button, gpointer user_data)
+{
+  bisho_pane_oauth_continue_auth (BISHO_PANE (user_data), NULL);
 }
 
 static void
@@ -239,15 +248,6 @@ find_key_cb (GnomeKeyringResult result,
     update_widgets (pane, LOGGED_IN);
   else
     update_widgets (pane, LOGGED_OUT);
-}
-
-static void
-bisho_pane_oauth_continue_auth (BishoPane *pane, GHashTable *params)
-{
-  /* TODO: check the current state */
-  /* TODO: handle the arguments */
-
-  continue_clicked (NULL, pane);
 }
 
 static void
