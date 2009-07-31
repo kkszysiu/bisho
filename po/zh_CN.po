@@ -21,7 +21,7 @@ msgstr "Web服务"
 
 #: ../data/bisho.desktop.in.h:2
 msgid "myzone & status"
-msgstr "首页和当前状态"
+msgstr "myzone和当前状态"
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
@@ -43,7 +43,7 @@ msgstr "Web Services设置"
 msgid ""
 "Set up your social networks to see new updates in myzone and the status "
 "panel."
-msgstr "设置你的社交网络以便在首页和状态面板中显示最近更新"
+msgstr "设置你的社交网络以便在myzone和状态面板中显示最近更新"
 
 #: ../src/bisho-window.c:225
 #, c-format
