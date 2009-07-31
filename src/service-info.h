@@ -49,7 +49,6 @@ typedef struct {
     struct {
       char *api_key;
       char *shared_secret;
-      char *frob;
     } flickr;
     struct {
       char *app_id;

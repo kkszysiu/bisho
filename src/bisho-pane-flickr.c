@@ -49,7 +49,6 @@ struct _BishoPaneFlickrPrivate {
 typedef enum {
   LOGGED_OUT,
   WORKING,
-  CONTINUE_AUTH,
   LOGGED_IN,
 } ButtonState;
 
@@ -105,28 +104,11 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
   BishoPaneFlickrPrivate *priv = pane->priv;
   char *url;
-  RestProxyCall *call;
-  RestXmlNode *node;
 
   update_widgets (pane, WORKING, NULL);
 
-  /* TODO: async */
-  call = rest_proxy_new_call (priv->proxy);
-  rest_proxy_call_set_function (call, "flickr.auth.getFrob");
-
-  if (!rest_proxy_call_run (call, NULL, NULL))
-    g_error ("Cannot get frob");
-
-  node = get_xml (call);
-
-  priv->info->flickr.frob = g_strdup (rest_xml_node_find (node, "frob")->content);
-  rest_xml_node_unref (node);
-
-  url = flickr_proxy_build_login_url (FLICKR_PROXY (priv->proxy), priv->info->flickr.frob);
+  url = flickr_proxy_build_login_url (FLICKR_PROXY (priv->proxy), NULL);
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
-
-  /* TODO wait for dbus call from callback */
-  update_widgets (pane, CONTINUE_AUTH, NULL);
 }
 
 
@@ -170,9 +152,9 @@ got_auth (RestXmlNode *node, BishoPaneFlickr *pane)
 }
 
 static void
-continue_clicked (GtkWidget *button, gpointer user_data)
+bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
 {
-  BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
+  BishoPaneFlickr *pane = BISHO_PANE_FLICKR (_pane);
   BishoPaneFlickrPrivate *priv = pane->priv;
   RestProxyCall *call;
   RestXmlNode *node;
@@ -182,7 +164,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
 
   call = rest_proxy_new_call (priv->proxy);
   rest_proxy_call_set_function (call, "flickr.auth.getToken");
-  rest_proxy_call_add_param (call, "frob", priv->info->flickr.frob);
+  rest_proxy_call_add_param (call, "frob", g_hash_table_lookup (params, "frob"));
 
   if (!rest_proxy_call_run (call, NULL, NULL))
     g_error ("Cannot get token");
@@ -231,7 +213,6 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
   BishoPaneFlickrPrivate *priv = pane->priv;
 
   g_signal_handlers_disconnect_by_func (priv->button, log_out_clicked, pane);
-  g_signal_handlers_disconnect_by_func (priv->button, continue_clicked, pane);
   g_signal_handlers_disconnect_by_func (priv->button, log_in_clicked, pane);
 
   /* TODO: display user name */
@@ -247,12 +228,6 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
     gtk_widget_set_sensitive (priv->button, FALSE);
     gtk_label_set_text (GTK_LABEL (priv->label), _("Log in pending..."));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
-    break;
-  case CONTINUE_AUTH:
-    gtk_widget_set_sensitive (priv->button, TRUE);
-    gtk_label_set_text (GTK_LABEL (priv->label), _("Once you have logged in to Flickr, press Continue."));
-    gtk_button_set_label (GTK_BUTTON (priv->button), _("Continue"));
-    g_signal_connect (priv->button, "clicked", G_CALLBACK (continue_clicked), pane);
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (priv->button, TRUE);
@@ -307,6 +282,10 @@ find_key_cb (GnomeKeyringResult result,
 static void
 bisho_pane_flickr_class_init (BishoPaneFlickrClass *klass)
 {
+  BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
+
+  pane_class->continue_auth = bisho_pane_flickr_continue_auth;
+
   g_type_class_add_private (klass, sizeof (BishoPaneFlickrPrivate));
 }
 
