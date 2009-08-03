@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-27 09:21+0000\n"
+"POT-Creation-Date: 2009-07-29 09:20+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSSVE_GMartinson <gmartinson@gmail.com>\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr "Webbtjänster"
 
 #: ../data/bisho.desktop.in.h:2
 msgid "myzone & status"
-msgstr "Myzone, status etc."
+msgstr "MyZone, status etc."
 
 #: ../src/bisho-window.c:94
 msgid "Launch site for more information."
@@ -40,7 +40,7 @@ msgstr "Inställningar för webbtjänster"
 
 #: ../src/bisho-window.c:204
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Gör dina nätverksinställningar för att se uppdateringar i Myzone och statusfältet."
+msgstr "Gör dina nätverksinställningar för att se uppdateringar i MyZone och statusfältet."
 
 #: ../src/bisho-window.c:225
 #, c-format
