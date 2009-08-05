@@ -22,7 +22,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL([0.40], [no-xml])
 
-PKG_CHECK_MODULES(DEPS, mojito-client mojito-keystore gtk+-2.0 gconf-2.0 gnome-keyring-1 libsoup-2.4 rest >= 0.4 unique-1.0)
+PKG_CHECK_MODULES(DEPS, mojito-client mojito-keystore gtk+-2.0 gconf-2.0 gnome-keyring-1 libsoup-2.4 rest >= 0.6 unique-1.0)
 
 AM_GCONF_SOURCE_2
 
