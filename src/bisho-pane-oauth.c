@@ -48,6 +48,7 @@ struct _BishoPaneOauthPrivate {
   ServiceInfo *info;
   RestProxy *proxy;
   GtkWidget *label;
+  GtkWidget *entry;
   GtkWidget *button;
 };
 
@@ -91,7 +92,10 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   update_widgets (pane, WORKING);
 
   /* TODO: async */
-  oauth_proxy_auth_step (OAUTH_PROXY (priv->proxy), info->oauth.request_token_function, &error);
+  oauth_proxy_request_token (OAUTH_PROXY (priv->proxy),
+                             info->oauth.request_token_function,
+                             info->oauth.callback,
+                             &error);
   if (error) {
     /* TODO */
     g_warning ("%s", error->message);
@@ -102,8 +106,20 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   url = create_url (info, oauth_proxy_get_token (OAUTH_PROXY (priv->proxy)));
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
 
-  /* TODO wait for dbus call from callback */
-  update_widgets (pane, CONTINUE_AUTH);
+  if (info->oauth.callback == NULL) {
+    update_widgets (pane, CONTINUE_AUTH);
+  } else {
+    /* TODO: insert check for 1.0a? */
+    if (strcmp (info->oauth.callback, "oob") == 0) {
+      update_widgets (pane, CONTINUE_AUTH);
+      gtk_widget_show (priv->entry);
+    } else {
+      update_widgets (pane, CONTINUE_AUTH);
+      /* TODO: should be
+         update_widgets (pane, WORKING);
+         but myspace breaks this at the moment */
+    }
+  }
 }
 
 
@@ -139,14 +155,35 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   BishoPaneOauthPrivate *priv = pane->priv;
   GError *error = NULL;
   char *encoded;
+  const char *verifier;
 
   /* TODO: check the current state */
   /* TODO: handle the arguments */
 
   update_widgets (pane, WORKING);
 
+  /*
+   * If the server is using 1.0a then we need to provide a verifier.  If the
+   * callback is "oob" then we need to ask for the verifier, otherwise it's in
+   * the parameters we've been passed.
+   */
+  if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
+    /* If 1.0a then a callback must have been specified */
+    if (strcmp (priv->info->oauth.callback, "oob") == 0) {
+      verifier = gtk_entry_get_text (GTK_ENTRY (priv->entry));
+      gtk_widget_hide (priv->entry);
+    } else {
+      verifier = g_hash_table_lookup (params, "oauth_verifier");
+    }
+  } else {
+    verifier = NULL;
+  }
+
   /* TODO: async */
-  oauth_proxy_auth_step (OAUTH_PROXY (priv->proxy), priv->info->oauth.access_token_function, &error);
+  oauth_proxy_access_token (OAUTH_PROXY (priv->proxy),
+                            priv->info->oauth.access_token_function,
+                            verifier,
+                            &error);
   if (error) {
     /* TODO */
     g_warning ("%s", error->message);
@@ -299,13 +336,16 @@ bisho_pane_oauth_new (ServiceInfo *info)
   gtk_widget_show (priv->label);
   gtk_table_attach (table, priv->label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
+  priv->entry = gtk_entry_new ();
+  gtk_table_attach (table, priv->entry, 1, 2, 0, 1, 0, 0, 0, 0);
+
   priv->button = gtk_button_new ();
   gtk_widget_show (priv->button);
-  gtk_table_attach (table, priv->button, 1, 2, 0, 1, 0, 0, 0, 0);
+  gtk_table_attach (table, priv->button, 2, 3, 0, 1, 0, 0, 0, 0);
 
   label = bisho_pane_make_disclaimer_label (info);
   gtk_widget_show (label);
-  gtk_table_attach (table, label, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+  gtk_table_attach (table, label, 1, 3, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
   update_widgets (pane, LOGGED_OUT);
 
