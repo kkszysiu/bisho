@@ -7,7 +7,7 @@ icondir = $(datadir)/icons/hicolor/48x48/apps
 dist_icon_DATA = bisho.png
 
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = callback.schemas
+schema_DATA = bisho.schemas
 
 install-data-local:
 if GCONF_SCHEMAS_INSTALL

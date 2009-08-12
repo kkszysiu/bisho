@@ -29,7 +29,7 @@ AM_GCONF_SOURCE_2
 AC_OUTPUT([
         Makefile
         data/Makefile
-        data/callback.schemas
+        data/bisho.schemas
         src/Makefile
         po/Makefile.in
 ])

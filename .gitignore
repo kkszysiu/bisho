@@ -24,7 +24,7 @@ po/Makefile*
 po/POTFILES
 po/stamp-it
 data/bisho.desktop
-data/callback.schemas
+data/bisho.schemas
 po/.intltool-merge-cache
 src/bisho
 src/bisho-url-callback
