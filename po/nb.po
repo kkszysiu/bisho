@@ -78,7 +78,7 @@ msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 #: ../src/bisho-pane.c:53
-#, fuzzy, c-format
+#, c-format
 msgid "You'll need an account with %s and an Internet connection to use this web service."
 msgstr "Du trenger en konto med %s og en internettilkobling for å bruke denne webtjenesten"
 
