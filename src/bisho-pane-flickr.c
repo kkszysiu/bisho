@@ -71,13 +71,13 @@ get_xml (RestProxyCall *call)
                                           rest_proxy_call_get_payload_length (call));
 
   if (root == NULL) {
-    g_message ("Invalid XML from Flickr:\n%s\n",
+    g_message ("Invalid XML from Flickr:\n%s",
                rest_proxy_call_get_payload (call));
     goto done;
   }
 
   if (strcmp (root->name, "rsp") != 0) {
-    g_message ("Unexpected response from Flickr:\n%s\n",
+    g_message ("Unexpected response from Flickr:\n%s",
                rest_proxy_call_get_payload (call));
     rest_xml_node_unref (root);
     root = NULL;
@@ -162,7 +162,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   GError *error = NULL;
 
   if (params == NULL || g_hash_table_lookup (params, "frob") == NULL) {
-    g_printerr ("Frob not provided in callback, cannot continue\n");
+    g_message ("Frob not provided in callback, cannot continue");
     update_widgets (pane, LOGGED_OUT, NULL);
     return;
   }

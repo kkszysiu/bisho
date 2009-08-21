@@ -40,7 +40,7 @@ service_info_authtype_from_string (const char *s)
   } else if (g_ascii_strcasecmp (s, "facebook") == 0) {
     return AUTH_FACEBOOK;
   } else {
-    g_message ("Unknown authentication type '%s'\n", s);
+    g_message ("Unknown authentication type '%s'", s);
     return AUTH_INVALID;
   }
 }
@@ -100,7 +100,7 @@ get_info_for_service (const char *name)
         info->oauth.consumer_key = g_strdup (key);
         info->oauth.consumer_secret = g_strdup (secret);
       } else {
-        g_printerr ("Cannot find keys for %s\n", info->name);
+        g_message ("Cannot find keys for %s", info->name);
         /* Yes, we're leaking.  Live with it */
         return NULL;
       }
@@ -119,7 +119,7 @@ get_info_for_service (const char *name)
         info->flickr.api_key = g_strdup (key);
         info->flickr.shared_secret = g_strdup (secret);
       } else {
-        g_printerr ("Cannot find keys for %s\n", info->name);
+        g_message ("Cannot find keys for %s", info->name);
         /* Yes, we're leaking.  Live with it */
         return NULL;
       }
@@ -133,7 +133,7 @@ get_info_for_service (const char *name)
         info->facebook.app_id = g_strdup (key);
         info->facebook.secret = g_strdup (secret);
       } else {
-        g_printerr ("Cannot find API keys for %s\n", info->name);
+        g_message ("Cannot find API keys for %s", info->name);
         /* Yes, we're leaking.  Live with it */
         return NULL;
       }
