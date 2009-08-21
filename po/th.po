@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-17 09:24+0000\n"
-"PO-Creation-Date: 2009-08-17 09:24+0000\n"
+"POT-Creation-Date: 2009-08-19 09:22+0000\n"
+"PO-Revision-Date: \n"
 "Last-Translator: Anuchit Chalothorn <anoochit@gmail.com>\n"
-"Language-Team: Thai <L10N@opentle.org>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Creation-Date: 2009-08-17 09:24+0000\n"
 "X-Poedit-Language: Thai\n"
 "X-Poedit-Country: THAILAND\n"
-"PO-Revision-Date: \n"
 
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
@@ -26,26 +26,22 @@ msgstr "บริการบนเว็บ"
 msgid "myzone & status"
 msgstr "โซนของฉัน และ สถานะ"
 
-#: ../src/bisho-facebook-pane.c:273
-#: ../src/bisho-pane-flickr.c:228
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:228
 #: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "อยู่ในระหว่างการดำเนินการ"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:229
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:229
 #: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "ล็อกอิน"
 
-#: ../src/bisho-facebook-pane.c:279
-#: ../src/bisho-pane-flickr.c:234
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:234
 #: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "อยู่ในระหว่างการดำเนินการ..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:235
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:235
 #: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "กำลังดำเนินการ..."
@@ -54,38 +50,35 @@ msgstr "กำลังดำเนินการ..."
 msgid "Press Continue to continue the log in."
 msgstr "กดปุ่มดำเนินการต่อ เพื่อทำการล็อกอิน"
 
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "ดำเนินการต่อ"
 
-#: ../src/bisho-facebook-pane.c:292
-#: ../src/bisho-pane-flickr.c:241
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:241
 #, c-format
 msgid "Logged in as %s"
 msgstr "เข้าระบบเป็น %s"
 
-#: ../src/bisho-facebook-pane.c:296
-#: ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:245
 #: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "ล็อกอินแล้ว"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:247
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:247
 #: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "ล็อกเอาท์"
 
-#: ../src/bisho-facebook-pane.c:362
-#: ../src/bisho-pane-flickr.c:327
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:327
 #: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>สถานะ:</b>"
 
 #: ../src/bisho-pane.c:53
 #, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgid ""
+"You'll need an account with %s and an Internet connection to use this web "
+"service."
 msgstr "คุณต้องใช้บัญชีผู้ใช้และ %s และการเชื่อมต่อกับอินเทอร์เน็ตเพื่อใช้บริการเว็บนี้"
 
 #: ../src/bisho-pane-oauth.c:259
@@ -97,8 +90,7 @@ msgstr "เมื่อคุณล็อกอินไปยัง %s เร�
 msgid "Launch site for more information."
 msgstr "เปิดเว็บไซต์เพื่อดูรายละเอียดเพิ่มเติม"
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
 msgid "Username:"
 msgstr "ชื่อผู้ใช้ : "
 
@@ -111,11 +103,12 @@ msgid "Web Services Settings"
 msgstr "ตั้งค่าบริการเว็บ"
 
 #: ../src/bisho-window.c:209
-msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
 msgstr "ตั้งค่าเครือข่าวสังคมของคุณ เพื่อดูความเคลื่อนไหวใน โซนของฉัน และสถานะในพาเนล"
 
 #: ../src/bisho-window.c:232
 #, c-format
 msgid "%s login changed."
 msgstr "%s ล็อกอินถูกเปลี่ยน"
-
