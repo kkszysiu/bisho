@@ -161,6 +161,12 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   const char *token;
   GError *error = NULL;
 
+  if (params == NULL || g_hash_table_lookup (params, "frob") == NULL) {
+    g_printerr ("Frob not provided in callback, cannot continue\n");
+    update_widgets (pane, LOGGED_OUT, NULL);
+    return;
+  }
+
   update_widgets (pane, WORKING, NULL);
 
   call = rest_proxy_new_call (priv->proxy);
