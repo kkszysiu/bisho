@@ -130,7 +130,7 @@ get_user_name (WidgetData *data, const char *uid)
   rest_proxy_call_add_param (call, "uids", uid);
   rest_proxy_call_add_param (call, "fields", "name");
 
-  if (!rest_proxy_call_run (call, NULL, NULL))
+  if (!rest_proxy_call_sync (call, NULL))
     g_error ("Cannot get user info");
 
   node = get_xml (call);
@@ -156,7 +156,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   call = rest_proxy_new_call (data->proxy);
   rest_proxy_call_set_function (call, "auth.createToken");
 
-  if (!rest_proxy_call_run (call, NULL, NULL))
+  if (!rest_proxy_call_sync (call, NULL))
     g_error ("Cannot get token");
 
   node = get_xml (call);
@@ -211,7 +211,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   rest_proxy_call_set_function (call, "auth.getSession");
   rest_proxy_call_add_param (call, "auth_token", data->info->facebook.token);
 
-  if (!rest_proxy_call_run (call, NULL, NULL))
+  if (!rest_proxy_call_sync (call, NULL))
     g_error ("Cannot get session");
 
   node = get_xml (call);
@@ -321,7 +321,7 @@ find_key_cb (GnomeKeyringResult result,
       rest_proxy_call_set_function (call, "users.getLoggedInUser");
 
       /* TODO async */
-      if (!rest_proxy_call_run (call, NULL, NULL))
+      if (!rest_proxy_call_sync (call, NULL))
         g_error ("Cannot get user");
 
       node = get_xml (call);

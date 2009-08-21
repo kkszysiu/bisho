@@ -167,7 +167,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   rest_proxy_call_set_function (call, "flickr.auth.getToken");
   rest_proxy_call_add_param (call, "frob", g_hash_table_lookup (params, "frob"));
 
-  if (!rest_proxy_call_run (call, NULL, &error)) {
+  if (!rest_proxy_call_sync (call, &error)) {
     g_message ("Cannot get token: %s", error->message);
     g_error_free (error);
     update_widgets (pane, LOGGED_OUT, NULL);
@@ -269,7 +269,7 @@ find_key_cb (GnomeKeyringResult result,
     rest_proxy_call_set_function (call, "flickr.auth.checkToken");
 
     /* TODO async */
-    if (!rest_proxy_call_run (call, NULL, &error)) {
+    if (!rest_proxy_call_sync (call, &error)) {
       g_message ("Cannot check token: %s", error->message);
       g_error_free (error);
     } else {
