@@ -1,0 +1,115 @@
+# Bisho Catalan translation.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the Bisho package.
+# Gil Forcada <gilforcada@guifi.net>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Bisho 2.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-15 09:21+0000\n"
+"PO-Revision-Date: 2009-08-21 14:32+0200\n"
+"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "Serveis web"
+
+#: ../data/bisho.desktop.in.h:2
+msgid "myzone & status"
+msgstr "la meva zona i el meu estat"
+
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:228
+#: ../src/bisho-pane-oauth.c:244
+msgid "Log in pending"
+msgstr "Falta autenticar-se"
+
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:229
+#: ../src/bisho-pane-oauth.c:245
+msgid "Log me in"
+msgstr "Autentica'm"
+
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:234
+#: ../src/bisho-pane-oauth.c:250
+msgid "Log in pending..."
+msgstr "Falta autenticar-se..."
+
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:235
+#: ../src/bisho-pane-oauth.c:251
+msgid "Working..."
+msgstr "S'està treballant..."
+
+#: ../src/bisho-facebook-pane.c:284
+msgid "Press Continue to continue the log in."
+msgstr "Premeu «Continuar» per a continuar l'autenticació."
+
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:241
+#, c-format
+msgid "Logged in as %s"
+msgstr "Autenticat com a %s"
+
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-pane-oauth.c:270
+msgid "Logged in"
+msgstr "Autenticat"
+
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:247
+#: ../src/bisho-pane-oauth.c:271
+msgid "Log me out"
+msgstr "Surt"
+
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:327
+#: ../src/bisho-pane-oauth.c:327
+msgid "<b>Status:</b>"
+msgstr "<b>Estat:</b>"
+
+#: ../src/bisho-pane.c:53
+#, c-format
+msgid ""
+"You'll need an account with %s and an Internet connection to use this web "
+"service."
+msgstr ""
+"Necessiteu un compte a %s i una connexió a Internet per fer servir aquest "
+"servei web."
+
+#: ../src/bisho-pane-oauth.c:259
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Un cop us hagueu autenticat a %s, premeu «Continuar»."
+
+#: ../src/bisho-window.c:96
+msgid "Launch site for more information."
+msgstr "Per a més informació obre el lloc."
+
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+#: ../src/bisho-window.c:129
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: ../src/bisho-window.c:202
+msgid "Web Services Settings"
+msgstr "Paràmetres dels serveis web"
+
+#: ../src/bisho-window.c:209
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Configureu les vostres xarxes socials per a veure les actualitzacions a "
+"la meva zona i al quadre d'estat."
+
+#: ../src/bisho-window.c:232
+#, c-format
+msgid "%s login changed."
+msgstr "S'ha canviat l'usuari de %s."
