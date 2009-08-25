@@ -1,5 +1,6 @@
 [Desktop Entry]
 _Name=Web Services
+# Please don't translate "myzone"
 _Comment=myzone & status
 Exec=bisho
 Icon=bisho

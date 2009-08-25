@@ -207,6 +207,7 @@ bisho_window_init (BishoWindow *self)
   gtk_widget_show (self->priv->master_box);
   gtk_container_add (GTK_CONTAINER (self), self->priv->master_box);
 
+  /* Please don't translate 'myzone' */
   label = gtk_label_new (_("Set up your social networks to see new updates in myzone and the status panel."));
   gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
   gtk_widget_show (label);
