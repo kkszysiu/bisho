@@ -26,6 +26,7 @@
 #include <rest/rest-xml-parser.h>
 #include "service-info.h"
 #include "bisho-pane-flickr.h"
+#include "bisho-utils.h"
 
 /* TODO: use mojito-keyring */
 static const GnomeKeyringPasswordSchema flickr_schema = {
@@ -71,12 +72,14 @@ get_xml (RestProxyCall *call)
                                           rest_proxy_call_get_payload_length (call));
 
   if (root == NULL) {
+    bisho_utils_message (NULL, "Flickr", NULL);
     g_message ("Invalid XML from Flickr:\n%s",
                rest_proxy_call_get_payload (call));
     goto done;
   }
 
   if (strcmp (root->name, "rsp") != 0) {
+    bisho_utils_message (NULL, "Flickr", NULL);
     g_message ("Unexpected response from Flickr:\n%s",
                rest_proxy_call_get_payload (call));
     rest_xml_node_unref (root);
@@ -86,8 +89,14 @@ get_xml (RestProxyCall *call)
 
   if (strcmp (rest_xml_node_get_attr (root, "stat"), "ok") != 0) {
     RestXmlNode *node;
+    const char *msg;
+
     node = rest_xml_node_find (root, "err");
-    g_message ("Error from Flickr: %s", rest_xml_node_get_attr (node, "msg"));
+    msg = rest_xml_node_get_attr (node, "msg");
+
+    bisho_utils_message (NULL, "Flickr", msg);
+    g_message ("Error from Flickr: %s", msg);
+
     rest_xml_node_unref (root);
     root = NULL;
     goto done;
@@ -163,6 +172,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
 
   if (params == NULL || g_hash_table_lookup (params, "frob") == NULL) {
     g_message ("Frob not provided in callback, cannot continue");
+    bisho_utils_message (NULL, "Flickr", NULL);
     update_widgets (pane, LOGGED_OUT, NULL);
     return;
   }
@@ -174,6 +184,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   rest_proxy_call_add_param (call, "frob", g_hash_table_lookup (params, "frob"));
 
   if (!rest_proxy_call_sync (call, &error)) {
+    bisho_utils_message (NULL, "Flickr", error->message);
     g_message ("Cannot get token: %s", error->message);
     g_error_free (error);
     update_widgets (pane, LOGGED_OUT, NULL);
@@ -276,6 +287,7 @@ find_key_cb (GnomeKeyringResult result,
 
     /* TODO async */
     if (!rest_proxy_call_sync (call, &error)) {
+      bisho_utils_message (NULL, "Flickr", error->message);
       g_message ("Cannot check token: %s", error->message);
       g_error_free (error);
     } else {
