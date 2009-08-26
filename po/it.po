@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-27 09:21+0000\n"
-"PO-Revision-Date: 2009-07-29 09:42+0100\n"
+"POT-Creation-Date: 2009-08-26 09:23+0000\n"
+"PO-Revision-Date: 2009-08-26 21:32+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -20,113 +20,113 @@ msgstr ""
 msgid "Web Services"
 msgstr "Servizi web"
 
-#: ../data/bisho.desktop.in.h:2
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "myzone e stato"
 
-# (ndt) è una specie di pulsante/collegamento
-#: ../src/bisho-window.c:94
-msgid "Launch site for more information."
-msgstr "Apri il sito web per maggiori informazioni."
-
-#: ../src/bisho-window.c:105
-#: ../src/bisho-window.c:121
-msgid "Username:"
-msgstr "Nome utente:"
-
-#: ../src/bisho-window.c:127
-msgid "Password:"
-msgstr "Password:"
-
-#: ../src/bisho-window.c:197
-msgid "Web Services Settings"
-msgstr "Impostazioni dei servizi web"
-
-#: ../src/bisho-window.c:204
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Impostare i social network a cui si partecipa per visualizzare aggiornamenti all'interno della myzone e nel pannello di stato."
-
-# (ndt) un po' lunga e libera, ma c'è spazio
-# si vede quando si modificano le credenziali
-# di un servizio web
-#: ../src/bisho-window.c:225
-#, c-format
-msgid "%s login changed."
-msgstr "Informazioni di accesso di %s modificate."
-
-#: ../src/bisho-facebook-pane.c:110
-#: ../src/bisho-oauth-pane.c:62
-#: ../src/bisho-flickr-pane.c:65
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Sono necessari un account con %s e una connessione a Internet per utilizzare questo servizio web."
-
-#: ../src/bisho-facebook-pane.c:307
-#: ../src/bisho-oauth-pane.c:222
-#: ../src/bisho-flickr-pane.c:251
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Accesso in corso"
 
 # (ndt) pulsante
-#: ../src/bisho-facebook-pane.c:308
-#: ../src/bisho-oauth-pane.c:223
-#: ../src/bisho-flickr-pane.c:252
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "Accedi"
 
-#: ../src/bisho-facebook-pane.c:313
-#: ../src/bisho-oauth-pane.c:228
-#: ../src/bisho-flickr-pane.c:257
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Accesso..."
 
-#: ../src/bisho-facebook-pane.c:314
-#: ../src/bisho-oauth-pane.c:229
-#: ../src/bisho-flickr-pane.c:258
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "In lavorazione..."
 
-#: ../src/bisho-facebook-pane.c:318
+#: ../src/bisho-facebook-pane.c:284
 msgid "Press Continue to continue the log in."
 msgstr "Premere «Continua» per continuare l'accesso."
 
 # (ndt) pulsante
-#: ../src/bisho-facebook-pane.c:319
-#: ../src/bisho-oauth-pane.c:242
-#: ../src/bisho-flickr-pane.c:263
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "Continua"
 
-#: ../src/bisho-facebook-pane.c:326
-#: ../src/bisho-flickr-pane.c:270
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Accesso effettuato come %s"
 
-#: ../src/bisho-facebook-pane.c:330
-#: ../src/bisho-oauth-pane.c:248
-#: ../src/bisho-flickr-pane.c:274
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Accesso effettuato"
 
-#: ../src/bisho-facebook-pane.c:332
-#: ../src/bisho-oauth-pane.c:249
-#: ../src/bisho-flickr-pane.c:276
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "Disconnetti"
 
-#: ../src/bisho-facebook-pane.c:396
-#: ../src/bisho-oauth-pane.c:286
-#: ../src/bisho-flickr-pane.c:333
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Stato:</b>"
 
-#: ../src/bisho-oauth-pane.c:237
+#: ../src/bisho-pane.c:53
+#, c-format
+msgid ""
+"You'll need an account with %s and an Internet connection to use this web "
+"service."
+msgstr ""
+"Sono necessari un account con %s e una connessione a Internet per utilizzare "
+"questo servizio web."
+
+#: ../src/bisho-pane-oauth.c:259
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Una volta eseguito l'accesso a %s, fare clic su «Continua»."
 
-#: ../src/bisho-flickr-pane.c:262
-msgid "Once you have logged in to Flickr, press Continue."
-msgstr "Una volta eseguito l'accesso a Flickr, fare clic su «Continua»."
+#: ../src/bisho-utils.c:87
+#, c-format
+msgid "Cannot login to %s"
+msgstr "Impossibile accedere a %s"
 
+# (ndt) è una specie di pulsante/collegamento
+#: ../src/bisho-window.c:96
+msgid "Launch site for more information."
+msgstr "Apri il sito web per maggiori informazioni."
+
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
+msgid "Username:"
+msgstr "Nome utente:"
+
+#: ../src/bisho-window.c:129
+msgid "Password:"
+msgstr "Password:"
+
+#: ../src/bisho-window.c:202
+msgid "Web Services Settings"
+msgstr "Impostazioni dei servizi web"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:211
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Impostare i social network a cui si partecipa per visualizzare aggiornamenti "
+"all'interno della myzone e nel pannello di stato."
+
+# (ndt) un po' lunga e libera, ma c'è spazio
+# si vede quando si modificano le credenziali
+# di un servizio web
+#: ../src/bisho-window.c:234
+#, c-format
+msgid "%s login changed."
+msgstr "Informazioni di accesso di %s modificate."
+
+#~ msgid "Once you have logged in to Flickr, press Continue."
+#~ msgstr "Una volta eseguito l'accesso a Flickr, fare clic su «Continua»."
