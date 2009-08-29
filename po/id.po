@@ -1,131 +1,116 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Translation of bisho to Indonesian.
+# Copyright (C) 2009 Andika Triwidada
 # This file is distributed under the same license as the PACKAGE package.
-# Rahman Yusri Aftian aftian@yahoo.com, 2009.
-#
+# Andika Triwidada <andika@gmail.com>, 2009.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: bisho.master.id\n"
+"Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-26 09:23+0000\n"
-"PO-Revision-Date: 2009-08-27 08:09+0700\n"
-"Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
-"Language-Team: Indonesia <translation-team-id@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2009-08-24 09:23+0000\n"
+"PO-Revision-Date: 2009-08-25 16:48+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Indonesian\n"
-"X-Poedit-Country: INDONESIA\n"
-"X-Poedit-Bookmarks: 20,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
 msgstr "Layanan Web"
 
-#. Please don't translate "myzone"
-#: ../data/bisho.desktop.in.h:3
+#: ../data/bisho.desktop.in.h:2
+#, fuzzy
 msgid "myzone & status"
-msgstr "myzone & status"
+msgstr "zonaku & status"
 
-#: ../src/bisho-facebook-pane.c:273
-#: ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:234
 #: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Masuk tertunda"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:235
 #: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
-msgstr "Masuk Saya"
+msgstr "Masukkan saya"
 
-#: ../src/bisho-facebook-pane.c:279
-#: ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:240
 #: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Masuk tertunda..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:241
 #: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
-msgstr "Sedang Bekerja..."
+msgstr "Bekerja..."
 
 #: ../src/bisho-facebook-pane.c:284
 msgid "Press Continue to continue the log in."
-msgstr "Tekan Lanjut untuk melanjutkan log in"
+msgstr "Tekan Lanjutkan untuk meneruskan masuk."
 
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
-msgstr "Lanjut"
+msgstr "Lanjutkan"
 
-#: ../src/bisho-facebook-pane.c:292
-#: ../src/bisho-pane-flickr.c:258
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:247
 #, c-format
 msgid "Logged in as %s"
-msgstr "Masuk sebagai % s"
+msgstr "Masuk sebagai %s"
 
-#: ../src/bisho-facebook-pane.c:296
-#: ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:251
 #: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
-msgstr "Msuk di"
+msgstr "Telah masuk"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:253
 #: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
-msgstr ""
+msgstr "Keluarkan saya"
 
-#: ../src/bisho-facebook-pane.c:362
-#: ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:333
 #: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
 #: ../src/bisho-pane.c:53
 #, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Anda akan membutuhkan sebuah account dengan % s dan sambungan Internet untuk menggunakan layanan web ini."
+msgid ""
+"You'll need an account with %s and an Internet connection to use this web "
+"service."
+msgstr ""
+"Anda perlu akun pada %s dan sambungan Internet untuk memakai layanan web ini."
 
 #: ../src/bisho-pane-oauth.c:259
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
-msgstr "Setelah Anda masuk ke % s, tekan Lanjut."
-
-#: ../src/bisho-utils.c:87
-#, c-format
-msgid "Cannot login to %s"
-msgstr "Tidak dapat masuk ke %s"
+msgstr "Setelah anda masuk ke %s, tekan Lanjutkan."
 
 #: ../src/bisho-window.c:96
 msgid "Launch site for more information."
-msgstr "Luncurkan Web Site untuk informasi lainnya"
+msgstr "Luncurkan situs untuk info lebih lanjut."
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
 msgid "Username:"
-msgstr "Namapengguna:"
+msgstr "Nama pengguna:"
 
 #: ../src/bisho-window.c:129
 msgid "Password:"
-msgstr "Katakunci:"
+msgstr "Kata sandi:"
 
 #: ../src/bisho-window.c:202
 msgid "Web Services Settings"
-msgstr "Pengaturan Layanan Web"
+msgstr "Penataan Layanan Web"
 
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:211
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Atur Jejaring Sosial Anda untuk melihat Pembaruan di myzone dan status panel."
+#: ../src/bisho-window.c:210
+#, fuzzy
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Siapkan jejaring sosial anda untuk melihat pembaruan di zonaku dan panel "
+"status."
 
-#: ../src/bisho-window.c:234
+#: ../src/bisho-window.c:233
 #, c-format
 msgid "%s login changed."
-msgstr ""
-
-#~ msgid "Once you have logged in to Flickr, press Continue."
-#~ msgstr "Setelah Anda masuk ke% s, tekan Lanjut."
-
+msgstr "Login %s diubah."
