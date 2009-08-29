@@ -2,7 +2,7 @@
 # Copyright (C) 2009 The bisho copyright holder
 # This file is distributed under the same license as the bisho package.
 # Cosmin Bordeianu <elloxar@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Romanian\n"
-"X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: ROMANIA\n"
 
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
@@ -26,59 +26,46 @@ msgstr "Servicii Web"
 msgid "myzone & status"
 msgstr "myzone și status"
 
-#: ../src/bisho-facebook-pane.c:273
-#: ../src/bisho-pane-flickr.c:228
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:228
 #: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Autentificare în curs de aşteptare"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:229
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:229
 #: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "Autentifică-mă"
 
-#: ../src/bisho-facebook-pane.c:279
-#: ../src/bisho-pane-flickr.c:234
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:234
 #: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Autentificare în curs de aşteptare..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:235
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:235
 #: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "Se lucrează..."
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "Apasă Continuă pentru a continua autentificarea."
-
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "Continuă"
 
-#: ../src/bisho-facebook-pane.c:292
-#: ../src/bisho-pane-flickr.c:241
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:241
 #, c-format
 msgid "Logged in as %s"
 msgstr "Autentificat ca %s"
 
-#: ../src/bisho-facebook-pane.c:296
-#: ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:245
 #: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Autentificat"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:247
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:247
 #: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "Deconectează-mă"
 
-#: ../src/bisho-facebook-pane.c:362
-#: ../src/bisho-pane-flickr.c:327
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:327
 #: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
@@ -97,8 +84,7 @@ msgstr "Odată ce v-aţi autentificat la %s, apăsaţi Continuă."
 msgid "Launch site for more information."
 msgstr "Lansaţi site-ul pentru mai multe informaţii."
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
 msgid "Username:"
 msgstr "Utilizator:"
 
@@ -119,3 +105,6 @@ msgstr "Configuraţi-vă reţelele sociale pentru a vedea noi actualizări în m
 msgid "%s login changed."
 msgstr "%s autentificare modificată."
 
+#: ../src/bisho-facebook-pane.c:284
+msgid "Press Continue to continue the log in."
+msgstr "Apasați Continuă pentru a continua autentificarea."
