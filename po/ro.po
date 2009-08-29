@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-19 09:22+0000\n"
-"PO-Revision-Date: 2009-08-29 04:08+0200\n"
+"PO-Revision-Date: 2009-08-29 18:42+0200\n"
 "Last-Translator: Cosmin Bordeianu <elloxar@gmail.com>\n"
 "Language-Team: Moblin Romania <live@moblin.ro>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Servicii Web"
 
 #: ../data/bisho.desktop.in.h:2
 msgid "myzone & status"
-msgstr "myzone și status"
+msgstr "myzone & status"
 
 #: ../src/bisho-facebook-pane.c:273
 #: ../src/bisho-pane-flickr.c:228
