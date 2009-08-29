@@ -2,7 +2,6 @@
 # Copyright (C) 2009 Andika Triwidada
 # This file is distributed under the same license as the PACKAGE package.
 # Andika Triwidada <andika@gmail.com>, 2009.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
@@ -18,11 +17,6 @@ msgstr ""
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
 msgstr "Layanan Web"
-
-#: ../data/bisho.desktop.in.h:2
-#, fuzzy
-msgid "myzone & status"
-msgstr "zonaku & status"
 
 #: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:234
 #: ../src/bisho-pane-oauth.c:244
@@ -74,11 +68,8 @@ msgstr "<b>Status:</b>"
 
 #: ../src/bisho-pane.c:53
 #, c-format
-msgid ""
-"You'll need an account with %s and an Internet connection to use this web "
-"service."
-msgstr ""
-"Anda perlu akun pada %s dan sambungan Internet untuk memakai layanan web ini."
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Anda perlu akun pada %s dan sambungan Internet untuk memakai layanan web ini."
 
 #: ../src/bisho-pane-oauth.c:259
 #, c-format
@@ -101,16 +92,15 @@ msgstr "Kata sandi:"
 msgid "Web Services Settings"
 msgstr "Penataan Layanan Web"
 
-#: ../src/bisho-window.c:210
-#, fuzzy
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr ""
-"Siapkan jejaring sosial anda untuk melihat pembaruan di zonaku dan panel "
-"status."
-
 #: ../src/bisho-window.c:233
 #, c-format
 msgid "%s login changed."
 msgstr "Login %s diubah."
+
+#: ../data/bisho.desktop.in.h:2
+msgid "myzone & status"
+msgstr "myzone & status"
+
+#: ../src/bisho-window.c:210
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Siapkan jejaring sosial anda untuk melihat pembaruan di myzone dan panel status."
