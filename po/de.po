@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-29 09:20+0000\n"
+"POT-Creation-Date: 2009-08-28 01:55+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: GLSDEU_Andreas <andreasx.machoy@intel.com>\n"
+"Last-Translator: TG\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,110 +17,113 @@ msgstr ""
 msgid "Web Services"
 msgstr "Web-Services"
 
-#: ../data/bisho.desktop.in.h:2
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "MeineZone & Status"
 
-#: ../src/bisho-window.c:94
-msgid "Launch site for more information."
-msgstr "Mehr Informationen findest du auf der Website."
-
-#: ../src/bisho-window.c:105
-#: ../src/bisho-window.c:121
-msgid "Username:"
-msgstr "Benutzername:"
-
-#: ../src/bisho-window.c:127
-msgid "Password:"
-msgstr "Kennwort:"
-
-#: ../src/bisho-window.c:197
-msgid "Web Services Settings"
-msgstr "Web-Service-Einstellungen"
-
-#: ../src/bisho-window.c:204
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Richte bitte deine sozialen Netzwerke ein, um Updates in 'MeineZone' und dem Statusfeld zu sehen."
-
-#: ../src/bisho-window.c:225
-#, c-format
-msgid "%s login changed."
-msgstr "Die Anmeldungsdaten für %s wurden geändert."
-
-#: ../src/bisho-facebook-pane.c:110
-#: ../src/bisho-oauth-pane.c:62
-#: ../src/bisho-flickr-pane.c:65
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Du brauchst ein Konto mit %s und eine Internetverbindung um diesen Web-Service zu nutzen."
-
-#: ../src/bisho-facebook-pane.c:307
-#: ../src/bisho-oauth-pane.c:222
-#: ../src/bisho-flickr-pane.c:251
+#: ../src/bisho-facebook-pane.c:273
+#: ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Anmeldung läuft"
 
-#: ../src/bisho-facebook-pane.c:308
-#: ../src/bisho-oauth-pane.c:223
-#: ../src/bisho-flickr-pane.c:252
+#: ../src/bisho-facebook-pane.c:274
+#: ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "Melde mich an"
 
-#: ../src/bisho-facebook-pane.c:313
-#: ../src/bisho-oauth-pane.c:228
-#: ../src/bisho-flickr-pane.c:257
+#: ../src/bisho-facebook-pane.c:279
+#: ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Anmeldung läuft..."
 
 # "Working" is kind of vague... I don't know what the system is "working" on. So the translation may sound strange in some context.
 # Backtranslation means "is being processed"
 # Maybe using a translation for "busy" may be better...
-#: ../src/bisho-facebook-pane.c:314
-#: ../src/bisho-oauth-pane.c:229
-#: ../src/bisho-flickr-pane.c:258
+#: ../src/bisho-facebook-pane.c:280
+#: ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "Wird bearbeitet..."
 
-#: ../src/bisho-facebook-pane.c:318
+#: ../src/bisho-facebook-pane.c:284
 msgid "Press Continue to continue the log in."
 msgstr "Klicke auf Weiter um mit der Anmeldung fortzufahren."
 
-#: ../src/bisho-facebook-pane.c:319
-#: ../src/bisho-oauth-pane.c:242
-#: ../src/bisho-flickr-pane.c:263
+#: ../src/bisho-facebook-pane.c:285
+#: ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: ../src/bisho-facebook-pane.c:326
-#: ../src/bisho-flickr-pane.c:270
+#: ../src/bisho-facebook-pane.c:292
+#: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Angemeldet als %s"
 
-#: ../src/bisho-facebook-pane.c:330
-#: ../src/bisho-oauth-pane.c:248
-#: ../src/bisho-flickr-pane.c:274
+#: ../src/bisho-facebook-pane.c:296
+#: ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Angemeldet"
 
-#: ../src/bisho-facebook-pane.c:332
-#: ../src/bisho-oauth-pane.c:249
-#: ../src/bisho-flickr-pane.c:276
+#: ../src/bisho-facebook-pane.c:298
+#: ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "Melde mich ab"
 
-#: ../src/bisho-facebook-pane.c:396
-#: ../src/bisho-oauth-pane.c:286
-#: ../src/bisho-flickr-pane.c:333
+#: ../src/bisho-facebook-pane.c:362
+#: ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
-#: ../src/bisho-oauth-pane.c:237
+#: ../src/bisho-pane.c:53
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Du brauchst ein Konto mit %s und eine Internetverbindung um diesen Web-Service zu nutzen."
+
+#: ../src/bisho-pane-oauth.c:259
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Nach der Anmeldung bei %s klicke bitte auf Weiter."
 
-#: ../src/bisho-flickr-pane.c:262
-msgid "Once you have logged in to Flickr, press Continue."
-msgstr "Nach der Anmeldung bei Flickr klicke bitte auf Weiter."
+#: ../src/bisho-utils.c:87
+#, c-format
+msgid "Cannot login to %s"
+msgstr "Anmeldung bei %s nicht möglich"
+
+#: ../src/bisho-window.c:96
+msgid "Launch site for more information."
+msgstr "Mehr Informationen findest du auf der Website."
+
+#: ../src/bisho-window.c:107
+#: ../src/bisho-window.c:123
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: ../src/bisho-window.c:129
+msgid "Password:"
+msgstr "Kennwort:"
+
+#: ../src/bisho-window.c:202
+msgid "Web Services Settings"
+msgstr "Web-Service-Einstellungen"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:211
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Richte bitte deine sozialen Netzwerke ein, um Updates in 'MeineZone' und dem Statusfeld zu sehen."
+
+#: ../src/bisho-window.c:234
+#, c-format
+msgid "%s login changed."
+msgstr "Die Anmeldungsdaten für %s wurden geändert."
+
+#~ msgid "Once you have logged in to Flickr, press Continue."
+#~ msgstr "Nach der Anmeldung bei Flickr klicke bitte auf Weiter."
 
