@@ -203,7 +203,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   RestProxyCall *call;
   RestXmlNode *node;
   const char *session_key, *secret, *uid;
-  char *password;
+  char *password, *permission, *url;
 
   update_widgets (data, WORKING, NULL);
 
@@ -253,6 +253,26 @@ continue_clicked (GtkWidget *button, gpointer user_data)
                                                  "mojito",
                                                  LIBEXECDIR "/mojito-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
+
+    call = rest_proxy_new_call (data->proxy);
+
+    rest_proxy_call_set_function (call, "Users.hasAppPermission");
+    rest_proxy_call_add_param (call, "ext_perm", "publish_stream");
+
+    if (!rest_proxy_call_run (call, NULL, NULL))
+      return;
+
+    node = get_xml (call);
+    if (!node)
+      return;
+
+    permission = g_strdup (node->content);
+    rest_xml_node_unref (node);
+
+    if (g_strcmp0 (permission, "0") == 0) {
+      url = facebook_proxy_build_permission_url (FACEBOOK_PROXY (data->proxy), "publish_stream");
+      gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
+    }
   } else {
     update_widgets (data, LOGGED_OUT, NULL);
   }
