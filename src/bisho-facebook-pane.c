@@ -121,6 +121,7 @@ get_user_name (WidgetData *data, const char *uid)
 {
   RestProxyCall *call;
   RestXmlNode *node;
+  GError *error = NULL;
 
   g_assert (data);
   g_assert (uid);
@@ -130,8 +131,11 @@ get_user_name (WidgetData *data, const char *uid)
   rest_proxy_call_add_param (call, "uids", uid);
   rest_proxy_call_add_param (call, "fields", "name");
 
-  if (!rest_proxy_call_sync (call, NULL))
-    g_error ("Cannot get user info");
+  if (!rest_proxy_call_sync (call, &error)) {
+    g_message ("Cannot get user info: %s", error->message);
+    g_error_free (error);
+    return;
+  }
 
   node = get_xml (call);
   if (node) {
@@ -149,6 +153,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   char *url;
   RestProxyCall *call;
   RestXmlNode *node;
+  GError *error = NULL;
 
   update_widgets (data, WORKING, NULL);
 
@@ -156,8 +161,12 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   call = rest_proxy_new_call (data->proxy);
   rest_proxy_call_set_function (call, "auth.createToken");
 
-  if (!rest_proxy_call_sync (call, NULL))
-    g_error ("Cannot get token");
+  if (!rest_proxy_call_sync (call, &error)) {
+    g_message ("Cannot get token: %s", error->message);
+    g_error_free (error);
+    update_widgets (data, LOGGED_OUT, NULL);
+    return;
+  }
 
   node = get_xml (call);
 
@@ -212,7 +221,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
   rest_proxy_call_add_param (call, "auth_token", data->info->facebook.token);
 
   if (!rest_proxy_call_sync (call, NULL))
-    g_error ("Cannot get session");
+    g_message ("Cannot get session");
 
   node = get_xml (call);
 
@@ -332,6 +341,7 @@ find_key_cb (GnomeKeyringResult result,
     RestProxyCall *call;
     RestXmlNode *node;
     char *secret, *session;
+    GError *error = NULL;
 
     if (decode (string, &session, &secret)) {
       facebook_proxy_set_app_secret (FACEBOOK_PROXY (data->proxy), secret);
@@ -341,8 +351,11 @@ find_key_cb (GnomeKeyringResult result,
       rest_proxy_call_set_function (call, "users.getLoggedInUser");
 
       /* TODO async */
-      if (!rest_proxy_call_sync (call, NULL))
-        g_error ("Cannot get user");
+      if (!rest_proxy_call_sync (call, &error)) {
+        g_message ("Cannot get user: %s", error->message);
+        g_error_free (error);
+        return;
+      }
 
       node = get_xml (call);
       if (node) {
