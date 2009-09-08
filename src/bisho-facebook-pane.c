@@ -259,7 +259,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
     rest_proxy_call_set_function (call, "Users.hasAppPermission");
     rest_proxy_call_add_param (call, "ext_perm", "publish_stream");
 
-    if (!rest_proxy_call_run (call, NULL, NULL))
+    if (!rest_proxy_call_sync (call, NULL))
       return;
 
     node = get_xml (call);
