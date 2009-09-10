@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -12,35 +13,17 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "網絡服務"
-
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "我的地區和狀態"
 
-#: ../src/bisho-facebook-pane.c:273
-#: ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:244
-msgid "Log in pending"
-msgstr "登入等後中"
-
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:246
 #: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "會員登入"
 
-#: ../src/bisho-facebook-pane.c:279
-#: ../src/bisho-pane-flickr.c:251
-#: ../src/bisho-pane-oauth.c:250
-msgid "Log in pending..."
-msgstr "登入等後中..."
-
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:252
 #: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "繼續中..."
@@ -49,44 +32,29 @@ msgstr "繼續中..."
 msgid "Press Continue to continue the log in."
 msgstr "按一下繼續，以繼續登入。"
 
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "繼續"
 
-#: ../src/bisho-facebook-pane.c:292
-#: ../src/bisho-pane-flickr.c:258
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "%s 登入"
 
-#: ../src/bisho-facebook-pane.c:296
-#: ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:262
 #: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "會員登入"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:264
 #: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "會員登出"
 
-#: ../src/bisho-facebook-pane.c:362
-#: ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:345
 #: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>狀態：</b>"
-
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "您需要一個帳戶與 %s 和網際網路連接才能使用此網絡服務。"
-
-#: ../src/bisho-pane-oauth.c:259
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "一旦您登錄到 %s ，請按一下繼續。"
 
 #: ../src/bisho-utils.c:87
 #, c-format
@@ -97,8 +65,7 @@ msgstr "無法登入 %s"
 msgid "Launch site for more information."
 msgstr "開起網站了解更多信息"
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
 msgid "Username:"
 msgstr "使用者："
 
@@ -106,20 +73,43 @@ msgstr "使用者："
 msgid "Password:"
 msgstr "密碼："
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "網絡服務設置"
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:211
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "設置您的社交網絡，尋看我的地區和狀態控制板的最新信息。"
-
 #: ../src/bisho-window.c:234
 #, c-format
 msgid "%s login changed."
 msgstr "%s 登入改變。"
 
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:211
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "設定您的社交網絡，尋看我的地區和狀態控制面板的最新信息。"
+
+#: ../data/bisho.desktop.in.h:1
+msgid "Web Services"
+msgstr "網路服務"
+
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-pane-oauth.c:244
+msgid "Log in pending"
+msgstr "登入等候中"
+
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-pane-oauth.c:250
+msgid "Log in pending..."
+msgstr "登入等候中..."
+
+#: ../src/bisho-window.c:202
+msgid "Web Services Settings"
+msgstr "網路服務設定"
+
+#: ../src/bisho-pane.c:53
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "您需要一個帳戶與 %s 和網際網路連接才能使用此網路服務。"
+
+#: ../src/bisho-pane-oauth.c:259
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "一旦您登入到 %s ，請按一下繼續。"
+
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "一旦您登入到 Flickr ，請按一下繼續。"
-
