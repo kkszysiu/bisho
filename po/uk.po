@@ -1,8 +1,9 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-03 09:20+0000\n"
+"POT-Creation-Date: 2009-08-28 01:55+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Oleksii Baranov <aleksey.baranov@gmail.com>\n"
 "Language-Team: \n"
@@ -16,107 +17,99 @@ msgstr ""
 msgid "Web Services"
 msgstr "Веб Сервіси"
 
-#: ../data/bisho.desktop.in.h:2
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "myzone і стан"
 
-#: ../src/bisho-window.c:94
-msgid "Launch site for more information."
-msgstr "Відкрийте сайт щоб отримати більше інформації."
-
-#: ../src/bisho-window.c:105
-#: ../src/bisho-window.c:121
-msgid "Username:"
-msgstr "Логін:"
-
-#: ../src/bisho-window.c:127
-msgid "Password:"
-msgstr "Пароль:"
-
-#: ../src/bisho-window.c:197
-msgid "Web Services Settings"
-msgstr "Налаштування Веб Сервісів"
-
-#: ../src/bisho-window.c:204
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Налаштуйте свої соціальні мережі щоб побачити оновлення в myzone та на панелі стану"
-
-#: ../src/bisho-window.c:225
-#, c-format
-msgid "%s login changed."
-msgstr "Логін %s змінено."
-
-#: ../src/bisho-facebook-pane.c:110
-#: ../src/bisho-oauth-pane.c:62
-#: ../src/bisho-flickr-pane.c:65
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Щоб скористатися цим веб сервісом, Вам потрібен обліковий запис на %s та підключення до Інтернету. "
-
-#: ../src/bisho-facebook-pane.c:307
-#: ../src/bisho-oauth-pane.c:222
-#: ../src/bisho-flickr-pane.c:251
+#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Очікування на вхід"
 
-#: ../src/bisho-facebook-pane.c:308
-#: ../src/bisho-oauth-pane.c:223
-#: ../src/bisho-flickr-pane.c:252
+#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "Впустіть мене"
 
-#: ../src/bisho-facebook-pane.c:313
-#: ../src/bisho-oauth-pane.c:228
-#: ../src/bisho-flickr-pane.c:257
+#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Очікування на вхід..."
 
-#: ../src/bisho-facebook-pane.c:314
-#: ../src/bisho-oauth-pane.c:229
-#: ../src/bisho-flickr-pane.c:258
+#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "Працюю..."
 
-#: ../src/bisho-facebook-pane.c:318
+#: ../src/bisho-facebook-pane.c:284
 msgid "Press Continue to continue the log in."
 msgstr "Натисніть Далі для продовження."
 
-#: ../src/bisho-facebook-pane.c:319
-#: ../src/bisho-oauth-pane.c:242
-#: ../src/bisho-flickr-pane.c:263
+#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "Далі"
 
-#: ../src/bisho-facebook-pane.c:326
-#: ../src/bisho-flickr-pane.c:270
+#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Ви увійшли як %s"
 
-#: ../src/bisho-facebook-pane.c:330
-#: ../src/bisho-oauth-pane.c:248
-#: ../src/bisho-flickr-pane.c:274
+#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Вхід виконано"
 
-#: ../src/bisho-facebook-pane.c:332
-#: ../src/bisho-oauth-pane.c:249
-#: ../src/bisho-flickr-pane.c:276
+#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "Вийти"
 
-#: ../src/bisho-facebook-pane.c:396
-#: ../src/bisho-oauth-pane.c:286
-#: ../src/bisho-flickr-pane.c:333
+#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Стан:</b>"
 
-#: ../src/bisho-oauth-pane.c:237
+#: ../src/bisho-pane.c:53
+#, c-format
+msgid "You'll need an account with %s and an Internet connection to use this web service."
+msgstr "Щоб скористатися цим веб сервісом, Вам потрібен обліковий запис на %s та підключення до Інтернету. "
+
+#: ../src/bisho-pane-oauth.c:259
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Натисніть Далі після входу на %s."
 
-#: ../src/bisho-flickr-pane.c:262
-msgid "Once you have logged in to Flickr, press Continue."
-msgstr "Натисніть Далі після входу на Flickr."
+#: ../src/bisho-window.c:96
+msgid "Launch site for more information."
+msgstr "Відкрийте сайт щоб отримати більше інформації."
 
+#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
+msgid "Username:"
+msgstr "Логін:"
+
+#: ../src/bisho-window.c:129
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../src/bisho-window.c:202
+msgid "Web Services Settings"
+msgstr "Налаштування Веб Сервісів"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:211
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Налаштуйте свої соціальні мережі щоб побачити оновлення в myzone та на панелі стану"
+
+#: ../src/bisho-window.c:234
+#, c-format
+msgid "%s login changed."
+msgstr "Логін %s змінено."
+
+#: ../src/bisho-utils.c:87
+#, c-format
+msgid "Cannot login to %s"
+msgstr "Неможливо увійти до %s"
+
+#~ msgid "Once you have logged in to Flickr, press Continue."
+#~ msgstr "Натисніть Далі після входу на Flickr."
