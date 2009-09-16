@@ -26,7 +26,6 @@ typedef enum {
   AUTH_USERNAME_PASSWORD,
   AUTH_OAUTH,
   AUTH_FLICKR,
-  AUTH_FACEBOOK
 } ServiceAuthType;
 
 typedef struct {
@@ -50,11 +49,6 @@ typedef struct {
       char *api_key;
       char *shared_secret;
     } flickr;
-    struct {
-      char *app_id;
-      char *secret;
-      char *token;
-    } facebook;
   };
 } ServiceInfo;
 
