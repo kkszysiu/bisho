@@ -17,6 +17,8 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <config.h>
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
 #include "service-info.h"
@@ -47,10 +49,14 @@ init (BishoWindow *window)
 static void
 set_gconf_key (ServiceInfo *info, const char *key, const char *value)
 {
+  char *s;
+
   /* TODO: block gconf notify when we have one */
   gconf_client_set_string (gconf, key, value, NULL);
 
-  bisho_window_change_banner (todo_window, info);
+  s = g_strdup_printf (_("%s login changed."), info->display_name);
+  bisho_window_change_banner (todo_window, s);
+  g_free (s);
 }
 
 static gboolean

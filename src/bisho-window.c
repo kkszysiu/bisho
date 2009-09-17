@@ -214,16 +214,13 @@ bisho_window_init (BishoWindow *self)
 }
 
 void
-bisho_window_change_banner (BishoWindow *window, ServiceInfo *info)
+bisho_window_change_banner (BishoWindow *window, const char *message)
 {
-  char *s;
-
   g_return_if_fail (BISHO_IS_WINDOW (window));
-  g_return_if_fail (info);
+  g_return_if_fail (message);
 
-  s = g_strdup_printf (_("%s login changed."), info->display_name);
-  mux_banner_set_text (MUX_BANNER (window->priv->banner), s);
-  g_free (s);
+  //s = g_strdup_printf (_("%s login changed."), info->display_name);
+  mux_banner_set_text (MUX_BANNER (window->priv->banner), message);
 
   gtk_widget_show (window->priv->banner);
 }
