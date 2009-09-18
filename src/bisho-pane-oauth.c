@@ -45,10 +45,10 @@ typedef enum {
 } ButtonState;
 
 struct _BishoPaneOauthPrivate {
-  ServiceInfo *info;
+  ServiceInfo *info; /* TODO remove */
   RestProxy *proxy;
-  GtkWidget *label;
-  GtkWidget *entry;
+  GtkWidget *pin_label;
+  GtkWidget *pin_entry;
   GtkWidget *button;
 };
 
@@ -112,7 +112,8 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
     /* TODO: insert check for 1.0a? */
     if (strcmp (info->oauth.callback, "oob") == 0) {
       update_widgets (pane, CONTINUE_AUTH);
-      gtk_widget_show (priv->entry);
+      gtk_widget_show (priv->pin_label);
+      gtk_widget_show (priv->pin_entry);
     } else {
       update_widgets (pane, CONTINUE_AUTH);
       /* TODO: should be
@@ -170,8 +171,9 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
     /* If 1.0a then a callback must have been specified */
     if (strcmp (priv->info->oauth.callback, "oob") == 0) {
-      verifier = gtk_entry_get_text (GTK_ENTRY (priv->entry));
-      gtk_widget_hide (priv->entry);
+      verifier = gtk_entry_get_text (GTK_ENTRY (priv->pin_entry));
+      gtk_widget_hide (priv->pin_label);
+      gtk_widget_hide (priv->pin_entry);
     } else {
       verifier = g_hash_table_lookup (params, "oauth_verifier");
     }
@@ -241,13 +243,11 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
   switch (state) {
   case LOGGED_OUT:
     gtk_widget_set_sensitive (priv->button, TRUE);
-    gtk_label_set_text (GTK_LABEL (priv->label), _("Log in pending"));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me in"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
     break;
   case WORKING:
     gtk_widget_set_sensitive (priv->button, FALSE);
-    gtk_label_set_text (GTK_LABEL (priv->label), _("Log in pending..."));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
   case CONTINUE_AUTH:
@@ -258,7 +258,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
 
       s = g_strdup_printf (_("Once you have logged in to %s, press Continue."),
                            priv->info->display_name);
-      gtk_label_set_text (GTK_LABEL (priv->label), s);
+      bisho_pane_set_banner (BISHO_PANE (pane), s);
       g_free (s);
 
       gtk_button_set_label (GTK_BUTTON (priv->button), _("Continue"));
@@ -267,7 +267,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (priv->button, TRUE);
-    gtk_label_set_text (GTK_LABEL (priv->label), _("Logged in"));
+    bisho_pane_set_banner (BISHO_PANE (pane), _("Logged in"));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
@@ -308,15 +308,15 @@ bisho_pane_oauth_new (ServiceInfo *info)
 {
   BishoPaneOauth *pane;
   BishoPaneOauthPrivate *priv;
-  GtkTable *table;
-  GtkWidget *label;
+  GtkWidget *content, *box;
 
   g_assert (info);
   g_assert (info->auth == AUTH_OAUTH);
 
-  pane = g_object_new (BISHO_TYPE_PANE_OAUTH, NULL);
+  pane = g_object_new (BISHO_TYPE_PANE_OAUTH,
+                       "service", info,
+                       NULL);
   priv = pane->priv;
-  table = GTK_TABLE (pane);
 
   priv->info = info;
   priv->proxy = oauth_proxy_new (info->oauth.consumer_key,
@@ -324,28 +324,21 @@ bisho_pane_oauth_new (ServiceInfo *info)
                                 info->oauth.base_url, FALSE);
   rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
-  label = gtk_label_new (_("<b>Status:</b>"));
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
-  gtk_widget_show (label);
-  gtk_table_attach (table, label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+  content = BISHO_PANE (pane)->content;
 
-  priv->label = gtk_label_new ("");
-  gtk_label_set_line_wrap (GTK_LABEL (priv->label), TRUE);
-  gtk_misc_set_alignment (GTK_MISC (priv->label), 0.0, 0.5);
-  gtk_widget_show (priv->label);
-  gtk_table_attach (table, priv->label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+  box = gtk_hbox_new (FALSE, 8);
+  gtk_widget_show (box);
+  gtk_container_add (GTK_CONTAINER (content), box);
 
-  priv->entry = gtk_entry_new ();
-  gtk_table_attach (table, priv->entry, 1, 2, 0, 1, 0, 0, 0, 0);
+  priv->pin_label = gtk_label_new (_("Code:"));
+  gtk_box_pack_start (GTK_BOX (box), priv->pin_label, FALSE, FALSE, 0);
+
+  priv->pin_entry = gtk_entry_new ();
+  gtk_box_pack_start (GTK_BOX (box), priv->pin_entry, FALSE, FALSE, 0);
 
   priv->button = gtk_button_new ();
   gtk_widget_show (priv->button);
-  gtk_table_attach (table, priv->button, 2, 3, 0, 1, 0, 0, 0, 0);
-
-  label = bisho_pane_make_disclaimer_label (info);
-  gtk_widget_show (label);
-  gtk_table_attach (table, label, 1, 3, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+  gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
 
   update_widgets (pane, LOGGED_OUT);
 
