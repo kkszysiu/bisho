@@ -40,7 +40,8 @@ static const GnomeKeyringPasswordSchema oauth_schema = {
 typedef enum {
   LOGGED_OUT,
   WORKING,
-  CONTINUE_AUTH,
+  CONTINUE_AUTH_10,
+  CONTINUE_AUTH_10a,
   LOGGED_IN,
 } ButtonState;
 
@@ -107,15 +108,13 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
 
   if (info->oauth.callback == NULL) {
-    update_widgets (pane, CONTINUE_AUTH);
+    update_widgets (pane, CONTINUE_AUTH_10);
   } else {
     /* TODO: insert check for 1.0a? */
     if (strcmp (info->oauth.callback, "oob") == 0) {
-      update_widgets (pane, CONTINUE_AUTH);
-      gtk_widget_show (priv->pin_label);
-      gtk_widget_show (priv->pin_entry);
+      update_widgets (pane, CONTINUE_AUTH_10a);
     } else {
-      update_widgets (pane, CONTINUE_AUTH);
+      update_widgets (pane, CONTINUE_AUTH_10);
       /* TODO: should be
          update_widgets (pane, WORKING);
          but myspace breaks this at the moment */
@@ -251,13 +250,30 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     gtk_widget_set_sensitive (priv->button, FALSE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
-  case CONTINUE_AUTH:
+  case CONTINUE_AUTH_10:
     {
       char *s;
 
       gtk_widget_set_sensitive (priv->button, TRUE);
 
       s = g_strdup_printf (_("Once you have logged in to %s, press Continue."),
+                           priv->info->display_name);
+      bisho_pane_set_banner (BISHO_PANE (pane), s);
+      g_free (s);
+
+      gtk_button_set_label (GTK_BUTTON (priv->button), _("Continue"));
+      g_signal_connect (priv->button, "clicked", G_CALLBACK (continue_clicked), pane);
+    }
+    break;
+  case CONTINUE_AUTH_10a:
+    {
+      char *s;
+
+      gtk_widget_show (priv->pin_label);
+      gtk_widget_show (priv->pin_entry);
+      gtk_widget_set_sensitive (priv->button, TRUE);
+
+      s = g_strdup_printf (_("Once you have logged in to %s, enter the code they give you and press Continue."),
                            priv->info->display_name);
       bisho_pane_set_banner (BISHO_PANE (pane), s);
       g_free (s);
