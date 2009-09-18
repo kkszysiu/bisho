@@ -141,23 +141,6 @@ bisho_pane_continue_auth (BishoPane *pane, GHashTable *params)
     pane_class->continue_auth (pane, params);
 }
 
-
-GtkWidget *
-bisho_pane_make_disclaimer_label (ServiceInfo *info)
-{
-  char *s;
-  GtkWidget *label;
-
-  s = g_strdup_printf (_("You'll need an account with %s and an Internet connection to use this web service."),
-                       info->display_name);
-  label = gtk_label_new (s);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-  g_free (s);
-
-  return label;
-}
-
 void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {

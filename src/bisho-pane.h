@@ -40,8 +40,6 @@ GType bisho_pane_get_type (void) G_GNUC_CONST;
 
 void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
 
-G_GNUC_DEPRECATED GtkWidget * bisho_pane_make_disclaimer_label (ServiceInfo *info);
-
 void bisho_pane_set_banner (BishoPane *pane, const char *message);
 
 G_END_DECLS
