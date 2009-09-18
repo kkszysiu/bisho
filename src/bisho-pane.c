@@ -144,6 +144,10 @@ bisho_pane_continue_auth (BishoPane *pane, GHashTable *params)
 void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {
-  mux_banner_set_text (MUX_BANNER (pane->banner), message);
-  gtk_widget_show (pane->banner);
+  if (message) {
+    mux_banner_set_text (MUX_BANNER (pane->banner), message);
+    gtk_widget_show (pane->banner);
+  } else {
+    gtk_widget_hide (pane->banner);
+  }
 }
