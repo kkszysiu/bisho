@@ -108,13 +108,18 @@ bisho_pane_class_init (BishoPaneClass *klass)
 static void
 bisho_pane_init (BishoPane *pane)
 {
+  GtkWidget *align;
+
   pane->description = mux_label_new ();
   gtk_widget_show (pane->description);
   gtk_box_pack_start (GTK_BOX (pane), pane->description, FALSE, FALSE, 0);
 
+  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+  gtk_widget_show (align);
   pane->banner = mux_banner_new ();
   gtk_widget_show (pane->banner);
-  gtk_box_pack_start (GTK_BOX (pane), pane->banner, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (align), pane->banner);
+  gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
   pane->content = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (pane->content);
