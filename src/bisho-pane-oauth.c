@@ -242,6 +242,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
 
   switch (state) {
   case LOGGED_OUT:
+    bisho_pane_set_banner (BISHO_PANE (pane), NULL);
     gtk_widget_set_sensitive (priv->button, TRUE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me in"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
@@ -267,7 +268,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (priv->button, TRUE);
-    bisho_pane_set_banner (BISHO_PANE (pane), _("Logged in"));
+    bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
@@ -308,7 +309,7 @@ bisho_pane_oauth_new (ServiceInfo *info)
 {
   BishoPaneOauth *pane;
   BishoPaneOauthPrivate *priv;
-  GtkWidget *content, *box;
+  GtkWidget *content, *align, *box;
 
   g_assert (info);
   g_assert (info->auth == AUTH_OAUTH);
@@ -326,9 +327,13 @@ bisho_pane_oauth_new (ServiceInfo *info)
 
   content = BISHO_PANE (pane)->content;
 
+  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+  gtk_widget_show (align);
+  gtk_container_add (GTK_CONTAINER (content), align);
+
   box = gtk_hbox_new (FALSE, 8);
   gtk_widget_show (box);
-  gtk_container_add (GTK_CONTAINER (content), box);
+  gtk_container_add (GTK_CONTAINER (align), box);
 
   priv->pin_label = gtk_label_new (_("Code:"));
   gtk_box_pack_start (GTK_BOX (box), priv->pin_label, FALSE, FALSE, 0);
