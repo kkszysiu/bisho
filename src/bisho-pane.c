@@ -20,18 +20,113 @@
 #include <config.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
+#include <nbtk/nbtk-gtk.h>
 #include "bisho-pane.h"
+#include "mux-banner.h"
 
-G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_TABLE);
+G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
+
+enum {
+  PROP_0,
+  PROP_SERVICE
+};
+
+static void
+bisho_pane_get_property (GObject *object, guint property_id,
+                         GValue *value, GParamSpec *pspec)
+{
+  BishoPane *pane = BISHO_PANE (object);
+
+  switch (property_id) {
+  case PROP_SERVICE:
+    g_value_set_pointer (value, pane->info);
+  default:
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+  }
+}
+
+static void
+bisho_pane_set_property (GObject *object, guint property_id,
+                         const GValue *value, GParamSpec *pspec)
+{
+  BishoPane *pane = BISHO_PANE (object);
+
+  switch (property_id) {
+  case PROP_SERVICE:
+    {
+      GtkTextBuffer *buffer;
+      GtkTextIter end;
+      char *s;
+
+      pane->info = g_value_get_pointer (value);
+      buffer = mux_banner_get_buffer (MUX_BANNER (pane->description));
+
+      if (pane->info->description) {
+        gtk_text_buffer_get_end_iter (buffer, &end);
+        gtk_text_buffer_insert (buffer, &end, pane->info->description, -1);
+      }
+
+      if (pane->info->link) {
+        GtkTextTag *tag;
+
+        gtk_text_buffer_get_end_iter (buffer, &end);
+
+        tag = mux_banner_create_link_tag (MUX_BANNER (pane->description), pane->info->link);
+
+        gtk_text_buffer_insert (buffer, &end, "  ", -1);
+        gtk_text_buffer_insert_with_tags (buffer, &end,
+                                          _("Launch site for more information."), -1,
+                                          tag, NULL);
+      }
+
+      s = g_strdup_printf (_("You'll need an account with %s and an Internet connection to use this web service."),
+                           pane->info->display_name);
+      gtk_label_set_text (GTK_LABEL (pane->disclaimer), s);
+      g_free (s);
+    }
+    break;
+  default:
+    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+  }
+}
 
 static void
 bisho_pane_class_init (BishoPaneClass *klass)
 {
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+    GParamSpec *pspec;
+
+    object_class->get_property = bisho_pane_get_property;
+    object_class->set_property = bisho_pane_set_property;
+
+    pspec = g_param_spec_pointer ("service", "service", "service",
+                                  G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+    g_object_class_install_property (object_class, PROP_SERVICE, pspec);
 }
 
 static void
-bisho_pane_init (BishoPane *self)
+bisho_pane_init (BishoPane *pane)
 {
+  pane->description = mux_banner_new ();
+  gtk_widget_show (pane->description);
+  gtk_box_pack_start (GTK_BOX (pane), pane->description, FALSE, FALSE, 0);
+
+  pane->banner_frame = nbtk_gtk_frame_new ();
+  pane->banner = mux_banner_new ();
+  gtk_container_set_border_width (GTK_CONTAINER (pane->banner), 0);
+  gtk_widget_show (pane->banner);
+  gtk_container_add (GTK_CONTAINER (pane->banner_frame), pane->banner);
+  gtk_box_pack_start (GTK_BOX (pane), pane->banner_frame, FALSE, FALSE, 0);
+
+  pane->content = gtk_vbox_new (FALSE, 0);
+  gtk_widget_show (pane->content);
+  gtk_box_pack_start (GTK_BOX (pane), pane->content, TRUE, TRUE, 0);
+
+  pane->disclaimer = gtk_label_new (NULL);
+  gtk_widget_show (pane->disclaimer);
+  gtk_misc_set_alignment (GTK_MISC (pane->disclaimer), 0.0, 0.5);
+  gtk_label_set_line_wrap (GTK_LABEL (pane->disclaimer), TRUE);
+  gtk_box_pack_start (GTK_BOX (pane), pane->disclaimer, FALSE, FALSE, 0);
 }
 
 void
@@ -60,3 +155,9 @@ bisho_pane_make_disclaimer_label (ServiceInfo *info)
   return label;
 }
 
+void
+bisho_pane_set_banner (BishoPane *pane, const char *message)
+{
+  mux_banner_set_text (MUX_BANNER (pane->banner), message);
+  gtk_widget_show (pane->banner_frame);
+}

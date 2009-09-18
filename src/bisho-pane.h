@@ -22,11 +22,17 @@ typedef struct _BishoPane BishoPane;
 typedef struct _BishoPaneClass BishoPaneClass;
 
 struct _BishoPane {
-  GtkTable parent;
+  GtkVBox parent;
+  ServiceInfo *info;
+  GtkWidget *description;
+  GtkWidget *banner_frame;
+  GtkWidget *banner;
+  GtkWidget *content;
+  GtkWidget *disclaimer;
 };
 
 struct _BishoPaneClass {
-  GtkTableClass parent_class;
+  GtkVBoxClass parent_class;
   void (*continue_auth) (BishoPane *pane, GHashTable *params);
 };
 
@@ -34,7 +40,9 @@ GType bisho_pane_get_type (void) G_GNUC_CONST;
 
 void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
 
-GtkWidget * bisho_pane_make_disclaimer_label (ServiceInfo *info);
+G_GNUC_DEPRECATED GtkWidget * bisho_pane_make_disclaimer_label (ServiceInfo *info);
+
+void bisho_pane_set_banner (BishoPane *pane, const char *message);
 
 G_END_DECLS
 

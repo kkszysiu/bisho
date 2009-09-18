@@ -28,7 +28,7 @@
 #include "service-info.h"
 #include "entry.h"
 #include "bisho-pane-oauth.h"
-#include "bisho-pane-flickr.h"
+//#include "bisho-pane-flickr.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -46,11 +46,9 @@ static void
 construct_ui (BishoWindow *window, const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *expander, *label, *banner;
+  GtkWidget *expander, *label;
   GtkBox *box;
   MuxExpandingItem *m;
-  GtkTextBuffer *buffer;
-  GtkTextIter end;
 
   g_assert (window);
   g_assert (service_name);
@@ -72,29 +70,6 @@ construct_ui (BishoWindow *window, const char *service_name)
   box = mux_expanding_item_get_content_box (m);
   gtk_container_set_border_width (GTK_CONTAINER (box), 8);
   gtk_box_set_spacing (box, 8);
-
-  banner = mux_banner_new ();
-  gtk_widget_show (banner);
-  gtk_box_pack_start (box, banner, FALSE, FALSE, 0);
-  buffer = mux_banner_get_buffer (MUX_BANNER (banner));
-
-  if (info->description) {
-    gtk_text_buffer_get_end_iter (buffer, &end);
-    gtk_text_buffer_insert (buffer, &end, info->description, -1);
-  }
-
-  if (info->link) {
-    GtkTextTag *tag;
-
-    gtk_text_buffer_get_end_iter (buffer, &end);
-
-    tag = mux_banner_create_link_tag (MUX_BANNER (banner), info->link);
-
-    gtk_text_buffer_insert (buffer, &end, "  ", -1);
-    gtk_text_buffer_insert_with_tags (buffer, &end,
-                                      _("Launch site for more information."), -1,
-                                      tag, NULL);
-  }
 
   switch (info->auth) {
   case AUTH_USERNAME:
@@ -145,6 +120,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
+#if 0
   case AUTH_FLICKR:
     {
       GtkWidget *pane;
@@ -154,6 +130,7 @@ construct_ui (BishoWindow *window, const char *service_name)
       g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
+#endif
   case AUTH_INVALID:
     /* Should never see this, so ignore it */
     break;
@@ -219,7 +196,6 @@ bisho_window_change_banner (BishoWindow *window, const char *message)
   g_return_if_fail (BISHO_IS_WINDOW (window));
   g_return_if_fail (message);
 
-  //s = g_strdup_printf (_("%s login changed."), info->display_name);
   mux_banner_set_text (MUX_BANNER (window->priv->banner), message);
 
   gtk_widget_show (window->priv->banner);
