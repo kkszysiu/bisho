@@ -29,8 +29,6 @@ void bisho_utils_make_exclusive_expander (MuxExpandingItem *item);
 
 char * bisho_utils_encode_tokens (const char *token, const char *secret);
 
-void bisho_utils_message (GtkWidget *widget, const char *name, const char *message);
-
 G_END_DECLS
 
 #endif /* __BISHO_UTILS_H__ */

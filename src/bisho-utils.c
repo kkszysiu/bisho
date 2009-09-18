@@ -69,27 +69,3 @@ bisho_utils_encode_tokens (const char *token, const char *secret)
 
   return string;
 }
-
-void
-bisho_utils_message (GtkWidget *widget, const char *name, const char *message)
-{
-  GtkWidget *parent = NULL;
-  GtkWidget *dialog;
-
-  if (widget) {
-    parent = gtk_widget_get_toplevel (widget);
-    if (!GTK_WIDGET_TOPLEVEL (parent))
-      parent = NULL;
-  }
-
-  dialog = gtk_message_dialog_new
-    ((GtkWindow *)parent, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
-     _("Cannot login to %s"), name);
-
-  if (message)
-    gtk_message_dialog_format_secondary_text
-      (GTK_MESSAGE_DIALOG (dialog), message);
-
-  gtk_dialog_run (GTK_DIALOG (dialog));
-  gtk_widget_destroy (dialog);
-}
