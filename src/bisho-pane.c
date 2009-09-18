@@ -122,6 +122,16 @@ bisho_pane_init (BishoPane *pane)
   gtk_container_add (GTK_CONTAINER (align), pane->banner);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
+  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+  gtk_widget_show (align);
+  pane->user_box = gtk_hbox_new (FALSE, 0);
+  pane->user_icon = gtk_image_new ();
+  gtk_widget_show (pane->user_icon);
+  pane->user_name = gtk_label_new (NULL);
+  gtk_widget_show (pane->user_name);
+  gtk_container_add (GTK_CONTAINER (align), pane->user_box);
+  gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
+
   pane->content = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (pane->content);
   gtk_box_pack_start (GTK_BOX (pane), pane->content, TRUE, TRUE, 0);
@@ -150,5 +160,29 @@ bisho_pane_set_banner (BishoPane *pane, const char *message)
     gtk_widget_show (pane->banner);
   } else {
     gtk_widget_hide (pane->banner);
+  }
+}
+
+void
+bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
+{
+  if (icon == NULL && username == NULL) {
+    gtk_widget_hide (pane->user_box);
+    return;
+  }
+
+  if (icon) {
+    gtk_image_set_from_file (GTK_IMAGE (pane->user_icon), icon);
+    gtk_widget_show (pane->user_icon);
+  } else {
+    gtk_image_clear (GTK_IMAGE (pane->user_icon));
+    gtk_widget_hide (pane->user_icon);
+  }
+
+  if (username) {
+    gtk_label_set_text (GTK_LABEL (pane->user_name), username);
+    gtk_widget_show (pane->user_name);
+  } else {
+    gtk_widget_hide (pane->user_name);
   }
 }

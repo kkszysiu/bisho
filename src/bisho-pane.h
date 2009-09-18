@@ -26,6 +26,9 @@ struct _BishoPane {
   ServiceInfo *info;
   GtkWidget *description;
   GtkWidget *banner;
+  GtkWidget *user_box;
+  GtkWidget *user_icon;
+  GtkWidget *user_name;
   GtkWidget *content;
   GtkWidget *disclaimer;
 };
@@ -40,6 +43,8 @@ GType bisho_pane_get_type (void) G_GNUC_CONST;
 void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
 
 void bisho_pane_set_banner (BishoPane *pane, const char *message);
+
+void bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username);
 
 G_END_DECLS
 
