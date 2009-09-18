@@ -25,7 +25,6 @@ struct _BishoPane {
   GtkVBox parent;
   ServiceInfo *info;
   GtkWidget *description;
-  GtkWidget *banner_frame;
   GtkWidget *banner;
   GtkWidget *content;
   GtkWidget *disclaimer;
