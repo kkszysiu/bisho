@@ -80,9 +80,9 @@ bisho_pane_set_property (GObject *object, guint property_id,
                                           tag, NULL);
       }
 
-      s = g_strdup_printf (_("You'll need an account with %s and an Internet connection to use this web service."),
+      s = g_strdup_printf (_("<small>You'll need an account with %s and an Internet connection to use this web service.</small>"),
                            pane->info->display_name);
-      gtk_label_set_text (GTK_LABEL (pane->disclaimer), s);
+      gtk_label_set_markup (GTK_LABEL (pane->disclaimer), s);
       g_free (s);
     }
     break;
@@ -110,6 +110,8 @@ bisho_pane_init (BishoPane *pane)
 {
   GtkWidget *align;
 
+  gtk_box_set_spacing (GTK_BOX (pane), 8);
+
   pane->description = mux_label_new ();
   gtk_widget_show (pane->description);
   gtk_box_pack_start (GTK_BOX (pane), pane->description, FALSE, FALSE, 0);
@@ -117,7 +119,6 @@ bisho_pane_init (BishoPane *pane)
   align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
   gtk_widget_show (align);
   pane->banner = mux_banner_new ();
-  gtk_widget_show (pane->banner);
   gtk_container_add (GTK_CONTAINER (align), pane->banner);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
@@ -129,7 +130,7 @@ bisho_pane_init (BishoPane *pane)
   gtk_widget_show (pane->disclaimer);
   gtk_misc_set_alignment (GTK_MISC (pane->disclaimer), 0.0, 0.5);
   gtk_label_set_line_wrap (GTK_LABEL (pane->disclaimer), TRUE);
-  gtk_box_pack_start (GTK_BOX (pane), pane->disclaimer, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (pane), pane->disclaimer, FALSE, TRUE, 0);
 }
 
 void
