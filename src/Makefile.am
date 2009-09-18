@@ -12,7 +12,6 @@ bisho_SOURCES = \
 	mux-banner.c mux-banner.h \
 	mux-expander.c mux-expander.h \
 	mux-expanding-item.c mux-expanding-item.h \
-	mux-frame.c mux-frame.h \
 	mux-icon-button.c mux-icon-button.h \
 	mux-window.c mux-window.h
 

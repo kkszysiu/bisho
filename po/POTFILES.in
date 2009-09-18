@@ -9,7 +9,6 @@ src/main.c
 src/mux-banner.c
 src/mux-expander.c
 src/mux-expanding-item.c
-src/mux-frame.c
 src/mux-icon-button.c
 src/mux-window.c
 src/service-info.c
