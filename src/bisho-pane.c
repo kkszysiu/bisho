@@ -22,7 +22,7 @@
 #include <gtk/gtk.h>
 #include <nbtk/nbtk-gtk.h>
 #include "bisho-pane.h"
-#include "mux-banner.h"
+#include "mux-label.h"
 
 G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
 
@@ -59,7 +59,7 @@ bisho_pane_set_property (GObject *object, guint property_id,
       char *s;
 
       pane->info = g_value_get_pointer (value);
-      buffer = mux_banner_get_buffer (MUX_BANNER (pane->description));
+      buffer = mux_label_get_buffer (MUX_LABEL (pane->description));
 
       if (pane->info->description) {
         gtk_text_buffer_get_end_iter (buffer, &end);
@@ -71,7 +71,7 @@ bisho_pane_set_property (GObject *object, guint property_id,
 
         gtk_text_buffer_get_end_iter (buffer, &end);
 
-        tag = mux_banner_create_link_tag (MUX_BANNER (pane->description), pane->info->link);
+        tag = mux_label_create_link_tag (MUX_LABEL (pane->description), pane->info->link);
 
         gtk_text_buffer_insert (buffer, &end, "  ", -1);
         gtk_text_buffer_insert_with_tags (buffer, &end,
@@ -107,12 +107,12 @@ bisho_pane_class_init (BishoPaneClass *klass)
 static void
 bisho_pane_init (BishoPane *pane)
 {
-  pane->description = mux_banner_new ();
+  pane->description = mux_label_new ();
   gtk_widget_show (pane->description);
   gtk_box_pack_start (GTK_BOX (pane), pane->description, FALSE, FALSE, 0);
 
   pane->banner_frame = nbtk_gtk_frame_new ();
-  pane->banner = mux_banner_new ();
+  pane->banner = mux_label_new ();
   gtk_container_set_border_width (GTK_CONTAINER (pane->banner), 0);
   gtk_widget_show (pane->banner);
   gtk_container_add (GTK_CONTAINER (pane->banner_frame), pane->banner);
@@ -158,6 +158,6 @@ bisho_pane_make_disclaimer_label (ServiceInfo *info)
 void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {
-  mux_banner_set_text (MUX_BANNER (pane->banner), message);
+  mux_label_set_text (MUX_LABEL (pane->banner), message);
   gtk_widget_show (pane->banner_frame);
 }

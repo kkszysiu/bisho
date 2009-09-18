@@ -22,17 +22,17 @@
  */
 
 #include <gtk/gtk.h>
-#include "mux-banner.h"
+#include "mux-label.h"
 
-G_DEFINE_TYPE (MuxBanner, mux_banner, GTK_TYPE_TEXT_VIEW);
+G_DEFINE_TYPE (MuxLabel, mux_label, GTK_TYPE_TEXT_VIEW);
 
 static void
-mux_banner_class_init (MuxBannerClass *klass)
+mux_label_class_init (MuxLabelClass *klass)
 {
 }
 
 static void
-mux_banner_init (MuxBanner *self)
+mux_label_init (MuxLabel *self)
 {
   GtkTextView *text = GTK_TEXT_VIEW (self);
 
@@ -50,17 +50,17 @@ mux_banner_init (MuxBanner *self)
 }
 
 GtkWidget *
-mux_banner_new (void)
+mux_label_new (void)
 {
-  return g_object_new (MUX_TYPE_BANNER, NULL);
+  return g_object_new (MUX_TYPE_LABEL, NULL);
 }
 
 GtkTextBuffer *
-mux_banner_get_buffer (MuxBanner *banner)
+mux_label_get_buffer (MuxLabel *label)
 {
-  g_return_val_if_fail (MUX_IS_BANNER (banner), NULL);
+  g_return_val_if_fail (MUX_IS_LABEL (label), NULL);
 
-  return gtk_text_view_get_buffer (GTK_TEXT_VIEW (banner));
+  return gtk_text_view_get_buffer (GTK_TEXT_VIEW (label));
 }
 
 static gboolean
@@ -83,16 +83,16 @@ on_link_tag_event (GtkTextTag  *tag,
 }
 
 GtkTextTag *
-mux_banner_create_link_tag (MuxBanner *banner, const char *url)
+mux_label_create_link_tag (MuxLabel *label, const char *url)
 {
   GtkTextTag *tag;
 
   /* TODO: make a subclass of GtkTextTag for cleanliness and so that we don't
      leak the URL */
 
-  g_return_val_if_fail (MUX_IS_BANNER (banner), NULL);
+  g_return_val_if_fail (MUX_IS_LABEL (label), NULL);
 
-  tag = gtk_text_buffer_create_tag (gtk_text_view_get_buffer (GTK_TEXT_VIEW (banner)),
+  tag = gtk_text_buffer_create_tag (gtk_text_view_get_buffer (GTK_TEXT_VIEW (label)),
                               NULL,
                               "foreground", "#009bce",
                               "underline", PANGO_UNDERLINE_SINGLE,
@@ -106,9 +106,9 @@ mux_banner_create_link_tag (MuxBanner *banner, const char *url)
 }
 
 void
-mux_banner_set_text (MuxBanner *banner, const char *text)
+mux_label_set_text (MuxLabel *label, const char *text)
 {
-  g_return_if_fail (MUX_IS_BANNER (banner));
+  g_return_if_fail (MUX_IS_LABEL (label));
 
-  gtk_text_buffer_set_text (mux_banner_get_buffer (banner), text, -1);
+  gtk_text_buffer_set_text (mux_label_get_buffer (label), text, -1);
 }
