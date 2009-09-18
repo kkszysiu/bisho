@@ -22,6 +22,7 @@
 #include <gtk/gtk.h>
 #include <nbtk/nbtk-gtk.h>
 #include "bisho-pane.h"
+#include "mux-banner.h"
 #include "mux-label.h"
 
 G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
@@ -111,12 +112,9 @@ bisho_pane_init (BishoPane *pane)
   gtk_widget_show (pane->description);
   gtk_box_pack_start (GTK_BOX (pane), pane->description, FALSE, FALSE, 0);
 
-  pane->banner_frame = nbtk_gtk_frame_new ();
-  pane->banner = mux_label_new ();
-  gtk_container_set_border_width (GTK_CONTAINER (pane->banner), 0);
+  pane->banner = mux_banner_new ();
   gtk_widget_show (pane->banner);
-  gtk_container_add (GTK_CONTAINER (pane->banner_frame), pane->banner);
-  gtk_box_pack_start (GTK_BOX (pane), pane->banner_frame, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (pane), pane->banner, FALSE, FALSE, 0);
 
   pane->content = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (pane->content);
@@ -158,6 +156,6 @@ bisho_pane_make_disclaimer_label (ServiceInfo *info)
 void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {
-  mux_label_set_text (MUX_LABEL (pane->banner), message);
-  gtk_widget_show (pane->banner_frame);
+  mux_banner_set_text (MUX_BANNER (pane->banner), message);
+  gtk_widget_show (pane->banner);
 }

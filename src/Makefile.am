@@ -9,6 +9,7 @@ bisho_SOURCES = \
 	bisho-utils.c bisho-utils.h \
 	entry.c entry.h \
 	service-info.c service-info.h \
+	mux-banner.c mux-banner.h \
 	mux-label.c mux-label.h \
 	mux-expander.c mux-expander.h \
 	mux-expanding-item.c mux-expanding-item.h \
