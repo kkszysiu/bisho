@@ -2,14 +2,14 @@
 # Copyright (C) 2009 Intel
 # This file is distributed under the same license as the PACKAGE package.
 # Zhu Yanhai <yanhai.zhu@intel.com>, 2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-28 01:55+0000\n"
-"PO-Revision-Date: 2009-07-28 10:52:+0800\n"
-"Last-Translator: Zhu Yanhai <yanhai.zhu@intel.com>\n"
+"POT-Creation-Date: 2009-09-16 14:34+0000\n"
+"PO-Revision-Date: 2009-09-18 10:24-0800\n"
+"Last-Translator: GLS <tomas.galicia@intel.com>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,57 +17,66 @@ msgstr ""
 
 #: ../data/bisho.desktop.in.h:1
 msgid "Web Services"
-msgstr "Web服务"
+msgstr "网络服务"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "myzone和当前状态"
+msgstr "我的区域和当前状态"
 
-#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:245
+#: ../src/bisho-facebook-pane.c:302
+#: ../src/bisho-pane-flickr.c:245
 #: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "等待登录"
 
-#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:246
+#: ../src/bisho-facebook-pane.c:303
+#: ../src/bisho-pane-flickr.c:246
 #: ../src/bisho-pane-oauth.c:245
 msgid "Log me in"
 msgstr "登录"
 
-#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:251
+#: ../src/bisho-facebook-pane.c:308
+#: ../src/bisho-pane-flickr.c:251
 #: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "等待登录..."
 
-#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-facebook-pane.c:309
+#: ../src/bisho-pane-flickr.c:252
 #: ../src/bisho-pane-oauth.c:251
 msgid "Working..."
 msgstr "工作中..."
 
-#: ../src/bisho-facebook-pane.c:284
+#: ../src/bisho-facebook-pane.c:313
 msgid "Press Continue to continue the log in."
 msgstr "按回车键继续登录"
 
-#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
+#: ../src/bisho-facebook-pane.c:314
+#: ../src/bisho-pane-oauth.c:264
 msgid "Continue"
 msgstr "继续"
 
-#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:258
+#: ../src/bisho-facebook-pane.c:321
+#: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "以%s的身份登录"
 
-#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:262
+#: ../src/bisho-facebook-pane.c:325
+#: ../src/bisho-pane-flickr.c:262
 #: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "登录"
 
-#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:264
+#: ../src/bisho-facebook-pane.c:327
+#: ../src/bisho-pane-flickr.c:264
 #: ../src/bisho-pane-oauth.c:271
 msgid "Log me out"
 msgstr "登出"
 
-#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:345
+#: ../src/bisho-facebook-pane.c:395
+#: ../src/bisho-pane-flickr.c:345
 #: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>当前状态</b>:"
@@ -75,18 +84,24 @@ msgstr "<b>当前状态</b>:"
 #: ../src/bisho-pane.c:53
 #, c-format
 msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "你需要一个%s的账号和一个可用的Internet连续来使用该Web服务"
+msgstr "你需要一个%s的账号和一个可用的互联网连续来使用该网络服务"
 
 #: ../src/bisho-pane-oauth.c:259
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "当您已登录%s时,请按回车键."
 
+#: ../src/bisho-utils.c:87
+#, c-format
+msgid "Cannot login to %s"
+msgstr "不能登陆到%s"
+
 #: ../src/bisho-window.c:96
 msgid "Launch site for more information."
 msgstr "访问站点以获取更多信息"
 
-#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
+#: ../src/bisho-window.c:107
+#: ../src/bisho-window.c:123
 msgid "Username:"
 msgstr "用户名"
 
@@ -96,22 +111,18 @@ msgstr "密码"
 
 #: ../src/bisho-window.c:202
 msgid "Web Services Settings"
-msgstr "Web Services设置"
+msgstr "网络服务设置"
 
 #. Please don't translate 'myzone'
 #: ../src/bisho-window.c:211
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "设置你的社交网络以便在myzone和状态面板中显示最近更新"
+msgstr "设置你的社交网络以便在我的区域和状态面板中显示最近更新"
 
 #: ../src/bisho-window.c:234
 #, c-format
 msgid "%s login changed."
 msgstr "%s 的登录已经改变"
 
-#: ../src/bisho-utils.c:87
-#, c-format
-msgid "Cannot login to %s"
-msgstr "不能登陆到%s"
-
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "当您登入Flickr以后,请按回车键."
+
