@@ -83,7 +83,7 @@ create_url (ServiceInfo *info, const char *token)
 
 G_GNUC_UNUSED static const char * unused_for_now[] = {
   N_("Sorry, we can't log in to %s. %s"),
-  N_("You could check that the computer's time is correct."),
+  N_("You could check that the computer's clock is correct."),
   N_("You could try again.")
 };
 
