@@ -81,6 +81,12 @@ create_url (ServiceInfo *info, const char *token)
   return s;
 }
 
+G_GNUC_UNUSED static const char * unused_for_now[] = {
+  N_("Sorry, we can't log in to %s. %s"),
+  N_("You could check that the computer's time is correct."),
+  N_("You could try again.")
+};
+
 static void
 log_in_clicked (GtkWidget *button, gpointer user_data)
 {
@@ -98,8 +104,12 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
                              info->oauth.callback,
                              &error);
   if (error) {
-    /* TODO */
-    g_warning ("%s", error->message);
+    char *s;
+    g_message ("Error from %s: %s", info->name, error->message);
+    s = g_strdup_printf (_("Sorry, we can't log in to %s"), info->display_name);
+    bisho_pane_set_banner (BISHO_PANE (pane), s);
+    g_free (s);
+
     update_widgets (pane, LOGGED_OUT);
     return;
   }
