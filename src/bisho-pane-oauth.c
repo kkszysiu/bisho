@@ -107,13 +107,14 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   if (error) {
     char *s;
 
+    update_widgets (pane, LOGGED_OUT);
+
     g_message ("Error from %s: %s", info->name, error->message);
 
     s = g_strdup_printf (_("Sorry, we can't log in to %s"), info->display_name);
     bisho_pane_set_banner (BISHO_PANE (pane), s);
     g_free (s);
 
-    update_widgets (pane, LOGGED_OUT);
     return;
   }
 
@@ -201,13 +202,14 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   if (error) {
     char *s;
 
+    update_widgets (pane, LOGGED_OUT);
+
     g_message ("Error from %s: %s", priv->info->name, error->message);
 
     s = g_strdup_printf (_("Sorry, we can't log in to %s"), priv->info->display_name);
     bisho_pane_set_banner (BISHO_PANE (pane), s);
     g_free (s);
 
-    update_widgets (pane, LOGGED_OUT);
     return;
   }
 
