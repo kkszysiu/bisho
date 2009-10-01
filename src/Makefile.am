@@ -1,11 +1,11 @@
 bin_PROGRAMS = bisho
 
+#	bisho-pane-flickr.c bisho-pane-flickr.h
 bisho_SOURCES = \
 	main.c \
 	bisho-window.c bisho-window.h \
 	bisho-pane.c bisho-pane.h \
 	bisho-pane-oauth.c bisho-pane-oauth.h \
-	bisho-pane-flickr.c bisho-pane-flickr.h \
 	bisho-utils.c bisho-utils.h \
 	entry.c entry.h \
 	service-info.c service-info.h \
