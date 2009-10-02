@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-28 01:55+0000\n"
+"POT-Creation-Date: 2009-10-02 16:13+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: GLS <tomas.galicia@intel.com>\n"
+"Last-Translator: GLSSVE_GMartinson <gmartinson@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,114 +13,147 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Webbtjänster"
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Mina webbkonton"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "MyZone, status etc."
 
-#: ../src/bisho-facebook-pane.c:273
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Använd webbplatsen för mer information"
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Du behöver ett konto med %s och tillgång till internet för att "
+"använda denna webbtjänst.</small>"
+
 #: ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Inloggning pågår"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:246
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
 msgid "Log me in"
 msgstr "Logga in "
 
-#: ../src/bisho-facebook-pane.c:279
 #: ../src/bisho-pane-flickr.c:251
-#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Inloggning pågår..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:251
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
 msgid "Working..."
 msgstr "Vi är på g..."
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "Klicka på Fortsätt för att fortsätta inloggningen."
-
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../src/bisho-facebook-pane.c:292
 #: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Loggar in som %s"
 
-#: ../src/bisho-facebook-pane.c:296
 #: ../src/bisho-pane-flickr.c:262
-#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Inloggad"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:264
-#: ../src/bisho-pane-oauth.c:271
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
 msgid "Log me out"
 msgstr "Stäng och logga ut"
 
-#: ../src/bisho-facebook-pane.c:362
 #: ../src/bisho-pane-flickr.c:345
-#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>status:</b>"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Du behöver ett konto med %s och tillgång till internet för att använda denna webbtjänst."
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Du verkar inte ha en fungerande internetanslutning."
 
-#: ../src/bisho-pane-oauth.c:259
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Kan inte logga in till %s. %s"
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Du kan kontrollera om datorns klocka är rätt inställd."
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Du kan försöka igen."
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Kan inte logga in till %s"
+
+#: ../src/bisho-pane-oauth.c:278
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "När du loggat in på %s, klicka på fortsätt."
 
-#: ../src/bisho-utils.c:87
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: ../src/bisho-pane-oauth.c:295
 #, c-format
-msgid "Cannot login to %s"
-msgstr "Kan inte logga in till %s"
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr "När du loggat in på %s, ange koden de ger dig och klicka på fortsätt."
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "Använd webbplatsen för mer information"
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Inloggningen lyckades. Du kommer se nya objekt om några minuter."
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Kod:"
+
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: ../src/bisho-window.c:129
+#: ../src/bisho-window.c:103
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "Inställningar för webbtjänster"
-
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:211
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Gör dina nätverksinställningar för att se uppdateringar i MyZone och statusfältet."
+#: ../src/bisho-window.c:178
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Gör dina nätverksinställningar för att se uppdateringar i MyZone och "
+"statusfältet."
 
-#: ../src/bisho-window.c:234
+#: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Inloggning ändrad för: %s"
 
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Du behöver ett konto med %s och tillgång till internet för att använda "
+#~ "denna webbtjänst."
+
+#~ msgid "Cannot login to %s"
+#~ msgstr "Kan inte logga in till %s"
+
+#~ msgid "Web Services"
+#~ msgstr "Webbtjänster"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Klicka på Fortsätt för att fortsätta inloggningen."
+
+#~ msgid "Web Services Settings"
+#~ msgstr "Inställningar för webbtjänster"
+
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "När du loggat in på Flickr, klicka på fortsätt."
-
