@@ -20,7 +20,7 @@ msgstr "Web Tilini"
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "Oma vyöhyke & tila"
+msgstr "myzone & tila"
 
 #: ../src/bisho-pane.c:79
 msgid "Launch site for more information."
@@ -131,23 +131,13 @@ msgid ""
 "Set up your social networks to see new updates in myzone and the status "
 "panel."
 msgstr ""
-"Määritä sosiaaliset verkkosi nähdäksesi päivityksiä omassa vyöhykkeessä ja "
+"Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja "
 "tilapaneelissa."
 
 #: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Kirjautumistiedot vaihdettu: %s"
-
-#~ msgid ""
-#~ "You'll need an account with %s and an Internet connection to use this web "
-#~ "service."
-#~ msgstr ""
-#~ "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, "
-#~ "jossa on %s."
-
-#~ msgid "Cannot login to %s"
-#~ msgstr "Ei voida kirjautua kohteeseen %s"
 
 #~ msgid "Web Services"
 #~ msgstr "Verkkopalvelut"
@@ -160,3 +150,13 @@ msgstr "Kirjautumistiedot vaihdettu: %s"
 
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Paina Jatka, kun olet kirjautunut Flickr-palveluun."
+
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, "
+#~ "jossa on %s."
+
+#~ msgid "Cannot login to %s"
+#~ msgstr "Ei voida kirjautua kohteeseen %s"
