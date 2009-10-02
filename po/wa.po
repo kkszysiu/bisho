@@ -1,0 +1,143 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jean Cayron <jean.cayron@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: bisho.master.bisho\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-01 16:20+0000\n"
+"PO-Revision-Date: 2009-10-02 18:06+0200\n"
+"Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
+"Language-Team: Walloon <linux-wa@walon.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Mes contes waibe"
+
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
+msgid "myzone & status"
+msgstr "myzone eyet estat"
+
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Enonder l' waibe po ndè saveur di pus."
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Vos alez aveur dandjî d' on conte avou %s eyet on raloyaedje al Daegntoele pos eployî c' "
+"siervice waibe.</small>"
+
+#: ../src/bisho-pane-flickr.c:245
+msgid "Log in pending"
+msgstr "Elodjaedje ki ratind"
+
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
+msgid "Log me in"
+msgstr "M' elodjî"
+
+#: ../src/bisho-pane-flickr.c:251
+msgid "Log in pending..."
+msgstr "Elodjaedke ki ratind..."
+
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
+msgid "Working..."
+msgstr "Dj' overe"
+
+#: ../src/bisho-pane-flickr.c:258
+#, c-format
+msgid "Logged in as %s"
+msgstr "Elodjî come %s"
+
+#: ../src/bisho-pane-flickr.c:262
+msgid "Logged in"
+msgstr "Elodjî"
+
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
+msgid "Log me out"
+msgstr "Mi dislodjî"
+
+#: ../src/bisho-pane-flickr.c:345
+msgid "<b>Status:</b>"
+msgstr "<b>Estat:</b>"
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "I m' shonne ki vs n' avoz pont d' raloyaedje al rantoele, ça n' va nén aler."
+
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s. %s"
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Vos pôrîz verifyî k' l' ôrlodje del copiutrece est a l' eure."
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Vos pôrîz cor on côp sayî."
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s"
+
+#: ../src/bisho-pane-oauth.c:278
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "On côp k' vos vs avoz elodjî e %s, tchôkîz so Continouwer."
+
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Continouwer"
+
+#: ../src/bisho-pane-oauth.c:295
+#, c-format
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"On côp k' vos vs avoz elodjî e %s, dinez l' côde ki vs dinèt eyet tchôkî "
+"Continouwer."
+
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "L' elodjaedje a stî comifåt. Vos alez vey des noveas cayets dins deus munutes."
+
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Côde :"
+
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
+msgid "Username:"
+msgstr "No d' uzeu :"
+
+#: ../src/bisho-window.c:103
+msgid "Password:"
+msgstr "Sicret :"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:178
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Metoz a pont vos sociålès rantoeles po vey des noveas metaedjes a djoû dins myzone eyet l' sicriftôr "
+"d' estat."
+
+#: ../src/entry.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "Li login di %s a candjî."
+
