@@ -2,16 +2,16 @@
 # Copyright (C) 2009 Intel Corporation
 # This file is distributed under the same license as the Bisho package.
 # Andrzej Zaborowski <andrew.zaborowski@intel.com>, 2009.
-#
+# 
 # I'm aware of the GNOME-PL translation guidelines (aviary.pl) and I
 # advise they be ignored for the sake of usability.  This is not GNOME
 # and programs should be easy to understand here.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Moblin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-26 09:23+0000\n"
+"POT-Creation-Date: 2009-10-01 16:20+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Michał Sawicz <michal@sawicz.net>\n"
 "Language-Team: Moblin\n"
@@ -22,114 +22,127 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Web-serwisy"
-
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "myzone i stan"
 
-#: ../src/bisho-facebook-pane.c:273
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Po dalsze informacje wejdź na stronę www."
+
 #: ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Oczekiwanie na dostęp"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:246
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
 msgid "Log me in"
 msgstr "Zaloguj mnie"
 
-#: ../src/bisho-facebook-pane.c:279
 #: ../src/bisho-pane-flickr.c:251
-#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Oczekiwanie na dostęp..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:251
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
 msgid "Working..."
 msgstr "Pracujemy nad tym..."
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "Wciśnij Dalej aby kontynuować logowanie."
-
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "Dalej"
-
-#: ../src/bisho-facebook-pane.c:292
 #: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Zalogowano jako %s"
 
-#: ../src/bisho-facebook-pane.c:296
 #: ../src/bisho-pane-flickr.c:262
-#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Zalogowano"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:264
-#: ../src/bisho-pane-oauth.c:271
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
 msgid "Log me out"
 msgstr "Chcę się wylogować"
 
-#: ../src/bisho-facebook-pane.c:362
 #: ../src/bisho-pane-flickr.c:345
-#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Stan:</b>"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Do korzystania z tego web-serwisu potrzebne jest konto na %s i połączenie z Internetem."
-
-#: ../src/bisho-pane-oauth.c:259
+#: ../src/bisho-pane-oauth.c:278
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Po zalogowaniu się na %s należy wcisnąć Dalej."
 
-#: ../src/bisho-utils.c:87
-#, c-format
-msgid "Cannot login to %s"
-msgstr "Błąd logowania do %s"
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Dalej"
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "Po dalsze informacje wejdź na stronę www."
-
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Użytkownik:"
 
-#: ../src/bisho-window.c:129
+#: ../src/bisho-window.c:103
 msgid "Password:"
 msgstr "Hasło:"
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "Ustawienia Web-serwisów"
-
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:211
+#: ../src/bisho-window.c:178
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Skonfiguruj swoje serwisy społecznościowe, żeby widzieć zmiany w myzone i na panelu stanu."
 
-#: ../src/bisho-window.c:234
+#: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Login na %s został zmieniony."
 
+#: ../src/bisho-pane-oauth.c:295
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Po zalogowaniu do %s, przepisz podany kod i wciśnij Dalej."
+
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Udało się zalogować. W ciągu kilku minut zobaczysz nowe elementy."
+
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Kod:"
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Moje konta internetowe"
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Do korzystania z tej usługi potrzebne jest konto w %s i połączenie z Internetem.</small>"
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Wygląda na to, że nie jesteś podłączony do sieci, bez tego nie zadziała."
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Możesz sprawdzić, czy zegar w komputerze jest dobrze ustawiony."
+
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Błąd logowania do %s. %s"
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Błąd logowania do %s"
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Możesz spróbować ponownie."
+
+#~ msgid "Web Services"
+#~ msgstr "Web-serwisy"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Wciśnij Dalej aby kontynuować logowanie."
+
+#~ msgid "Web Services Settings"
+#~ msgstr "Ustawienia Web-serwisów"
+
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Po zalogowaniu się na Flickr należy wcisnąć Dalej."
-
