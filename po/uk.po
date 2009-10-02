@@ -64,14 +64,6 @@ msgstr "Натисніть Далі після входу на %s."
 msgid "Continue"
 msgstr "Далі"
 
-#: ../src/bisho-pane-oauth.c:306
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr ""
-
-#: ../src/bisho-pane-oauth.c:373
-msgid "Code:"
-msgstr ""
-
 #: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Логін:"
@@ -126,6 +118,14 @@ msgstr "Неможливо увійти до %s"
 #: ../src/bisho-pane-oauth.c:88
 msgid "You could try again."
 msgstr "Ви можете спробувати знову."
+
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Вхід успішний. Ви побачите нові пункти протягом декількох хвилин."
+
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Код:"
 
 #~ msgid "Web Services"
 #~ msgstr "Веб Сервіси"
