@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-01 16:20+0000\n"
-"PO-Revision-Date: 2009-10-01 18:35-0800\n"
+"POT-Creation-Date: 2009-10-02 16:13+0000\n"
+"PO-Revision-Date: 2009-10-02 11:57-0800\n"
 "Last-Translator: Yun Nie <yun.nie@ptiglobal.net>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr "我的网络账户"
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "我的区域和当前状态"
+msgstr "myzone 和当前状态"
 
 #: ../src/bisho-pane.c:79
 msgid "Launch site for more information."
@@ -127,7 +127,7 @@ msgstr "密码"
 msgid ""
 "Set up your social networks to see new updates in myzone and the status "
 "panel."
-msgstr "设置你的社交网络以便在我的区域和状态面板中显示最近更新"
+msgstr "设置您的社交网络以便在 myzone 和状态面板中显示最近更新"
 
 #: ../src/entry.c:57
 #, c-format
