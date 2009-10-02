@@ -20,7 +20,7 @@ msgstr "我的網路帳號"
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "我的領域以及狀態"
+msgstr "myzone 以及狀態"
 
 #: ../src/bisho-pane.c:79
 msgid "Launch site for more information."
@@ -126,20 +126,12 @@ msgstr "密碼："
 msgid ""
 "Set up your social networks to see new updates in myzone and the status "
 "panel."
-msgstr "設置你的社交網絡來查看我的領域，以及狀態面板的最新動態吧。"
+msgstr "設置你的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
 
 #: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s 登入已改變。"
-
-#~ msgid ""
-#~ "You'll need an account with %s and an Internet connection to use this web "
-#~ "service."
-#~ msgstr "要使用 %s 你將需要一個帳戶以及網路連線才能使用這個網路服務。"
-
-#~ msgid "Cannot login to %s"
-#~ msgstr "無法登入到 %s"
 
 #~ msgid "Web Services"
 #~ msgstr "網路服務"
@@ -152,3 +144,11 @@ msgstr "%s 登入已改變。"
 
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "一旦您登入到 Flickr ，請按一下繼續。"
+
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr "要使用 %s 你將需要一個帳戶以及網路連線才能使用這個網路服務。"
+
+#~ msgid "Cannot login to %s"
+#~ msgstr "無法登入到 %s"
