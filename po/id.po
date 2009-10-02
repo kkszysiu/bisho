@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 09:23+0000\n"
+"POT-Creation-Date: 2009-10-01 16:20+0000\n"
 "PO-Revision-Date: 2009-08-25 16:48+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -14,93 +14,124 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Layanan Web"
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
+msgid "myzone & status"
+msgstr "myzone & status"
 
-#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:234
-#: ../src/bisho-pane-oauth.c:244
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Luncurkan situs untuk info lebih lanjut."
+
+#: ../src/bisho-pane-flickr.c:245
 msgid "Log in pending"
 msgstr "Masuk tertunda"
 
-#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:235
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
 msgid "Log me in"
 msgstr "Masukkan saya"
 
-#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:240
-#: ../src/bisho-pane-oauth.c:250
+#: ../src/bisho-pane-flickr.c:251
 msgid "Log in pending..."
 msgstr "Masuk tertunda..."
 
-#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:241
-#: ../src/bisho-pane-oauth.c:251
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
 msgid "Working..."
 msgstr "Bekerja..."
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "Tekan Lanjutkan untuk meneruskan masuk."
-
-#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "Lanjutkan"
-
-#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:247
+#: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Masuk sebagai %s"
 
-#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:251
-#: ../src/bisho-pane-oauth.c:270
+#: ../src/bisho-pane-flickr.c:262
 msgid "Logged in"
 msgstr "Telah masuk"
 
-#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:253
-#: ../src/bisho-pane-oauth.c:271
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
 msgid "Log me out"
 msgstr "Keluarkan saya"
 
-#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:333
-#: ../src/bisho-pane-oauth.c:327
+#: ../src/bisho-pane-flickr.c:345
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Anda perlu akun pada %s dan sambungan Internet untuk memakai layanan web ini."
-
-#: ../src/bisho-pane-oauth.c:259
+#: ../src/bisho-pane-oauth.c:278
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Setelah anda masuk ke %s, tekan Lanjutkan."
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "Luncurkan situs untuk info lebih lanjut."
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Lanjutkan"
 
-#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Nama pengguna:"
 
-#: ../src/bisho-window.c:129
+#: ../src/bisho-window.c:103
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "Penataan Layanan Web"
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:178
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Siapkan jejaring sosial anda untuk melihat pembaruan di myzone dan panel status."
 
-#: ../src/bisho-window.c:233
+#: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Login %s diubah."
 
-#: ../data/bisho.desktop.in.h:2
-msgid "myzone & status"
-msgstr "myzone & status"
+#: ../src/bisho-pane-oauth.c:295
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Setelah Anda masuk ke %s, masukkan kode yang mereka berikan padamu dan tekan Lanjutkan."
 
-#: ../src/bisho-window.c:210
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Siapkan jejaring sosial anda untuk melihat pembaruan di myzone dan panel status."
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Sukses log masuk. Anda akan melihat item baru dalam beberapa menit."
+
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Kode:"
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Akun Webku"
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Anda perlu akun pada %s dan sambungan Internet untuk memakai layanan web ini.</small>"
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Anda sepertinya tak memiliki sambungan jaringan, ini tak bisa."
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Anda dapat memeriksa bahwa jam komputer benar."
+
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Maaf, kami tak bisa log masuk ke %s. %s"
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Maaf, kami tak bisa log masuk ke %s"
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Anda dapat mencoba lagi."
+
+#~ msgid "Web Services"
+#~ msgstr "Layanan Web"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Tekan Lanjutkan untuk meneruskan masuk."
+
+#~ msgid "Web Services Settings"
+#~ msgstr "Penataan Layanan Web"
