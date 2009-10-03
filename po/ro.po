@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-19 09:22+0000\n"
-"PO-Revision-Date: 2009-08-29 18:42+0200\n"
+"POT-Creation-Date: 2009-10-02 16:13+0000\n"
+"PO-Revision-Date: 2009-10-03 20:55+0200\n"
 "Last-Translator: Cosmin Bordeianu <elloxar@gmail.com>\n"
 "Language-Team: Moblin Romania <live@moblin.ro>\n"
 "MIME-Version: 1.0\n"
@@ -19,112 +19,148 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Servicii Web"
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Conturile mele web"
 
-#: ../data/bisho.desktop.in.h:2
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "myzone & status"
 
-#: ../src/bisho-facebook-pane.c:273
-#: ../src/bisho-pane-flickr.c:228
-#: ../src/bisho-pane-oauth.c:244
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Lansaţi site-ul pentru mai multe informaţii."
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Veţi avea nevoie de un cont cu %s şi o conexiune la Internet pentru a "
+"utiliza acest serviciu web.</small>"
+
+#: ../src/bisho-pane-flickr.c:245
 msgid "Log in pending"
 msgstr "Autentificare în curs de aşteptare"
 
-#: ../src/bisho-facebook-pane.c:274
-#: ../src/bisho-pane-flickr.c:229
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
 msgid "Log me in"
 msgstr "Autentifică-mă"
 
-#: ../src/bisho-facebook-pane.c:279
-#: ../src/bisho-pane-flickr.c:234
-#: ../src/bisho-pane-oauth.c:250
+#: ../src/bisho-pane-flickr.c:251
 msgid "Log in pending..."
 msgstr "Autentificare în curs de aşteptare..."
 
-#: ../src/bisho-facebook-pane.c:280
-#: ../src/bisho-pane-flickr.c:235
-#: ../src/bisho-pane-oauth.c:251
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
 msgid "Working..."
 msgstr "Se lucrează..."
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "Apasați Continuă pentru a continua autentificarea."
-
-#: ../src/bisho-facebook-pane.c:285
-#: ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "Continuă"
-
-#: ../src/bisho-facebook-pane.c:292
-#: ../src/bisho-pane-flickr.c:241
+#: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Autentificat ca %s"
 
-#: ../src/bisho-facebook-pane.c:296
-#: ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:270
+#: ../src/bisho-pane-flickr.c:262
 msgid "Logged in"
 msgstr "Autentificat"
 
-#: ../src/bisho-facebook-pane.c:298
-#: ../src/bisho-pane-flickr.c:247
-#: ../src/bisho-pane-oauth.c:271
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
 msgid "Log me out"
 msgstr "Deconectează-mă"
 
-#: ../src/bisho-facebook-pane.c:362
-#: ../src/bisho-pane-flickr.c:327
-#: ../src/bisho-pane-oauth.c:327
+#: ../src/bisho-pane-flickr.c:345
 msgid "<b>Status:</b>"
 msgstr "<b>Status:</b>"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Veţi avea nevoie de un cont cu %s şi o conexiune la Internet pentru a utiliza acest serviciu web."
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Nu pare să existe o conexiune a rețelei, probabil nu va funcționa."
 
-#: ../src/bisho-pane-oauth.c:259
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Nu se poate autentifica la %s. %s"
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Puteți verifica dacă ceasul calculatorului este setat corect."
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Puteți încerca din nou."
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Nu se poate autentifica la %s"
+
+#: ../src/bisho-pane-oauth.c:278
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Odată ce v-aţi autentificat la %s, apăsaţi Continuă."
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "Lansaţi site-ul pentru mai multe informaţii."
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Continuă"
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-pane-oauth.c:295
+#, c-format
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"Odată autentificat la %s, introduce'i condul dat de ei și apăsaţi Continuă."
+
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Autentificare reușită. Puteți vizualiza elemente noi în câteva minute."
+
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Cod:"
+
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Utilizator:"
 
-#: ../src/bisho-window.c:129
+#: ../src/bisho-window.c:103
 msgid "Password:"
 msgstr "Parolă:"
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "Setări Servicii Web"
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:178
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Configuraţi-vă reţelele sociale pentru a vedea noi actualizări în myzone şi "
+"în panoul de stare."
 
-#: ../src/bisho-window.c:209
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configuraţi-vă reţelele sociale pentru a vedea noi actualizări în myzone şi în panoul de stare."
-
-#: ../src/bisho-window.c:232
+#: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s autentificare modificată."
 
-#: ../src/bisho-utils.c:87
-#, c-format
-msgid "Cannot login to %s"
-msgstr "Nu se poate autentifica la %s"
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Veţi avea nevoie de un cont cu %s şi o conexiune la Internet pentru a "
+#~ "utiliza acest serviciu web."
+
+#~ msgid "Cannot login to %s"
+#~ msgstr "Nu se poate autentifica la %s"
+
+#~ msgid "Web Services"
+#~ msgstr "Servicii Web"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Apasați Continuă pentru a continua autentificarea."
+
+#~ msgid "Web Services Settings"
+#~ msgstr "Setări Servicii Web"
 
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Odată autentificat la Flickr, apasați Continuă."
-
