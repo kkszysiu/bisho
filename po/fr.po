@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-16 14:34+0000\n"
+"POT-Creation-Date: 2009-10-02 16:13+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: TG\n"
+"Last-Translator: Loïc Dufresne de Virel <loic.dufresne.de.virel@intel.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,114 +14,151 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,-1,14,-1,-1,-1,-1\n"
 
-#: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "Services Web"
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+msgid "My Web Accounts"
+msgstr "Mes comptes Web"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "MaZone & statut"
+msgstr "myzone & statut"
 
-#: ../src/bisho-facebook-pane.c:302
+#: ../src/bisho-pane.c:79
+msgid "Launch site for more information."
+msgstr "Lancer le site pour plus d'information"
+
+#: ../src/bisho-pane.c:83
+#, c-format
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Vous avez besoin d'un compte avec %s et d'une connexion Internet pour "
+"utiliser ce service web.</small>"
+
 #: ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:244
 msgid "Log in pending"
 msgstr "Connexion en cours"
 
-#: ../src/bisho-facebook-pane.c:303
-#: ../src/bisho-pane-flickr.c:246
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
 msgid "Log me in"
 msgstr "Connecte-moi"
 
-#: ../src/bisho-facebook-pane.c:308
 #: ../src/bisho-pane-flickr.c:251
-#: ../src/bisho-pane-oauth.c:250
 msgid "Log in pending..."
 msgstr "Connexion en cours..."
 
-#: ../src/bisho-facebook-pane.c:309
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:251
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
 msgid "Working..."
 msgstr "En cours..."
 
-#: ../src/bisho-facebook-pane.c:313
-msgid "Press Continue to continue the log in."
-msgstr "Appuyez sur Continuer pour continuer le processus de connexion."
-
-#: ../src/bisho-facebook-pane.c:314
-#: ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "Continuer"
-
-#: ../src/bisho-facebook-pane.c:321
 #: ../src/bisho-pane-flickr.c:258
 #, c-format
 msgid "Logged in as %s"
 msgstr "Connecté comme %s"
 
-#: ../src/bisho-facebook-pane.c:325
 #: ../src/bisho-pane-flickr.c:262
-#: ../src/bisho-pane-oauth.c:270
 msgid "Logged in"
 msgstr "Connecté"
 
-#: ../src/bisho-facebook-pane.c:327
-#: ../src/bisho-pane-flickr.c:264
-#: ../src/bisho-pane-oauth.c:271
+#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
 msgid "Log me out"
 msgstr "Déconnecte-moi"
 
-#: ../src/bisho-facebook-pane.c:395
 #: ../src/bisho-pane-flickr.c:345
-#: ../src/bisho-pane-oauth.c:327
 msgid "<b>Status:</b>"
 msgstr "<b>Statut :</b>"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid "You'll need an account with %s and an Internet connection to use this web service."
-msgstr "Vous avez besoin d'un compte avec %s et d'une connexion Internet pour utiliser ce service Web."
+#: ../src/bisho-pane-oauth.c:85
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Vous ne semblez pas avoir de connexion réseau, cela ne va pas marcher."
 
-#: ../src/bisho-pane-oauth.c:259
+#: ../src/bisho-pane-oauth.c:86
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Désolé, impossible de connecter à %s. %s"
+
+#: ../src/bisho-pane-oauth.c:87
+msgid "You could check that the computer's clock is correct."
+msgstr "Vous pourriez vérifier que l'horloge de l'ordinateur est juste."
+
+#: ../src/bisho-pane-oauth.c:88
+msgid "You could try again."
+msgstr "Vous pourriez essayer de nouveau."
+
+#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Désolé, impossible de connecter à %s"
+
+#: ../src/bisho-pane-oauth.c:278
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Une fois connecté à %s, appuyez sur Continuer."
 
-#: ../src/bisho-utils.c:87
+#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+msgid "Continue"
+msgstr "Continuer"
+
+#: ../src/bisho-pane-oauth.c:295
 #, c-format
-msgid "Cannot login to %s"
-msgstr "N'a pas pu se connecter à %s"
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"Une fois connecté à %s, saisissez le code qui vous est fourni et appuyez sur "
+"Continuer."
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "Lancer le site pour plus d'information"
+#: ../src/bisho-pane-oauth.c:306
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr ""
+"Connexion réussie. Vous allez voir de nouveaux articles dans quelques "
+"minutes."
 
-#: ../src/bisho-window.c:107
-#: ../src/bisho-window.c:123
+#: ../src/bisho-pane-oauth.c:373
+msgid "Code:"
+msgstr "Code :"
+
+#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
 msgid "Username:"
 msgstr "Nom d'utilisateur :"
 
-#: ../src/bisho-window.c:129
+#: ../src/bisho-window.c:103
 msgid "Password:"
 msgstr "Mot de passe :"
 
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "Paramètres des services Web"
-
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:211
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans MaZone et le panneau de statut."
+#: ../src/bisho-window.c:178
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Configurez vos réseaux sociaux pour voir les dernières mises à jour dans "
+"MaZone et le panneau de statut."
 
-#: ../src/bisho-window.c:234
+#: ../src/entry.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s login changé."
 
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Vous avez besoin d'un compte avec %s et d'une connexion Internet pour "
+#~ "utiliser ce service Web."
+
+#~ msgid "Cannot login to %s"
+#~ msgstr "N'a pas pu se connecter à %s"
+
+#~ msgid "Web Services"
+#~ msgstr "Services Web"
+
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "Appuyez sur Continuer pour continuer le processus de connexion."
+
+#~ msgid "Web Services Settings"
+#~ msgstr "Paramètres des services Web"
+
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Une fois connecté à Flickr, appuyez sur Continuer."
-
