@@ -238,6 +238,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
                                                  id, GNOME_KEYRING_ACCESS_READ);
     update_widgets (pane, LOGGED_IN);
   } else {
+    g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
     update_widgets (pane, LOGGED_OUT);
   }
 }
