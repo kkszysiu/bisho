@@ -166,7 +166,7 @@ bisho_window_init (BishoWindow *self)
 
   self->priv = GET_PRIVATE (self);
 
-  gtk_window_set_title (GTK_WINDOW (self), _("My Web Accounts"));
+  gtk_window_set_title (GTK_WINDOW (self), "");
   gtk_window_set_icon_name (GTK_WINDOW (self), "bisho");
 
   self->priv->master_box = gtk_vbox_new (FALSE, 8);
