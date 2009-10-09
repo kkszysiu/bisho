@@ -181,7 +181,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   rest_proxy_call_add_param (call, "frob", g_hash_table_lookup (params, "frob"));
 
   if (!rest_proxy_call_sync (call, &error)) {
-    /* TODO bisho_utils_message (NULL, "Flickr", error->message); */
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     g_message ("Cannot get token: %s", error->message);
     g_error_free (error);
     update_widgets (pane, LOGGED_OUT, NULL);
@@ -220,6 +220,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
                                                  LIBEXECDIR "/mojito-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
   } else {
+    g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
     update_widgets (pane, LOGGED_OUT, NULL);
   }
 
@@ -233,8 +234,6 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
 
   g_signal_handlers_disconnect_by_func (priv->button, log_out_clicked, pane);
   g_signal_handlers_disconnect_by_func (priv->button, log_in_clicked, pane);
-
-  /* TODO: display user name */
 
   switch (state) {
   case LOGGED_OUT:
@@ -259,6 +258,28 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
 }
 
 static void
+check_token_cb (RestProxyCall *call, GError *error, GObject *weak_object, gpointer user_data)
+{
+  BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
+  RestXmlNode *node;
+
+  if (error) {
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
+    g_message ("Cannot check token: %s", error->message);
+    g_error_free (error);
+  } else {
+    node = get_xml (call);
+    if (node) {
+      got_auth (node, pane);
+      rest_xml_node_unref (node);
+    } else {
+      /* The token isn't valid so fake a log out */
+      log_out_clicked (NULL, pane);
+    }
+  }
+}
+
+static void
 find_key_cb (GnomeKeyringResult result,
              const char *string,
              gpointer user_data)
@@ -269,27 +290,18 @@ find_key_cb (GnomeKeyringResult result,
   if (result == GNOME_KEYRING_RESULT_OK) {
     GError *error = NULL;
     RestProxyCall *call;
-    RestXmlNode *node;
 
     flickr_proxy_set_token (FLICKR_PROXY (priv->proxy), string);
 
     call = rest_proxy_new_call (priv->proxy);
     rest_proxy_call_set_function (call, "flickr.auth.checkToken");
 
-    /* TODO async */
-    if (!rest_proxy_call_sync (call, &error)) {
-      /* TODO bisho_utils_message (NULL, "Flickr", error->message); */
+    if (rest_proxy_call_async (call, check_token_cb, NULL, pane, &error)) {
+      update_widgets (pane, WORKING, NULL);
+    } else {
+      bisho_pane_set_banner_error (BISHO_PANE (pane), error);
       g_message ("Cannot check token: %s", error->message);
       g_error_free (error);
-    } else {
-      node = get_xml (call);
-      if (node) {
-        got_auth (node, pane);
-        rest_xml_node_unref (node);
-      } else {
-        /* The token isn't valid so fake a log out */
-        log_out_clicked (NULL, pane);
-      }
     }
   } else {
     update_widgets (pane, LOGGED_OUT, NULL);
