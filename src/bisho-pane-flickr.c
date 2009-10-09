@@ -22,7 +22,7 @@
 #include <gtk/gtk.h>
 #include <gnome-keyring.h>
 #include <libsoup/soup.h>
-#include <rest/flickr-proxy.h>
+#include <rest-extras/flickr-proxy.h>
 #include <rest/rest-xml-parser.h>
 #include "service-info.h"
 #include "bisho-pane-flickr.h"
@@ -238,6 +238,7 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
 
   switch (state) {
   case LOGGED_OUT:
+    bisho_pane_set_user (BISHO_PANE (pane), NULL, NULL);
     bisho_pane_set_banner (BISHO_PANE (pane), NULL);
     gtk_widget_set_sensitive (priv->button, TRUE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me in"));
@@ -249,17 +250,8 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
     break;
   case LOGGED_IN:
     gtk_widget_set_sensitive (priv->button, TRUE);
-#if 0
-    TODO
-    if (name) {
-      char *s;
-      s = g_strdup_printf (_("Logged in as %s"), name);
-      gtk_label_set_text (GTK_LABEL (priv->label), s);
-      g_free (s);
-    } else {
-      gtk_label_set_text (GTK_LABEL (priv->label), _("Logged in"));
-    }
-#endif
+    bisho_pane_set_user (BISHO_PANE (pane), NULL, name);
+    bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
