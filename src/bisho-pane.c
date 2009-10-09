@@ -171,7 +171,7 @@ bisho_pane_set_banner_error (BishoPane *pane, GError *error)
   char *s;
 
   if (error) {
-    s = g_strdup_printf (_("Sorry, we can't log in to %s: %s"),
+    s = g_strdup_printf (_("Sorry, we can't log in to %s. %s"),
                          pane->info->display_name,
                          error->message);
   } else {
