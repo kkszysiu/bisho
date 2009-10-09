@@ -28,7 +28,7 @@
 #include "service-info.h"
 #include "entry.h"
 #include "bisho-pane-oauth.h"
-//#include "bisho-pane-flickr.h"
+#include "bisho-pane-flickr.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -120,7 +120,6 @@ construct_ui (BishoWindow *window, const char *service_name)
       g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
-#if 0
   case AUTH_FLICKR:
     {
       GtkWidget *pane;
@@ -130,7 +129,6 @@ construct_ui (BishoWindow *window, const char *service_name)
       g_hash_table_insert (window->priv->panes, info->name, pane);
     }
     break;
-#endif
   case AUTH_INVALID:
     /* Should never see this, so ignore it */
     break;
