@@ -88,21 +88,16 @@ G_GNUC_UNUSED static const char * unused_for_now[] = {
 };
 
 static void
-log_in_clicked (GtkWidget *button, gpointer user_data)
+request_token_cb (OAuthProxy *proxy,
+                  GError     *error,
+                  GObject    *weak_object,
+                  gpointer    user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
   ServiceInfo *info = priv->info;
-  GError *error = NULL;
   char *url;
 
-  update_widgets (pane, WORKING);
-
-  /* TODO: async */
-  oauth_proxy_request_token (OAUTH_PROXY (priv->proxy),
-                             info->oauth.request_token_function,
-                             info->oauth.callback,
-                             &error);
   if (error) {
     update_widgets (pane, LOGGED_OUT);
 
@@ -113,7 +108,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   }
 
   url = create_url (info, oauth_proxy_get_token (OAUTH_PROXY (priv->proxy)));
-  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (button)), url, GDK_CURRENT_TIME, NULL);
+  gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (pane)), url, GDK_CURRENT_TIME, NULL);
 
   if (info->oauth.callback == NULL) {
     update_widgets (pane, CONTINUE_AUTH_10);
@@ -127,6 +122,32 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
          update_widgets (pane, WORKING);
          but myspace breaks this at the moment */
     }
+  }
+}
+
+static void
+log_in_clicked (GtkWidget *button, gpointer user_data)
+{
+  BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
+  BishoPaneOauthPrivate *priv = pane->priv;
+  ServiceInfo *info = priv->info;
+  GError *error = NULL;
+
+  if (oauth_proxy_request_token_async (OAUTH_PROXY (priv->proxy),
+                                       info->oauth.request_token_function,
+                                       info->oauth.callback,
+                                       request_token_cb,
+                                       NULL,
+                                       pane,
+                                       &error)) {
+    update_widgets (pane, WORKING);
+  } else {
+    update_widgets (pane, LOGGED_OUT);
+
+    g_message ("Error from %s: %s", info->name, error->message);
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
+    g_error_free (error);
+    return;
   }
 }
 
@@ -214,8 +235,6 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   /* TODO: check the current state */
   /* TODO: handle the arguments */
 
-  update_widgets (pane, WORKING);
-
   /*
    * If the server is using 1.0a then we need to provide a verifier.  If the
    * callback is "oob" then we need to ask for the verifier, otherwise it's in
@@ -234,14 +253,15 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
     verifier = NULL;
   }
 
-  oauth_proxy_access_token_async (OAUTH_PROXY (priv->proxy),
-                                  priv->info->oauth.access_token_function,
-                                  verifier,
-                                  access_token_cb,
-                                  NULL,
-                                  pane,
-                                  &error);
-  if (error) {
+  if (oauth_proxy_access_token_async (OAUTH_PROXY (priv->proxy),
+                                      priv->info->oauth.access_token_function,
+                                      verifier,
+                                      access_token_cb,
+                                      NULL,
+                                      pane,
+                                      &error)) {
+    update_widgets (pane, WORKING);
+  } else {
     update_widgets (pane, LOGGED_OUT);
     g_message ("Error from %s: %s", priv->info->name, error->message);
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
