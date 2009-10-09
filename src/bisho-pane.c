@@ -166,6 +166,24 @@ bisho_pane_set_banner (BishoPane *pane, const char *message)
 }
 
 void
+bisho_pane_set_banner_error (BishoPane *pane, GError *error)
+{
+  char *s;
+
+  if (error) {
+    s = g_strdup_printf (_("Sorry, we can't log in to %s: %s"),
+                         pane->info->display_name,
+                         error->message);
+  } else {
+    s = g_strdup_printf (_("Sorry, we can't log in to %s"),
+                         pane->info->display_name);
+  }
+
+  bisho_pane_set_banner (BISHO_PANE (pane), s);
+  g_free (s);
+}
+
+void
 bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
 {
   if (icon == NULL && username == NULL) {

@@ -44,6 +44,8 @@ void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
 
 void bisho_pane_set_banner (BishoPane *pane, const char *message);
 
+void bisho_pane_set_banner_error (BishoPane *pane, GError *error);
+
 void bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username);
 
 G_END_DECLS
