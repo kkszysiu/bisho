@@ -122,10 +122,12 @@ bisho_pane_init (BishoPane *pane)
   gtk_container_add (GTK_CONTAINER (align), pane->banner);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
-  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+  align = gtk_alignment_new (0.0, 0.5, 0.0, 0.0);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (align), 0, 0, 32, 0);
   gtk_widget_show (align);
   pane->user_box = gtk_hbox_new (FALSE, 0);
   pane->user_icon = gtk_image_new ();
+  gtk_widget_show (pane->user_icon);
   gtk_box_pack_start (GTK_BOX (pane->user_box), pane->user_icon, FALSE, FALSE, 8);
   pane->user_name = gtk_label_new (NULL);
   gtk_box_pack_start (GTK_BOX (pane->user_box), pane->user_name, TRUE, TRUE, 8);
@@ -171,19 +173,17 @@ bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
     return;
   }
 
+  gtk_widget_show (pane->user_box);
+
   if (icon) {
     gtk_image_set_from_file (GTK_IMAGE (pane->user_icon), icon);
-    gtk_widget_show (pane->user_icon);
-    gtk_widget_show (pane->user_box);
   } else {
-    gtk_image_clear (GTK_IMAGE (pane->user_icon));
-    gtk_widget_hide (pane->user_icon);
+    gtk_image_set_from_icon_name (GTK_IMAGE (pane->user_icon), "stock_person", GTK_ICON_SIZE_DIALOG);
   }
 
   if (username) {
     gtk_label_set_text (GTK_LABEL (pane->user_name), username);
     gtk_widget_show (pane->user_name);
-    gtk_widget_show (pane->user_box);
   } else {
     gtk_widget_hide (pane->user_name);
   }
