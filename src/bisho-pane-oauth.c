@@ -83,7 +83,6 @@ create_url (ServiceInfo *info, const char *token)
 
 G_GNUC_UNUSED static const char * unused_for_now[] = {
   N_("You don't seem to have a network connection, this won't work."),
-  N_("Sorry, we can't log in to %s. %s"),
   N_("You could check that the computer's clock is correct."),
   N_("You could try again.")
 };
@@ -105,16 +104,11 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
                              info->oauth.callback,
                              &error);
   if (error) {
-    char *s;
-
     update_widgets (pane, LOGGED_OUT);
 
     g_message ("Error from %s: %s", info->name, error->message);
-
-    s = g_strdup_printf (_("Sorry, we can't log in to %s"), info->display_name);
-    bisho_pane_set_banner (BISHO_PANE (pane), s);
-    g_free (s);
-
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
+    g_error_free (error);
     return;
   }
 
@@ -154,12 +148,12 @@ log_out_clicked (GtkButton *button, gpointer user_data)
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
 
+  update_widgets (pane, WORKING);
+
   gnome_keyring_delete_password (&oauth_schema, delete_done_cb, user_data, NULL,
                                  "server", priv->info->oauth.base_url,
                                  "consumer-key", priv->info->oauth.consumer_key,
                                  NULL);
-
-  update_widgets (pane, LOGGED_OUT);
 }
 
 static void
@@ -269,6 +263,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
     break;
   case WORKING:
+    bisho_pane_set_banner (BISHO_PANE (pane), NULL);
     gtk_widget_set_sensitive (priv->button, FALSE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
@@ -305,8 +300,8 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     }
     break;
   case LOGGED_IN:
-    gtk_widget_set_sensitive (priv->button, TRUE);
     bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
+    gtk_widget_set_sensitive (priv->button, TRUE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
@@ -383,7 +378,7 @@ bisho_pane_oauth_new (ServiceInfo *info)
   gtk_widget_show (priv->button);
   gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
 
-  update_widgets (pane, LOGGED_OUT);
+  update_widgets (pane, WORKING);
 
   gnome_keyring_find_password (&oauth_schema, find_key_cb, pane, NULL,
                                "server", info->oauth.base_url,
