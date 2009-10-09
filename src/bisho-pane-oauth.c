@@ -157,53 +157,19 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
-bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
+access_token_cb (OAuthProxy *proxy,
+                 GError     *error,
+                 GObject    *weak_object,
+                 gpointer    user_data)
 {
-  BishoPaneOauth *pane = BISHO_PANE_OAUTH (_pane);
+  BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
-  GError *error = NULL;
   char *encoded;
-  const char *verifier;
 
-  /* TODO: check the current state */
-  /* TODO: handle the arguments */
-
-  update_widgets (pane, WORKING);
-
-  /*
-   * If the server is using 1.0a then we need to provide a verifier.  If the
-   * callback is "oob" then we need to ask for the verifier, otherwise it's in
-   * the parameters we've been passed.
-   */
-  if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
-    /* If 1.0a then a callback must have been specified */
-    if (strcmp (priv->info->oauth.callback, "oob") == 0) {
-      verifier = gtk_entry_get_text (GTK_ENTRY (priv->pin_entry));
-      gtk_widget_hide (priv->pin_label);
-      gtk_widget_hide (priv->pin_entry);
-    } else {
-      verifier = g_hash_table_lookup (params, "oauth_verifier");
-    }
-  } else {
-    verifier = NULL;
-  }
-
-  /* TODO: async */
-  oauth_proxy_access_token (OAUTH_PROXY (priv->proxy),
-                            priv->info->oauth.access_token_function,
-                            verifier,
-                            &error);
   if (error) {
-    char *s;
-
     update_widgets (pane, LOGGED_OUT);
-
     g_message ("Error from %s: %s", priv->info->name, error->message);
-
-    s = g_strdup_printf (_("Sorry, we can't log in to %s"), priv->info->display_name);
-    bisho_pane_set_banner (BISHO_PANE (pane), s);
-    g_free (s);
-
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     return;
   }
 
@@ -234,6 +200,52 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   } else {
     g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
     update_widgets (pane, LOGGED_OUT);
+  }
+}
+
+static void
+bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
+{
+  BishoPaneOauth *pane = BISHO_PANE_OAUTH (_pane);
+  BishoPaneOauthPrivate *priv = pane->priv;
+  GError *error = NULL;
+  const char *verifier;
+
+  /* TODO: check the current state */
+  /* TODO: handle the arguments */
+
+  update_widgets (pane, WORKING);
+
+  /*
+   * If the server is using 1.0a then we need to provide a verifier.  If the
+   * callback is "oob" then we need to ask for the verifier, otherwise it's in
+   * the parameters we've been passed.
+   */
+  if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
+    /* If 1.0a then a callback must have been specified */
+    if (strcmp (priv->info->oauth.callback, "oob") == 0) {
+      verifier = gtk_entry_get_text (GTK_ENTRY (priv->pin_entry));
+      gtk_widget_hide (priv->pin_label);
+      gtk_widget_hide (priv->pin_entry);
+    } else {
+      verifier = g_hash_table_lookup (params, "oauth_verifier");
+    }
+  } else {
+    verifier = NULL;
+  }
+
+  oauth_proxy_access_token_async (OAUTH_PROXY (priv->proxy),
+                                  priv->info->oauth.access_token_function,
+                                  verifier,
+                                  access_token_cb,
+                                  NULL,
+                                  pane,
+                                  &error);
+  if (error) {
+    update_widgets (pane, LOGGED_OUT);
+    g_message ("Error from %s: %s", priv->info->name, error->message);
+    bisho_pane_set_banner_error (BISHO_PANE (pane), error);
+    return;
   }
 }
 
