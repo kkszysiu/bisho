@@ -103,7 +103,6 @@ request_token_cb (OAuthProxy *proxy,
 
     g_message ("Error from %s: %s", info->name, error->message);
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
-    g_error_free (error);
     return;
   }
 

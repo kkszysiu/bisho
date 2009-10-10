@@ -266,7 +266,6 @@ check_token_cb (RestProxyCall *call, GError *error, GObject *weak_object, gpoint
   if (error) {
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     g_message ("Cannot check token: %s", error->message);
-    g_error_free (error);
   } else {
     node = get_xml (call);
     if (node) {
