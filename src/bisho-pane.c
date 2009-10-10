@@ -20,7 +20,6 @@
 #include <config.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <nbtk/nbtk-gtk.h>
 #include "bisho-pane.h"
 #include "mux-banner.h"
 #include "mux-label.h"
@@ -41,6 +40,7 @@ bisho_pane_get_property (GObject *object, guint property_id,
   switch (property_id) {
   case PROP_SERVICE:
     g_value_set_pointer (value, pane->info);
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
   }
