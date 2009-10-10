@@ -6,6 +6,7 @@ bisho_SOURCES = \
 	bisho-pane.c bisho-pane.h \
 	bisho-pane-flickr.c bisho-pane-flickr.h \
 	bisho-pane-oauth.c bisho-pane-oauth.h \
+	bisho-pane-username.c bisho-pane-username.h \
 	bisho-utils.c bisho-utils.h \
 	entry.c entry.h \
 	service-info.c service-info.h \

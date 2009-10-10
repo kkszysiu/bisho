@@ -29,6 +29,7 @@
 #include "entry.h"
 #include "bisho-pane-oauth.h"
 #include "bisho-pane-flickr.h"
+#include "bisho-pane-username.h"
 
 struct _BishoWindowPrivate {
   MojitoClient *client;
@@ -74,18 +75,10 @@ construct_ui (BishoWindow *window, const char *service_name)
   switch (info->auth) {
   case AUTH_USERNAME:
     {
-      GtkWidget *table, *entry;
-
-      table = gtk_table_new (1, 2, FALSE);
-
-      label = gtk_label_new (_("Username:"));
-      gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-
-      entry = new_entry_from_gconf (window, info, "user");
-      gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 0, 1);
-
-      gtk_widget_show_all (table);
-      gtk_box_pack_start (GTK_BOX (box), table, FALSE, FALSE, 0);
+      GtkWidget *pane;
+      pane = bisho_pane_username_new (info);
+      gtk_widget_show (pane);
+      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     }
     break;
   case AUTH_USERNAME_PASSWORD:
