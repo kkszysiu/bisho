@@ -166,7 +166,7 @@ bisho_pane_set_banner (BishoPane *pane, const char *message)
 }
 
 void
-bisho_pane_set_banner_error (BishoPane *pane, GError *error)
+bisho_pane_set_banner_error (BishoPane *pane, const GError *error)
 {
   char *s;
 
