@@ -21,6 +21,7 @@
 #define __BISHO_WINDOW_H__
 
 #include <gtk/gtk.h>
+#include <mojito-client/mojito-client.h>
 #include "mux-window.h"
 #include "service-info.h"
 
@@ -67,6 +68,8 @@ GtkWidget * bisho_window_new (void);
 void bisho_window_change_banner (BishoWindow *window, const char *message);
 
 void bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params);
+
+MojitoClient * bisho_window_get_mojito (BishoWindow *window);
 
 G_END_DECLS
 

@@ -215,3 +215,8 @@ bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params)
     bisho_pane_continue_auth (pane, params);
 }
 
+MojitoClient *
+bisho_window_get_mojito (BishoWindow *window)
+{
+  return window->priv->client;
+}
