@@ -93,7 +93,7 @@ construct_ui (BishoWindow *window, const char *service_name)
     g_hash_table_insert (window->priv->panes, info->name, pane);
     break;
   case AUTH_FLICKR:
-    pane = bisho_pane_flickr_new (info);
+    pane = bisho_pane_flickr_new (window->priv->client, info);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     g_hash_table_insert (window->priv->panes, info->name, pane);

@@ -325,7 +325,7 @@ bisho_pane_flickr_init (BishoPaneFlickr *self)
 }
 
 GtkWidget *
-bisho_pane_flickr_new (ServiceInfo *info)
+bisho_pane_flickr_new (MojitoClient *client, ServiceInfo *info)
 {
   BishoPaneFlickr *pane;
   BishoPaneFlickrPrivate *priv;
@@ -337,6 +337,7 @@ bisho_pane_flickr_new (ServiceInfo *info)
   g_assert (info->flickr.shared_secret);
 
   pane = g_object_new (BISHO_TYPE_PANE_FLICKR,
+                       "mojito", client,
                        "service", info,
                        NULL);
 
@@ -358,6 +359,7 @@ bisho_pane_flickr_new (ServiceInfo *info)
 
   priv->button = gtk_button_new ();
   gtk_widget_show (priv->button);
+  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
   gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
 
   update_widgets (pane, LOGGED_OUT, NULL);

@@ -58,7 +58,7 @@ struct _BishoPaneFlickrClass {
 
 GType bisho_pane_flickr_get_type (void) G_GNUC_CONST;
 
-GtkWidget * bisho_pane_flickr_new (ServiceInfo *info);
+GtkWidget * bisho_pane_flickr_new (MojitoClient *client, ServiceInfo *info);
 
 G_END_DECLS
 
