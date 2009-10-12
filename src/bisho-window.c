@@ -21,7 +21,6 @@
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
 #include "mux-expanding-item.h"
-#include "mux-label.h"
 #include "mux-window.h"
 #include "bisho-window.h"
 #include "bisho-utils.h"
@@ -33,7 +32,6 @@
 struct _BishoWindowPrivate {
   MojitoClient *client;
   GtkWidget *master_box;
-  GtkWidget *banner;
   /* Hash of string (identifier) to pane widget */
   GHashTable *panes;
 };
@@ -149,25 +147,11 @@ bisho_window_init (BishoWindow *self)
   gtk_widget_show (label);
   gtk_box_pack_start (GTK_BOX (self->priv->master_box), label, FALSE, FALSE, 0);
 
-  self->priv->banner = mux_label_new ();
-  gtk_box_pack_start (GTK_BOX (self->priv->master_box), self->priv->banner, FALSE, FALSE, 0);
-
   self->priv->panes = g_hash_table_new (g_str_hash, g_str_equal);
 
   self->priv->client = mojito_client_new ();
   /* TODO move to a separate populate() function? */
   mojito_client_get_services (self->priv->client, client_get_services_cb, self);
-}
-
-G_GNUC_DEPRECATED void
-bisho_window_change_banner (BishoWindow *window, const char *message)
-{
-  g_return_if_fail (BISHO_IS_WINDOW (window));
-  g_return_if_fail (message);
-
-  mux_label_set_text (MUX_LABEL (window->priv->banner), message);
-
-  gtk_widget_show (window->priv->banner);
 }
 
 GtkWidget *
