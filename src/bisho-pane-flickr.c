@@ -244,13 +244,14 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
     break;
   case WORKING:
+    bisho_pane_set_banner (BISHO_PANE (pane), NULL);
     gtk_widget_set_sensitive (priv->button, FALSE);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
   case LOGGED_IN:
+    bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
     gtk_widget_set_sensitive (priv->button, TRUE);
     bisho_pane_set_user (BISHO_PANE (pane), NULL, name);
-    bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
