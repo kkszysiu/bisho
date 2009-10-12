@@ -259,7 +259,7 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
 }
 
 static void
-check_token_cb (RestProxyCall *call, GError *error, GObject *weak_object, gpointer user_data)
+check_token_cb (RestProxyCall *call, const GError *error, GObject *weak_object, gpointer user_data)
 {
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
   RestXmlNode *node;

@@ -87,10 +87,10 @@ G_GNUC_UNUSED static const char * unused_for_now[] = {
 };
 
 static void
-request_token_cb (OAuthProxy *proxy,
-                  GError     *error,
-                  GObject    *weak_object,
-                  gpointer    user_data)
+request_token_cb (OAuthProxy   *proxy,
+                  const GError *error,
+                  GObject      *weak_object,
+                  gpointer      user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
@@ -176,10 +176,10 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
-access_token_cb (OAuthProxy *proxy,
-                 GError     *error,
-                 GObject    *weak_object,
-                 gpointer    user_data)
+access_token_cb (OAuthProxy   *proxy,
+                 const GError *error,
+                 GObject      *weak_object,
+                 gpointer      user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   ServiceInfo *info = BISHO_PANE (pane)->info;
