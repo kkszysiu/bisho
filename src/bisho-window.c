@@ -26,7 +26,6 @@
 #include "bisho-window.h"
 #include "bisho-utils.h"
 #include "service-info.h"
-#include "entry.h"
 #include "bisho-pane-oauth.h"
 #include "bisho-pane-flickr.h"
 #include "bisho-pane-username.h"
