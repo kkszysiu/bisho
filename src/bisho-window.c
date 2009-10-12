@@ -47,7 +47,7 @@ static void
 construct_ui (BishoWindow *window, const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *expander;
+  GtkWidget *expander, *pane;
   GtkBox *box;
   MuxExpandingItem *m;
 
@@ -74,44 +74,32 @@ construct_ui (BishoWindow *window, const char *service_name)
 
   switch (info->auth) {
   case AUTH_USERNAME:
-    {
-      GtkWidget *pane;
-      pane = bisho_pane_username_new (info);
-      bisho_pane_username_add_entry
-        (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
-      gtk_widget_show (pane);
-      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    }
+    pane = bisho_pane_username_new (info);
+    bisho_pane_username_add_entry
+      (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
+    gtk_widget_show (pane);
+    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     break;
   case AUTH_USERNAME_PASSWORD:
-    {
-      GtkWidget *pane;
-      pane = bisho_pane_username_new (info);
-      bisho_pane_username_add_entry
-        (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
-      bisho_pane_username_add_entry
-        (BISHO_PANE_USERNAME (pane), _("Password:"), "password");
-      gtk_widget_show (pane);
-      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    }
+    pane = bisho_pane_username_new (info);
+    bisho_pane_username_add_entry
+      (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
+    bisho_pane_username_add_entry
+      (BISHO_PANE_USERNAME (pane), _("Password:"), "password");
+    gtk_widget_show (pane);
+    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     break;
   case AUTH_OAUTH:
-    {
-      GtkWidget *pane;
-      pane = bisho_pane_oauth_new (info);
-      gtk_widget_show (pane);
-      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-      g_hash_table_insert (window->priv->panes, info->name, pane);
-    }
+    pane = bisho_pane_oauth_new (info);
+    gtk_widget_show (pane);
+    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+    g_hash_table_insert (window->priv->panes, info->name, pane);
     break;
   case AUTH_FLICKR:
-    {
-      GtkWidget *pane;
-      pane = bisho_pane_flickr_new (info);
-      gtk_widget_show (pane);
-      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-      g_hash_table_insert (window->priv->panes, info->name, pane);
-    }
+    pane = bisho_pane_flickr_new (info);
+    gtk_widget_show (pane);
+    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+    g_hash_table_insert (window->priv->panes, info->name, pane);
     break;
   case AUTH_INVALID:
     /* Should never see this, so ignore it */
