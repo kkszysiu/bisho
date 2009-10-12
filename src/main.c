@@ -128,11 +128,6 @@ main (int argc, char **argv)
 
   gtk_widget_show (window);
 
-  if (argc == 2)
-    /* TODO: this won't do what we want because the state has been lost. Should
-       this be ignored or should it restart authentication? */
-    handle_uri (BISHO_WINDOW (window), argv[1]);
-
   gtk_main ();
 
  done:
