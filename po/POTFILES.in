@@ -2,9 +2,9 @@ data/bisho.desktop.in
 src/bisho-pane.c
 src/bisho-pane-flickr.c
 src/bisho-pane-oauth.c
+src/bisho-pane-username.c
 src/bisho-utils.c
 src/bisho-window.c
-src/entry.c
 src/main.c
 src/mux-banner.c
 src/mux-expander.c
