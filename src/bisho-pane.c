@@ -28,7 +28,8 @@ G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
 
 enum {
   PROP_0,
-  PROP_SERVICE
+  PROP_SERVICE,
+  PROP_MOJITO
 };
 
 static void
@@ -40,6 +41,9 @@ bisho_pane_get_property (GObject *object, guint property_id,
   switch (property_id) {
   case PROP_SERVICE:
     g_value_set_pointer (value, pane->info);
+    break;
+  case PROP_MOJITO:
+    g_value_set_object (value, pane->mojito);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -86,6 +90,9 @@ bisho_pane_set_property (GObject *object, guint property_id,
       g_free (s);
     }
     break;
+  case PROP_MOJITO:
+    pane->mojito = g_value_dup_object (value);
+    break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
   }
@@ -103,6 +110,11 @@ bisho_pane_class_init (BishoPaneClass *klass)
     pspec = g_param_spec_pointer ("service", "service", "service",
                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (object_class, PROP_SERVICE, pspec);
+
+    pspec = g_param_spec_object ("mojito", "mojito", "mojito",
+                                 MOJITO_TYPE_CLIENT,
+                                 G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
+    g_object_class_install_property (object_class, PROP_MOJITO, pspec);
 }
 
 static void
