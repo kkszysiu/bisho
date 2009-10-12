@@ -15,10 +15,10 @@ G_BEGIN_DECLS
    (G_TYPE_CHECK_CLASS_CAST ((klass),                                   \
                              BISHO_TYPE_PANE_USERNAME,                  \
                              BishoPaneUsernameClass))
-#define IS_BISHO_PANE_USERNAME(obj)                                     \
+#define BISHO_IS_PANE_USERNAME(obj)                                     \
    (G_TYPE_CHECK_INSTANCE_TYPE ((obj),                                  \
                                 BISHO_TYPE_PANE_USERNAME))
-#define IS_BISHO_PANE_USERNAME_CLASS(klass)                             \
+#define BISHO_IS_PANE_USERNAME_CLASS(klass)                             \
    (G_TYPE_CHECK_CLASS_TYPE ((klass),                                   \
                              BISHO_TYPE_PANE_USERNAME))
 #define BISHO_PANE_USERNAME_GET_CLASS(obj)                              \
@@ -42,6 +42,8 @@ struct _BishoPaneUsernameClass {
 GType bisho_pane_username_get_type (void) G_GNUC_CONST;
 
 GtkWidget *bisho_pane_username_new (ServiceInfo *info);
+
+void bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const char *key);
 
 G_END_DECLS
 

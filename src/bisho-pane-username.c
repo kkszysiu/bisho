@@ -4,10 +4,14 @@
 #include <gtk/gtk.h>
 #include "bisho-pane-username.h"
 
+#define DATA_GCONF_KEY "bisho:gconf-key"
+
 struct _BishoPaneUsernamePrivate {
   GConfClient *gconf;
+  GtkWidget *table;
   GtkWidget *entry;
   char *key;
+  guint rows;
 };
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_PANE_USERNAME, BishoPaneUsernamePrivate))
@@ -18,13 +22,16 @@ on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
 {
   BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
   ServiceInfo *info = NULL;
+  const char *key;
   char *message;
 
   g_object_get (pane, "service", &info, NULL);
   g_assert (info);
 
-  gconf_client_set_string (pane->priv->gconf,
-                           pane->priv->key,
+  key = g_object_get_data (G_OBJECT (widget), DATA_GCONF_KEY);
+  g_assert (key);
+
+  gconf_client_set_string (pane->priv->gconf, key,
                            gtk_entry_get_text (GTK_ENTRY (widget)),
                            NULL);
 
@@ -36,54 +43,25 @@ on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
 }
 
 static void
-bisho_pane_username_constructed (GObject *object)
-{
-  BishoPaneUsername *pane = BISHO_PANE_USERNAME (object);
-  ServiceInfo *info = NULL;
-  char *value;
-
-  pane->priv->gconf = gconf_client_get_default ();
-
-  g_object_get (pane, "service", &info, NULL);
-  g_assert (info);
-
-  pane->priv->key = g_strdup_printf ("/apps/mojito/services/%s/user", info->name);
-
-  value = gconf_client_get_string (pane->priv->gconf, pane->priv->key, NULL);
-  gtk_entry_set_text (GTK_ENTRY (pane->priv->entry), value);
-  g_free (value);
-}
-
-static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
-  GtkWidget *content, *table, *label;
+  GtkWidget *content;
 
   self->priv = GET_PRIVATE (self);
+
+  self->priv->gconf = gconf_client_get_default ();
 
   content = BISHO_PANE (self)->content;
   g_assert (content);
 
-  table = gtk_table_new (1, 2, FALSE);
-
-  label = gtk_label_new (_("Username:"));
-  gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-
-  self->priv->entry = gtk_entry_new ();
-  g_signal_connect (self->priv->entry, "focus-out-event", G_CALLBACK (on_entry_left), self);
-  gtk_table_attach_defaults (GTK_TABLE (table), self->priv->entry, 1, 2, 0, 1);
-
-  gtk_widget_show_all (table);
-  gtk_box_pack_start (GTK_BOX (content), table, FALSE, FALSE, 0);
+  self->priv->table = gtk_table_new (0, 0, FALSE);
+  gtk_widget_show (self->priv->table);
+  gtk_box_pack_start (GTK_BOX (content), self->priv->table, FALSE, FALSE, 0);
 }
 
 static void
 bisho_pane_username_class_init (BishoPaneUsernameClass *klass)
 {
-  GObjectClass *o_class = G_OBJECT_CLASS (klass);
-
-  o_class->constructed = bisho_pane_username_constructed;
-
   g_type_class_add_private (klass, sizeof (BishoPaneUsernamePrivate));
 }
 
@@ -96,4 +74,42 @@ bisho_pane_username_new (ServiceInfo *info)
   return g_object_new (BISHO_TYPE_PANE_USERNAME,
                        "service", info,
                        NULL);
+}
+
+void
+bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const char *key)
+{
+  BishoPaneUsernamePrivate *priv;
+  GtkWidget *label_w, *entry;
+  char *gconf_key, *value;
+  ServiceInfo *info;
+
+  g_return_if_fail (BISHO_IS_PANE_USERNAME (pane));
+  g_return_if_fail (label);
+  g_return_if_fail (key);
+
+  priv = pane->priv;
+  g_object_get (pane, "service", &info, NULL);
+  g_assert (info);
+
+  label_w = gtk_label_new (label);
+  gtk_widget_show (label_w);
+  gtk_table_attach (GTK_TABLE (priv->table), label_w,
+                    0, 1, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
+
+  entry = gtk_entry_new ();
+  g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
+  gtk_widget_show (entry);
+  gtk_table_attach_defaults (GTK_TABLE (priv->table), entry, 1, 2, priv->rows, priv->rows + 1);
+
+  gconf_key = g_strdup_printf ("/apps/mojito/services/%s/%s", info->name, key);
+  g_object_set_data_full (G_OBJECT (entry), DATA_GCONF_KEY, gconf_key, g_free);
+
+  value = gconf_client_get_string (priv->gconf, gconf_key, NULL);
+  if (value) {
+    gtk_entry_set_text (GTK_ENTRY (entry), value);
+    g_free (value);
+  }
+
+  priv->rows++;
 }
