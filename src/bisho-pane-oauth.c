@@ -46,7 +46,6 @@ typedef enum {
 } ButtonState;
 
 struct _BishoPaneOauthPrivate {
-  ServiceInfo *info; /* TODO remove */
   RestProxy *proxy;
   GtkWidget *pin_label;
   GtkWidget *pin_entry;
@@ -95,7 +94,7 @@ request_token_cb (OAuthProxy *proxy,
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
-  ServiceInfo *info = priv->info;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
   char *url;
 
   if (error) {
@@ -129,7 +128,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
   BishoPaneOauthPrivate *priv = pane->priv;
-  ServiceInfo *info = priv->info;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
   GError *error = NULL;
 
   if (oauth_proxy_request_token_async (OAUTH_PROXY (priv->proxy),
@@ -166,13 +165,13 @@ static void
 log_out_clicked (GtkButton *button, gpointer user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
-  BishoPaneOauthPrivate *priv = pane->priv;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
 
   update_widgets (pane, WORKING);
 
   gnome_keyring_delete_password (&oauth_schema, delete_done_cb, user_data, NULL,
-                                 "server", priv->info->oauth.base_url,
-                                 "consumer-key", priv->info->oauth.consumer_key,
+                                 "server", info->oauth.base_url,
+                                 "consumer-key", info->oauth.consumer_key,
                                  NULL);
 }
 
@@ -183,12 +182,13 @@ access_token_cb (OAuthProxy *proxy,
                  gpointer    user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
+  ServiceInfo *info = BISHO_PANE (pane)->info;
   BishoPaneOauthPrivate *priv = pane->priv;
   char *encoded;
 
   if (error) {
     update_widgets (pane, LOGGED_OUT);
-    g_message ("Error from %s: %s", priv->info->name, error->message);
+    g_message ("Error from %s: %s", info->name, error->message);
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     return;
   }
@@ -202,12 +202,12 @@ access_token_cb (OAuthProxy *proxy,
   GnomeKeyringAttributeList *attrs;
   guint32 id;
   attrs = gnome_keyring_attribute_list_new ();
-  gnome_keyring_attribute_list_append_string (attrs, "server", priv->info->oauth.base_url);
-  gnome_keyring_attribute_list_append_string (attrs, "consumer-key", priv->info->oauth.consumer_key);
+  gnome_keyring_attribute_list_append_string (attrs, "server", info->oauth.base_url);
+  gnome_keyring_attribute_list_append_string (attrs, "consumer-key", info->oauth.consumer_key);
 
   result = gnome_keyring_item_create_sync (NULL,
                                            GNOME_KEYRING_ITEM_GENERIC_SECRET,
-                                           priv->info->display_name,
+                                           info->display_name,
                                            attrs, encoded,
                                            TRUE, &id);
 
@@ -228,6 +228,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (_pane);
   BishoPaneOauthPrivate *priv = pane->priv;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
   GError *error = NULL;
   const char *verifier;
 
@@ -241,7 +242,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
    */
   if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
     /* If 1.0a then a callback must have been specified */
-    if (strcmp (priv->info->oauth.callback, "oob") == 0) {
+    if (strcmp (info->oauth.callback, "oob") == 0) {
       verifier = gtk_entry_get_text (GTK_ENTRY (priv->pin_entry));
       gtk_widget_hide (priv->pin_label);
       gtk_widget_hide (priv->pin_entry);
@@ -253,7 +254,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   }
 
   if (oauth_proxy_access_token_async (OAUTH_PROXY (priv->proxy),
-                                      priv->info->oauth.access_token_function,
+                                      info->oauth.access_token_function,
                                       verifier,
                                       access_token_cb,
                                       NULL,
@@ -262,7 +263,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
     update_widgets (pane, WORKING);
   } else {
     update_widgets (pane, LOGGED_OUT);
-    g_message ("Error from %s: %s", priv->info->name, error->message);
+    g_message ("Error from %s: %s", info->name, error->message);
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     return;
   }
@@ -278,9 +279,11 @@ static void
 update_widgets (BishoPaneOauth *pane, ButtonState state)
 {
   BishoPaneOauthPrivate *priv;
+  ServiceInfo *info;
 
   g_assert (BISHO_IS_PANE_OAUTH (pane));
   priv = pane->priv;
+  info = BISHO_PANE (pane)->info;
 
   g_signal_handlers_disconnect_by_func (priv->button, log_out_clicked, pane);
   g_signal_handlers_disconnect_by_func (priv->button, continue_clicked, pane);
@@ -289,23 +292,23 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
   switch (state) {
   case LOGGED_OUT:
     bisho_pane_set_banner (BISHO_PANE (pane), NULL);
-    gtk_widget_set_sensitive (priv->button, TRUE);
+    gtk_widget_show (priv->button);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me in"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
     break;
   case WORKING:
     bisho_pane_set_banner (BISHO_PANE (pane), NULL);
-    gtk_widget_set_sensitive (priv->button, FALSE);
+    gtk_widget_hide (priv->button);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
   case CONTINUE_AUTH_10:
     {
       char *s;
 
-      gtk_widget_set_sensitive (priv->button, TRUE);
+      gtk_widget_show (priv->button);
 
       s = g_strdup_printf (_("Once you have logged in to %s, press Continue."),
-                           priv->info->display_name);
+                           info->display_name);
       bisho_pane_set_banner (BISHO_PANE (pane), s);
       g_free (s);
 
@@ -319,10 +322,10 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
 
       gtk_widget_show (priv->pin_label);
       gtk_widget_show (priv->pin_entry);
-      gtk_widget_set_sensitive (priv->button, TRUE);
+      gtk_widget_show (priv->button);
 
       s = g_strdup_printf (_("Once you have logged in to %s, enter the code they give you and press Continue."),
-                           priv->info->display_name);
+                           info->display_name);
       bisho_pane_set_banner (BISHO_PANE (pane), s);
       g_free (s);
 
@@ -332,7 +335,7 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     break;
   case LOGGED_IN:
     bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
-    gtk_widget_set_sensitive (priv->button, TRUE);
+    gtk_widget_show (priv->button);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
     break;
@@ -353,43 +356,14 @@ find_key_cb (GnomeKeyringResult result,
 }
 
 static void
-bisho_pane_oauth_class_init (BishoPaneOauthClass *klass)
+bisho_pane_oauth_init (BishoPaneOauth *pane)
 {
-  BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
-
-  pane_class->continue_auth = bisho_pane_oauth_continue_auth;
-
-  g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
-}
-
-static void
-bisho_pane_oauth_init (BishoPaneOauth *self)
-{
-  self->priv = GET_PRIVATE (self);
-}
-
-GtkWidget *
-bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
-{
-  BishoPaneOauth *pane;
   BishoPaneOauthPrivate *priv;
   GtkWidget *content, *align, *box;
 
-  g_return_val_if_fail (MOJITO_IS_CLIENT (client), NULL);
-  g_assert (info);
-  g_assert (info->auth == AUTH_OAUTH);
+  pane->priv = GET_PRIVATE (pane);
 
-  pane = g_object_new (BISHO_TYPE_PANE_OAUTH,
-                       "mojito", client,
-                       "service", info,
-                       NULL);
   priv = pane->priv;
-
-  priv->info = info;
-  priv->proxy = oauth_proxy_new (info->oauth.consumer_key,
-                                info->oauth.consumer_secret,
-                                info->oauth.base_url, FALSE);
-  rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
   content = BISHO_PANE (pane)->content;
 
@@ -410,6 +384,21 @@ bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
   priv->button = gtk_button_new ();
   gtk_widget_show (priv->button);
   gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
+}
+
+static void
+bisho_pane_oauth_constructed (GObject *object)
+{
+  BishoPaneOauth *pane = BISHO_PANE_OAUTH (object);
+  BishoPaneOauthPrivate *priv = pane->priv;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
+
+  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
+
+  priv->proxy = oauth_proxy_new (info->oauth.consumer_key,
+                                info->oauth.consumer_secret,
+                                info->oauth.base_url, FALSE);
+  rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
   update_widgets (pane, WORKING);
 
@@ -417,6 +406,29 @@ bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
                                "server", info->oauth.base_url,
                                "consumer-key", info->oauth.consumer_key,
                                NULL);
+}
 
-  return (GtkWidget *)pane;
+static void
+bisho_pane_oauth_class_init (BishoPaneOauthClass *klass)
+{
+  GObjectClass *o_class = G_OBJECT_CLASS (klass);
+  BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
+
+  o_class->constructed = bisho_pane_oauth_constructed;
+  pane_class->continue_auth = bisho_pane_oauth_continue_auth;
+
+  g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
+}
+
+GtkWidget *
+bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
+{
+  g_return_val_if_fail (MOJITO_IS_CLIENT (client), NULL);
+  g_return_val_if_fail (info, NULL);
+  g_return_val_if_fail (info->auth == AUTH_OAUTH, NULL);
+
+  return g_object_new (BISHO_TYPE_PANE_OAUTH,
+                       "mojito", client,
+                       "service", info,
+                       NULL);
 }
