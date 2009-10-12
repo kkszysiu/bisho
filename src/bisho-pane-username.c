@@ -45,18 +45,16 @@ on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
 static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
-  GtkWidget *content;
-
   self->priv = GET_PRIVATE (self);
-
   self->priv->gconf = gconf_client_get_default ();
 
-  content = BISHO_PANE (self)->content;
-  g_assert (content);
-
   self->priv->table = gtk_table_new (0, 0, FALSE);
+  g_object_set (self->priv->table,
+                "row-spacing", 6,
+                "column-spacing", 6,
+                NULL);
   gtk_widget_show (self->priv->table);
-  gtk_box_pack_start (GTK_BOX (content), self->priv->table, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (BISHO_PANE (self)->content), self->priv->table);
 }
 
 static void
@@ -101,7 +99,8 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
   g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
   gtk_widget_show (entry);
-  gtk_table_attach_defaults (GTK_TABLE (priv->table), entry, 1, 2, priv->rows, priv->rows + 1);
+  gtk_table_attach (GTK_TABLE (priv->table), entry,
+                    1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
 
   gconf_key = g_strdup_printf ("/apps/mojito/services/%s/%s", info->name, key);
   g_object_set_data_full (G_OBJECT (entry), DATA_GCONF_KEY, gconf_key, g_free);

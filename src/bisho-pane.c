@@ -134,7 +134,7 @@ bisho_pane_init (BishoPane *pane)
   gtk_container_add (GTK_CONTAINER (align), pane->banner);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
-  align = gtk_alignment_new (0.0, 0.5, 0.0, 0.0);
+  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
   gtk_alignment_set_padding (GTK_ALIGNMENT (align), 0, 0, 32, 0);
   gtk_widget_show (align);
   pane->user_box = gtk_hbox_new (FALSE, 0);
@@ -146,7 +146,8 @@ bisho_pane_init (BishoPane *pane)
   gtk_container_add (GTK_CONTAINER (align), pane->user_box);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
 
-  pane->content = gtk_vbox_new (FALSE, 0);
+  pane->content = gtk_alignment_new (0.0, 0.0, 0.0, 0.0);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (pane->content), 0, 0, 64, 64);
   gtk_widget_show (pane->content);
   gtk_box_pack_start (GTK_BOX (pane), pane->content, TRUE, TRUE, 0);
 
