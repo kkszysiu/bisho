@@ -60,7 +60,7 @@ struct _BishoPaneOauthClass {
 
 GType bisho_pane_oauth_get_type (void) G_GNUC_CONST;
 
-GtkWidget * bisho_pane_oauth_new (ServiceInfo *info);
+GtkWidget * bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info);
 
 G_END_DECLS
 

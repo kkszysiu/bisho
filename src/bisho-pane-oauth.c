@@ -369,16 +369,18 @@ bisho_pane_oauth_init (BishoPaneOauth *self)
 }
 
 GtkWidget *
-bisho_pane_oauth_new (ServiceInfo *info)
+bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
 {
   BishoPaneOauth *pane;
   BishoPaneOauthPrivate *priv;
   GtkWidget *content, *align, *box;
 
+  g_return_val_if_fail (MOJITO_IS_CLIENT (client), NULL);
   g_assert (info);
   g_assert (info->auth == AUTH_OAUTH);
 
   pane = g_object_new (BISHO_TYPE_PANE_OAUTH,
+                       "mojito", client,
                        "service", info,
                        NULL);
   priv = pane->priv;
