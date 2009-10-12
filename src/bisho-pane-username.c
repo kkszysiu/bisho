@@ -98,6 +98,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
                     0, 1, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
 
   entry = gtk_entry_new ();
+  gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
   g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
   gtk_widget_show (entry);
   gtk_table_attach_defaults (GTK_TABLE (priv->table), entry, 1, 2, priv->rows, priv->rows + 1);
