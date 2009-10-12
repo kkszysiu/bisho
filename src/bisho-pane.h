@@ -12,9 +12,9 @@ G_BEGIN_DECLS
   (G_TYPE_CHECK_INSTANCE_CAST ((obj), BISHO_TYPE_PANE, BishoPane))
 #define BISHO_PANE_CLASS(klass)                                         \
   (G_TYPE_CHECK_CLASS_CAST ((klass), BISHO_TYPE_PANE, BishoPaneClass))
-#define IS_BISHO_PANE(obj)                              \
+#define BISHO_IS_PANE(obj)                              \
   (G_TYPE_CHECK_INSTANCE_TYPE ((obj), BISHO_TYPE_PANE))
-#define IS_BISHO_PANE_CLASS(klass)                      \
+#define BISHO_IS_PANE_CLASS(klass)                      \
   (G_TYPE_CHECK_CLASS_TYPE ((klass), BISHO_TYPE_PANE))
 #define BISHO_PANE_GET_CLASS(obj)                                       \
    (G_TYPE_INSTANCE_GET_CLASS ((obj), BISHO_TYPE_PANE, BishoPaneClass))
@@ -49,6 +49,8 @@ void bisho_pane_set_banner (BishoPane *pane, const char *message);
 void bisho_pane_set_banner_error (BishoPane *pane, const GError *error);
 
 void bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username);
+
+void bisho_pane_follow_connected (BishoPane *pane, GtkWidget *widget);
 
 G_END_DECLS
 

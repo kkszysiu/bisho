@@ -218,3 +218,22 @@ bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
     gtk_widget_hide (pane->user_name);
   }
 }
+
+static void
+on_online_changed (MojitoClient *client, gboolean online, gpointer user_data)
+{
+  GtkWidget *widget = GTK_WIDGET (user_data);
+
+  gtk_widget_set_sensitive (widget, online);
+}
+
+void
+bisho_pane_follow_connected (BishoPane *pane, GtkWidget *widget)
+{
+  g_return_if_fail (BISHO_IS_PANE (pane));
+  g_return_if_fail (GTK_IS_WIDGET (widget));
+
+  g_signal_connect (pane->mojito, "online-changed", G_CALLBACK (on_online_changed), widget);
+
+  mojito_client_is_online (pane->mojito, on_online_changed, widget);
+}
