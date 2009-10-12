@@ -47,7 +47,7 @@ static void
 construct_ui (BishoWindow *window, const char *service_name)
 {
   ServiceInfo *info;
-  GtkWidget *expander, *label;
+  GtkWidget *expander;
   GtkBox *box;
   MuxExpandingItem *m;
 
@@ -85,25 +85,14 @@ construct_ui (BishoWindow *window, const char *service_name)
     break;
   case AUTH_USERNAME_PASSWORD:
     {
-      GtkWidget *table, *entry;
-
-      table = gtk_table_new (2, 2, FALSE);
-
-      label = gtk_label_new (_("Username:"));
-      gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-
-      entry = new_entry_from_gconf (window, info, "user");
-      gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 0, 1);
-
-      label = gtk_label_new (_("Password:"));
-      gtk_table_attach (GTK_TABLE (table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
-
-      entry = new_entry_from_gconf (window, info, "password");
-      gtk_entry_set_visibility (GTK_ENTRY (entry), FALSE);
-      gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, 1, 2);
-
-      gtk_widget_show_all (table);
-      gtk_box_pack_start (GTK_BOX (box), table, FALSE, FALSE, 0);
+      GtkWidget *pane;
+      pane = bisho_pane_username_new (info);
+      bisho_pane_username_add_entry
+        (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
+      bisho_pane_username_add_entry
+        (BISHO_PANE_USERNAME (pane), _("Password:"), "password");
+      gtk_widget_show (pane);
+      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     }
     break;
   case AUTH_OAUTH:
