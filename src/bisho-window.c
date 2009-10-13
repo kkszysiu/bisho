@@ -21,7 +21,6 @@
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
 #include "mux-expanding-item.h"
-#include "mux-window.h"
 #include "bisho-window.h"
 #include "bisho-utils.h"
 #include "service-info.h"
@@ -38,7 +37,7 @@ struct _BishoWindowPrivate {
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_WINDOW, BishoWindowPrivate))
 
-G_DEFINE_TYPE (BishoWindow, bisho_window, MUX_TYPE_WINDOW);
+G_DEFINE_TYPE (BishoWindow, bisho_window, GTK_TYPE_WINDOW);
 
 static void
 construct_ui (BishoWindow *window, const char *service_name)
@@ -129,17 +128,47 @@ bisho_window_class_init (BishoWindowClass *klass)
 static void
 bisho_window_init (BishoWindow *self)
 {
-  GtkWidget *label;
+#define PACK_IN_TOOL(wid,icon)	{ GtkWidget *tbox; tbox = gtk_hbox_new (FALSE, 0); gtk_box_pack_start ((GtkBox *)tbox, gtk_image_new_from_icon_name(icon, GTK_ICON_SIZE_BUTTON), FALSE, FALSE, 0); wid = (GtkWidget *)gtk_tool_button_new (tbox, NULL); }
+
+  GdkScreen *screen;
+  GtkWidget *box, *toolbar, *label, *quit;
+  GtkToolItem *sep;
 
   self->priv = GET_PRIVATE (self);
 
-  gtk_window_set_title (GTK_WINDOW (self), "");
+  gtk_window_set_title (GTK_WINDOW (self), _("My Web Accounts"));
   gtk_window_set_icon_name (GTK_WINDOW (self), "bisho");
+  gtk_window_set_decorated (GTK_WINDOW (self), FALSE);
+
+  screen = gtk_widget_get_screen (GTK_WIDGET (self));
+  gtk_window_set_default_size (GTK_WINDOW (self),
+                               gdk_screen_get_width (screen),
+                               gdk_screen_get_height (screen));
+
+  box = gtk_vbox_new (FALSE, 0);
+  gtk_widget_show (box);
+  gtk_container_add (GTK_CONTAINER (self), box);
+
+  toolbar = gtk_toolbar_new ();
+  gtk_widget_show (toolbar);
+  gtk_box_pack_start (GTK_BOX (box), toolbar, FALSE, FALSE, 0);
+
+  sep = gtk_separator_tool_item_new ();
+  gtk_separator_tool_item_set_draw (GTK_SEPARATOR_TOOL_ITEM (sep), FALSE);
+  gtk_tool_item_set_expand (GTK_TOOL_ITEM (sep), TRUE);
+  gtk_widget_show (GTK_WIDGET (sep));
+  gtk_toolbar_insert ((GtkToolbar *)toolbar, sep, 0);
+
+  PACK_IN_TOOL (quit, "gtk-close");
+  gtk_widget_set_tooltip_text (quit, _("Quit"));
+  g_signal_connect (quit, "clicked", G_CALLBACK (gtk_main_quit), NULL);
+  gtk_widget_show_all (quit);
+  gtk_toolbar_insert ((GtkToolbar *)toolbar, (GtkToolItem *)quit, -1);
 
   self->priv->master_box = gtk_vbox_new (FALSE, 8);
   gtk_container_set_border_width (GTK_CONTAINER (self->priv->master_box), 8);
   gtk_widget_show (self->priv->master_box);
-  gtk_container_add (GTK_CONTAINER (self), self->priv->master_box);
+  gtk_container_add (GTK_CONTAINER (box), self->priv->master_box);
 
   /* Please don't translate 'myzone' */
   label = gtk_label_new (_("Set up your social networks to see new updates in myzone and the status panel."));

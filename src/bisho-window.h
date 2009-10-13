@@ -22,7 +22,6 @@
 
 #include <gtk/gtk.h>
 #include <mojito-client/mojito-client.h>
-#include "mux-window.h"
 #include "service-info.h"
 
 G_BEGIN_DECLS
@@ -53,12 +52,12 @@ typedef struct _BishoWindow      BishoWindow;
 typedef struct _BishoWindowClass BishoWindowClass;
 
 struct _BishoWindow {
-  MuxWindow parent;
+  GtkWindow parent;
   BishoWindowPrivate *priv;
 };
 
 struct _BishoWindowClass {
-  MuxWindowClass parent_class;
+  GtkWindowClass parent_class;
 };
 
 GType bisho_window_get_type (void) G_GNUC_CONST;

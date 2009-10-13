@@ -12,9 +12,7 @@ bisho_SOURCES = \
 	mux-banner.c mux-banner.h \
 	mux-label.c mux-label.h \
 	mux-expander.c mux-expander.h \
-	mux-expanding-item.c mux-expanding-item.h \
-	mux-icon-button.c mux-icon-button.h \
-	mux-window.c mux-window.h
+	mux-expanding-item.c mux-expanding-item.h
 
 bisho_CPPFLAGS = $(DEPS_CFLAGS) \
 	-DLIBEXECDIR=\"@libexecdir@\" \
