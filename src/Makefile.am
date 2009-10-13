@@ -14,6 +14,10 @@ bisho_SOURCES = \
 	mux-expander.c mux-expander.h \
 	mux-expanding-item.c mux-expanding-item.h
 
+if ! HAVE_INFOBAR
+bisho_SOURCES += gtkinfobar.h gtkinfobar.c
+endif
+
 bisho_CPPFLAGS = $(DEPS_CFLAGS) \
 	-DLIBEXECDIR=\"@libexecdir@\" \
 	-DLOCALEDIR=\""$(datadir)/locale"\"  \

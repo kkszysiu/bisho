@@ -27,6 +27,12 @@ PKG_CHECK_MODULES(DEPS, mojito-client mojito-keystore gtk+-2.0 gconf-2.0 gnome-k
 
 AM_GCONF_SOURCE_2
 
+old_cflags=$CFLAGS
+CFLAGS=$GTK_CFLAGS
+AC_CHECK_DECLS([gtk_info_bar_new], [have_infobar=yes], [], [#include <gtk/gtk.h>])
+AM_CONDITIONAL([HAVE_INFOBAR], [test "$have_infobar" = "yes"])
+CFLAGS=$old_cflags
+
 AC_OUTPUT([
         Makefile
         data/Makefile
