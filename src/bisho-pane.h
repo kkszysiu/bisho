@@ -28,6 +28,7 @@ struct _BishoPane {
   ServiceInfo *info;
   GtkWidget *description;
   GtkWidget *banner;
+  GtkWidget *banner_label;
   GtkWidget *user_box;
   GtkWidget *user_icon;
   GtkWidget *user_name;

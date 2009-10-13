@@ -21,8 +21,11 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include "bisho-pane.h"
-#include "mux-banner.h"
 #include "mux-label.h"
+
+#if ! HAVE_DECL_GTK_INFO_BAR_NEW
+#include "gtkinfobar.h"
+#endif
 
 G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
 
@@ -120,7 +123,7 @@ bisho_pane_class_init (BishoPaneClass *klass)
 static void
 bisho_pane_init (BishoPane *pane)
 {
-  GtkWidget *align;
+  GtkWidget *align, *banner_content;
 
   gtk_box_set_spacing (GTK_BOX (pane), 8);
 
@@ -130,9 +133,15 @@ bisho_pane_init (BishoPane *pane)
 
   align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
   gtk_widget_show (align);
-  pane->banner = mux_banner_new ();
+  pane->banner = gtk_info_bar_new ();
   gtk_container_add (GTK_CONTAINER (align), pane->banner);
   gtk_box_pack_start (GTK_BOX (pane), align, FALSE, FALSE, 0);
+
+  pane->banner_label = gtk_label_new (NULL);
+  gtk_label_set_line_wrap (GTK_LABEL (pane->banner_label), TRUE);
+  gtk_widget_show (pane->banner_label);
+  banner_content = gtk_info_bar_get_content_area (GTK_INFO_BAR (pane->banner));
+  gtk_container_add (GTK_CONTAINER (banner_content), pane->banner_label);
 
   align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
   gtk_alignment_set_padding (GTK_ALIGNMENT (align), 0, 0, 32, 0);
@@ -171,7 +180,8 @@ void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {
   if (message) {
-    mux_banner_set_text (MUX_BANNER (pane->banner), message);
+    gtk_info_bar_set_message_type (GTK_INFO_BAR (pane->banner), GTK_MESSAGE_INFO);
+    gtk_label_set_text (GTK_LABEL (pane->banner_label), message);
     gtk_widget_show (pane->banner);
   } else {
     gtk_widget_hide (pane->banner);
@@ -192,7 +202,10 @@ bisho_pane_set_banner_error (BishoPane *pane, const GError *error)
                          pane->info->display_name);
   }
 
-  bisho_pane_set_banner (BISHO_PANE (pane), s);
+  gtk_info_bar_set_message_type (GTK_INFO_BAR (pane->banner), GTK_MESSAGE_WARNING);
+  gtk_label_set_text (GTK_LABEL (pane->banner_label), s);
+  gtk_widget_show (pane->banner);
+
   g_free (s);
 }
 
