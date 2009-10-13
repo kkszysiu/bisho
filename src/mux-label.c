@@ -27,8 +27,20 @@
 G_DEFINE_TYPE (MuxLabel, mux_label, GTK_TYPE_TEXT_VIEW);
 
 static void
+mux_label_style_set (GtkWidget *widget, GtkStyle *previous)
+{
+  GTK_WIDGET_CLASS (mux_label_parent_class)->style_set (widget, previous);
+
+  widget->style->base[GTK_STATE_NORMAL] = widget->style->bg[GTK_STATE_NORMAL];
+  widget->style->text[GTK_STATE_NORMAL] = widget->style->fg[GTK_STATE_NORMAL];
+}
+
+static void
 mux_label_class_init (MuxLabelClass *klass)
 {
+  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+  widget_class->style_set = mux_label_style_set;
 }
 
 static void
