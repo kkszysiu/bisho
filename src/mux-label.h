@@ -65,6 +65,8 @@ GtkTextTag * mux_label_create_link_tag (MuxLabel *label, const char *url);
 
 void mux_label_set_text (MuxLabel *label, const char *text);
 
+void mux_label_set_markup (MuxLabel *label, const char *markup);
+
 G_END_DECLS
 
 #endif /* __MUX_LABEL_H__ */
