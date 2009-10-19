@@ -72,16 +72,16 @@ construct_ui (BishoWindow *window, const char *service_name)
   case AUTH_USERNAME:
     pane = bisho_pane_username_new (info);
     bisho_pane_username_add_entry
-      (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
+      (BISHO_PANE_USERNAME (pane), _("Username:"), "user", TRUE);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     break;
   case AUTH_USERNAME_PASSWORD:
     pane = bisho_pane_username_new (info);
     bisho_pane_username_add_entry
-      (BISHO_PANE_USERNAME (pane), _("Username:"), "user");
+      (BISHO_PANE_USERNAME (pane), _("Username:"), "user", TRUE);
     bisho_pane_username_add_entry
-      (BISHO_PANE_USERNAME (pane), _("Password:"), "password");
+      (BISHO_PANE_USERNAME (pane), _("Password:"), "password", FALSE);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     break;

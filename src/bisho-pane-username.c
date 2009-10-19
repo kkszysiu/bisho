@@ -86,7 +86,6 @@ GtkWidget *
 bisho_pane_username_new (ServiceInfo *info)
 {
   g_assert (info);
-  g_assert (info->auth == AUTH_USERNAME);
 
   return g_object_new (BISHO_TYPE_PANE_USERNAME,
                        "service", info,
@@ -94,7 +93,7 @@ bisho_pane_username_new (ServiceInfo *info)
 }
 
 void
-bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const char *key)
+bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const char *key, gboolean visible)
 {
   BishoPaneUsernamePrivate *priv;
   GtkWidget *label_w, *entry;
@@ -115,6 +114,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
                     0, 1, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
 
   entry = gtk_entry_new ();
+  gtk_entry_set_visibility (GTK_ENTRY (entry), visible);
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
   g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
   gtk_widget_show (entry);
