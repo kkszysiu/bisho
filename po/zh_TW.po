@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-01 16:20+0000\n"
+"POT-Creation-Date: 2009-10-16 11:25+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: \n"
@@ -13,7 +13,8 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:139
 msgid "My Web Accounts"
 msgstr "我的網路帳號"
 
@@ -22,133 +23,121 @@ msgstr "我的網路帳號"
 msgid "myzone & status"
 msgstr "myzone 以及狀態"
 
-#: ../src/bisho-pane.c:79
+#: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
 msgstr "開啟網站以了解更多資訊。"
 
-#: ../src/bisho-pane.c:83
+#: ../src/bisho-pane.c:90
 #, c-format
-msgid ""
-"<small>You'll need an account with %s and an Internet connection to use this "
-"web service.</small>"
-msgstr ""
-"<small>你需要一個 %s 帳戶以及可用的網路連線，才能使用此網路服務。</small>"
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>你需要一個 %s 帳戶以及可用的網路連線，才能使用此網路服務。</small>"
 
-#: ../src/bisho-pane-flickr.c:245
-msgid "Log in pending"
-msgstr "正在等候登入"
-
-#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
-msgid "Log me in"
-msgstr "讓我登入"
-
-#: ../src/bisho-pane-flickr.c:251
-msgid "Log in pending..."
-msgstr "正在等候登入..."
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
-msgid "Working..."
-msgstr "正在處理..."
-
-#: ../src/bisho-pane-flickr.c:258
-#, c-format
-msgid "Logged in as %s"
-msgstr "登入為 %s"
-
-#: ../src/bisho-pane-flickr.c:262
-msgid "Logged in"
-msgstr "已登入"
-
-#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
-msgid "Log me out"
-msgstr "讓我登出"
-
-#: ../src/bisho-pane-flickr.c:345
-msgid "<b>Status:</b>"
-msgstr "<b>狀態：</b>"
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "你似乎沒有連上網路，所以它無法運作。"
-
-#: ../src/bisho-pane-oauth.c:86
+#: ../src/bisho-pane.c:195
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "抱歉，我們無法登入到 %s。%s"
 
-#: ../src/bisho-pane-oauth.c:87
-msgid "You could check that the computer's clock is correct."
-msgstr "你可以檢查看看電腦時鐘的顯示時間是不是正確的。"
-
-#: ../src/bisho-pane-oauth.c:88
-msgid "You could try again."
-msgstr "你可以再試一次。"
-
-#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#: ../src/bisho-pane.c:199
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我們無法登入到 %s"
 
-#: ../src/bisho-pane-oauth.c:278
+#: ../src/bisho-pane-flickr.c:243
+#: ../src/bisho-pane-oauth.c:296
+msgid "Log me in"
+msgstr "讓我登入"
+
+#: ../src/bisho-pane-flickr.c:249
+#: ../src/bisho-pane-oauth.c:302
+msgid "Working..."
+msgstr "正在處理..."
+
+#: ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-pane-oauth.c:337
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "已成功登入。在幾分鐘之內你就會看到新的項目。"
+
+#: ../src/bisho-pane-flickr.c:255
+#: ../src/bisho-pane-oauth.c:339
+msgid "Log me out"
+msgstr "讓我登出"
+
+#: ../src/bisho-pane-oauth.c:84
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "你似乎沒有連上網路，所以它無法運作。"
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You could check that the computer's clock is correct."
+msgstr "你可以檢查看看電腦時鐘的顯示時間是不是正確的。"
+
+#: ../src/bisho-pane-oauth.c:86
+msgid "You could try again."
+msgstr "你可以再試一次。"
+
+#: ../src/bisho-pane-oauth.c:310
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "一旦您登入到 %s ，請按下「繼續」。"
 
-#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+#: ../src/bisho-pane-oauth.c:315
+#: ../src/bisho-pane-oauth.c:332
 msgid "Continue"
 msgstr "繼續"
 
-#: ../src/bisho-pane-oauth.c:295
+#: ../src/bisho-pane-oauth.c:327
 #, c-format
-msgid ""
-"Once you have logged in to %s, enter the code they give you and press "
-"Continue."
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
 msgstr "一旦你登入到 %s ，請輸入他們給予你的代碼接著按下「繼續」。"
 
-#: ../src/bisho-pane-oauth.c:306
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "已成功登入。在幾分鐘之內你就會看到新的項目。"
-
-#: ../src/bisho-pane-oauth.c:373
+#: ../src/bisho-pane-oauth.c:378
 msgid "Code:"
 msgstr "代碼："
 
-#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
-msgid "Username:"
-msgstr "使用者："
-
-#: ../src/bisho-window.c:103
-msgid "Password:"
-msgstr "密碼："
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:178
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr "設置你的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
-
-#: ../src/entry.c:57
+#: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s 登入已改變。"
 
+#: ../src/bisho-window.c:75
+#: ../src/bisho-window.c:82
+msgid "Username:"
+msgstr "使用者："
+
+#: ../src/bisho-window.c:84
+msgid "Password:"
+msgstr "密碼："
+
+#: ../src/bisho-window.c:163
+msgid "Quit"
+msgstr "離開"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:174
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "設置你的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
+
+#~ msgid "Log in pending"
+#~ msgstr "正在等候登入"
+#~ msgid "Log in pending..."
+#~ msgstr "正在等候登入..."
+#~ msgid "Logged in as %s"
+#~ msgstr "登入為 %s"
+#~ msgid "Logged in"
+#~ msgstr "已登入"
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>狀態：</b>"
 #~ msgid "Web Services"
 #~ msgstr "網路服務"
-
 #~ msgid "Press Continue to continue the log in."
 #~ msgstr "請按下「繼續」以繼續登入。"
-
 #~ msgid "Web Services Settings"
 #~ msgstr "網路服務設定"
-
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "一旦您登入到 Flickr ，請按一下繼續。"
-
 #~ msgid ""
 #~ "You'll need an account with %s and an Internet connection to use this web "
 #~ "service."
 #~ msgstr "要使用 %s 你將需要一個帳戶以及網路連線才能使用這個網路服務。"
-
 #~ msgid "Cannot login to %s"
 #~ msgstr "無法登入到 %s"
+
