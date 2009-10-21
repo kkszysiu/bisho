@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-02 16:13+0000\n"
+"POT-Creation-Date: 2009-10-16 11:25+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Anu McDougall <anu.mcdougall@ptiglobal.net>\n"
 "Language-Team: \n"
@@ -13,7 +13,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:139
 msgid "My Web Accounts"
 msgstr "Web Tilini"
 
@@ -22,141 +23,124 @@ msgstr "Web Tilini"
 msgid "myzone & status"
 msgstr "myzone & tila"
 
-#: ../src/bisho-pane.c:79
+#: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
 msgstr "Avaa sivusto lisätietoja tarkastellaksesi."
 
-#: ../src/bisho-pane.c:83
+#: ../src/bisho-pane.c:90
 #, c-format
-msgid ""
-"<small>You'll need an account with %s and an Internet connection to use this "
-"web service.</small>"
-msgstr ""
-"<pieni>Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja "
-"tilin, jossa on %s.</pieni>"
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<pieni>Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, jossa on %s.</pieni>"
 
-#: ../src/bisho-pane-flickr.c:245
-msgid "Log in pending"
-msgstr "Kirjautuminen käynnissä"
-
-#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
-msgid "Log me in"
-msgstr "Kirjaudu sisään"
-
-#: ../src/bisho-pane-flickr.c:251
-msgid "Log in pending..."
-msgstr "Kirjautuminen käynnissä..."
-
-# wait
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
-msgid "Working..."
-msgstr "Odota..."
-
-#: ../src/bisho-pane-flickr.c:258
-#, c-format
-msgid "Logged in as %s"
-msgstr "Kirjauduttu nimellä %s"
-
-#: ../src/bisho-pane-flickr.c:262
-msgid "Logged in"
-msgstr "Kirjauduttu"
-
-#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
-msgid "Log me out"
-msgstr "Kirjaudu ulos"
-
-#: ../src/bisho-pane-flickr.c:345
-msgid "<b>Status:</b>"
-msgstr "<b>Tila:</b>"
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Sinulla ei näytä olevan nettiyhteyttä, tämä ei toimi. "
-
-#: ../src/bisho-pane-oauth.c:86
+#: ../src/bisho-pane.c:195
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Ei voida kirjautua kohteeseen  %s. %s"
 
-#: ../src/bisho-pane-oauth.c:87
-msgid "You could check that the computer's clock is correct."
-msgstr "Voisit tarkistaa että tietokoneen kello on oikeassa. "
-
-#: ../src/bisho-pane-oauth.c:88
-msgid "You could try again."
-msgstr "Voit yrittää uudelleen."
-
-#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#: ../src/bisho-pane.c:199
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Ei voida kirjautua kohteeseen %s"
 
-#: ../src/bisho-pane-oauth.c:278
+#: ../src/bisho-pane-flickr.c:243
+#: ../src/bisho-pane-oauth.c:296
+msgid "Log me in"
+msgstr "Kirjaudu sisään"
+
+# wait
+#: ../src/bisho-pane-flickr.c:249
+#: ../src/bisho-pane-oauth.c:302
+msgid "Working..."
+msgstr "Odota..."
+
+#: ../src/bisho-pane-flickr.c:252
+#: ../src/bisho-pane-oauth.c:337
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Kirjautuminen onnistui. Näet uusia osia muutamassa minuutissa. "
+
+#: ../src/bisho-pane-flickr.c:255
+#: ../src/bisho-pane-oauth.c:339
+msgid "Log me out"
+msgstr "Kirjaudu ulos"
+
+#: ../src/bisho-pane-oauth.c:84
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Sinulla ei näytä olevan nettiyhteyttä, tämä ei toimi. "
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You could check that the computer's clock is correct."
+msgstr "Voisit tarkistaa että tietokoneen kello on oikeassa. "
+
+#: ../src/bisho-pane-oauth.c:86
+msgid "You could try again."
+msgstr "Voit yrittää uudelleen."
+
+#: ../src/bisho-pane-oauth.c:310
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Paina Jatka, kun olet kirjautunut seuraavaan palveluun: %s."
 
-#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
+#: ../src/bisho-pane-oauth.c:315
+#: ../src/bisho-pane-oauth.c:332
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../src/bisho-pane-oauth.c:295
+#: ../src/bisho-pane-oauth.c:327
 #, c-format
-msgid ""
-"Once you have logged in to %s, enter the code they give you and press "
-"Continue."
-msgstr ""
-"Kun olet kirjautunut seuraavaan palveluun: %s, anna koodi joka sinulle "
-"annetaan ja paina Jatka."
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Kun olet kirjautunut seuraavaan palveluun: %s, anna koodi joka sinulle annetaan ja paina Jatka."
 
-#: ../src/bisho-pane-oauth.c:306
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Kirjautuminen onnistui. Näet uusia osia muutamassa minuutissa. "
-
-#: ../src/bisho-pane-oauth.c:373
+#: ../src/bisho-pane-oauth.c:378
 msgid "Code:"
 msgstr "Koodi:"
 
-#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
-msgid "Username:"
-msgstr "Käyttäjätunnus:"
-
-#: ../src/bisho-window.c:103
-msgid "Password:"
-msgstr "Salasana:"
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:178
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr ""
-"Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja "
-"tilapaneelissa."
-
-#: ../src/entry.c:57
+#: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Kirjautumistiedot vaihdettu: %s"
 
+#: ../src/bisho-window.c:75
+#: ../src/bisho-window.c:82
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+#: ../src/bisho-window.c:84
+msgid "Password:"
+msgstr "Salasana:"
+
+#: ../src/bisho-window.c:163
+msgid "Quit"
+msgstr "Lopeta"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:174
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja tilapaneelissa."
+
+#~ msgid "Log in pending"
+#~ msgstr "Kirjautuminen käynnissä"
+#~ msgid "Log in pending..."
+#~ msgstr "Kirjautuminen käynnissä..."
+#~ msgid "Logged in as %s"
+#~ msgstr "Kirjauduttu nimellä %s"
+#~ msgid "Logged in"
+#~ msgstr "Kirjauduttu"
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>Tila:</b>"
 #~ msgid "Web Services"
 #~ msgstr "Verkkopalvelut"
-
 #~ msgid "Press Continue to continue the log in."
 #~ msgstr "Paina Jatka jatkaaksesi sisäänkirjautumista."
-
 #~ msgid "Web Services Settings"
 #~ msgstr "Verkkopalveluasetukset"
-
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Paina Jatka, kun olet kirjautunut Flickr-palveluun."
-
 #~ msgid ""
 #~ "You'll need an account with %s and an Internet connection to use this web "
 #~ "service."
 #~ msgstr ""
 #~ "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, "
 #~ "jossa on %s."
-
 #~ msgid "Cannot login to %s"
 #~ msgstr "Ei voida kirjautua kohteeseen %s"
+
