@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-01 16:20+0000\n"
+"POT-Creation-Date: 2009-10-16 11:25+0000\n"
 "PO-Revision-Date: 2009-08-04 10:11+0100\n"
 "Last-Translator: Sibo Attema <sibo.attema@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,118 +15,116 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+msgid "My Web Accounts"
+msgstr "Mijn Web Accounts"
+
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "myzone & status"
 
-#: ../src/bisho-pane.c:79
+#: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
 msgstr "Kijk op de website voor meer informatie"
 
-#: ../src/bisho-pane-flickr.c:245
-msgid "Log in pending"
-msgstr "Aanmeling loopt"
-
-#: ../src/bisho-pane-flickr.c:246 ../src/bisho-pane-oauth.c:265
-msgid "Log me in"
-msgstr "Log mij in"
-
-#: ../src/bisho-pane-flickr.c:251
-msgid "Log in pending..."
-msgstr "Aanmelding loopt..."
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:270
-msgid "Working..."
-msgstr "Bezig..."
-
-#: ../src/bisho-pane-flickr.c:258
-#, c-format
-msgid "Logged in as %s"
-msgstr "Ingelogd als %s"
-
-#: ../src/bisho-pane-flickr.c:262
-msgid "Logged in"
-msgstr "Ingelogd"
-
-#: ../src/bisho-pane-flickr.c:264 ../src/bisho-pane-oauth.c:307
-msgid "Log me out"
-msgstr "Log mij uit"
-
-#: ../src/bisho-pane-flickr.c:345
-msgid "<b>Status:</b>"
-msgstr "<b>Status:</b>"
-
-#: ../src/bisho-pane-oauth.c:278
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "Als je bent ingelogd in de %s, Druk dan op Doorgaan."
-
-#: ../src/bisho-pane-oauth.c:283 ../src/bisho-pane-oauth.c:300
-msgid "Continue"
-msgstr "Doorgaan"
-
-#: ../src/bisho-window.c:81 ../src/bisho-window.c:97
-msgid "Username:"
-msgstr "Gebruikersnaam:"
-
-#: ../src/bisho-window.c:103
-msgid "Password:"
-msgstr "Wachtwoord:"
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:178
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Stel je sociale netwerk in om nieuwe updates te zien in myzone en de status paneel."
-
-#: ../src/entry.c:57
-#, c-format
-msgid "%s login changed."
-msgstr "%s login veranderd."
-
-#: ../src/bisho-pane-oauth.c:295
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "Als je bent ingelogd in de %s, Voer de verkregen code in en druk dan op Doorgaan."
-
-#: ../src/bisho-pane-oauth.c:306
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Inloggen gelukt. Je zult nieuwe items zien binnen enkele minuten."
-
-#: ../src/bisho-pane-oauth.c:373
-msgid "Code:"
-msgstr "Code:"
-
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:169
-msgid "My Web Accounts"
-msgstr "Mijn Web Accounts"
-
-#: ../src/bisho-pane.c:83
+#: ../src/bisho-pane.c:90
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Je hebt een account nodig met %s en een internet verbinding om deze service te kunnen gebruiken</small>"
 
-#: ../src/bisho-pane-oauth.c:85
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Je hebt geen netwerkverbinding, dus dit kan niet werken."
-
-#: ../src/bisho-pane-oauth.c:87
-msgid "You could check that the computer's clock is correct."
-msgstr "Je kunt controleren of de computer tijd goed is ingesteld."
-
-#: ../src/bisho-pane-oauth.c:86
+#: ../src/bisho-pane.c:195
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Sorry, kan niet inloggen op %s. %s"
 
-#: ../src/bisho-pane-oauth.c:112 ../src/bisho-pane-oauth.c:206
+#: ../src/bisho-pane.c:199
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Sorry, kan niet inloggen op %s"
 
-#: ../src/bisho-pane-oauth.c:88
+#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
+msgid "Log me in"
+msgstr "Log mij in"
+
+#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
+msgid "Working..."
+msgstr "Bezig..."
+
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Inloggen gelukt. Je zult nieuwe items zien binnen enkele minuten."
+
+#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
+msgid "Log me out"
+msgstr "Log mij uit"
+
+#: ../src/bisho-pane-oauth.c:84
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Je hebt geen netwerkverbinding, dus dit kan niet werken."
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You could check that the computer's clock is correct."
+msgstr "Je kunt controleren of de computer tijd goed is ingesteld."
+
+#: ../src/bisho-pane-oauth.c:86
 msgid "You could try again."
 msgstr "Je kunt het nogmaals proberen."
+
+#: ../src/bisho-pane-oauth.c:310
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Als je bent ingelogd in de %s, Druk dan op Doorgaan."
+
+#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: ../src/bisho-pane-oauth.c:327
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Als je bent ingelogd in de %s, Voer de verkregen code in en druk dan op Doorgaan."
+
+#: ../src/bisho-pane-oauth.c:378
+msgid "Code:"
+msgstr "Code:"
+
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "%s login veranderd."
+
+#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: ../src/bisho-window.c:84
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:174
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Stel je sociale netwerk in om nieuwe updates te zien in myzone en de status paneel."
+
+#: ../src/bisho-window.c:163
+msgid "Quit"
+msgstr "Afsluiten"
+
+#~ msgid "Log in pending"
+#~ msgstr "Aanmeling loopt"
+
+#~ msgid "Log in pending..."
+#~ msgstr "Aanmelding loopt..."
+
+#~ msgid "Logged in as %s"
+#~ msgstr "Ingelogd als %s"
+
+#~ msgid "Logged in"
+#~ msgstr "Ingelogd"
+
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>Status:</b>"
 
 #~ msgid "Web Services"
 #~ msgstr "Webservice"
