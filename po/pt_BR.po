@@ -1,18 +1,18 @@
-# 
+# GLSPTB_Gabor <gaborx.k.becht@intel.com>, 2009.
+# Og Maciel <ogmaciel@gnome.org>, 2009.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-16 11:25+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: GLSPTB_Gabor <gaborx.k.becht@intel.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2009-10-21 23:14-0500\n"
+"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <l10n@moblin.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
 msgid "My Web Accounts"
@@ -57,8 +57,12 @@ msgstr "Senha:"
 
 #. Please don't translate 'myzone'
 #: ../src/bisho-window.c:174
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configure suas redes sociais para ver novas atualizações na myzone e o no painel de status."
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Configure suas redes sociais para ver novas atualizações na myzone e o no "
+"painel de status."
 
 #: ../src/bisho-window.c:163
 msgid "Quit"
@@ -75,8 +79,12 @@ msgstr "Sinto muito, não foi possível conectar no  %s. %s"
 
 #: ../src/bisho-pane.c:90
 #, c-format
-msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Você precisará de uma conta com %s e uma conexão a Internet para usar este serviço web.</small>"
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Você precisará de uma conta com %s e uma conexão a Internet para usar "
+"este serviço web.</small>"
 
 #: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
 msgid "Log me in"
@@ -107,8 +115,11 @@ msgstr "Uma vez conectado no %s, pressione Continuar."
 
 #: ../src/bisho-pane-oauth.c:327
 #, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "Uma vez conectado no %s, digite o código fornecido e pressione Continuar."
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"Uma vez conectado no %s, digite o código fornecido e pressione Continuar."
 
 #~ msgid "Log in pending"
 #~ msgstr "Login pendente"
@@ -125,8 +136,12 @@ msgstr "Uma vez conectado no %s, digite o código fornecido e pressione Continua
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>Status:</b>"
 
-#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
-#~ msgstr "Você vai precisar de uma conta com %s e uma conexão na Internet para usar este serviço na web."
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Você vai precisar de uma conta com %s e uma conexão na Internet para usar "
+#~ "este serviço na web."
 
 #~ msgid "Cannot login to %s"
 #~ msgstr "Login impossível no %s"
