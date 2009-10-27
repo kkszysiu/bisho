@@ -24,15 +24,6 @@ msgstr "Mijn Web Accounts"
 msgid "myzone & status"
 msgstr "myzone & status"
 
-#: ../src/bisho-pane.c:86
-msgid "Launch site for more information."
-msgstr "Kijk op de website voor meer informatie"
-
-#: ../src/bisho-pane.c:90
-#, c-format
-msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Je hebt een account nodig met %s en een internet verbinding om deze service te kunnen gebruiken</small>"
-
 #: ../src/bisho-pane.c:195
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
@@ -43,17 +34,9 @@ msgstr "Sorry, kan niet inloggen op %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Sorry, kan niet inloggen op %s"
 
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "Log mij in"
-
 #: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
 msgid "Working..."
 msgstr "Bezig..."
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Inloggen gelukt. Je zult nieuwe items zien binnen enkele minuten."
 
 #: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
 msgid "Log me out"
@@ -63,27 +46,13 @@ msgstr "Log mij uit"
 msgid "You don't seem to have a network connection, this won't work."
 msgstr "Je hebt geen netwerkverbinding, dus dit kan niet werken."
 
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "Je kunt controleren of de computer tijd goed is ingesteld."
-
 #: ../src/bisho-pane-oauth.c:86
 msgid "You could try again."
 msgstr "Je kunt het nogmaals proberen."
 
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "Als je bent ingelogd in de %s, Druk dan op Doorgaan."
-
 #: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
 msgid "Continue"
 msgstr "Doorgaan"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "Als je bent ingelogd in de %s, Voer de verkregen code in en druk dan op Doorgaan."
 
 #: ../src/bisho-pane-oauth.c:378
 msgid "Code:"
@@ -102,14 +71,45 @@ msgstr "Gebruikersnaam:"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Stel je sociale netwerk in om nieuwe updates te zien in myzone en de status paneel."
-
 #: ../src/bisho-window.c:163
 msgid "Quit"
 msgstr "Afsluiten"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:174
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Stel je sociale netwerk in om nieuwe updates in Myzone en het Status paneel te zien."
+
+#: ../src/bisho-pane.c:86
+msgid "Launch site for more information."
+msgstr "Open website voor meer informatie"
+
+#: ../src/bisho-pane.c:90
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Je hebt een %s-account en internetverbinding nodig om  van deze dienst gebruik te maken.</small>"
+
+#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
+msgid "Log me in"
+msgstr "Log me in"
+
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Inloggen gelukt. Je zult binnen enkele minuten nieuwe items zien."
+
+#: ../src/bisho-pane-oauth.c:85
+msgid "You could check that the computer's clock is correct."
+msgstr "Je kunt controleren of de tijd goed is ingesteld."
+
+#: ../src/bisho-pane-oauth.c:310
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Als je bent ingelogd in de %s, Klik dan op Doorgaan."
+
+#: ../src/bisho-pane-oauth.c:327
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Voer de verkregen code in als je eenmaal bent ingelogd op %s, en druk op Doorgaan."
 
 #~ msgid "Log in pending"
 #~ msgstr "Aanmeling loopt"
