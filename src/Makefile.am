@@ -1,11 +1,13 @@
 AM_CPPFLAGS = $(DEPS_CFLAGS) \
 	-DLIBEXECDIR=\"@libexecdir@\" \
+	-DPKGLIBDIR=\"$(pkglibdir)\" \
 	-DLOCALEDIR=\""$(datadir)/locale"\"  \
 	-Wall -Wmissing-declarations
 
 lib_LTLIBRARIES = libbisho.la
 libbisho_la_SOURCES = \
 	bisho-pane.c bisho-pane.h \
+	bisho-module.c bisho-module.h \
 	service-info.c service-info.h \
 	mux-label.c mux-label.h
 if ! HAVE_INFOBAR
