@@ -21,7 +21,7 @@ msgstr "Mis cuentas web"
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
-msgstr "MiZona y estado"
+msgstr "myzone y estado"
 
 #: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
@@ -104,7 +104,7 @@ msgstr "Contraseña:"
 #. Please don't translate 'myzone'
 #: ../src/bisho-window.c:174
 msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en MiZona y en el panel de estado."
+msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en myzone y en el panel de estado."
 
 #: ../src/bisho-window.c:163
 msgid "Quit"
