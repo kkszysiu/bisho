@@ -102,14 +102,14 @@ msgstr "Nom d'utilisateur :"
 msgid "Password:"
 msgstr "Mot de passe :"
 
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans MaZone et le panneau de statut."
-
 #: ../src/bisho-window.c:163
 msgid "Quit"
 msgstr "Quitter"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:174
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans MyZone et le panneau statuts."
 
 #~ msgid "Log in pending"
 #~ msgstr "Connexion en cours"
