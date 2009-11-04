@@ -1,11 +1,16 @@
+# Finnish Translation of bisho
+#
+# Paju <PajuPekka@gmail.com>, 2009.
+# Timo Jyrinki <timo.jyrinki@iki.fi>, 2009.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-16 11:25+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Paju <PajuPekka@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2009-11-04 12:01+0200\n"
+"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
+"Language-Team: Finnish <laatu@lokalisointi.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +21,7 @@ msgstr ""
 #: ../data/bisho.desktop.in.h:1
 #: ../src/bisho-window.c:139
 msgid "My Web Accounts"
-msgstr "Web Tilini"
+msgstr "WWW-käyttäjätilit"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
@@ -25,17 +30,17 @@ msgstr "myzone & tila"
 
 #: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
-msgstr "Avaa sivusto lisätietoja tarkastellaksesi."
+msgstr "Etsi lisätietoja avaamalla sivusto."
 
 #: ../src/bisho-pane.c:90
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, jossa on %s.</small>"
+msgstr "<small>Käyttääksesi tätä verkkopalvelua tarvitset Internet-yhteyden ja käyttäjätilin, jossa on %s.</small>"
 
 #: ../src/bisho-pane.c:195
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
-msgstr "Ei voida kirjautua kohteeseen  %s. %s"
+msgstr "Kohteeseen %s ei voi kirjautua sisään. %s"
 
 #: ../src/bisho-pane.c:199
 #, c-format
@@ -56,7 +61,8 @@ msgstr "Odota..."
 #: ../src/bisho-pane-flickr.c:252
 #: ../src/bisho-pane-oauth.c:337
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Kirjautuminen onnistui. Näet uusia osia muutamassa minuutissa. "
+msgstr ""
+"Kirjautuminen onnistui. Näet uutta sisältöä muutaman minuutin kuluessa."
 
 #: ../src/bisho-pane-flickr.c:255
 #: ../src/bisho-pane-oauth.c:339
@@ -65,11 +71,11 @@ msgstr "Kirjaudu ulos"
 
 #: ../src/bisho-pane-oauth.c:84
 msgid "You don't seem to have a network connection, this won't work."
-msgstr "Sinulla ei näytä olevan nettiyhteyttä, tämä ei toimi. "
+msgstr "Verkkoyhteyttä ei näytä olevan saatavilla, joten tämä ei toimi."
 
 #: ../src/bisho-pane-oauth.c:85
 msgid "You could check that the computer's clock is correct."
-msgstr "Voisit tarkistaa että tietokoneen kello on oikeassa. "
+msgstr "Tarkista, että tietokoneen kello näyttää oikeaa aikaa."
 
 #: ../src/bisho-pane-oauth.c:86
 msgid "You could try again."
@@ -78,7 +84,7 @@ msgstr "Voit yrittää uudelleen."
 #: ../src/bisho-pane-oauth.c:310
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
-msgstr "Paina Jatka, kun olet kirjautunut seuraavaan palveluun: %s."
+msgstr "Paina Jatka, kun olet kirjautuneena palveluun %s."
 
 #: ../src/bisho-pane-oauth.c:315
 #: ../src/bisho-pane-oauth.c:332
@@ -88,7 +94,7 @@ msgstr "Jatka"
 #: ../src/bisho-pane-oauth.c:327
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "Kun olet kirjautunut seuraavaan palveluun: %s, anna koodi joka sinulle annetaan ja paina Jatka."
+msgstr "Kun olet kirjautunut palveluun %s, anna koodi joka sinulle annetaan ja paina Jatka."
 
 #: ../src/bisho-pane-oauth.c:378
 msgid "Code:"
