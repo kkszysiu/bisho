@@ -1,4 +1,4 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -12,11 +12,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIA\n"
-
-#: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:139
-msgid "My Web Accounts"
-msgstr "Мои веб учетные записи"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
@@ -42,23 +37,19 @@ msgstr "Невозможно зайти на %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Невозможно зайти на  %s"
 
-#: ../src/bisho-pane-flickr.c:243
-#: ../src/bisho-pane-oauth.c:296
+#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
 msgid "Log me in"
 msgstr "Войти"
 
-#: ../src/bisho-pane-flickr.c:249
-#: ../src/bisho-pane-oauth.c:302
+#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
 msgid "Working..."
 msgstr "Обработка..."
 
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:337
+#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Вы успешно вошли. Новые пункты появятся через несколько минут."
 
-#: ../src/bisho-pane-flickr.c:255
-#: ../src/bisho-pane-oauth.c:339
+#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
 msgid "Log me out"
 msgstr "Выйти"
 
@@ -79,8 +70,7 @@ msgstr "Вы можете попробовать еще раз."
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Как только войдете на %s, нажмите Продолжить."
 
-#: ../src/bisho-pane-oauth.c:315
-#: ../src/bisho-pane-oauth.c:332
+#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
 msgid "Continue"
 msgstr "Продолжить"
 
@@ -98,8 +88,7 @@ msgstr "Код:"
 msgid "%s login changed."
 msgstr "Учетная запись %s изменена."
 
-#: ../src/bisho-window.c:75
-#: ../src/bisho-window.c:82
+#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
 msgid "Username:"
 msgstr "Имя пользователя:"
 
@@ -115,3 +104,8 @@ msgstr "Выйти"
 #: ../src/bisho-window.c:174
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Измените настройки социальных сетей для того, чтобы видеть изменения в myzone и статусной панели."
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#, fuzzy
+msgid "My Web Accounts"
+msgstr "Мои веб учетные записи"
