@@ -42,5 +42,6 @@ AC_OUTPUT([
         data/Makefile
         data/bisho.schemas
         src/Makefile
+        panes/Makefile
         po/Makefile.in
 ])
