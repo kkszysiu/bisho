@@ -14,6 +14,13 @@ endif
 libbisho_la_LIBADD = $(DEPS_LIBS)
 
 
+libbisho_ladir = $(pkgincludedir)
+libbisho_la_HEADERS = \
+	bisho-pane.h \
+	service-info.h \
+	mux-label.h
+
+
 bin_PROGRAMS = bisho
 
 bisho_SOURCES = \
