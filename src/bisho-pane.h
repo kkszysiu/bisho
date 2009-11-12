@@ -38,10 +38,14 @@ struct _BishoPane {
 
 struct _BishoPaneClass {
   GtkVBoxClass parent_class;
+  const char * (*get_auth_type) (BishoPaneClass *klass);
   void (*continue_auth) (BishoPane *pane, GHashTable *params);
 };
 
 GType bisho_pane_get_type (void) G_GNUC_CONST;
+
+const char * bisho_pane_get_auth_type (BishoPaneClass *klass);
+
 
 void bisho_pane_continue_auth (BishoPane *pane, GHashTable *params);
 

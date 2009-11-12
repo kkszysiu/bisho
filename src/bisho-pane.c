@@ -165,6 +165,15 @@ bisho_pane_init (BishoPane *pane)
   gtk_box_pack_start (GTK_BOX (pane), pane->disclaimer, FALSE, TRUE, 0);
 }
 
+const char *
+bisho_pane_get_auth_type (BishoPaneClass *klass)
+{
+  if (klass->get_auth_type)
+    return klass->get_auth_type (klass);
+  else
+    return NULL;
+}
+
 void
 bisho_pane_continue_auth (BishoPane *pane, GHashTable *params)
 {
