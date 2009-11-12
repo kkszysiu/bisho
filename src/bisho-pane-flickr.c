@@ -308,11 +308,18 @@ find_key_cb (GnomeKeyringResult result,
   }
 }
 
+static const char *
+bisho_pane_flickr_get_auth_type (BishoPaneClass *klass)
+{
+  return "flickr";
+}
+
 static void
 bisho_pane_flickr_class_init (BishoPaneFlickrClass *klass)
 {
   BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
 
+  pane_class->get_auth_type = bisho_pane_flickr_get_auth_type;
   pane_class->continue_auth = bisho_pane_flickr_continue_auth;
 
   g_type_class_add_private (klass, sizeof (BishoPaneFlickrPrivate));

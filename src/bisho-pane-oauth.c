@@ -355,6 +355,12 @@ find_key_cb (GnomeKeyringResult result,
     update_widgets (pane, LOGGED_OUT);
 }
 
+static const char *
+bisho_pane_oauth_get_auth_type (BishoPaneClass *klass)
+{
+  return "oauth";
+}
+
 static void
 bisho_pane_oauth_init (BishoPaneOauth *pane)
 {
@@ -415,6 +421,7 @@ bisho_pane_oauth_class_init (BishoPaneOauthClass *klass)
   BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
 
   o_class->constructed = bisho_pane_oauth_constructed;
+  pane_class->get_auth_type = bisho_pane_oauth_get_auth_type;
   pane_class->continue_auth = bisho_pane_oauth_continue_auth;
 
   g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
