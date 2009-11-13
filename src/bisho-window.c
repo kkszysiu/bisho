@@ -68,15 +68,13 @@ construct_ui (BishoWindow *window, const char *service_name)
   gtk_container_set_border_width (GTK_CONTAINER (box), 8);
   gtk_box_set_spacing (box, 8);
 
-  switch (info->auth) {
-  case AUTH_USERNAME:
+  if (g_strcmp0 (info->auth_type, "username") == 0) {
     pane = bisho_pane_username_new (info);
     bisho_pane_username_add_entry
       (BISHO_PANE_USERNAME (pane), _("Username:"), "user", TRUE);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    break;
-  case AUTH_USERNAME_PASSWORD:
+  } else if (g_strcmp0 (info->auth_type, "password") == 0) {
     pane = bisho_pane_username_new (info);
     bisho_pane_username_add_entry
       (BISHO_PANE_USERNAME (pane), _("Username:"), "user", TRUE);
@@ -84,22 +82,16 @@ construct_ui (BishoWindow *window, const char *service_name)
       (BISHO_PANE_USERNAME (pane), _("Password:"), "password", FALSE);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    break;
-  case AUTH_OAUTH:
+  } else if (g_strcmp0 (info->auth_type, "oauth") == 0) {
     pane = bisho_pane_oauth_new (window->priv->client, info);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     g_hash_table_insert (window->priv->panes, info->name, pane);
-    break;
-  case AUTH_FLICKR:
+  } else if (g_strcmp0 (info->auth_type, "flickr") == 0) {
     pane = bisho_pane_flickr_new (window->priv->client, info);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
     g_hash_table_insert (window->priv->panes, info->name, pane);
-    break;
-  case AUTH_INVALID:
-    /* Should never see this, so ignore it */
-    break;
   }
 
   gtk_widget_show_all (expander);

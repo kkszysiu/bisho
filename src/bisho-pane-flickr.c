@@ -339,7 +339,6 @@ bisho_pane_flickr_new (MojitoClient *client, ServiceInfo *info)
   GtkWidget *content, *align, *box;
 
   g_assert (info);
-  g_assert (info->auth == AUTH_FLICKR);
   g_assert (info->flickr.api_key);
   g_assert (info->flickr.shared_secret);
 

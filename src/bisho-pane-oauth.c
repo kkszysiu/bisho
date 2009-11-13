@@ -432,7 +432,6 @@ bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
 {
   g_return_val_if_fail (MOJITO_IS_CLIENT (client), NULL);
   g_return_val_if_fail (info, NULL);
-  g_return_val_if_fail (info->auth == AUTH_OAUTH, NULL);
 
   return g_object_new (BISHO_TYPE_PANE_OAUTH,
                        "mojito", client,

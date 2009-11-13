@@ -24,32 +24,12 @@
 #define GROUP "MojitoService"
 #define GROUP_OAUTH "OAuth"
 
-ServiceAuthType
-service_info_authtype_from_string (const char *s)
-{
-  if (s == NULL) {
-    return AUTH_INVALID;
-  } else if (g_ascii_strcasecmp (s, "username") == 0) {
-    return AUTH_USERNAME;
-  } else if (g_ascii_strcasecmp (s, "password") == 0) {
-    return AUTH_USERNAME_PASSWORD;
-  } else if (g_ascii_strcasecmp (s, "oauth") == 0) {
-    return AUTH_OAUTH;
-  } else if (g_ascii_strcasecmp (s, "flickr") == 0) {
-    return AUTH_FLICKR;
-  } else {
-    g_message ("Unknown authentication type '%s'", s);
-    return AUTH_INVALID;
-  }
-}
-
 ServiceInfo *
 get_info_for_service (const char *name)
 {
-  char *filename, *path, *real_path, *authstring;
+  char *filename, *path, *real_path;
   GKeyFile *keys;
   ServiceInfo *info;
-  ServiceAuthType auth;
 
   g_assert (name);
 
@@ -73,61 +53,40 @@ get_info_for_service (const char *name)
     return NULL;
   }
 
-  authstring = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
-  auth = service_info_authtype_from_string (authstring);
-  g_free (authstring);
-
-  if (auth == AUTH_INVALID) {
-    g_key_file_free (keys);
-    return NULL;
-  }
-
   info = g_slice_new0 (ServiceInfo);
   info->name = g_strdup (name);
   info->display_name = g_key_file_get_locale_string (keys, GROUP, "Name", NULL, NULL);
   info->description = g_key_file_get_locale_string (keys, GROUP, "Description", NULL, NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
-  info->auth = auth;
+  info->auth_type = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
 
-  switch (auth) {
-  case AUTH_OAUTH:
-    {
-      const char *key, *secret;
+  if (g_strcmp0 (info->auth_type, "oauth") == 0) {
+    const char *key, *secret;
 
-      if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
-        info->oauth.consumer_key = g_strdup (key);
-        info->oauth.consumer_secret = g_strdup (secret);
-      } else {
-        g_message ("Cannot find keys for %s", info->name);
-        /* Yes, we're leaking.  Live with it */
-        return NULL;
+    if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
+      info->oauth.consumer_key = g_strdup (key);
+      info->oauth.consumer_secret = g_strdup (secret);
+    } else {
+      g_message ("Cannot find keys for %s", info->name);
+      /* Yes, we're leaking.  Live with it */
+      return NULL;
       }
-      info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
-      info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
-      info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
-      info->oauth.access_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
-      info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
-    }
-    break;
-  case AUTH_FLICKR:
-    {
-      const char *key, *secret;
+    info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
+    info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
+    info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
+    info->oauth.access_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
+    info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
+  } else if (g_strcmp0 (info->auth_type, "flickr") == 0) {
+    const char *key, *secret;
 
-      if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
-        info->flickr.api_key = g_strdup (key);
-        info->flickr.shared_secret = g_strdup (secret);
-      } else {
-        g_message ("Cannot find keys for %s", info->name);
-        /* Yes, we're leaking.  Live with it */
-        return NULL;
-      }
+    if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
+      info->flickr.api_key = g_strdup (key);
+      info->flickr.shared_secret = g_strdup (secret);
+    } else {
+      g_message ("Cannot find keys for %s", info->name);
+      /* Yes, we're leaking.  Live with it */
+      return NULL;
     }
-    break;
-  case AUTH_USERNAME:
-  case AUTH_USERNAME_PASSWORD:
-  case AUTH_INVALID:
-    /* Nothing to do */
-    break;
   }
 
   g_key_file_free (keys);

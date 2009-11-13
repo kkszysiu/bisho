@@ -20,20 +20,12 @@
 #ifndef _SERVICE_INFO_H
 #define _SERVICE_INFO_H
 
-typedef enum {
-  AUTH_INVALID = 0,
-  AUTH_USERNAME,
-  AUTH_USERNAME_PASSWORD,
-  AUTH_OAUTH,
-  AUTH_FLICKR,
-} ServiceAuthType;
-
 typedef struct {
   char *name;
   char *display_name;
   char *description;
   char *link;
-  ServiceAuthType auth;
+  char *auth_type;
   char *icon;
   union {
     struct {
@@ -53,7 +45,5 @@ typedef struct {
 } ServiceInfo;
 
 ServiceInfo * get_info_for_service (const char *name);
-
-ServiceAuthType service_info_authtype_from_string (const char *s);
 
 #endif /* _SERVICE_INFO_H */
