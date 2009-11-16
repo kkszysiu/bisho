@@ -37,10 +37,6 @@ typedef struct {
       char *access_token_function;
       char *callback;
     } oauth;
-    struct {
-      char *api_key;
-      char *shared_secret;
-    } flickr;
   };
 } ServiceInfo;
 

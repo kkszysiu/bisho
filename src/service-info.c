@@ -76,17 +76,6 @@ get_info_for_service (const char *name)
     info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
     info->oauth.access_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
     info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
-  } else if (g_strcmp0 (info->auth_type, "flickr") == 0) {
-    const char *key, *secret;
-
-    if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
-      info->flickr.api_key = g_strdup (key);
-      info->flickr.shared_secret = g_strdup (secret);
-    } else {
-      g_message ("Cannot find keys for %s", info->name);
-      /* Yes, we're leaking.  Live with it */
-      return NULL;
-    }
   }
 
   g_key_file_free (keys);

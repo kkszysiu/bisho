@@ -24,6 +24,7 @@
 #include <libsoup/soup.h>
 #include <rest-extras/flickr-proxy.h>
 #include <rest/rest-xml-parser.h>
+#include <mojito-keystore/mojito-keystore.h>
 #include "service-info.h"
 #include "bisho-pane-flickr.h"
 #include "bisho-utils.h"
@@ -42,6 +43,8 @@ static const GnomeKeyringPasswordSchema flickr_schema = {
 
 struct _BishoPaneFlickrPrivate {
   ServiceInfo *info;
+  const char *api_key;
+  const char *shared_secret;
   RestProxy *proxy;
   GtkWidget *button;
 };
@@ -137,7 +140,7 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 
   gnome_keyring_delete_password (&flickr_schema, delete_done_cb, user_data, NULL,
                                  "server", FLICKR_SERVER,
-                                 "api-key", priv->info->flickr.api_key,
+                                 "api-key", priv->api_key,
                                  NULL);
 
   update_widgets (pane, LOGGED_OUT, NULL);
@@ -206,7 +209,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   guint32 id;
   attrs = gnome_keyring_attribute_list_new ();
   gnome_keyring_attribute_list_append_string (attrs, "server", FLICKR_SERVER);
-  gnome_keyring_attribute_list_append_string (attrs, "api-key", priv->info->flickr.api_key);
+  gnome_keyring_attribute_list_append_string (attrs, "api-key", priv->api_key);
 
   result = gnome_keyring_item_create_sync (NULL,
                                            GNOME_KEYRING_ITEM_GENERIC_SECRET,
@@ -319,19 +322,24 @@ bisho_pane_flickr_constructed (GObject *object)
 {
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (object);
   BishoPaneFlickrPrivate *priv = pane->priv;
-  ServiceInfo *info = BISHO_PANE (pane)->info;
 
   bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
-  priv->proxy = flickr_proxy_new (info->flickr.api_key,
-                                  info->flickr.shared_secret);
+  /* TODO: use GInitable */
+  if (!mojito_keystore_get_key_secret ("flickr",
+                                       &priv->api_key,
+                                       &priv->shared_secret)) {
+    return;
+  }
+
+  priv->proxy = flickr_proxy_new (priv->api_key, priv->shared_secret);
   rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
   update_widgets (pane, WORKING, NULL);
 
   gnome_keyring_find_password (&flickr_schema, find_key_cb, pane, NULL,
                                "server", FLICKR_SERVER,
-                               "api-key", info->flickr.api_key,
+                               "api-key", priv->api_key,
                                NULL);
 }
 
