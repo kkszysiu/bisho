@@ -27,15 +27,14 @@ typedef struct {
   char *link;
   char *auth_type;
   char *icon;
-  union {
-    struct {
-      char *base_url;
-      char *request_token_function;
-      char *authorize_function;
-      char *access_token_function;
-      char *callback;
-    } oauth;
-  };
+  /* TODO: remove this */
+  struct {
+    char *base_url;
+    char *request_token_function;
+    char *authorize_function;
+    char *access_token_function;
+    char *callback;
+  } oauth;
 } ServiceInfo;
 
 ServiceInfo * get_info_for_service (const char *name);
