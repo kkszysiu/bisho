@@ -315,10 +315,33 @@ bisho_pane_flickr_get_auth_type (BishoPaneClass *klass)
 }
 
 static void
+bisho_pane_flickr_constructed (GObject *object)
+{
+  BishoPaneFlickr *pane = BISHO_PANE_FLICKR (object);
+  BishoPaneFlickrPrivate *priv = pane->priv;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
+
+  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
+
+  priv->proxy = flickr_proxy_new (info->flickr.api_key,
+                                  info->flickr.shared_secret);
+  rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
+
+  update_widgets (pane, WORKING, NULL);
+
+  gnome_keyring_find_password (&flickr_schema, find_key_cb, pane, NULL,
+                               "server", FLICKR_SERVER,
+                               "api-key", info->flickr.api_key,
+                               NULL);
+}
+
+static void
 bisho_pane_flickr_class_init (BishoPaneFlickrClass *klass)
 {
+  GObjectClass *o_class = G_OBJECT_CLASS (klass);
   BishoPaneClass *pane_class = BISHO_PANE_CLASS (klass);
 
+  o_class->constructed = bisho_pane_flickr_constructed;
   pane_class->get_auth_type = bisho_pane_flickr_get_auth_type;
   pane_class->continue_auth = bisho_pane_flickr_continue_auth;
 
@@ -326,32 +349,13 @@ bisho_pane_flickr_class_init (BishoPaneFlickrClass *klass)
 }
 
 static void
-bisho_pane_flickr_init (BishoPaneFlickr *self)
+bisho_pane_flickr_init (BishoPaneFlickr *pane)
 {
-  self->priv = GET_PRIVATE (self);
-}
-
-GtkWidget *
-bisho_pane_flickr_new (MojitoClient *client, ServiceInfo *info)
-{
-  BishoPaneFlickr *pane;
   BishoPaneFlickrPrivate *priv;
   GtkWidget *content, *align, *box;
 
-  g_assert (info);
-  g_assert (info->flickr.api_key);
-  g_assert (info->flickr.shared_secret);
-
-  pane = g_object_new (BISHO_TYPE_PANE_FLICKR,
-                       "mojito", client,
-                       "service", info,
-                       NULL);
-
+  pane->priv = GET_PRIVATE (pane);
   priv = pane->priv;
-  priv->info = info;
-
-  priv->proxy = flickr_proxy_new (info->flickr.api_key, info->flickr.shared_secret);
-  rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
   content = BISHO_PANE (pane)->content;
 
@@ -365,15 +369,5 @@ bisho_pane_flickr_new (MojitoClient *client, ServiceInfo *info)
 
   priv->button = gtk_button_new ();
   gtk_widget_show (priv->button);
-  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
   gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
-
-  update_widgets (pane, LOGGED_OUT, NULL);
-
-  gnome_keyring_find_password (&flickr_schema, find_key_cb, pane, NULL,
-                               "server", FLICKR_SERVER,
-                               "api-key", info->flickr.api_key,
-                               NULL);
-
-  return (GtkWidget *)pane;
 }
