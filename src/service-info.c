@@ -22,7 +22,6 @@
 #include "service-info.h"
 
 #define GROUP "MojitoService"
-#define GROUP_OAUTH "OAuth"
 
 ServiceInfo *
 get_info_for_service (const char *name)
@@ -59,16 +58,7 @@ get_info_for_service (const char *name)
   info->description = g_key_file_get_locale_string (keys, GROUP, "Description", NULL, NULL);
   info->link = g_key_file_get_string (keys, GROUP, "Link", NULL);
   info->auth_type = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
-
-  if (g_strcmp0 (info->auth_type, "oauth") == 0) {
-    info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
-    info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
-    info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
-    info->oauth.access_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
-    info->oauth.callback = g_key_file_get_string (keys, GROUP_OAUTH, "Callback", NULL);
-  }
-
-  g_key_file_free (keys);
+  info->keys = keys;
 
   /* TODO: this should be specified in the key file or something */
   path = g_path_get_dirname (real_path);

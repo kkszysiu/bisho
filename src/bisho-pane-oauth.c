@@ -38,6 +38,8 @@ static const GnomeKeyringPasswordSchema oauth_schema = {
   }
 };
 
+#define GROUP_OAUTH "OAuth"
+
 typedef enum {
   LOGGED_OUT,
   WORKING,
@@ -49,6 +51,11 @@ typedef enum {
 struct _BishoPaneOauthPrivate {
   const char *consumer_key;
   const char *consumer_secret;
+  char *base_url;
+  char *request_token_function;
+  char *authorize_function;
+  char *access_token_function;
+  char *callback;
   RestProxy *proxy;
   GtkWidget *pin_label;
   GtkWidget *pin_entry;
@@ -61,21 +68,21 @@ G_DEFINE_TYPE (BishoPaneOauth, bisho_pane_oauth, BISHO_TYPE_PANE);
 static void update_widgets (BishoPaneOauth *pane, ButtonState state);
 
 static char *
-create_url (ServiceInfo *info, const char *token)
+create_url (BishoPaneOauth *pane, const char *token)
 {
   SoupURI *base, *uri;
   char *s;
 
-  g_assert (info);
+  g_assert (pane);
   g_assert (token);
 
-  base = soup_uri_new (info->oauth.base_url);
-  uri = soup_uri_new_with_base (base, info->oauth.authorize_function);
+  base = soup_uri_new (pane->priv->base_url);
+  uri = soup_uri_new_with_base (base, pane->priv->authorize_function);
   soup_uri_free (base);
 
   soup_uri_set_query_from_fields (uri,
                                   "oauth_token", token,
-                                  "oauth_callback", info->oauth.callback ?: "",
+                                  "oauth_callback", pane->priv->callback ?: "",
                                   NULL);
 
   s = soup_uri_to_string (uri, FALSE);
@@ -108,14 +115,14 @@ request_token_cb (OAuthProxy   *proxy,
     return;
   }
 
-  url = create_url (info, oauth_proxy_get_token (OAUTH_PROXY (priv->proxy)));
+  url = create_url (pane, oauth_proxy_get_token (OAUTH_PROXY (priv->proxy)));
   gtk_show_uri (gtk_widget_get_screen (GTK_WIDGET (pane)), url, GDK_CURRENT_TIME, NULL);
 
-  if (info->oauth.callback == NULL) {
+  if (priv->callback == NULL) {
     update_widgets (pane, CONTINUE_AUTH_10);
   } else {
     /* TODO: insert check for 1.0a? */
-    if (strcmp (info->oauth.callback, "oob") == 0) {
+    if (strcmp (priv->callback, "oob") == 0) {
       update_widgets (pane, CONTINUE_AUTH_10a);
     } else {
       update_widgets (pane, CONTINUE_AUTH_10);
@@ -135,8 +142,8 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   GError *error = NULL;
 
   if (oauth_proxy_request_token_async (OAUTH_PROXY (priv->proxy),
-                                       info->oauth.request_token_function,
-                                       info->oauth.callback,
+                                       priv->request_token_function,
+                                       priv->callback,
                                        request_token_cb,
                                        NULL,
                                        pane,
@@ -168,13 +175,13 @@ static void
 log_out_clicked (GtkButton *button, gpointer user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
-  ServiceInfo *info = BISHO_PANE (pane)->info;
+  BishoPaneOauthPrivate *priv = pane->priv;
 
   update_widgets (pane, WORKING);
 
   gnome_keyring_delete_password (&oauth_schema, delete_done_cb, user_data, NULL,
-                                 "server", info->oauth.base_url,
-                                 "consumer-key", pane->priv->consumer_key,
+                                 "server", priv->base_url,
+                                 "consumer-key", priv->consumer_key,
                                  NULL);
 }
 
@@ -205,7 +212,7 @@ access_token_cb (OAuthProxy   *proxy,
   GnomeKeyringAttributeList *attrs;
   guint32 id;
   attrs = gnome_keyring_attribute_list_new ();
-  gnome_keyring_attribute_list_append_string (attrs, "server", info->oauth.base_url);
+  gnome_keyring_attribute_list_append_string (attrs, "server", priv->base_url);
   gnome_keyring_attribute_list_append_string (attrs, "consumer-key", priv->consumer_key);
 
   result = gnome_keyring_item_create_sync (NULL,
@@ -245,7 +252,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
    */
   if (oauth_proxy_is_oauth10a (OAUTH_PROXY (priv->proxy))) {
     /* If 1.0a then a callback must have been specified */
-    if (strcmp (info->oauth.callback, "oob") == 0) {
+    if (strcmp (priv->callback, "oob") == 0) {
       verifier = gtk_entry_get_text (GTK_ENTRY (priv->pin_entry));
       gtk_widget_hide (priv->pin_label);
       gtk_widget_hide (priv->pin_entry);
@@ -257,7 +264,7 @@ bisho_pane_oauth_continue_auth (BishoPane *_pane, GHashTable *params)
   }
 
   if (oauth_proxy_access_token_async (OAUTH_PROXY (priv->proxy),
-                                      info->oauth.access_token_function,
+                                      priv->access_token_function,
                                       verifier,
                                       access_token_cb,
                                       NULL,
@@ -404,6 +411,12 @@ bisho_pane_oauth_constructed (GObject *object)
 
   bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
+  priv->base_url = g_key_file_get_string (info->keys, GROUP_OAUTH, "BaseURL", NULL);
+  priv->request_token_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
+  priv->authorize_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
+  priv->access_token_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
+  priv->callback = g_key_file_get_string (info->keys, GROUP_OAUTH, "Callback", NULL);
+
   /* TODO: use GInitable */
   if (!mojito_keystore_get_key_secret (info->name,
                                        &priv->consumer_key,
@@ -413,13 +426,13 @@ bisho_pane_oauth_constructed (GObject *object)
 
   priv->proxy = oauth_proxy_new (priv->consumer_key,
                                 priv->consumer_secret,
-                                info->oauth.base_url, FALSE);
+                                priv->base_url, FALSE);
   rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
   update_widgets (pane, WORKING);
 
   gnome_keyring_find_password (&oauth_schema, find_key_cb, pane, NULL,
-                               "server", info->oauth.base_url,
+                               "server", priv->base_url,
                                "consumer-key", priv->consumer_key,
                                NULL);
 }
