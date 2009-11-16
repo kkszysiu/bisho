@@ -29,8 +29,6 @@ typedef struct {
   char *icon;
   union {
     struct {
-      char *consumer_key;
-      char *consumer_secret;
       char *base_url;
       char *request_token_function;
       char *authorize_function;

@@ -61,16 +61,6 @@ get_info_for_service (const char *name)
   info->auth_type = g_key_file_get_string (keys, GROUP, "AuthType", NULL);
 
   if (g_strcmp0 (info->auth_type, "oauth") == 0) {
-    const char *key, *secret;
-
-    if (mojito_keystore_get_key_secret (info->name, &key, &secret)) {
-      info->oauth.consumer_key = g_strdup (key);
-      info->oauth.consumer_secret = g_strdup (secret);
-    } else {
-      g_message ("Cannot find keys for %s", info->name);
-      /* Yes, we're leaking.  Live with it */
-      return NULL;
-      }
     info->oauth.base_url = g_key_file_get_string (keys, GROUP_OAUTH, "BaseURL", NULL);
     info->oauth.request_token_function = g_key_file_get_string (keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
     info->oauth.authorize_function = g_key_file_get_string (keys, GROUP_OAUTH, "AuthoriseFunction", NULL);

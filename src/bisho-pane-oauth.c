@@ -23,6 +23,7 @@
 #include <gnome-keyring.h>
 #include <libsoup/soup.h>
 #include <rest/oauth-proxy.h>
+#include <mojito-keystore/mojito-keystore.h>
 #include "service-info.h"
 #include "bisho-utils.h"
 #include "bisho-pane-oauth.h"
@@ -46,6 +47,8 @@ typedef enum {
 } ButtonState;
 
 struct _BishoPaneOauthPrivate {
+  const char *consumer_key;
+  const char *consumer_secret;
   RestProxy *proxy;
   GtkWidget *pin_label;
   GtkWidget *pin_entry;
@@ -171,7 +174,7 @@ log_out_clicked (GtkButton *button, gpointer user_data)
 
   gnome_keyring_delete_password (&oauth_schema, delete_done_cb, user_data, NULL,
                                  "server", info->oauth.base_url,
-                                 "consumer-key", info->oauth.consumer_key,
+                                 "consumer-key", pane->priv->consumer_key,
                                  NULL);
 }
 
@@ -203,7 +206,7 @@ access_token_cb (OAuthProxy   *proxy,
   guint32 id;
   attrs = gnome_keyring_attribute_list_new ();
   gnome_keyring_attribute_list_append_string (attrs, "server", info->oauth.base_url);
-  gnome_keyring_attribute_list_append_string (attrs, "consumer-key", info->oauth.consumer_key);
+  gnome_keyring_attribute_list_append_string (attrs, "consumer-key", priv->consumer_key);
 
   result = gnome_keyring_item_create_sync (NULL,
                                            GNOME_KEYRING_ITEM_GENERIC_SECRET,
@@ -401,8 +404,15 @@ bisho_pane_oauth_constructed (GObject *object)
 
   bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
-  priv->proxy = oauth_proxy_new (info->oauth.consumer_key,
-                                info->oauth.consumer_secret,
+  /* TODO: use GInitable */
+  if (!mojito_keystore_get_key_secret (info->name,
+                                       &priv->consumer_key,
+                                       &priv->consumer_secret)) {
+    return;
+  }
+
+  priv->proxy = oauth_proxy_new (priv->consumer_key,
+                                priv->consumer_secret,
                                 info->oauth.base_url, FALSE);
   rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
@@ -410,7 +420,7 @@ bisho_pane_oauth_constructed (GObject *object)
 
   gnome_keyring_find_password (&oauth_schema, find_key_cb, pane, NULL,
                                "server", info->oauth.base_url,
-                               "consumer-key", info->oauth.consumer_key,
+                               "consumer-key", priv->consumer_key,
                                NULL);
 }
 
