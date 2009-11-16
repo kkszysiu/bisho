@@ -28,7 +28,6 @@ bin_PROGRAMS = bisho
 bisho_SOURCES = \
 	main.c \
 	bisho-window.c bisho-window.h \
-	bisho-pane-flickr.c bisho-pane-flickr.h \
 	bisho-pane-oauth.c bisho-pane-oauth.h \
 	bisho-pane-username.c bisho-pane-username.h \
 	bisho-utils.c bisho-utils.h \

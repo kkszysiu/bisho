@@ -25,7 +25,6 @@
 #include "bisho-utils.h"
 #include "service-info.h"
 #include "bisho-pane-oauth.h"
-#include "bisho-pane-flickr.h"
 #include "bisho-pane-username.h"
 
 struct _BishoWindowPrivate {
@@ -125,7 +124,6 @@ find_panes (BishoWindow *window)
   /* Explicitly register the internal pane types */
   g_type_class_peek (BISHO_TYPE_PANE_USERNAME);
   g_type_class_peek (BISHO_TYPE_PANE_OAUTH);
-  g_type_class_peek (BISHO_TYPE_PANE_FLICKR);
 
   types = g_type_children (BISHO_TYPE_PANE, &count);
 

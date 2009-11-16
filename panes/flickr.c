@@ -26,8 +26,10 @@
 #include <rest/rest-xml-parser.h>
 #include <mojito-keystore/mojito-keystore.h>
 #include "service-info.h"
-#include "bisho-pane-flickr.h"
+#include "bisho-module.h"
 #include "bisho-utils.h"
+/* TODO: merge */
+#include "flickr.h"
 
 /* TODO: use mojito-keyring */
 static const GnomeKeyringPasswordSchema flickr_schema = {
@@ -55,7 +57,7 @@ typedef enum {
 } ButtonState;
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_PANE_FLICKR, BishoPaneFlickrPrivate))
-G_DEFINE_TYPE (BishoPaneFlickr, bisho_pane_flickr, BISHO_TYPE_PANE);
+G_DEFINE_DYNAMIC_TYPE (BishoPaneFlickr, bisho_pane_flickr, BISHO_TYPE_PANE);
 
 static void update_widgets (BishoPaneFlickr *data, ButtonState state, const char *name);
 
@@ -356,6 +358,11 @@ bisho_pane_flickr_class_init (BishoPaneFlickrClass *klass)
 }
 
 static void
+bisho_pane_flickr_class_finalize (BishoPaneFlickrClass *klass)
+{
+}
+
+static void
 bisho_pane_flickr_init (BishoPaneFlickr *pane)
 {
   BishoPaneFlickrPrivate *priv;
@@ -378,3 +385,10 @@ bisho_pane_flickr_init (BishoPaneFlickr *pane)
   gtk_widget_show (priv->button);
   gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
 }
+
+void
+bisho_module_load (BishoModule *module)
+{
+  bisho_pane_flickr_register_type ((GTypeModule *)module);
+}
+
