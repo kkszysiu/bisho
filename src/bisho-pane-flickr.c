@@ -42,7 +42,6 @@ static const GnomeKeyringPasswordSchema flickr_schema = {
 #define FLICKR_SERVER "http://flickr.com/"
 
 struct _BishoPaneFlickrPrivate {
-  ServiceInfo *info;
   const char *api_key;
   const char *shared_secret;
   RestProxy *proxy;
@@ -165,6 +164,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
 {
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (_pane);
   BishoPaneFlickrPrivate *priv = pane->priv;
+  ServiceInfo *info = BISHO_PANE (pane)->info;
   RestProxyCall *call;
   RestXmlNode *node;
   const char *token;
@@ -213,7 +213,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
 
   result = gnome_keyring_item_create_sync (NULL,
                                            GNOME_KEYRING_ITEM_GENERIC_SECRET,
-                                           priv->info->display_name,
+                                           info->display_name,
                                            attrs, token,
                                            TRUE, &id);
 
