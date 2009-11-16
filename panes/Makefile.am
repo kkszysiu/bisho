@@ -1,6 +1,10 @@
 panedir = $(pkglibdir)
-pane_LTLIBRARIES = libflickr.la
+pane_LTLIBRARIES = libflickr.la liboauth.la
+
+AM_CPPFLAGS = $(DEPS_CFLAGS) -DLIBEXECDIR=\"@libexecdir@\"
+AM_LDFLAGS = -module -avoid-version
+
 libflickr_la_SOURCES = flickr.c flickr.h
-libflickr_la_CPPFLAGS = $(DEPS_CFLAGS) -DLIBEXECDIR=\"@libexecdir@\"
-libflickr_la_LIBADD = $(DEPS_LIBS)
-libflickr_la_LDFLAGS = -module -avoid-version
+
+liboauth_la_SOURCES = oauth.c oauth.h
+
