@@ -31,6 +31,8 @@
 struct _BishoWindowPrivate {
   MojitoClient *client;
   GtkWidget *master_box;
+  /* Hash of auth type to pane gtypes */
+  GHashTable *types;
   /* Hash of string (identifier) to pane widget */
   GHashTable *panes;
 };
@@ -82,16 +84,19 @@ construct_ui (BishoWindow *window, const char *service_name)
       (BISHO_PANE_USERNAME (pane), _("Password:"), "password", FALSE);
     gtk_widget_show (pane);
     gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-  } else if (g_strcmp0 (info->auth_type, "oauth") == 0) {
-    pane = bisho_pane_oauth_new (window->priv->client, info);
-    gtk_widget_show (pane);
-    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    g_hash_table_insert (window->priv->panes, info->name, pane);
-  } else if (g_strcmp0 (info->auth_type, "flickr") == 0) {
-    pane = bisho_pane_flickr_new (window->priv->client, info);
-    gtk_widget_show (pane);
-    gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
-    g_hash_table_insert (window->priv->panes, info->name, pane);
+  } else {
+    gpointer pane_type;
+
+    pane_type = g_hash_table_lookup (window->priv->types, info->auth_type);
+    if (pane_type) {
+      pane = g_object_new (GPOINTER_TO_INT (pane_type),
+                           "mojito", window->priv->client,
+                           "service", info,
+                           NULL);
+      gtk_widget_show (pane);
+      gtk_box_pack_start (GTK_BOX (box), pane, FALSE, FALSE, 0);
+      g_hash_table_insert (window->priv->panes, info->name, pane);
+    }
   }
 
   gtk_widget_show_all (expander);
@@ -109,6 +114,38 @@ client_get_services_cb (MojitoClient *client,
   for (l = services; l; l = l->next) {
     construct_ui (window, l->data);
   }
+}
+
+static void
+find_panes (BishoWindow *window)
+{
+  GType *types;
+  guint i, count = 0;
+
+  /* Explicitly register the internal pane types */
+  g_type_class_peek (BISHO_TYPE_PANE_USERNAME);
+  g_type_class_peek (BISHO_TYPE_PANE_OAUTH);
+  g_type_class_peek (BISHO_TYPE_PANE_FLICKR);
+
+  types = g_type_children (BISHO_TYPE_PANE, &count);
+
+  for (i = 0; i < count; i++) {
+    GObjectClass *klass;
+    const char *auth_type;
+
+    klass = g_type_class_ref (types[i]);
+
+    auth_type = bisho_pane_get_auth_type (BISHO_PANE_CLASS (klass));
+    if (auth_type) {
+      g_hash_table_insert (window->priv->types,
+                           (gpointer)auth_type,
+                           GINT_TO_POINTER (types[i]));
+    }
+
+    g_type_class_unref (klass);
+  }
+
+  g_free (types);
 }
 
 static void
@@ -169,6 +206,9 @@ bisho_window_init (BishoWindow *self)
   gtk_box_pack_start (GTK_BOX (self->priv->master_box), label, FALSE, FALSE, 0);
 
   self->priv->panes = g_hash_table_new (g_str_hash, g_str_equal);
+
+  self->priv->types = g_hash_table_new (g_str_hash, g_str_equal);
+  find_panes (self);
 
   self->priv->client = mojito_client_new ();
   /* TODO move to a separate populate() function? */
