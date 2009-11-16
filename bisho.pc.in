@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+includedir=@includedir@
+
+Name: bisho
+Description: My Web Accounts pane module
+Version: @VERSION@
+Cflags: -I${includedir}

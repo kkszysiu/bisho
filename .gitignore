@@ -36,3 +36,4 @@ m4/libtool.m4
 m4/intltool.m4
 libtool
 ltmain.sh
+bisho.pc

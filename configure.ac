@@ -48,6 +48,7 @@ AM_CONDITIONAL([HAVE_INFOBAR], [test "$have_infobar" = "yes"])
 CFLAGS=$old_cflags
 
 AC_OUTPUT([
+        bisho.pc
         Makefile
         data/Makefile
         data/bisho.schemas
