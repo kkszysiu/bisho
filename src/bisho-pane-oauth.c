@@ -40,14 +40,6 @@ static const GnomeKeyringPasswordSchema oauth_schema = {
 
 #define GROUP_OAUTH "OAuth"
 
-typedef enum {
-  LOGGED_OUT,
-  WORKING,
-  CONTINUE_AUTH_10,
-  CONTINUE_AUTH_10a,
-  LOGGED_IN,
-} ButtonState;
-
 struct _BishoPaneOauthPrivate {
   const char *consumer_key;
   const char *consumer_secret;
@@ -61,6 +53,14 @@ struct _BishoPaneOauthPrivate {
   GtkWidget *pin_entry;
   GtkWidget *button;
 };
+
+typedef enum {
+  LOGGED_OUT,
+  WORKING,
+  CONTINUE_AUTH_10,
+  CONTINUE_AUTH_10a,
+  LOGGED_IN,
+} ButtonState;
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_PANE_OAUTH, BishoPaneOauthPrivate))
 G_DEFINE_TYPE (BishoPaneOauth, bisho_pane_oauth, BISHO_TYPE_PANE);
@@ -372,50 +372,19 @@ bisho_pane_oauth_get_auth_type (BishoPaneClass *klass)
 }
 
 static void
-bisho_pane_oauth_init (BishoPaneOauth *pane)
-{
-  BishoPaneOauthPrivate *priv;
-  GtkWidget *content, *align, *box;
-
-  pane->priv = GET_PRIVATE (pane);
-
-  priv = pane->priv;
-
-  content = BISHO_PANE (pane)->content;
-
-  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-  gtk_widget_show (align);
-  gtk_container_add (GTK_CONTAINER (content), align);
-
-  box = gtk_hbox_new (FALSE, 8);
-  gtk_widget_show (box);
-  gtk_container_add (GTK_CONTAINER (align), box);
-
-  priv->pin_label = gtk_label_new (_("Code:"));
-  gtk_box_pack_start (GTK_BOX (box), priv->pin_label, FALSE, FALSE, 0);
-
-  priv->pin_entry = gtk_entry_new ();
-  gtk_box_pack_start (GTK_BOX (box), priv->pin_entry, FALSE, FALSE, 0);
-
-  priv->button = gtk_button_new ();
-  gtk_widget_show (priv->button);
-  gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
-}
-
-static void
 bisho_pane_oauth_constructed (GObject *object)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (object);
   BishoPaneOauthPrivate *priv = pane->priv;
   ServiceInfo *info = BISHO_PANE (pane)->info;
 
-  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
-
   priv->base_url = g_key_file_get_string (info->keys, GROUP_OAUTH, "BaseURL", NULL);
   priv->request_token_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "RequestTokenFunction", NULL);
   priv->authorize_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "AuthoriseFunction", NULL);
   priv->access_token_function = g_key_file_get_string (info->keys, GROUP_OAUTH, "AccessTokenFunction", NULL);
   priv->callback = g_key_file_get_string (info->keys, GROUP_OAUTH, "Callback", NULL);
+
+  bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
   /* TODO: use GInitable */
   if (!mojito_keystore_get_key_secret (info->name,
@@ -450,14 +419,32 @@ bisho_pane_oauth_class_init (BishoPaneOauthClass *klass)
   g_type_class_add_private (klass, sizeof (BishoPaneOauthPrivate));
 }
 
-GtkWidget *
-bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info)
+static void
+bisho_pane_oauth_init (BishoPaneOauth *pane)
 {
-  g_return_val_if_fail (MOJITO_IS_CLIENT (client), NULL);
-  g_return_val_if_fail (info, NULL);
+  BishoPaneOauthPrivate *priv;
+  GtkWidget *content, *align, *box;
 
-  return g_object_new (BISHO_TYPE_PANE_OAUTH,
-                       "mojito", client,
-                       "service", info,
-                       NULL);
+  pane->priv = GET_PRIVATE (pane);
+  priv = pane->priv;
+
+  content = BISHO_PANE (pane)->content;
+
+  align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+  gtk_widget_show (align);
+  gtk_container_add (GTK_CONTAINER (content), align);
+
+  box = gtk_hbox_new (FALSE, 8);
+  gtk_widget_show (box);
+  gtk_container_add (GTK_CONTAINER (align), box);
+
+  priv->pin_label = gtk_label_new (_("Code:"));
+  gtk_box_pack_start (GTK_BOX (box), priv->pin_label, FALSE, FALSE, 0);
+
+  priv->pin_entry = gtk_entry_new ();
+  gtk_box_pack_start (GTK_BOX (box), priv->pin_entry, FALSE, FALSE, 0);
+
+  priv->button = gtk_button_new ();
+  gtk_widget_show (priv->button);
+  gtk_box_pack_start (GTK_BOX (box), priv->button, FALSE, FALSE, 0);
 }
