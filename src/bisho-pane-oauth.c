@@ -307,9 +307,8 @@ update_widgets (BishoPaneOauth *pane, ButtonState state)
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_in_clicked), pane);
     break;
   case WORKING:
-    bisho_pane_set_banner (BISHO_PANE (pane), NULL);
+    bisho_pane_set_banner (BISHO_PANE (pane), _("Connecting..."));
     gtk_widget_hide (priv->button);
-    gtk_button_set_label (GTK_BUTTON (priv->button), _("Working..."));
     break;
   case CONTINUE_AUTH_10:
     {
