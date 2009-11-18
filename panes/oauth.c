@@ -27,7 +27,7 @@
 #include "service-info.h"
 #include "bisho-module.h"
 #include "bisho-utils.h"
-#include "bisho-pane-oauth.h"
+#include "oauth.h"
 
 /* TODO: use mojito-keyring */
 static const GnomeKeyringPasswordSchema oauth_schema = {
