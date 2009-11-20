@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSKOR_SunKim <sunx.kim@intel.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:139
+#: ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "내 웹 계정"
 
@@ -32,89 +32,89 @@ msgstr "더 많은 정보를 보려면 사이트를 시작하십시오."
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>%s 계정 및 이 웹 서비스를 사용할 수 있는 인터넷 연결 기능이 필요합니다.</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "죄송합니다. %s에 로그인 할수 없습니다. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "죄송합니다. %s에 로그인 할수 없습니다."
-
-#: ../src/bisho-pane-flickr.c:243
-#: ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "로그인"
-
-#: ../src/bisho-pane-flickr.c:249
-#: ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "작업중..."
-
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 새 항목이 나타날 것입니다. "
-
-#: ../src/bisho-pane-flickr.c:255
-#: ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "로그아웃"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "네트워크에 연결되지 않는 것 같으므로 작동하지 않습니다."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "컴퓨터의 시계가 정확한지 확인할 수 있습니다."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "다시 시도해 보십시오."
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "일단 %s에 로그인 했으면 [계속]을 선택하십시오. "
-
-#: ../src/bisho-pane-oauth.c:315
-#: ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "계속"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "일단 %s에 로그인 했으면, 주어진 코드를 입력하고 [계속]을 선택하십시오. "
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "코드:"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s 로그인이 변경되었습니다."
 
-#: ../src/bisho-window.c:75
-#: ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "암호:"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "종료"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "myzone의 새로운 업데이트 및 상태 패널을 보기 위해 귀하의 소셜 네트워크를 설정하십시오. "
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "로그인"
+
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "연결중..."
+
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 새 항목이 나타날 것입니다. "
+
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "로그아웃"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "네트워크에 연결되지 않는 것 같으므로 작동하지 않습니다."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "컴퓨터의 시계가 정확한지 확인할 수 있습니다."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "다시 시도해 보십시오."
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "일단 %s에 로그인 했으면 [계속]을 선택하십시오. "
+
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "계속"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "일단 %s에 로그인 했으면, 주어진 코드를 입력하고 [계속]을 선택하십시오. "
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "코드:"
 
 #~ msgid "Log in pending"
 #~ msgstr "로그인 보류"
