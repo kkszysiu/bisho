@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSSVE_GMartinson <gmartinson@gmail.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:139
+#: ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Mina webbkonton"
 
@@ -32,89 +32,89 @@ msgstr "Använd webbplatsen för mer information"
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Du behöver ett konto med %s och tillgång till internet för att använda denna webbtjänst.</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Kan inte logga in till %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Kan inte logga in till %s"
-
-#: ../src/bisho-pane-flickr.c:243
-#: ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "Logga in "
-
-#: ../src/bisho-pane-flickr.c:249
-#: ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "Vi är på g..."
-
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Inloggningen lyckades. Du kommer se nya objekt om några minuter."
-
-#: ../src/bisho-pane-flickr.c:255
-#: ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "Stäng och logga ut"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Du verkar inte ha en fungerande internetanslutning."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "Du kan kontrollera om datorns klocka är rätt inställd."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Du kan försöka igen."
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "När du loggat in på %s, klicka på fortsätt."
-
-#: ../src/bisho-pane-oauth.c:315
-#: ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "När du loggat in på %s, ange koden de ger dig och klicka på fortsätt."
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Kod:"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Inloggning ändrad för: %s"
 
-#: ../src/bisho-window.c:75
-#: ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "Avsluta"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Gör dina nätverksinställningar för att se uppdateringar i MyZone och statusfältet."
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "Logga in "
+
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Vi är på g..."
+
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Inloggningen lyckades. Du kommer se nya objekt om några minuter."
+
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Stäng och logga ut"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Du verkar inte ha en fungerande internetanslutning."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "Du kan kontrollera om datorns klocka är rätt inställd."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Du kan försöka igen."
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "När du loggat in på %s, klicka på fortsätt."
+
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "När du loggat in på %s, ange koden de ger dig och klicka på fortsätt."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Kod:"
 
 #~ msgid "Log in pending"
 #~ msgstr "Inloggning pågår"
