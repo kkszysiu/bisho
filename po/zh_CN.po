@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: 2009-10-02 11:57-0800\n"
 "Last-Translator: Yun Nie <yun.nie@ptiglobal.net>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "我的网络账户"
 
@@ -33,83 +33,83 @@ msgstr "访问站点以获取更多信息"
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>您需要一个 %s 的账户和互联网连接才可使用该网络服务。</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "抱歉，我们无法登录到 %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我们无法登录到 %s"
-
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "登录"
-
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "工作中..."
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "登录成功。您马上就会看到新的项目。"
-
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "登出"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "看起来您没有网络连接，这无法工作。"
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "您可以检查一下电脑的时钟是否正确。"
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "再试一次吧。"
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "当您已登录%s时,请按回车键."
-
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "继续"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "一旦您登录到 %s，输入他们给您的代码，然后按“继续”。"
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "代码："
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s 的登录已经改变"
 
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "用户名"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "密码"
 
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "退出"
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "设置您的社交网络以便在 myzone 和状态面板中显示最近更新"
 
-#: ../src/bisho-window.c:163
-msgid "Quit"
-msgstr "退出"
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "登录"
+
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "登录成功。您马上就会看到新的项目。"
+
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "登出"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "看起来您没有网络连接，这无法工作。"
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "您可以检查一下电脑的时钟是否正确。"
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "再试一次吧。"
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "当您已登录%s时,请按回车键."
+
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "继续"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "一旦您登录到 %s，输入他们给您的代码，然后按“继续”。"
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "代码："
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "正在连接..."
 
 #~ msgid "Log in pending"
 #~ msgstr "等待登录"
