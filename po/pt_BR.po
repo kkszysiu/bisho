@@ -1,11 +1,11 @@
 # GLSPTB_Gabor <gaborx.k.becht@intel.com>, 2009.
 # Og Maciel <ogmaciel@gnome.org>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: 2009-10-21 23:14-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <l10n@moblin.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Minhas contas web"
 
@@ -23,103 +23,92 @@ msgstr "Minhas contas web"
 msgid "myzone & status"
 msgstr "myzone e status"
 
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "Processando..."
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Você parece não ter uma conexão de rede, isto não funcionará."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "Você poderia verificar se o relógio do computador está correto."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Você poderia tentar de novo."
-
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Continuar"
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Código:"
-
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
-msgid "Username:"
-msgstr "Nome do usuário:"
-
-#: ../src/bisho-window.c:84
-msgid "Password:"
-msgstr "Senha:"
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr ""
-"Configure suas redes sociais para ver novas atualizações no myzone e no "
-"painel de status."
-
-#: ../src/bisho-window.c:163
-msgid "Quit"
-msgstr "Sair"
-
 #: ../src/bisho-pane.c:86
 msgid "Launch site for more information."
 msgstr "Visite o site para maiores informações."
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:90
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Você precisará de uma conta com %s e uma conexão a Internet para usar este serviço web.</small>"
+
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Sinto muito, não foi possível conectar no  %s. %s"
 
-#: ../src/bisho-pane.c:90
-#, c-format
-msgid ""
-"<small>You'll need an account with %s and an Internet connection to use this "
-"web service.</small>"
-msgstr ""
-"<small>Você precisará de uma conta com %s e uma conexão a Internet para usar "
-"este serviço web.</small>"
-
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "Conectar"
-
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Sinto muito, não foi possível conectar no %s"
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "Conectado. Você verá novos itens em alguns minutos."
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Login de %s modificado."
 
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
+msgid "Username:"
+msgstr "Nome do usuário:"
+
+#: ../src/bisho-window.c:82
+msgid "Password:"
+msgstr "Senha:"
+
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "Sair"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Configure suas redes sociais para ver novas atualizações no myzone e no painel de status."
+
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "Conectar"
+
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Conectado. Você verá novos itens em alguns minutos."
+
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Desconectar"
 
-#: ../src/bisho-pane-oauth.c:310
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Você parece não ter uma conexão de rede, isto não funcionará."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "Você poderia verificar se o relógio do computador está correto."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Você poderia tentar de novo."
+
+#: ../panes/oauth.c:320
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Uma vez conectado no %s, pressione Continuar."
 
-#: ../src/bisho-pane-oauth.c:327
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../panes/oauth.c:337
 #, c-format
-msgid ""
-"Once you have logged in to %s, enter the code they give you and press "
-"Continue."
-msgstr ""
-"Uma vez conectado no %s, digite o código fornecido e pressione Continuar."
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Uma vez conectado no %s, digite o código fornecido e pressione Continuar."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Código:"
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Conectando..."
 
 #~ msgid "Log in pending"
 #~ msgstr "Login pendente"
@@ -136,12 +125,8 @@ msgstr ""
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>Status:</b>"
 
-#~ msgid ""
-#~ "You'll need an account with %s and an Internet connection to use this web "
-#~ "service."
-#~ msgstr ""
-#~ "Você vai precisar de uma conta com %s e uma conexão na Internet para usar "
-#~ "este serviço na web."
+#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
+#~ msgstr "Você vai precisar de uma conta com %s e uma conexão na Internet para usar este serviço na web."
 
 #~ msgid "Cannot login to %s"
 #~ msgstr "Login impossível no %s"
