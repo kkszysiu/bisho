@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: 2009-09-16 16:31+0200\n"
 "Last-Translator: Xosé <xosecalvo@edu.xunta.es>\n"
 "Language-Team: Galego <proxecto@trasno.org>\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.0\n"
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
+msgid "My Web Accounts"
+msgstr "As miñas contas web"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
@@ -25,92 +29,88 @@ msgstr "amiñazona e estado"
 msgid "Launch site for more information."
 msgstr "Abrir o sitio para máis información."
 
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "Déixame entrar"
-
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "A traballar..."
-
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "Fechar esta sesión"
-
-#: ../src/bisho-pane-oauth.c:310
+#: ../src/bisho-pane.c:90
 #, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "Unha vez dentro de %s prema Continuar"
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Precisa dunha conta en %s e dunha conexión á Internet para empregar este servizo web.</small>"
 
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Continuar"
+#: ../src/bisho-pane.c:204
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Non é posíbel iniciar unha sesión en %s. %s"
+
+#: ../src/bisho-pane.c:208
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Non é posíbel iniciar unha sesión en %s"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Modificouse o inicio de sesión de %s."
 
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "Nome de usuario:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "Contrasinal:"
 
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configure as súas redes sociais para ver as actualizacións novas en amiñazona e o panel de estado."
-
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "Saír"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
-msgid "My Web Accounts"
-msgstr "As miñas contas web"
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Configure as súas redes sociais para ver as actualizacións novas en amiñazona e o panel de estado."
 
-#: ../src/bisho-pane.c:195
-#, c-format
-msgid "Sorry, we can't log in to %s. %s"
-msgstr "Non é posíbel iniciar unha sesión en %s. %s"
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "Déixame entrar"
 
-#: ../src/bisho-pane.c:90
-#, c-format
-msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Precisa dunha conta en %s e dunha conexión á Internet para empregar este servizo web.</small>"
-
-#: ../src/bisho-pane.c:199
-#, c-format
-msgid "Sorry, we can't log in to %s"
-msgstr "Non é posíbel iniciar unha sesión en %s"
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Rexistro completado. Verá os elementos novos nun par de minutos."
 
-#: ../src/bisho-pane-oauth.c:84
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Fechar esta sesión"
+
+#: ../panes/oauth.c:95
 msgid "You don't seem to have a network connection, this won't work."
 msgstr "Parece que non hai conexión coa rede; isto non vai funcionar."
 
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Pódeo tentar de novo."
-
-#: ../src/bisho-pane-oauth.c:85
+#: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
 msgstr "Debería verificar que a hora do reloxo do computador está ben."
 
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Código:"
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Pódeo tentar de novo."
 
-#: ../src/bisho-pane-oauth.c:327
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Unha vez dentro de %s prema Continuar"
+
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
 msgstr "Unha vez dentro de %s, introduza o código que lle dan e prema Continuar"
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Código:"
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "A conectar..."
 
 #~ msgid "Web Services"
 #~ msgstr "Servizos web"
