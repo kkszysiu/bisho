@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-09 23:55+0000\n"
-"PO-Revision-Date: 2009-11-16 12:03+0200\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2009-11-23 18:57+0200\n"
 "Last-Translator: Yousef Abu Al Naser <yousef@itsoftex.com>\n"
 "Language-Team: ITSOFTEX <info@itsoftex.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-Language: Arabic\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:139
+#: ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "حساباتي الشبكية"
 
@@ -35,87 +35,87 @@ msgstr "فتح الموقع لمعلومات إضافية"
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>هنالك حاجة لحساب %s واتّصال انترنت لاستخدام هذه الخدمة الشبكية..</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "نأسف لا يمكن الدخول الى %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "نأسف, لا يمكن الدخول الى %s"
-
-#: ../src/bisho-pane-flickr.c:243
-#: ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "أدخلني"
-
-#: ../src/bisho-pane-flickr.c:249
-#: ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "شغّال..."
-
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "نجح دخولك. ستظهر عناصر جديدة خلال بضعة دقائق."
-
-#: ../src/bisho-pane-flickr.c:255
-#: ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "أخرجني"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "يبدو انك غير متّصل بشبكة. هذا لن يعمل."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "يمكنك التحقق ان كانت ساعة الحاسوبة صحيحة"
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "يمكنك المحاولة مجددًا"
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "عندما تدخل الى %s، اضغط أكمل"
-
-#: ../src/bisho-pane-oauth.c:315
-#: ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "أكمل"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "عندما تدخل الى %s، ادخل الكود المعطى لك واضغط أكمل"
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "كود:"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "تم تغيير الدخول %s"
 
-#: ../src/bisho-window.c:75
-#: ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "اسم المستخدم:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "كلمة السر:"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "خروج"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "اضبط حساباتك في الشبكات الاجتماعية على مشاهدة اجدد تحديثاتك في myzone ولوحة الحالة"
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "أدخلني"
+
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "يتم الاتصال..."
+
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "نجح دخولك. ستظهر عناصر جديدة خلال بضعة دقائق."
+
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "أخرجني"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "يبدو انك غير متّصل بشبكة. هذا لن يعمل."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "يمكنك التحقق ان كانت ساعة الحاسوبة صحيحة"
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "يمكنك المحاولة مجددًا"
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "عندما تدخل الى %s، اضغط أكمل"
+
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "أكمل"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "عندما تدخل الى %s، ادخل الكود المعطى لك واضغط أكمل"
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "كود:"
 
