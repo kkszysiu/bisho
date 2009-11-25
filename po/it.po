@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
-"PO-Revision-Date: 2009-11-03 22:44+0100\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2009-11-25 21:54+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Account web"
 
@@ -39,68 +39,15 @@ msgstr ""
 "<small>Sono necessari un account con %s e una connessione a Internet per "
 "utilizzare questo servizio web.</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Impossibile accedere a %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Impossibile accedere a %s"
-
-# (ndt) pulsante
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "Accedi"
-
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "In lavorazione..."
-
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr ""
-"Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi."
-
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "Disconnetti"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "La connessione di rete non sembra attiva, questo non funzionerà."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "Controllare che l'orologio del computer sia corretto."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Provare nuovamente"
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "Una volta eseguito l'accesso a %s, fare clic su «Continua»."
-
-# (ndt) pulsante
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Continua"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid ""
-"Once you have logged in to %s, enter the code they give you and press "
-"Continue."
-msgstr ""
-"Una volta eseguito l'accesso a %s, inserire il codice fornito e fare clic su "
-"«Continua»."
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Codice:"
 
 # (ndt) un po' lunga e libera, ma c'è spazio
 # si vede quando si modificano le credenziali
@@ -110,26 +57,79 @@ msgstr "Codice:"
 msgid "%s login changed."
 msgstr "Informazioni di accesso di %s modificate."
 
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "Nome utente:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "Password:"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "Esci"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid ""
 "Set up your social networks to see new updates in myzone and the status "
 "panel."
 msgstr ""
 "Impostare i social network a cui si partecipa per visualizzare aggiornamenti "
 "all'interno della myzone e nel pannello di stato."
+
+# (ndt) pulsante
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "Accedi"
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Connessione..."
+
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr ""
+"Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi."
+
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Disconnetti"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "La connessione di rete non sembra attiva, questo non funzionerà."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "Controllare che l'orologio del computer sia corretto."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Provare nuovamente"
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Una volta eseguito l'accesso a %s, fare clic su «Continua»."
+
+# (ndt) pulsante
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continua"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"Una volta eseguito l'accesso a %s, inserire il codice fornito e fare clic su "
+"«Continua»."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Codice:"
 
 #~ msgid "Log in pending"
 #~ msgstr "Accesso in corso"
