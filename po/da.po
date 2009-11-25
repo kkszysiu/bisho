@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
-"PO-Revision-Date: 2009-11-08 22:10+0100\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2009-11-25 09:00+0100\n"
 "Last-Translator: Kris Thomsen <lakristho@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Mine webkonti"
 
@@ -34,57 +34,84 @@ msgid ""
 "<small>You'll need an account with %s and an Internet connection to use this "
 "web service.</small>"
 msgstr ""
-"<small>Du skal have en konto med %s og en internetforbindelse for at bruge denne "
-"internettjeneste.</small>"
+"<small>Du skal have en konto med %s og en internetforbindelse for at bruge "
+"denne internettjeneste.</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Beklager, vi kan ikke logge ind på %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Beklager, vi kan ikke logge ind på %s"
 
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "%s logind ændret."
+
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
+msgid "Username:"
+msgstr "Brugernavn:"
+
+#: ../src/bisho-window.c:82
+msgid "Password:"
+msgstr "Adgangskode:"
+
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "Afslut"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Sæt dine sociale netværk op for at se opdateringer i myzone og status-"
+"panelet."
+
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Log mig ind"
 
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "Arbejder..."
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Forbinder..."
 
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Indlogning gennemført. Du vil se nye ting om et par minutter."
 
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Log mig ud"
 
-#: ../src/bisho-pane-oauth.c:84
+#: ../panes/oauth.c:95
 msgid "You don't seem to have a network connection, this won't work."
-msgstr "Det ser ikke ud til at du har en netværksforbindelse, hvilket er nødvendigt."
+msgstr ""
+"Det ser ikke ud til at du har en netværksforbindelse, hvilket er nødvendigt."
 
-#: ../src/bisho-pane-oauth.c:85
+#: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
 msgstr "Ḱontrollér eventuelt om computerens ur er rigtigt indstillet."
 
-#: ../src/bisho-pane-oauth.c:86
+#: ../panes/oauth.c:97
 msgid "You could try again."
 msgstr "Prøv eventuelt igen."
 
-#: ../src/bisho-pane-oauth.c:310
+#: ../panes/oauth.c:320
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Når du er logget ind på %s, så tryk Fortsæt."
 
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
 msgid "Continue"
 msgstr "Fortsæt"
 
-#: ../src/bisho-pane-oauth.c:327
+#: ../panes/oauth.c:337
 #, c-format
 msgid ""
 "Once you have logged in to %s, enter the code they give you and press "
@@ -92,31 +119,6 @@ msgid ""
 msgstr ""
 "Når du er logget ind på %s, så indtast koden de giver dig og tryk Fortsæt."
 
-#: ../src/bisho-pane-oauth.c:378
+#: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "Kode:"
-
-#: ../src/bisho-pane-username.c:57
-#, c-format
-msgid "%s login changed."
-msgstr "%s logind ændret."
-
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
-msgid "Username:"
-msgstr "Brugernavn:"
-
-#: ../src/bisho-window.c:84
-msgid "Password:"
-msgstr "Adgangskode:"
-
-#: ../src/bisho-window.c:163
-msgid "Quit"
-msgstr "Afslut"
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr ""
-"Sæt dine sociale netværk op for at se opdateringer i myzone og status-panelet."
