@@ -17,7 +17,7 @@
  */
 
 #include <gtk/gtk.h>
-#include <nbtk/nbtk-gtk.h>
+#include <mx/mx-gtk.h>
 #include "mux-expanding-item.h"
 #include "mux-expander.h"
 
@@ -36,7 +36,7 @@ struct _MuxExpandingItemPrivate {
 };
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), MUX_TYPE_EXPANDING_ITEM, MuxExpandingItemPrivate))
-G_DEFINE_TYPE (MuxExpandingItem, mux_expanding_item, NBTK_GTK_TYPE_FRAME);
+G_DEFINE_TYPE (MuxExpandingItem, mux_expanding_item, MX_GTK_TYPE_FRAME);
 
 static void
 mux_expanding_item_set_property (GObject      *object,
