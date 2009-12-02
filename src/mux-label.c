@@ -17,8 +17,8 @@
  */
 
 /*
- * TODO: GTK+ in git has support for hyperlinks in labels which makes this
- * entire class redundant.  When we have that version of GTK+, drop this.
+ * Whilst GTK+ 2.18 has hyperlink support in GtkLabel it won't wrap like we want
+ * it too...
  */
 
 #include <config.h>
