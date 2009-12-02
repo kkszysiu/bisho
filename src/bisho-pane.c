@@ -85,7 +85,7 @@ bisho_pane_set_property (GObject *object, guint property_id,
 
       s = g_strdup_printf (_("<small>You'll need an account with %s and an Internet connection to use this web service.</small>"),
                            pane->info->display_name);
-      mux_label_set_markup (MUX_LABEL (pane->disclaimer), s);
+      gtk_label_set_markup (GTK_LABEL (pane->disclaimer), s);
       g_free (s);
     }
     break;
@@ -156,7 +156,9 @@ bisho_pane_init (BishoPane *pane)
   gtk_widget_show (pane->content);
   gtk_box_pack_start (GTK_BOX (pane), pane->content, TRUE, TRUE, 0);
 
-  pane->disclaimer = mux_label_new ();
+  pane->disclaimer = gtk_label_new (NULL);
+  gtk_misc_set_alignment (GTK_MISC (pane->disclaimer), 0.0, 0.5);
+  gtk_misc_set_padding (GTK_MISC (pane->disclaimer), 6, 6);
   gtk_widget_show (pane->disclaimer);
   gtk_box_pack_start (GTK_BOX (pane), pane->disclaimer, FALSE, TRUE, 0);
 }
