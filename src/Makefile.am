@@ -10,9 +10,6 @@ bisho_SOURCES = \
 	bisho-module.c bisho-module.h \
 	service-info.c service-info.h \
 	mux-label.c mux-label.h
-if ! HAVE_INFOBAR
-bisho_SOURCES += gtkinfobar.h gtkinfobar.c
-endif
 bisho_CPPFLAGS = $(DEPS_CFLAGS) \
 	-DLIBEXECDIR=\"@libexecdir@\" \
 	-DPKGLIBDIR=\"$(pkglibdir)\" \

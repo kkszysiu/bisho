@@ -41,12 +41,6 @@ PKG_CHECK_MODULES(DEPS, gmodule-export-2.0
 
 AM_GCONF_SOURCE_2
 
-old_cflags=$CFLAGS
-CFLAGS=$DEPS_CFLAGS
-AC_CHECK_DECLS([gtk_info_bar_new], [have_infobar=yes], [], [#include <gtk/gtk.h>])
-AM_CONDITIONAL([HAVE_INFOBAR], [test "$have_infobar" = "yes"])
-CFLAGS=$old_cflags
-
 AC_OUTPUT([
         bisho.pc
         Makefile

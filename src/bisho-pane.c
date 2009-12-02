@@ -23,10 +23,6 @@
 #include "bisho-pane.h"
 #include "mux-label.h"
 
-#if ! HAVE_DECL_GTK_INFO_BAR_NEW
-#include "gtkinfobar.h"
-#endif
-
 G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
 
 enum {
