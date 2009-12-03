@@ -36,8 +36,8 @@ struct _BishoPaneUsernamePrivate {
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_PANE_USERNAME, BishoPaneUsernamePrivate))
 G_DEFINE_TYPE (BishoPaneUsername, bisho_pane_username, BISHO_TYPE_PANE);
 
-static gboolean
-on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
+static void
+on_entry_activate (GtkWidget *widget, gpointer user_data)
 {
   BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
   ServiceInfo *info = NULL;
@@ -58,6 +58,12 @@ on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
   bisho_pane_set_banner (BISHO_PANE (pane), message);
   g_free (message);
 
+}
+
+static gboolean
+on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
+{
+  on_entry_activate (widget, user_data);
   return FALSE;
 }
 
@@ -117,6 +123,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   gtk_entry_set_visibility (GTK_ENTRY (entry), visible);
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
   g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
+  g_signal_connect (entry, "activate", G_CALLBACK (on_entry_activate), pane);
   gtk_widget_show (entry);
   gtk_table_attach (GTK_TABLE (priv->table), entry,
                     1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
