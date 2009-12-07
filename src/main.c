@@ -64,11 +64,11 @@ unique_message_cb (UniqueApp *app,
   switch (command) {
   case UNIQUE_ACTIVATE:
     gtk_window_set_screen (window, unique_message_data_get_screen (message));
-    gtk_window_present (window);
+    gtk_window_present_with_time (window, time_);
     break;
   case COMMAND_CALLBACK:
     gtk_window_set_screen (window, unique_message_data_get_screen (message));
-    gtk_window_present (window);
+    gtk_window_present_with_time (window, time_);
 
     uris = unique_message_data_get_uris (message);
     if (uris)
