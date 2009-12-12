@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2009-12-12 01:08+0100\n"
+"Last-Translator: Boštjan Pišler <designandinvent@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:164
+msgid "My Web Accounts"
+msgstr "Moji spletni računi"
+
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
+msgid "myzone & status"
+msgstr "myzone in status"
+
+#: ../src/bisho-pane.c:86
+msgid "Launch site for more information."
+msgstr "Za več informacij obiščite spletno stran."
+
+#: ../src/bisho-pane.c:90
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Za uporabo te storitve potrebujete račun pri %s in pa aktivno spletno povezavo</small>"
+
+#: ../src/bisho-pane.c:204
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "Dostop do %s ni mogoč. %s"
+
+#: ../src/bisho-pane.c:208
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "Dostop do %s ni mogoč"
+
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "%s podatki spremenjeni."
+
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
+msgid "Username:"
+msgstr "Uporabniško ime:"
+
+#: ../src/bisho-window.c:82
+msgid "Password:"
+msgstr "Geslo:"
+
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "Zapri"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Vnesite podatke vaših socialnih omrežij, za prikaz novih objav na strani myzone in statusni vrstici."
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "Prijavi me"
+
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Povezujem..."
+
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "Prijava je uspela. Nove objave boste videli v nekaj minutah."
+
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Odjavi me"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Za delovanje potrebujete aktivno spletno povezavo."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "Preverite lahko, če je ura pravilno nastavljena."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Lahko poizkusite ponovno."
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "Ko boste prijavljeni v %s, pritisnite Nadaljuj."
+
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Nadaljuj"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Go boste prijavljeni v %s vnesite kodo, ki vam je bila posredovana in pritisnite Nadaljuj."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Koda:"
+
