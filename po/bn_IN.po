@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# sankarshan mukhopadhyay <sankarshan@fedoraproject.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2009-12-12 10:28+0530\n"
+"Last-Translator: sankarshan mukhopadhyay <sankarshan@fedoraproject.org>\n"
+"Language-Team: anubad@lists.ankur.org.in\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.4.1\n"
+
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
+msgid "My Web Accounts"
+msgstr "আমার ওয়েব অ্যাকাউন্টগুলি"
+
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
+msgid "myzone & status"
+msgstr "myzone & অবস্থা"
+
+#: ../src/bisho-pane.c:86
+msgid "Launch site for more information."
+msgstr "অধিক তথ্যের জন্য সাইট পরিদর্শন করুন।"
+
+#: ../src/bisho-pane.c:90
+#, c-format
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>%s এর সাথে আপনার একটি অ্যাকাউন্ট প্রয়োজন  এবং এই ওয়েব পরিসেবা ব্যবহার "
+"করার জন্য একটি ইন্টারনেট সংযোগ বাধ্যতামূলক।</small>"
+
+#: ../src/bisho-pane.c:204
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "%s এ লগ-ইন করা সম্ভব হয়নি। %s"
+
+#: ../src/bisho-pane.c:208
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "%s এ লগ-ইন করা সম্ভব হয়নি"
+
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "%s লগ-ইন পরিবর্তিত।"
+
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
+msgid "Username:"
+msgstr "ব্যবহারকারীর নাম:"
+
+#: ../src/bisho-window.c:82
+msgid "Password:"
+msgstr "পাসওয়ার্ড:"
+
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "প্রস্থান"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"myzone ও স্টেটাস প্যানেলে আপডেট দেখার জন্য আপনার সোশাল নেটওয়ার্ক গড়ে নিন।"
+
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "আমি লগ-ইন করতে চাই"
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "যোগাযোগের চেষ্টা চলছে..."
+
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "লগ-ইন সফল। আপনি কিছুক্ষণের মধ্যে নতুন তথ্য দেখতে পারবেন।"
+
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "আমি লগ-আউট করতে চাই"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "মনে হয় আপনার নেটওয়ার্ক যোগাযোগ অনুপস্থিত, তাই এটি কাজ করবে না।"
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "কম্পিউটারের ঘড়ি সঠিক আছে কিনা পরিক্ষা করে নিন।"
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "পুনরায় চেষ্টা করুন।"
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "%s লগ-ইন করার পর, এগিয়ে চলুন টিপুন।"
+
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "এগিয়ে চলুন"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr "%s এ লগ-ইন করার পর প্রাপ্ত কোড-টি লিখুন ও এগিয়ে চলুন টিপুন।."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "কোড:"
