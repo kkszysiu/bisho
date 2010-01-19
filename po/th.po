@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-19 09:22+0000\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Anuchit Chalothorn <anoochit@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -19,96 +19,122 @@ msgstr ""
 "X-Poedit-Country: THAILAND\n"
 
 #: ../data/bisho.desktop.in.h:1
-msgid "Web Services"
-msgstr "บริการบนเว็บ"
+#: ../src/bisho-window.c:164
+msgid "My Web Accounts"
+msgstr "บัญชีเว็บของฉัน"
 
-#: ../data/bisho.desktop.in.h:2
+#. Please don't translate "myzone"
+#: ../data/bisho.desktop.in.h:3
 msgid "myzone & status"
 msgstr "โซนของฉัน และ สถานะ"
 
-#: ../src/bisho-facebook-pane.c:273 ../src/bisho-pane-flickr.c:228
-#: ../src/bisho-pane-oauth.c:244
-msgid "Log in pending"
-msgstr "อยู่ในระหว่างการดำเนินการ"
+#: ../src/bisho-pane.c:86
+msgid "Launch site for more information."
+msgstr "เปิดเว็บไซต์เพื่อดูรายละเอียดเพิ่มเติม"
 
-#: ../src/bisho-facebook-pane.c:274 ../src/bisho-pane-flickr.c:229
-#: ../src/bisho-pane-oauth.c:245
+#: ../src/bisho-pane.c:90
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>คุณต้องการบัญชีผู้ใช้กับ %s และการเชื่อมต่อกับอินเทอร์เน็ตเพื่อใช้บริการนี้"
+
+#: ../src/bisho-pane.c:204
+#, c-format
+msgid "Sorry, we can't log in to %s. %s"
+msgstr "เสียใจด้วย, เราไม่สามารถล็อกอินไปยัง %s. %s"
+
+#: ../src/bisho-pane.c:208
+#, c-format
+msgid "Sorry, we can't log in to %s"
+msgstr "เสียใจด้วย, เราไม่สามารถล็อกอินไปยัง %s"
+
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "%s login changed."
+msgstr "%s ล็อกอินถูกเปลี่ยน"
+
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
+msgid "Username:"
+msgstr "ชื่อผู้ใช้ : "
+
+#: ../src/bisho-window.c:82
+msgid "Password:"
+msgstr "รหัสผ่าน : "
+
+#: ../src/bisho-window.c:188
+msgid "Quit"
+msgstr "ออก"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-window.c:199
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "ตั้งค่าเครือข่าวสังคมของคุณ เพื่อดูความเคลื่อนไหวใน โซนของฉัน และสถานะในพาเนล"
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "ล็อกอิน"
 
-#: ../src/bisho-facebook-pane.c:279 ../src/bisho-pane-flickr.c:234
-#: ../src/bisho-pane-oauth.c:250
-msgid "Log in pending..."
-msgstr "อยู่ในระหว่างการดำเนินการ..."
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "กำลังเชื่อมต่อ..."
 
-#: ../src/bisho-facebook-pane.c:280 ../src/bisho-pane-flickr.c:235
-#: ../src/bisho-pane-oauth.c:251
-msgid "Working..."
-msgstr "กำลังดำเนินการ..."
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "ล็อกอินสำเร็จ คุณจะเห็นรายการใหม่ๆ ในอีกไม่กี่นานี"
 
-#: ../src/bisho-facebook-pane.c:284
-msgid "Press Continue to continue the log in."
-msgstr "กดปุ่มดำเนินการต่อ เพื่อทำการล็อกอิน"
-
-#: ../src/bisho-facebook-pane.c:285 ../src/bisho-pane-oauth.c:264
-msgid "Continue"
-msgstr "ดำเนินการต่อ"
-
-#: ../src/bisho-facebook-pane.c:292 ../src/bisho-pane-flickr.c:241
-#, c-format
-msgid "Logged in as %s"
-msgstr "เข้าระบบเป็น %s"
-
-#: ../src/bisho-facebook-pane.c:296 ../src/bisho-pane-flickr.c:245
-#: ../src/bisho-pane-oauth.c:270
-msgid "Logged in"
-msgstr "ล็อกอินแล้ว"
-
-#: ../src/bisho-facebook-pane.c:298 ../src/bisho-pane-flickr.c:247
-#: ../src/bisho-pane-oauth.c:271
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "ล็อกเอาท์"
 
-#: ../src/bisho-facebook-pane.c:362 ../src/bisho-pane-flickr.c:327
-#: ../src/bisho-pane-oauth.c:327
-msgid "<b>Status:</b>"
-msgstr "<b>สถานะ:</b>"
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "ดูเหมือนคุณไม่เชื่อมต่อกับเครือข่าย นี่จะไม่ทำงาน"
 
-#: ../src/bisho-pane.c:53
-#, c-format
-msgid ""
-"You'll need an account with %s and an Internet connection to use this web "
-"service."
-msgstr "คุณต้องใช้บัญชีผู้ใช้และ %s และการเชื่อมต่อกับอินเทอร์เน็ตเพื่อใช้บริการเว็บนี้"
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "คุณควรตรวจสอบว่าสัญญานาฬิกาของเครื่องถูกต้อง"
 
-#: ../src/bisho-pane-oauth.c:259
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "คุณควรลองใหม่อีกครั้ง"
+
+#: ../panes/oauth.c:320
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "เมื่อคุณล็อกอินไปยัง %s เรียบร้อยแล้ว กดปุ่มดำเนินการต่อ"
 
-#: ../src/bisho-window.c:96
-msgid "Launch site for more information."
-msgstr "เปิดเว็บไซต์เพื่อดูรายละเอียดเพิ่มเติม"
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "ดำเนินการต่อ"
 
-#: ../src/bisho-window.c:107 ../src/bisho-window.c:123
-msgid "Username:"
-msgstr "ชื่อผู้ใช้ : "
-
-#: ../src/bisho-window.c:129
-msgid "Password:"
-msgstr "รหัสผ่าน : "
-
-#: ../src/bisho-window.c:202
-msgid "Web Services Settings"
-msgstr "ตั้งค่าบริการเว็บ"
-
-#: ../src/bisho-window.c:209
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr "ตั้งค่าเครือข่าวสังคมของคุณ เพื่อดูความเคลื่อนไหวใน โซนของฉัน และสถานะในพาเนล"
-
-#: ../src/bisho-window.c:232
+#: ../panes/oauth.c:337
 #, c-format
-msgid "%s login changed."
-msgstr "%s ล็อกอินถูกเปลี่ยน"
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "เมื่อคุณล็อกอินไปยัง %s เรียบร้อยแล้ว ใส่รหัสที่กำหนดมาให้แล้วกดปุ่มดำเนินการต่อ"
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "รหัส:"
+
+#~ msgid "Web Services"
+#~ msgstr "บริการบนเว็บ"
+#~ msgid "Log in pending"
+#~ msgstr "อยู่ในระหว่างการดำเนินการ"
+#~ msgid "Log in pending..."
+#~ msgstr "อยู่ในระหว่างการดำเนินการ..."
+#~ msgid "Press Continue to continue the log in."
+#~ msgstr "กดปุ่มดำเนินการต่อ เพื่อทำการล็อกอิน"
+#~ msgid "Logged in as %s"
+#~ msgstr "เข้าระบบเป็น %s"
+#~ msgid "Logged in"
+#~ msgstr "ล็อกอินแล้ว"
+#~ msgid "<b>Status:</b>"
+#~ msgstr "<b>สถานะ:</b>"
+#~ msgid "Web Services Settings"
+#~ msgstr "ตั้งค่าบริการเว็บ"
+
