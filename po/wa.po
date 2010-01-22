@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho.master.bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
-"PO-Revision-Date: 2009-11-08 16:02+0100\n"
+"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"PO-Revision-Date: 2010-01-22 23:14+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Language: Walloon\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:139
+#: ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Mes contes waibe"
 
@@ -36,89 +36,89 @@ msgstr "Enonder l' waibe po ndè saveur di pus."
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Vos alez aveur dandjî d' on conte avou %s eyet on raloyaedje al Daegntoele pos eployî c' siervice waibe ci.</small>"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:204
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:208
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s"
-
-#: ../src/bisho-pane-flickr.c:243
-#: ../src/bisho-pane-oauth.c:296
-msgid "Log me in"
-msgstr "M' elodjî"
-
-#: ../src/bisho-pane-flickr.c:249
-#: ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "Dj' overe"
-
-#: ../src/bisho-pane-flickr.c:252
-#: ../src/bisho-pane-oauth.c:337
-msgid "Log in succeeded. You'll see new items in a couple of minutes."
-msgstr "L' elodjaedje a st comifåt. Vos alez vey des noveas cayets dins deus munutes."
-
-#: ../src/bisho-pane-flickr.c:255
-#: ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "Mi dislodjî"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "I m' shonne ki vs n' avoz pont d' raloyaedje al rantoele, ça n' va nén aler."
-
-#: ../src/bisho-pane-oauth.c:85
-msgid "You could check that the computer's clock is correct."
-msgstr "Vos pôrîz verifyî k' l' ôrlodje del copiutrece est a l' eure."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Vos pôrîz cor on côp sayî."
-
-#: ../src/bisho-pane-oauth.c:310
-#, c-format
-msgid "Once you have logged in to %s, press Continue."
-msgstr "On côp k' vos vs avoz elodjî e %s, tchôkîz so Continouwer."
-
-#: ../src/bisho-pane-oauth.c:315
-#: ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Continouwer"
-
-#: ../src/bisho-pane-oauth.c:327
-#, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "On côp k' vos vs avoz elodjî e %s, dinez l' côde k' i vs dinèt eyet tchôkî so Continouwer."
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Côde :"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "Li login di %s a candjî."
 
-#: ../src/bisho-window.c:75
-#: ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74
+#: ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "No d' uzeu :"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "Sicret :"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:188
 msgid "Quit"
 msgstr "Moussî foû"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:199
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Metoz a pont vos rantoeles sociåles po vey des noveas metaedjes a djoû dins myzone eyet l' sicriftôr d' estat."
+
+#: ../panes/flickr.c:248
+#: ../panes/oauth.c:307
+msgid "Log me in"
+msgstr "M' elodjî"
+
+#: ../panes/flickr.c:252
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Dji m' raloye..."
+
+#: ../panes/flickr.c:256
+#: ../panes/oauth.c:347
+msgid "Log in succeeded. You'll see new items in a couple of minutes."
+msgstr "L' elodjaedje a st comifåt. Vos alez vey des noveas cayets dins deus munutes."
+
+#: ../panes/flickr.c:259
+#: ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Mi dislodjî"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "I m' shonne ki vs n' avoz pont d' raloyaedje al rantoele, ça n' va nén aler."
+
+#: ../panes/oauth.c:96
+msgid "You could check that the computer's clock is correct."
+msgstr "Vos pôrîz verifyî k' l' ôrlodje del copiutrece est a l' eure."
+
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Vos pôrîz cor on côp sayî."
+
+#: ../panes/oauth.c:320
+#, c-format
+msgid "Once you have logged in to %s, press Continue."
+msgstr "On côp k' vos vs avoz elodjî e %s, tchôkîz so Continouwer."
+
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continouwer"
+
+#: ../panes/oauth.c:337
+#, c-format
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "On côp k' vos vs avoz elodjî e %s, dinez l' côde k' i vs dinèt eyet tchôkî so Continouwer."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Côde :"
 
 #~ msgid "Log in pending"
 #~ msgstr "Elodjaedje ki ratind"
