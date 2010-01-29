@@ -28,7 +28,7 @@ G_DEFINE_ABSTRACT_TYPE (BishoPane, bisho_pane, GTK_TYPE_VBOX);
 enum {
   PROP_0,
   PROP_SERVICE,
-  PROP_MOJITO
+  PROP_SOCIALWEB
 };
 
 static void
@@ -41,8 +41,8 @@ bisho_pane_get_property (GObject *object, guint property_id,
   case PROP_SERVICE:
     g_value_set_pointer (value, pane->info);
     break;
-  case PROP_MOJITO:
-    g_value_set_object (value, pane->mojito);
+  case PROP_SOCIALWEB:
+    g_value_set_object (value, pane->socialweb);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -89,8 +89,8 @@ bisho_pane_set_property (GObject *object, guint property_id,
       g_free (s);
     }
     break;
-  case PROP_MOJITO:
-    pane->mojito = g_value_dup_object (value);
+  case PROP_SOCIALWEB:
+    pane->socialweb = g_value_dup_object (value);
     break;
   default:
     G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -110,10 +110,10 @@ bisho_pane_class_init (BishoPaneClass *klass)
                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
     g_object_class_install_property (object_class, PROP_SERVICE, pspec);
 
-    pspec = g_param_spec_object ("mojito", "mojito", "mojito",
-                                 MOJITO_TYPE_CLIENT,
+    pspec = g_param_spec_object ("socialweb", "socialweb", "socialweb",
+                                 SW_TYPE_CLIENT,
                                  G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY);
-    g_object_class_install_property (object_class, PROP_MOJITO, pspec);
+    g_object_class_install_property (object_class, PROP_SOCIALWEB, pspec);
 }
 
 static void
@@ -239,7 +239,7 @@ bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
 }
 
 static void
-on_online_changed (MojitoClient *client, gboolean online, gpointer user_data)
+on_online_changed (SwClient *client, gboolean online, gpointer user_data)
 {
   GtkWidget *widget = GTK_WIDGET (user_data);
 
@@ -252,7 +252,7 @@ bisho_pane_follow_connected (BishoPane *pane, GtkWidget *widget)
   g_return_if_fail (BISHO_IS_PANE (pane));
   g_return_if_fail (GTK_IS_WIDGET (widget));
 
-  g_signal_connect (pane->mojito, "online-changed", G_CALLBACK (on_online_changed), widget);
+  g_signal_connect (pane->socialweb, "online-changed", G_CALLBACK (on_online_changed), widget);
 
-  mojito_client_is_online (pane->mojito, on_online_changed, widget);
+  sw_client_is_online (pane->socialweb, on_online_changed, widget);
 }

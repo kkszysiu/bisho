@@ -121,7 +121,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   gtk_table_attach (GTK_TABLE (priv->table), entry,
                     1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
 
-  gconf_key = g_strdup_printf ("/apps/mojito/services/%s/%s", info->name, key);
+  gconf_key = g_strdup_printf ("/apps/libsocialweb/services/%s/%s", info->name, key);
   g_object_set_data_full (G_OBJECT (entry), DATA_GCONF_KEY, gconf_key, g_free);
 
   value = gconf_client_get_string (priv->gconf, gconf_key, NULL);

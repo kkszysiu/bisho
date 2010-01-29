@@ -21,7 +21,6 @@
 #define __BISHO_PANE_OAUTH_H__
 
 #include "bisho-pane.h"
-#include "service-info.h"
 
 G_BEGIN_DECLS
 
@@ -59,8 +58,6 @@ struct _BishoPaneOauthClass {
 };
 
 GType bisho_pane_oauth_get_type (void) G_GNUC_CONST;
-
-GtkWidget * bisho_pane_oauth_new (MojitoClient *client, ServiceInfo *info);
 
 G_END_DECLS
 

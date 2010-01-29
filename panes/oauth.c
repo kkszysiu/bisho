@@ -23,13 +23,13 @@
 #include <gnome-keyring.h>
 #include <libsoup/soup.h>
 #include <rest/oauth-proxy.h>
-#include <mojito-keystore/mojito-keystore.h>
+#include <libsocialweb-keystore/sw-keystore.h>
 #include "service-info.h"
 #include "bisho-module.h"
 #include "bisho-utils.h"
 #include "oauth.h"
 
-/* TODO: use mojito-keyring */
+/* TODO: use sw-keyring */
 static const GnomeKeyringPasswordSchema oauth_schema = {
   GNOME_KEYRING_ITEM_GENERIC_SECRET,
   {
@@ -224,8 +224,8 @@ access_token_cb (OAuthProxy   *proxy,
 
   if (result == GNOME_KEYRING_RESULT_OK) {
     gnome_keyring_item_grant_access_rights_sync (NULL,
-                                                 "mojito",
-                                                 LIBEXECDIR "/mojito-core",
+                                                 "libsocialweb",
+                                                 LIBEXECDIR "/libsocialweb-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
     update_widgets (pane, LOGGED_IN);
   } else {
@@ -387,7 +387,7 @@ bisho_pane_oauth_constructed (GObject *object)
   bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
   /* TODO: use GInitable */
-  if (!mojito_keystore_get_key_secret (info->name,
+  if (!sw_keystore_get_key_secret (info->name,
                                        &priv->consumer_key,
                                        &priv->consumer_secret)) {
     return;

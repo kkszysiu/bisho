@@ -3,7 +3,7 @@
 
 #include <gtk/gtk.h>
 #include "service-info.h"
-#include <mojito-client/mojito-client.h>
+#include <libsocialweb-client/sw-client.h>
 
 G_BEGIN_DECLS
 
@@ -24,7 +24,7 @@ typedef struct _BishoPaneClass BishoPaneClass;
 
 struct _BishoPane {
   GtkVBox parent;
-  MojitoClient *mojito;
+  SwClient *socialweb;
   ServiceInfo *info;
   GtkWidget *description;
   GtkWidget *banner;

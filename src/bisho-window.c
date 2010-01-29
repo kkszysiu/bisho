@@ -19,7 +19,7 @@
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <mojito-client/mojito-client.h>
+#include <libsocialweb-client/sw-client.h>
 #include "mux-expanding-item.h"
 #include "bisho-window.h"
 #include "bisho-utils.h"
@@ -27,7 +27,7 @@
 #include "bisho-pane-username.h"
 
 struct _BishoWindowPrivate {
-  MojitoClient *client;
+  SwClient *client;
   GtkWidget *master_box;
   /* Hash of auth type to pane gtypes */
   GHashTable *types;
@@ -88,7 +88,7 @@ construct_ui (BishoWindow *window, const char *service_name)
     pane_type = g_hash_table_lookup (window->priv->types, info->auth_type);
     if (pane_type) {
       pane = g_object_new (GPOINTER_TO_INT (pane_type),
-                           "mojito", window->priv->client,
+                           "socialweb", window->priv->client,
                            "service", info,
                            NULL);
       gtk_widget_show (pane);
@@ -102,7 +102,7 @@ construct_ui (BishoWindow *window, const char *service_name)
 }
 
 static void
-client_get_services_cb (MojitoClient *client,
+client_get_services_cb (SwClient *client,
                         const GList        *services,
                         gpointer      userdata)
 {
@@ -206,9 +206,9 @@ bisho_window_init (BishoWindow *self)
   self->priv->types = g_hash_table_new (g_str_hash, g_str_equal);
   find_panes (self);
 
-  self->priv->client = mojito_client_new ();
+  self->priv->client = sw_client_new ();
   /* TODO move to a separate populate() function? */
-  mojito_client_get_services (self->priv->client, client_get_services_cb, self);
+  sw_client_get_services (self->priv->client, client_get_services_cb, self);
 }
 
 GtkWidget *
@@ -227,8 +227,8 @@ bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params)
     bisho_pane_continue_auth (pane, params);
 }
 
-MojitoClient *
-bisho_window_get_mojito (BishoWindow *window)
+SwClient *
+bisho_window_get_socialweb (BishoWindow *window)
 {
   return window->priv->client;
 }

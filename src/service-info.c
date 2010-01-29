@@ -18,10 +18,10 @@
  */
 
 #include <glib.h>
-#include <mojito-keystore/mojito-keystore.h>
+#include <libsocialweb-keystore/sw-keystore.h>
 #include "service-info.h"
 
-#define GROUP "MojitoService"
+#define GROUP "LibSocialWebService"
 
 ServiceInfo *
 get_info_for_service (const char *name)
@@ -33,7 +33,7 @@ get_info_for_service (const char *name)
   g_assert (name);
 
   filename = g_strconcat (name, ".keys", NULL);
-  path = g_build_filename ("mojito", "services", filename, NULL);
+  path = g_build_filename ("libsocialweb", "services", filename, NULL);
   g_free (filename);
 
   keys = g_key_file_new ();

@@ -21,7 +21,7 @@
 #define __BISHO_WINDOW_H__
 
 #include <gtk/gtk.h>
-#include <mojito-client/mojito-client.h>
+#include <libsocialweb-client/sw-client.h>
 #include "service-info.h"
 
 G_BEGIN_DECLS
@@ -66,7 +66,7 @@ GtkWidget * bisho_window_new (void);
 
 void bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params);
 
-MojitoClient * bisho_window_get_mojito (BishoWindow *window);
+SwClient * bisho_window_get_socialweb (BishoWindow *window);
 
 G_END_DECLS
 

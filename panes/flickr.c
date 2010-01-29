@@ -24,14 +24,14 @@
 #include <libsoup/soup.h>
 #include <rest-extras/flickr-proxy.h>
 #include <rest/rest-xml-parser.h>
-#include <mojito-keystore/mojito-keystore.h>
+#include <libsocialweb-keystore/sw-keystore.h>
 #include "service-info.h"
 #include "bisho-module.h"
 #include "bisho-utils.h"
 /* TODO: merge */
 #include "flickr.h"
 
-/* TODO: use mojito-keyring */
+/* TODO: use sw-keyring */
 static const GnomeKeyringPasswordSchema flickr_schema = {
   GNOME_KEYRING_ITEM_GENERIC_SECRET,
   {
@@ -221,8 +221,8 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
 
   if (result == GNOME_KEYRING_RESULT_OK) {
     gnome_keyring_item_grant_access_rights_sync (NULL,
-                                                 "mojito",
-                                                 LIBEXECDIR "/mojito-core",
+                                                 "libsocialweb",
+                                                 LIBEXECDIR "/libsocialweb-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
   } else {
     g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
@@ -327,9 +327,9 @@ bisho_pane_flickr_constructed (GObject *object)
   bisho_pane_follow_connected (BISHO_PANE (pane), priv->button);
 
   /* TODO: use GInitable */
-  if (!mojito_keystore_get_key_secret ("flickr",
-                                       &priv->api_key,
-                                       &priv->shared_secret)) {
+  if (!sw_keystore_get_key_secret ("flickr",
+                                   &priv->api_key,
+                                   &priv->shared_secret)) {
     return;
   }
 

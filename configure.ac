@@ -28,8 +28,8 @@ AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL([0.40], [no-xml])
 
 PKG_CHECK_MODULES(DEPS, gmodule-export-2.0
-                        mojito-client
-                        mojito-keystore
+                        libsocialweb-client
+                        libsocialweb-keystore
                         gtk+-2.0
                         gconf-2.0
                         gnome-keyring-1
