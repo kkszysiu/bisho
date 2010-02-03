@@ -175,6 +175,7 @@ bisho_window_init (BishoWindow *self)
   gtk_container_add (GTK_CONTAINER (self), box);
 
   toolbar = gtk_toolbar_new ();
+  gtk_widget_set_name (toolbar, "MoblinToolbar");
   gtk_widget_show (toolbar);
   gtk_box_pack_start (GTK_BOX (box), toolbar, FALSE, FALSE, 0);
 
