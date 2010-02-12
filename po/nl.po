@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 11:25+0000\n"
+"POT-Creation-Date: 2010-02-11 22:51+0000\n"
 "PO-Revision-Date: 2009-08-04 10:11+0100\n"
 "Last-Translator: Sibo Attema <sibo.attema@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:139
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
 msgid "My Web Accounts"
 msgstr "Mijn Web Accounts"
 
@@ -24,92 +24,92 @@ msgstr "Mijn Web Accounts"
 msgid "myzone & status"
 msgstr "myzone & status"
 
-#: ../src/bisho-pane.c:195
+#: ../src/bisho-pane.c:82
+msgid "Launch site for more information."
+msgstr "Open website voor meer informatie"
+
+#: ../src/bisho-pane.c:86
+#, c-format
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Je hebt een %s-account en internetverbinding nodig om  van deze dienst gebruik te maken.</small>"
+
+#: ../src/bisho-pane.c:202
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Sorry, kan niet inloggen op %s. %s"
 
-#: ../src/bisho-pane.c:199
+#: ../src/bisho-pane.c:206
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Sorry, kan niet inloggen op %s"
-
-#: ../src/bisho-pane-flickr.c:249 ../src/bisho-pane-oauth.c:302
-msgid "Working..."
-msgstr "Bezig..."
-
-#: ../src/bisho-pane-flickr.c:255 ../src/bisho-pane-oauth.c:339
-msgid "Log me out"
-msgstr "Log mij uit"
-
-#: ../src/bisho-pane-oauth.c:84
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Je hebt geen netwerkverbinding, dus dit kan niet werken."
-
-#: ../src/bisho-pane-oauth.c:86
-msgid "You could try again."
-msgstr "Je kunt het nogmaals proberen."
-
-#: ../src/bisho-pane-oauth.c:315 ../src/bisho-pane-oauth.c:332
-msgid "Continue"
-msgstr "Doorgaan"
-
-#: ../src/bisho-pane-oauth.c:378
-msgid "Code:"
-msgstr "Code:"
 
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "%s login changed."
 msgstr "%s login veranderd."
 
-#: ../src/bisho-window.c:75 ../src/bisho-window.c:82
+#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
-#: ../src/bisho-window.c:84
+#: ../src/bisho-window.c:82
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: ../src/bisho-window.c:163
+#: ../src/bisho-window.c:189
 msgid "Quit"
 msgstr "Afsluiten"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:174
+#: ../src/bisho-window.c:200
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Stel je sociale netwerk in om nieuwe updates in Myzone en het Status paneel te zien."
 
-#: ../src/bisho-pane.c:86
-msgid "Launch site for more information."
-msgstr "Open website voor meer informatie"
-
-#: ../src/bisho-pane.c:90
-#, c-format
-msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Je hebt een %s-account en internetverbinding nodig om  van deze dienst gebruik te maken.</small>"
-
-#: ../src/bisho-pane-flickr.c:243 ../src/bisho-pane-oauth.c:296
+#: ../panes/flickr.c:248 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Log me in"
 
-#: ../src/bisho-pane-flickr.c:252 ../src/bisho-pane-oauth.c:337
+#: ../panes/flickr.c:256 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Inloggen gelukt. Je zult binnen enkele minuten nieuwe items zien."
 
-#: ../src/bisho-pane-oauth.c:85
+#: ../panes/flickr.c:259 ../panes/oauth.c:349
+msgid "Log me out"
+msgstr "Log mij uit"
+
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Je hebt geen netwerkverbinding, dus dit kan niet werken."
+
+#: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
 msgstr "Je kunt controleren of de tijd goed is ingesteld."
 
-#: ../src/bisho-pane-oauth.c:310
+#: ../panes/oauth.c:97
+msgid "You could try again."
+msgstr "Je kunt het nogmaals proberen."
+
+#: ../panes/oauth.c:320
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Als je bent ingelogd in de %s, Klik dan op Doorgaan."
 
-#: ../src/bisho-pane-oauth.c:327
+#: ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
 msgstr "Voer de verkregen code in als je eenmaal bent ingelogd op %s, en druk op Doorgaan."
+
+#: ../panes/oauth.c:446
+msgid "Code:"
+msgstr "Code:"
+
+#: ../panes/flickr.c:252 ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Verbinden..."
 
 #~ msgid "Log in pending"
 #~ msgstr "Aanmeling loopt"
