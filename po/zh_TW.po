@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"POT-Creation-Date: 2010-02-11 22:51+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: \n"
@@ -23,21 +23,21 @@ msgstr "我的網路帳號"
 msgid "myzone & status"
 msgstr "myzone 以及狀態"
 
-#: ../src/bisho-pane.c:86
+#: ../src/bisho-pane.c:82
 msgid "Launch site for more information."
 msgstr "開啟網站以了解更多資訊。"
 
-#: ../src/bisho-pane.c:90
+#: ../src/bisho-pane.c:86
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>你需要一個 %s 帳戶以及可用的網路連線，才能使用此網路服務。</small>"
+msgstr "<small>你需要一個 %s 帳號以及可用的網路連線，才能使用此網路服務。</small>"
 
-#: ../src/bisho-pane.c:204
+#: ../src/bisho-pane.c:202
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "抱歉，我們無法登入到 %s。%s"
 
-#: ../src/bisho-pane.c:208
+#: ../src/bisho-pane.c:206
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我們無法登入到 %s"
@@ -56,12 +56,12 @@ msgstr "使用者："
 msgid "Password:"
 msgstr "密碼："
 
-#: ../src/bisho-window.c:188
+#: ../src/bisho-window.c:189
 msgid "Quit"
 msgstr "離開"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:199
+#: ../src/bisho-window.c:200
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "設置你的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
 
