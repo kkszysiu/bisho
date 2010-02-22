@@ -22,6 +22,7 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include "bisho-cc-page.h"
+#include "bisho-frame.h"
 
 struct _BishoCcPagePrivate {
   int dummy;
@@ -34,21 +35,20 @@ G_DEFINE_TYPE (BishoCcPage, bisho_cc_page, CC_TYPE_PAGE);
 static void
 bisho_cc_page_class_init (BishoCcPageClass *klass)
 {
-  //GObjectClass *o_class = (GObjectClass *)klass;
-
   g_type_class_add_private (klass, sizeof (BishoCcPagePrivate));
 }
 
 static void
 bisho_cc_page_init (BishoCcPage *self)
 {
+  GtkWidget *frame;
+
   self->priv = GET_PRIVATE (self);
 
-  GtkWidget *w;
-
-  w = gtk_label_new ("FOO!");
-  gtk_widget_show (w);
-  gtk_container_add (GTK_CONTAINER (self), w);
+  /* TODO: do this on first activate, because it involves disk IO */
+  frame = bisho_frame_new ();
+  gtk_widget_show (frame);
+  gtk_container_add (GTK_CONTAINER (self), frame);
 }
 
 CcPage *
@@ -56,6 +56,6 @@ bisho_cc_page_new (void)
 {
   return g_object_new (BISHO_TYPE_CC_PAGE,
                        "display-name", _("My Web Accounts"),
-                       "id", "general",
+                       "id", "webservices",
                        NULL);
 }
