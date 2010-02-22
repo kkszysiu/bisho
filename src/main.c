@@ -22,7 +22,6 @@
 #include <gtk/gtk.h>
 #include <unique/unique.h>
 #include <libsoup/soup.h>
-#include "bisho-module.h"
 #include "bisho-window.h"
 
 enum {
@@ -82,46 +81,6 @@ unique_message_cb (UniqueApp *app,
   return UNIQUE_RESPONSE_OK;
 }
 
-static void
-load_modules (void)
-{
-  GError *error = NULL;
-  const char *name;
-  GDir *dir;
-
-  dir = g_dir_open (PKGLIBDIR, 0, &error);
-
-  if (!dir) {
-    if (error->domain != G_FILE_ERROR || error->code != G_FILE_ERROR_NOENT)
-      g_printerr ("Cannot open module directory: %s\n", error->message);
-    g_error_free (error);
-    return;
-  }
-
-  while ((name = g_dir_read_name (dir))) {
-    if (g_str_has_suffix (name, ".so")) {
-      BishoModule *module;
-      char *path;
-
-      path = g_build_filename (PKGLIBDIR, name, NULL);
-      module = bisho_module_new (path);
-
-      if (!g_type_module_use (G_TYPE_MODULE (module))) {
-        g_printerr ("Cannot load module %s\n", path);
-        g_object_unref (module);
-        g_free (path);
-        continue;
-      }
-
-      g_free (path);
-
-      g_type_module_unuse (G_TYPE_MODULE (module));
-    }
-  }
-
-  g_dir_close (dir);
-}
-
 int
 main (int argc, char **argv)
 {
@@ -158,8 +117,6 @@ main (int argc, char **argv)
     if (response == UNIQUE_RESPONSE_OK)
       goto done;
   }
-
-  load_modules ();
 
   window = bisho_window_new ();
 

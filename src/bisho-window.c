@@ -21,6 +21,7 @@
 #include <gtk/gtk.h>
 #include <libsocialweb-client/sw-client.h>
 #include "mux-expanding-item.h"
+#include "bisho-module.h"
 #include "bisho-window.h"
 #include "bisho-utils.h"
 #include "service-info.h"
@@ -144,9 +145,56 @@ find_panes (BishoWindow *window)
   g_free (types);
 }
 
+static gpointer
+load_modules (gpointer foo)
+{
+  GError *error = NULL;
+  const char *name;
+  GDir *dir;
+
+  dir = g_dir_open (PKGLIBDIR, 0, &error);
+
+  if (!dir) {
+    if (error->domain != G_FILE_ERROR || error->code != G_FILE_ERROR_NOENT)
+      g_printerr ("Cannot open module directory: %s\n", error->message);
+    g_error_free (error);
+    return NULL;
+  }
+
+  while ((name = g_dir_read_name (dir))) {
+    if (g_str_has_suffix (name, ".so")) {
+      BishoModule *module;
+      char *path;
+
+      path = g_build_filename (PKGLIBDIR, name, NULL);
+      module = bisho_module_new (path);
+
+      if (!g_type_module_use (G_TYPE_MODULE (module))) {
+        g_printerr ("Cannot load module %s\n", path);
+        g_object_unref (module);
+        g_free (path);
+        continue;
+      }
+
+      g_free (path);
+
+      g_type_module_unuse (G_TYPE_MODULE (module));
+    }
+  }
+
+  g_dir_close (dir);
+
+  return NULL;
+}
+
 static void
 bisho_window_class_init (BishoWindowClass *klass)
 {
+
+  static GOnce once = G_ONCE_INIT;
+
+  g_once (&once, load_modules, NULL);
+
   g_type_class_add_private (klass, sizeof (BishoWindowPrivate));
 }
 
