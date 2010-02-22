@@ -9,6 +9,7 @@ bin_PROGRAMS = bisho
 bisho_SOURCES = \
 	main.c \
 	bisho-window.c bisho-window.h \
+	bisho-frame.c bisho-frame.h \
 	bisho-pane-username.c bisho-pane-username.h \
 	bisho-utils.c bisho-utils.h \
 	mux-expander.c mux-expander.h \
@@ -32,6 +33,7 @@ libbisho_la_SOURCES = \
 	bisho-cc-panel.c bisho-cc-panel.h \
 	bisho-cc-page.c bisho-cc-page.h \
 	bisho-window.c bisho-window.h \
+	bisho-frame.c bisho-frame.h \
 	bisho-pane-username.c bisho-pane-username.h \
 	bisho-utils.c bisho-utils.h \
 	mux-expander.c mux-expander.h \

@@ -21,8 +21,7 @@
 #define __BISHO_WINDOW_H__
 
 #include <gtk/gtk.h>
-#include <libsocialweb-client/sw-client.h>
-#include "service-info.h"
+#include "bisho-frame.h"
 
 G_BEGIN_DECLS
 
@@ -47,13 +46,12 @@ G_BEGIN_DECLS
                               BISHO_TYPE_WINDOW,                        \
                               BishoWindowClass))
 
-typedef struct _BishoWindowPrivate BishoWindowPrivate;
 typedef struct _BishoWindow      BishoWindow;
 typedef struct _BishoWindowClass BishoWindowClass;
 
 struct _BishoWindow {
   GtkWindow parent;
-  BishoWindowPrivate *priv;
+  GtkWidget *frame;
 };
 
 struct _BishoWindowClass {
@@ -63,10 +61,6 @@ struct _BishoWindowClass {
 GType bisho_window_get_type (void) G_GNUC_CONST;
 
 GtkWidget * bisho_window_new (void);
-
-void bisho_window_callback (BishoWindow *window, const char *id, GHashTable *params);
-
-SwClient * bisho_window_get_socialweb (BishoWindow *window);
 
 G_END_DECLS
 

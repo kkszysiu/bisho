@@ -45,7 +45,7 @@ handle_uri (BishoWindow *window, const char *s)
   else
     params = g_hash_table_new (NULL, NULL);
 
-  bisho_window_callback (window, uri->path, params);
+  bisho_frame_callback (BISHO_FRAME (window->frame), uri->path, params);
 
   g_hash_table_destroy (params);
   soup_uri_free (uri);
