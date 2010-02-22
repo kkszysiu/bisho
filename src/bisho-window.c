@@ -68,6 +68,7 @@ bisho_window_init (BishoWindow *self)
   gtk_toolbar_insert ((GtkToolbar *)toolbar, (GtkToolItem *)quit, -1);
 
   self->frame = bisho_frame_new ();
+  bisho_frame_populate (BISHO_FRAME (self->frame));
   gtk_widget_show (self->frame);
   gtk_box_pack_start (GTK_BOX (box), self->frame, TRUE, TRUE, 0);
 }

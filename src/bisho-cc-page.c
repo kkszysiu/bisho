@@ -25,7 +25,7 @@
 #include "bisho-frame.h"
 
 struct _BishoCcPagePrivate {
-  int dummy;
+  GtkWidget *frame;
 };
 
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_CC_PAGE, BishoCcPagePrivate))
@@ -33,22 +33,36 @@ struct _BishoCcPagePrivate {
 G_DEFINE_TYPE (BishoCcPage, bisho_cc_page, CC_TYPE_PAGE);
 
 static void
+bisho_cc_page_active_changed (CcPage  *base_page,
+                              gboolean is_active)
+{
+  BishoCcPage *page = BISHO_CC_PAGE (base_page);
+  static gboolean populated = FALSE;
+
+  if (is_active && !populated) {
+    bisho_frame_populate (BISHO_FRAME (page->priv->frame));
+    populated = TRUE;
+  }
+}
+
+static void
 bisho_cc_page_class_init (BishoCcPageClass *klass)
 {
+  CcPageClass *page_class = CC_PAGE_CLASS (klass);
+
+  page_class->active_changed = bisho_cc_page_active_changed;
+
   g_type_class_add_private (klass, sizeof (BishoCcPagePrivate));
 }
 
 static void
 bisho_cc_page_init (BishoCcPage *self)
 {
-  GtkWidget *frame;
-
   self->priv = GET_PRIVATE (self);
 
-  /* TODO: do this on first activate, because it involves disk IO */
-  frame = bisho_frame_new ();
-  gtk_widget_show (frame);
-  gtk_container_add (GTK_CONTAINER (self), frame);
+  self->priv->frame = bisho_frame_new ();
+  gtk_widget_show (self->priv->frame);
+  gtk_container_add (GTK_CONTAINER (self), self->priv->frame);
 }
 
 CcPage *

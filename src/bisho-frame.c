@@ -222,14 +222,20 @@ bisho_frame_init (BishoFrame *self)
   find_panes (self);
 
   self->priv->client = sw_client_new ();
-  /* TODO move to a separate populate() function? */
-  sw_client_get_services (self->priv->client, client_get_services_cb, self);
 }
 
 GtkWidget *
 bisho_frame_new (void)
 {
   return g_object_new (BISHO_TYPE_FRAME, NULL);
+}
+
+void
+bisho_frame_populate (BishoFrame *frame)
+{
+  g_return_if_fail (BISHO_IS_FRAME (frame));
+
+  sw_client_get_services (frame->priv->client, client_get_services_cb, frame);
 }
 
 void

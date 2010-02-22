@@ -64,6 +64,8 @@ GType bisho_frame_get_type (void) G_GNUC_CONST;
 
 GtkWidget * bisho_frame_new (void);
 
+void bisho_frame_populate (BishoFrame *frame);
+
 void bisho_frame_callback (BishoFrame *frame, const char *id, GHashTable *params);
 
 SwClient * bisho_frame_get_socialweb (BishoFrame *frame);
