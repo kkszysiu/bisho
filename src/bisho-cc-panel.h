@@ -33,7 +33,7 @@ G_BEGIN_DECLS
 #define BISHO_IS_CC_PANEL_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), BISHO_TYPE_CC_PANEL))
 #define BISHO_CC_PANEL_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), BISHO_TYPE_CC_PANEL, BishoCcPanelClass))
 
-typedef struct BishoCcPanelPrivate BishoCcPanelPrivate;
+typedef struct _BishoCcPanelPrivate BishoCcPanelPrivate;
 
 typedef struct
 {
@@ -47,6 +47,7 @@ typedef struct
 } BishoCcPanelClass;
 
 GType bisho_cc_panel_get_type (void);
+
 void bisho_cc_panel_register (GIOModule *module);
 
 G_END_DECLS

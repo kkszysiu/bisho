@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
+/*
  *
  * Copyright (C) 2010 Intel Corp
  *
@@ -18,58 +18,41 @@
  *
  */
 
-#include "config.h"
-
-#include <stdlib.h>
-#include <stdio.h>
-
-#include <gtk/gtk.h>
-#include <gio/gio.h>
+#include <config.h>
 #include <glib/gi18n-lib.h>
-#include <gconf/gconf-client.h>
-
+#include <gtk/gtk.h>
 #include "bisho-cc-panel.h"
-#include "bisho-cc-page.h"
+#include "bisho-frame.h"
 
-#define BISHO_CC_PANEL_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), BISHO_TYPE_CC_PANEL, BishoCcPanelPrivate))
-
-struct BishoCcPanelPrivate
-{
-        GtkWidget *notebook;
-        CcPage    *page;
+struct _BishoCcPanelPrivate {
+  GtkWidget *frame;
 };
 
-static void     bisho_cc_panel_class_init     (BishoCcPanelClass *klass);
-static void     bisho_cc_panel_init           (BishoCcPanel      *panel);
+#define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_CC_PANEL, BishoCcPanelPrivate))
 
-G_DEFINE_DYNAMIC_TYPE (BishoCcPanel, bisho_cc_panel, CC_TYPE_PANEL)
+G_DEFINE_DYNAMIC_TYPE (BishoCcPanel, bisho_cc_panel, CC_TYPE_PANEL);
 
 static void
-setup_panel (BishoCcPanel *panel)
+bisho_cc_panel_active_changed (CcPanel  *base_panel,
+                              gboolean is_active)
 {
-        GtkWidget *label;
-        char      *display_name;
+  BishoCcPanel *panel = BISHO_CC_PANEL (base_panel);
+  static gboolean populated = FALSE;
 
-        panel->priv->notebook = gtk_notebook_new ();
-        gtk_container_add (GTK_CONTAINER (panel), panel->priv->notebook);
-        gtk_widget_show (panel->priv->notebook);
+  if (is_active && !populated) {
+    bisho_frame_populate (BISHO_FRAME (panel->priv->frame));
+    populated = TRUE;
+  }
+}
 
-        panel->priv->page = bisho_cc_page_new ();
-        g_object_get (panel->priv->page,
-                      "display-name", &display_name,
-                      NULL);
-        label = gtk_label_new (display_name);
-        g_free (display_name);
-        gtk_notebook_append_page (GTK_NOTEBOOK (panel->priv->notebook),
-                                  GTK_WIDGET (panel->priv->page),
-                                  label);
-        gtk_widget_show (GTK_WIDGET (panel->priv->page));
+static void
+bisho_cc_panel_init (BishoCcPanel *self)
+{
+  self->priv = GET_PRIVATE (self);
 
-        gtk_notebook_set_show_tabs (GTK_NOTEBOOK (panel->priv->notebook), FALSE);
-
-        g_object_set (panel,
-                      "current-page", panel->priv->page,
-                      NULL);
+  self->priv->frame = bisho_frame_new ();
+  gtk_widget_show (self->priv->frame);
+  gtk_container_add (GTK_CONTAINER (self), self->priv->frame);
 }
 
 static GObject *
@@ -77,40 +60,35 @@ bisho_cc_panel_constructor (GType                  type,
                             guint                  n_construct_properties,
                             GObjectConstructParam *construct_properties)
 {
-        BishoCcPanel *panel;
+  BishoCcPanel *panel;
 
-        panel = BISHO_CC_PANEL (G_OBJECT_CLASS (bisho_cc_panel_parent_class)->constructor
-                                (type, n_construct_properties, construct_properties));
+  panel = BISHO_CC_PANEL (G_OBJECT_CLASS (bisho_cc_panel_parent_class)->constructor
+                          (type, n_construct_properties, construct_properties));
 
-        g_object_set (panel,
-                      "display-name", _("My Web Accounts"),
-                      "id", "bisho.desktop",
-                      NULL);
+  g_object_set (panel,
+                "display-name", _("My Web Accounts"),
+                "id", "bisho.desktop",
+                NULL);
 
-        setup_panel (panel);
-
-        return G_OBJECT (panel);
+  return G_OBJECT (panel);
 }
 
 static void
 bisho_cc_panel_class_init (BishoCcPanelClass *klass)
 {
-        GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  CcPanelClass *panel_class = CC_PANEL_CLASS (klass);
 
-        object_class->constructor = bisho_cc_panel_constructor;
+  object_class->constructor = bisho_cc_panel_constructor;
 
-        g_type_class_add_private (klass, sizeof (BishoCcPanelPrivate));
+  panel_class->active_changed = bisho_cc_panel_active_changed;
+
+  g_type_class_add_private (klass, sizeof (BishoCcPanelPrivate));
 }
 
 static void
 bisho_cc_panel_class_finalize (BishoCcPanelClass *klass)
 {
-}
-
-static void
-bisho_cc_panel_init (BishoCcPanel *panel)
-{
-        panel->priv = BISHO_CC_PANEL_GET_PRIVATE (panel);
 }
 
 void

@@ -34,7 +34,6 @@ ccmodulesdir = $(EXTENSIONSDIR)
 ccmodules_LTLIBRARIES = libbisho.la
 libbisho_la_SOURCES = \
 	module.c \
-	bisho-cc-panel.c bisho-cc-panel.h \
-	bisho-cc-page.c bisho-cc-page.h
+	bisho-cc-panel.c bisho-cc-panel.h
 libbisho_la_CPPFLAGS = $(AM_CPPFLAGS) $(CC_CFLAGS)
 libbisho_la_LIBADD = $(CC_LIBS) libbisho-common.la
