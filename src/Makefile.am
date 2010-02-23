@@ -8,15 +8,13 @@ AM_LDFLAGS = \
 	$(DEPS_LIBS)
 
 
-libbisho_ladir = $(pkgincludedir)
-libbisho_la_HEADERS = \
+lib_LTLIBRARIES = libbisho-common.la
+libbisho_common_ladir = $(pkgincludedir)
+libbisho_common_la_HEADERS = \
 	bisho-pane.h \
 	service-info.h \
 	mux-label.h
-
-noinst_LIBRARIES = libbisho.a
-libbisho_a_CFLAGS = -fPIC
-libbisho_a_SOURCES = \
+libbisho_common_la_SOURCES = \
 	bisho-window.c bisho-window.h \
 	bisho-frame.c bisho-frame.h \
 	bisho-pane-username.c bisho-pane-username.h \
@@ -30,7 +28,7 @@ libbisho_a_SOURCES = \
 
 bin_PROGRAMS = bisho
 bisho_SOURCES = main.c
-bisho_LDADD = libbisho.a
+bisho_LDADD = libbisho-common.la
 
 ccmodulesdir = $(EXTENSIONSDIR)
 ccmodules_LTLIBRARIES = libbisho.la
@@ -39,4 +37,4 @@ libbisho_la_SOURCES = \
 	bisho-cc-panel.c bisho-cc-panel.h \
 	bisho-cc-page.c bisho-cc-page.h
 libbisho_la_CPPFLAGS = $(AM_CPPFLAGS) $(CC_CFLAGS)
-libbisho_la_LIBADD = $(CC_LIBS) libbisho.a
+libbisho_la_LIBADD = $(CC_LIBS) libbisho-common.la
