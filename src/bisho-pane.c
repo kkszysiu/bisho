@@ -181,6 +181,26 @@ bisho_pane_continue_auth (BishoPane *pane, GHashTable *params)
     pane_class->continue_auth (pane, params);
 }
 
+static gboolean
+on_banner_timeout (gpointer data)
+{
+  BishoPane *pane = BISHO_PANE (data);
+
+  gtk_widget_hide (pane->banner);
+  pane->banner_timeout = 0;
+
+  return FALSE;
+}
+
+static void
+install_banner_hide (BishoPane *pane)
+{
+  if (pane->banner_timeout)
+    g_source_remove (pane->banner_timeout);
+
+  pane->banner_timeout = g_timeout_add_seconds (10, on_banner_timeout, pane);
+}
+
 void
 bisho_pane_set_banner (BishoPane *pane, const char *message)
 {
@@ -188,6 +208,7 @@ bisho_pane_set_banner (BishoPane *pane, const char *message)
     gtk_info_bar_set_message_type (GTK_INFO_BAR (pane->banner), GTK_MESSAGE_INFO);
     gtk_label_set_text (GTK_LABEL (pane->banner_label), message);
     gtk_widget_show (pane->banner);
+    install_banner_hide (pane);
   } else {
     gtk_widget_hide (pane->banner);
   }
@@ -210,6 +231,7 @@ bisho_pane_set_banner_error (BishoPane *pane, const GError *error)
   gtk_info_bar_set_message_type (GTK_INFO_BAR (pane->banner), GTK_MESSAGE_WARNING);
   gtk_label_set_text (GTK_LABEL (pane->banner_label), s);
   gtk_widget_show (pane->banner);
+  install_banner_hide (pane);
 
   g_free (s);
 }

@@ -29,6 +29,7 @@ struct _BishoPane {
   GtkWidget *description;
   GtkWidget *banner;
   GtkWidget *banner_label;
+  guint      banner_timeout;
   GtkWidget *user_box;
   GtkWidget *user_icon;
   GtkWidget *user_name;
