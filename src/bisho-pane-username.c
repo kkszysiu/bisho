@@ -28,7 +28,7 @@
 struct _BishoPaneUsernamePrivate {
   GConfClient *gconf;
   GtkWidget *table;
-  GtkWidget *entry;
+  GtkWidget *button;
   char *key;
   guint rows;
 };
@@ -37,15 +37,13 @@ struct _BishoPaneUsernamePrivate {
 G_DEFINE_TYPE (BishoPaneUsername, bisho_pane_username, BISHO_TYPE_PANE);
 
 static void
-on_entry_activate (GtkWidget *widget, gpointer user_data)
+widget_foreach (GtkWidget *widget, gpointer user_data)
 {
   BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
-  ServiceInfo *info = NULL;
   const char *key;
-  char *message;
 
-  g_object_get (pane, "service", &info, NULL);
-  g_assert (info);
+  if (!GTK_IS_ENTRY (widget))
+    return;
 
   key = g_object_get_data (G_OBJECT (widget), DATA_GCONF_KEY);
   g_assert (key);
@@ -53,25 +51,37 @@ on_entry_activate (GtkWidget *widget, gpointer user_data)
   gconf_client_set_string (pane->priv->gconf, key,
                            gtk_entry_get_text (GTK_ENTRY (widget)),
                            NULL);
+}
+
+static void
+on_login_clicked (GtkButton *button, gpointer user_data)
+{
+  BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
+  ServiceInfo *info = NULL;
+  char *message;
+
+  gtk_container_foreach (GTK_CONTAINER (pane->priv->table),
+                         widget_foreach, pane);
+
+  g_object_get (pane, "service", &info, NULL);
+  g_assert (info);
 
   message = g_strdup_printf (_("%s login changed."), info->display_name);
   bisho_pane_set_banner (BISHO_PANE (pane), message);
   g_free (message);
-
-}
-
-static gboolean
-on_entry_left (GtkWidget *widget, GdkEventFocus *event, gpointer user_data)
-{
-  on_entry_activate (widget, user_data);
-  return FALSE;
 }
 
 static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
+  GtkWidget *box, *align;
+
   self->priv = GET_PRIVATE (self);
   self->priv->gconf = gconf_client_get_default ();
+
+  box = gtk_vbox_new (FALSE, 6);
+  gtk_widget_show (box);
+  gtk_container_add (GTK_CONTAINER (BISHO_PANE (self)->content), box);
 
   self->priv->table = gtk_table_new (0, 0, FALSE);
   g_object_set (self->priv->table,
@@ -79,7 +89,16 @@ bisho_pane_username_init (BishoPaneUsername *self)
                 "column-spacing", 6,
                 NULL);
   gtk_widget_show (self->priv->table);
-  gtk_container_add (GTK_CONTAINER (BISHO_PANE (self)->content), self->priv->table);
+  gtk_container_add (GTK_CONTAINER (box), self->priv->table);
+
+  align = gtk_alignment_new (1, 0, 0, 0);
+  gtk_widget_show (align);
+  gtk_box_pack_start (GTK_BOX (box), align, FALSE, FALSE, 0);
+
+  self->priv->button = gtk_button_new_with_label (_("Log in"));
+  g_signal_connect (self->priv->button, "clicked", G_CALLBACK (on_login_clicked), self);
+  gtk_widget_show (self->priv->button);
+  gtk_container_add (GTK_CONTAINER (align), self->priv->button);
 }
 
 static void
@@ -122,8 +141,6 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   entry = gtk_entry_new ();
   gtk_entry_set_visibility (GTK_ENTRY (entry), visible);
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
-  g_signal_connect (entry, "focus-out-event", G_CALLBACK (on_entry_left), pane);
-  g_signal_connect (entry, "activate", G_CALLBACK (on_entry_activate), pane);
   gtk_widget_show (entry);
   gtk_table_attach (GTK_TABLE (priv->table), entry,
                     1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
