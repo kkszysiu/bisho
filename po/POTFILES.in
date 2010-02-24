@@ -7,5 +7,7 @@ src/main.c
 src/mux-expander.c
 src/mux-expanding-item.c
 src/service-info.c
+src/bisho-cc-panel.c
+src/bisho-frame.c
 panes/flickr.c
 panes/oauth.c
