@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-11 22:51+0000\n"
+"POT-Creation-Date: 2010-02-26 03:25+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:164
+#: ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "我的網路帳號"
 
@@ -32,55 +33,65 @@ msgstr "開啟網站以了解更多資訊。"
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>你需要一個 %s 帳號以及可用的網路連線，才能使用此網路服務。</small>"
 
-#: ../src/bisho-pane.c:202
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "抱歉，我們無法登入到 %s。%s"
 
-#: ../src/bisho-pane.c:206
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我們無法登入到 %s"
 
-#: ../src/bisho-pane-username.c:57
+#: ../src/bisho-pane-username.c:69
 #, c-format
 msgid "%s login changed."
 msgstr "%s 登入已改變。"
 
-#: ../src/bisho-window.c:74
-#: ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "使用者："
+#: ../src/bisho-pane-username.c:98
+msgid "Log in"
+msgstr "登入"
 
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "密碼："
-
-#: ../src/bisho-window.c:189
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "離開"
 
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "使用者："
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "密碼："
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:200
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "設置你的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
 
-#: ../panes/flickr.c:248
+#: ../panes/flickr.c:282
 #: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "讓我登入"
 
-#: ../panes/flickr.c:252
+#: ../panes/flickr.c:286
 #: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "正在連接..."
 
-#: ../panes/flickr.c:256
+#: ../panes/flickr.c:287
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "繼續"
+
+#: ../panes/flickr.c:291
 #: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "已成功登入。在幾分鐘之內你就會看到新的項目。"
 
-#: ../panes/flickr.c:259
+#: ../panes/flickr.c:294
 #: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "讓我登出"
@@ -101,11 +112,6 @@ msgstr "你可以再試一次。"
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "一旦您登入到 %s ，請按下「繼續」。"
-
-#: ../panes/oauth.c:325
-#: ../panes/oauth.c:342
-msgid "Continue"
-msgstr "繼續"
 
 #: ../panes/oauth.c:337
 #, c-format
