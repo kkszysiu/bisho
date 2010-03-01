@@ -1,11 +1,11 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"POT-Creation-Date: 2010-03-01 10:26+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Tomás Galicia <tomas.galicia@intel.com>\n"
+"Last-Translator: Gonzalo <gonzalo.velasquez@ptiglobal.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,9 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mis cuentas web"
 
@@ -23,56 +25,75 @@ msgstr "Mis cuentas web"
 msgid "myzone & status"
 msgstr "myzone y estado"
 
-#: ../src/bisho-pane.c:86
+#: ../src/bisho-pane.c:82
 msgid "Launch site for more information."
 msgstr "Si deseas más información, ve al sitio web"
 
-#: ../src/bisho-pane.c:90
+#: ../src/bisho-pane.c:86
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Para usar este servicio web debes tener una cuenta en %s y una conexión de Internet.</small>"
 
-#: ../src/bisho-pane.c:204
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "No se puede entrar en %s. %s"
 
-#: ../src/bisho-pane.c:208
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "No se puede entrar en %s"
 
-#: ../src/bisho-pane-username.c:57
+#: ../src/bisho-pane-username.c:69
 #, c-format
 msgid "%s login changed."
 msgstr "Se ha cambiado el nombre de acceso a %s."
 
-#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "Usuario:"
+#: ../src/bisho-pane-username.c:98
+msgid "Log in"
+msgstr "Ingresar"
 
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "Contraseña:"
-
-#: ../src/bisho-window.c:188
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "Salir"
 
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "Usuario:"
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "Contraseña:"
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:199
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en myzone y en el panel de estado."
 
-#: ../panes/flickr.c:248 ../panes/oauth.c:307
+#: ../panes/flickr.c:282
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Quiero entrar"
 
-#: ../panes/flickr.c:256 ../panes/oauth.c:347
+#: ../panes/flickr.c:286
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "Conectándose..."
+
+#: ../panes/flickr.c:287
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continuar"
+
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Te has conectado. Verás los nuevos elementos en unos minutos."
 
-#: ../panes/flickr.c:259 ../panes/oauth.c:349
+#: ../panes/flickr.c:294
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Quiero desconectarme"
 
@@ -93,10 +114,6 @@ msgstr "Prueba otra vez."
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Cuando te hayas conectado a %s, pulsa Continuar."
 
-#: ../panes/oauth.c:325 ../panes/oauth.c:342
-msgid "Continue"
-msgstr "Continuar"
-
 #: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
@@ -105,10 +122,6 @@ msgstr "Cuando te hayas conectado a %s, introduce el código que te dieron y pul
 #: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "Código:"
-
-#: ../panes/flickr.c:252 ../panes/oauth.c:311
-msgid "Connecting..."
-msgstr "Conectándose..."
 
 #~ msgid "Log in pending"
 #~ msgstr "Acceso pendiente"
@@ -125,8 +138,12 @@ msgstr "Conectándose..."
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>Estado:</b>"
 
-#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
-#~ msgstr "Para usar este servicio web debes tener una cuenta en %s y una conexión de Internet."
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Para usar este servicio web debes tener una cuenta en %s y una conexión "
+#~ "de Internet."
 
 #~ msgid "Cannot login to %s"
 #~ msgstr "No se puede entrar en %s"
