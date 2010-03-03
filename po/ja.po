@@ -1,11 +1,11 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"POT-Creation-Date: 2010-03-01 10:26+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Keiko Gilbert\n"
+"Last-Translator: takashi <takashi.kazami@novuscom.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,9 @@ msgstr ""
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:164
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "マイ Web アカウント"
 
@@ -23,56 +25,75 @@ msgstr "マイ Web アカウント"
 msgid "myzone & status"
 msgstr "myzone & ステータス"
 
-#: ../src/bisho-pane.c:86
+#: ../src/bisho-pane.c:82
 msgid "Launch site for more information."
 msgstr "サイトにアクセスして、詳細をご覧ください。"
 
-#: ../src/bisho-pane.c:90
+#: ../src/bisho-pane.c:86
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>この Web サービスを使用するには、%s のアカウントとインターネット接続が必要です。</small>"
 
-#: ../src/bisho-pane.c:204
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "%s にログインできません： %s"
 
-#: ../src/bisho-pane.c:208
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "%s にログインできません"
 
-#: ../src/bisho-pane-username.c:57
+#: ../src/bisho-pane-username.c:69
 #, c-format
 msgid "%s login changed."
 msgstr "ログインが変更されました：%s"
 
-#: ../src/bisho-window.c:74 ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "ユーザー名："
+#: ../src/bisho-pane-username.c:98
+msgid "Log in"
+msgstr "ログイン"
 
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "パスワード："
-
-#: ../src/bisho-window.c:188
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "終了"
 
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "ユーザー名："
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "パスワード："
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:199
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "ソーシャル ネットワークを設定すると、myzone やステータスパネルに新しいアップデートが表示されます。"
 
-#: ../panes/flickr.c:248 ../panes/oauth.c:307
+#: ../panes/flickr.c:282
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "ログインする"
 
-#: ../panes/flickr.c:256 ../panes/oauth.c:347
+#: ../panes/flickr.c:286
+#: ../panes/oauth.c:311
+msgid "Connecting..."
+msgstr "接続中です..."
+
+#: ../panes/flickr.c:287
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "コンティニュー"
+
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "ログインに成功しました。数分内に新しいアイテムが表示されます。"
 
-#: ../panes/flickr.c:259 ../panes/oauth.c:349
+#: ../panes/flickr.c:294
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "ログアウトする"
 
@@ -93,10 +114,6 @@ msgstr "再度試してください。"
 msgid "Once you have logged in to %s, press Continue."
 msgstr "%s にログイン後、コンティニューをクリックしてください。"
 
-#: ../panes/oauth.c:325 ../panes/oauth.c:342
-msgid "Continue"
-msgstr "コンティニュー"
-
 #: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
@@ -105,10 +122,6 @@ msgstr "%s にログイン後、受け取ったコードを入力し、コンテ
 #: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "コード："
-
-#: ../panes/flickr.c:252 ../panes/oauth.c:311
-msgid "Connecting..."
-msgstr "接続中です..."
 
 #~ msgid "Log in pending"
 #~ msgstr "ログイン中です"
@@ -125,8 +138,12 @@ msgstr "接続中です..."
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>ステータス：</b>"
 
-#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
-#~ msgstr "この Web サービスを使用するには、%s のアカウントとインターネット接続が必要です。"
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "この Web サービスを使用するには、%s のアカウントとインターネット接続が必要"
+#~ "です。"
 
 #~ msgid "Cannot login to %s"
 #~ msgstr "%s にログインできません"
