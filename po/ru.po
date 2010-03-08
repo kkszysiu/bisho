@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-11 22:51+0000\n"
+"POT-Creation-Date: 2010-03-08 10:24+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yuri Nazarenko <yuri.nazarenko@gmail.com>\n"
 "Language-Team: \n"
@@ -15,7 +15,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:164
+#: ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Мои учетные записи"
 
@@ -33,55 +34,65 @@ msgstr "Открыть сайт с более подробной информа�
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Чтобы использовать этот веб-сервис, Вам необходима учетная запись с %s и подключение к Интернету.</small>"
 
-#: ../src/bisho-pane.c:202
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Невозможно зайти на %s. %s"
 
-#: ../src/bisho-pane.c:206
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Невозможно зайти на  %s"
 
-#: ../src/bisho-pane-username.c:57
+#: ../src/bisho-pane-username.c:69
 #, c-format
 msgid "%s login changed."
 msgstr "Учетная запись %s изменена."
 
-#: ../src/bisho-window.c:74
-#: ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "Имя пользователя:"
+#: ../src/bisho-pane-username.c:98
+msgid "Log in"
+msgstr "Войти"
 
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "Пароль:"
-
-#: ../src/bisho-window.c:189
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "Выйти"
 
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "Пароль:"
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:200
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Измените настройки социальных сетей для того, чтобы видеть изменения в myzone и статусной панели."
 
-#: ../panes/flickr.c:248
+#: ../panes/flickr.c:282
 #: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Войти"
 
-#: ../panes/flickr.c:252
+#: ../panes/flickr.c:286
 #: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Подключение..."
 
-#: ../panes/flickr.c:256
+#: ../panes/flickr.c:287
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Продолжить"
+
+#: ../panes/flickr.c:291
 #: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Вы успешно вошли. Новые пункты появятся через несколько минут."
 
-#: ../panes/flickr.c:259
+#: ../panes/flickr.c:294
 #: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Выйти"
@@ -102,11 +113,6 @@ msgstr "Вы можете попробовать еще раз."
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "После входа на %s нажмите Продолжить."
-
-#: ../panes/oauth.c:325
-#: ../panes/oauth.c:342
-msgid "Continue"
-msgstr "Продолжить"
 
 #: ../panes/oauth.c:337
 #, c-format
