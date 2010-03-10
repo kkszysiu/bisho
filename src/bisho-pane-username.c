@@ -66,7 +66,9 @@ on_login_clicked (GtkButton *button, gpointer user_data)
   g_object_get (pane, "service", &info, NULL);
   g_assert (info);
 
-  message = g_strdup_printf (_("%s login changed."), info->display_name);
+  message = g_strdup_printf (_("Log in succeeded. "
+                               "You'll see new things from %s in a couple of minutes."),
+                             info->display_name);
   bisho_pane_set_banner (BISHO_PANE (pane), message);
   g_free (message);
 }
