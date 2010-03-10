@@ -248,8 +248,9 @@ bisho_pane_set_user (BishoPane *pane, const char *icon, const char *username)
 
   if (icon) {
     gtk_image_set_from_file (GTK_IMAGE (pane->user_icon), icon);
+    gtk_widget_show (pane->user_icon);
   } else {
-    gtk_image_set_from_icon_name (GTK_IMAGE (pane->user_icon), "stock_person", GTK_ICON_SIZE_DIALOG);
+    gtk_widget_hide (pane->user_icon);
   }
 
   if (username) {
