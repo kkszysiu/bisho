@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 03:25+0000\n"
+"POT-Creation-Date: 2010-03-10 10:23+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Loïc Dufresne de Virel <loic.dufresne.de.virel@intel.com>\n"
 "Language-Team: \n"
@@ -44,10 +44,9 @@ msgstr "Désolé, impossible de connecter à %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Désolé, impossible de connecter à %s"
 
-#: ../src/bisho-pane-username.c:69
-#, c-format
-msgid "%s login changed."
-msgstr "%s login changé."
+#: ../src/bisho-pane-username.c:100
+msgid "Log in"
+msgstr "Connecter"
 
 #: ../src/bisho-window.c:65
 msgid "Quit"
@@ -112,9 +111,13 @@ msgstr "Une fois connecté à %s, saisissez le code qui vous est fourni et appuy
 msgid "Code:"
 msgstr "Code :"
 
-#: ../src/bisho-pane-username.c:98
-msgid "Log in"
-msgstr "Connecter"
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Connexion réussie. Vous allez voir de nouveaux articles de %s  dans quelques minutes."
+
+#~ msgid "%s login changed."
+#~ msgstr "%s login changé."
 
 #~ msgid "Log in pending"
 #~ msgstr "Connexion en cours"
