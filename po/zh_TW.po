@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 03:25+0000\n"
+"POT-Creation-Date: 2010-03-10 10:23+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: \n"
@@ -45,10 +45,10 @@ msgstr "抱歉，我們無法登入到 %s"
 
 #: ../src/bisho-pane-username.c:69
 #, c-format
-msgid "%s login changed."
-msgstr "%s 登入已改變。"
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "已成功登入。在幾分鐘之內你就會從 %s 看到新的東西。"
 
-#: ../src/bisho-pane-username.c:98
+#: ../src/bisho-pane-username.c:100
 msgid "Log in"
 msgstr "登入"
 
@@ -122,6 +122,8 @@ msgstr "一旦你登入到 %s ，請輸入他們給予你的代碼接著按下�
 msgid "Code:"
 msgstr "代碼："
 
+#~ msgid "%s login changed."
+#~ msgstr "%s 登入已改變。"
 #~ msgid "Log in pending"
 #~ msgstr "正在等候登入"
 #~ msgid "Log in pending..."
