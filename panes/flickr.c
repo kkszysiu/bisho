@@ -49,6 +49,7 @@ struct _BishoPaneFlickrPrivate {
   RestProxy *proxy;
   GtkWidget *button;
   gchar *frob;
+  char *user_name;
 };
 
 typedef enum {
@@ -60,7 +61,7 @@ typedef enum {
 #define GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), BISHO_TYPE_PANE_FLICKR, BishoPaneFlickrPrivate))
 G_DEFINE_DYNAMIC_TYPE (BishoPaneFlickr, bisho_pane_flickr, BISHO_TYPE_PANE);
 
-static void update_widgets (BishoPaneFlickr *data, ButtonState state, const char *name);
+static void update_widgets (BishoPaneFlickr *data, ButtonState state);
 
 static RestXmlNode *
 get_xml (RestProxyCall *call)
@@ -118,7 +119,7 @@ log_in_clicked (GtkWidget *button, gpointer user_data)
   RestProxyCall *call;
   RestXmlNode *root;
 
-  update_widgets (pane, WORKING, NULL);
+  update_widgets (pane, WORKING);
 
   call = rest_proxy_new_call (priv->proxy);
   rest_proxy_call_set_function (call, "flickr.auth.getFrob");
@@ -141,9 +142,9 @@ delete_done_cb (GnomeKeyringResult result, gpointer user_data)
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
 
   if (result == GNOME_KEYRING_RESULT_OK)
-    update_widgets (pane, LOGGED_OUT, NULL);
+    update_widgets (pane, LOGGED_OUT);
   else
-    update_widgets (pane, LOGGED_IN, NULL);
+    update_widgets (pane, LOGGED_IN);
 }
 
 static void
@@ -157,7 +158,7 @@ log_out_clicked (GtkButton *button, gpointer user_data)
                                  "api-key", priv->api_key,
                                  NULL);
 
-  update_widgets (pane, LOGGED_OUT, NULL);
+  update_widgets (pane, LOGGED_OUT);
 }
 
 static void
@@ -171,7 +172,10 @@ got_auth (RestXmlNode *node, BishoPaneFlickr *pane)
   if (name == NULL || name[0] == '\0')
     name = rest_xml_node_get_attr (user, "username");
 
-  update_widgets (pane, LOGGED_IN, name);
+  g_free (pane->priv->user_name);
+  pane->priv->user_name = g_strdup (name);
+
+  update_widgets (pane, LOGGED_IN);
 }
 
 static void
@@ -191,7 +195,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
     {
       g_message ("Frob not provided in callback, cannot continue");
       /* TODO bisho_utils_message (NULL, "Flickr", NULL); */
-      update_widgets (pane, LOGGED_OUT, NULL);
+      update_widgets (pane, LOGGED_OUT);
       return;
     } else {
       frob = priv->frob;
@@ -200,7 +204,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
     frob = g_hash_table_lookup (params, "frob");
   }
 
-  update_widgets (pane, WORKING, NULL);
+  update_widgets (pane, WORKING);
 
   call = rest_proxy_new_call (priv->proxy);
   rest_proxy_call_set_function (call, "flickr.auth.getToken");
@@ -216,14 +220,14 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
     bisho_pane_set_banner_error (BISHO_PANE (pane), error);
     g_message ("Cannot get token: %s", error->message);
     g_error_free (error);
-    update_widgets (pane, LOGGED_OUT, NULL);
+    update_widgets (pane, LOGGED_OUT);
     return;
   }
 
   node = get_xml (call);
 
   if (node == NULL) {
-    update_widgets (pane, LOGGED_OUT, NULL);
+    update_widgets (pane, LOGGED_OUT);
     return;
   }
 
@@ -253,7 +257,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
                                                  id, GNOME_KEYRING_ACCESS_READ);
   } else {
     g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
-    update_widgets (pane, LOGGED_OUT, NULL);
+    update_widgets (pane, LOGGED_OUT);
   }
 
   rest_xml_node_unref (node);
@@ -266,7 +270,7 @@ continue_clicked (GtkWidget *button, gpointer user_data)
 }
 
 static void
-update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
+update_widgets (BishoPaneFlickr *pane, ButtonState state)
 {
   BishoPaneFlickrPrivate *priv = pane->priv;
 
@@ -289,7 +293,7 @@ update_widgets (BishoPaneFlickr *pane, ButtonState state, const char *name)
     break;
   case LOGGED_IN:
     bisho_pane_set_banner (BISHO_PANE (pane), _("Log in succeeded. You'll see new items in a couple of minutes."));
-    bisho_pane_set_user (BISHO_PANE (pane), NULL, name);
+    bisho_pane_set_user (BISHO_PANE (pane), NULL, priv->user_name);
     gtk_widget_show (priv->button);
     gtk_button_set_label (GTK_BUTTON (priv->button), _("Log me out"));
     g_signal_connect (priv->button, "clicked", G_CALLBACK (log_out_clicked), pane);
@@ -336,14 +340,14 @@ find_key_cb (GnomeKeyringResult result,
     rest_proxy_call_set_function (call, "flickr.auth.checkToken");
 
     if (rest_proxy_call_async (call, check_token_cb, NULL, pane, &error)) {
-      update_widgets (pane, WORKING, NULL);
+      update_widgets (pane, WORKING);
     } else {
       bisho_pane_set_banner_error (BISHO_PANE (pane), error);
       g_message ("Cannot check token: %s", error->message);
       g_error_free (error);
     }
   } else {
-    update_widgets (pane, LOGGED_OUT, NULL);
+    update_widgets (pane, LOGGED_OUT);
   }
 }
 
@@ -371,7 +375,7 @@ bisho_pane_flickr_constructed (GObject *object)
   priv->proxy = flickr_proxy_new (priv->api_key, priv->shared_secret);
   rest_proxy_set_user_agent (priv->proxy, "Bisho/" VERSION);
 
-  update_widgets (pane, WORKING, NULL);
+  update_widgets (pane, WORKING);
 
   gnome_keyring_find_password (&flickr_schema, find_key_cb, pane, NULL,
                                "server", FLICKR_SERVER,
