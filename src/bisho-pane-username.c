@@ -74,6 +74,14 @@ on_login_clicked (GtkButton *button, gpointer user_data)
 }
 
 static void
+on_entry_activated (GtkEntry *entry, gpointer user_data)
+{
+  BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
+
+  gtk_widget_child_focus (GTK_WIDGET (pane), GTK_DIR_TAB_FORWARD);
+}
+
+static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
   GtkWidget *box, *align;
@@ -143,6 +151,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   entry = gtk_entry_new ();
   gtk_entry_set_visibility (GTK_ENTRY (entry), visible);
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
+  g_signal_connect (entry, "activate", G_CALLBACK (on_entry_activated), pane);
   gtk_widget_show (entry);
   gtk_table_attach (GTK_TABLE (priv->table), entry,
                     1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
