@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho.master.bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 23:02+0000\n"
-"PO-Revision-Date: 2010-01-22 23:14+0100\n"
+"POT-Creation-Date: 2010-03-17 09:24+0000\n"
+"PO-Revision-Date: 2010-03-20 10:01+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-Poedit-Language: Walloon\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:164
+#: ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mes contes waibe"
 
@@ -27,64 +28,74 @@ msgstr "Mes contes waibe"
 msgid "myzone & status"
 msgstr "myzone eyet estat"
 
-#: ../src/bisho-pane.c:86
+#: ../src/bisho-pane.c:82
 msgid "Launch site for more information."
 msgstr "Enonder l' waibe po ndè saveur di pus."
 
-#: ../src/bisho-pane.c:90
+#: ../src/bisho-pane.c:86
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>Vos alez aveur dandjî d' on conte avou %s eyet on raloyaedje al Daegntoele pos eployî c' siervice waibe ci.</small>"
 
-#: ../src/bisho-pane.c:204
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s. %s"
 
-#: ../src/bisho-pane.c:208
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s"
 
-#: ../src/bisho-pane-username.c:57
+#: ../src/bisho-pane-username.c:69
 #, c-format
-msgid "%s login changed."
-msgstr "Li login di %s a candjî."
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "L' elodjaedje a st comifåt. Vos alez vey des noveas cayets %s dins kékès munutes."
 
-#: ../src/bisho-window.c:74
-#: ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "No d' uzeu :"
+#: ../src/bisho-pane-username.c:108
+msgid "Log in"
+msgstr "S' elodjî"
 
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "Sicret :"
-
-#: ../src/bisho-window.c:188
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "Moussî foû"
 
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "No d' uzeu :"
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "Sicret :"
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:199
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Metoz a pont vos rantoeles sociåles po vey des noveas metaedjes a djoû dins myzone eyet l' sicriftôr d' estat."
 
-#: ../panes/flickr.c:248
+#: ../panes/flickr.c:286
 #: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "M' elodjî"
 
-#: ../panes/flickr.c:252
+#: ../panes/flickr.c:290
 #: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Dji m' raloye..."
 
-#: ../panes/flickr.c:256
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continouwer"
+
+#: ../panes/flickr.c:295
 #: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "L' elodjaedje a st comifåt. Vos alez vey des noveas cayets dins deus munutes."
 
-#: ../panes/flickr.c:259
+#: ../panes/flickr.c:298
 #: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Mi dislodjî"
@@ -106,11 +117,6 @@ msgstr "Vos pôrîz cor on côp sayî."
 msgid "Once you have logged in to %s, press Continue."
 msgstr "On côp k' vos vs avoz elodjî e %s, tchôkîz so Continouwer."
 
-#: ../panes/oauth.c:325
-#: ../panes/oauth.c:342
-msgid "Continue"
-msgstr "Continouwer"
-
 #: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
@@ -120,6 +126,8 @@ msgstr "On côp k' vos vs avoz elodjî e %s, dinez l' côde k' i vs dinèt eyet 
 msgid "Code:"
 msgstr "Côde :"
 
+#~ msgid "%s login changed."
+#~ msgstr "Li login di %s a candjî."
 #~ msgid "Log in pending"
 #~ msgstr "Elodjaedje ki ratind"
 #~ msgid "Log in pending..."
