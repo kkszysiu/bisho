@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Moblin Bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 23:02+0000\n"
+"POT-Creation-Date: 2010-03-22 09:23+0000\n"
 "PO-Revision-Date: 2009-11-19 15:55-0800\n"
 "Last-Translator: Margie Foster <margie@linux.intel.com>\n"
 "Language-Team: /n <margie@linux.intel.com>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: English\n"
-"X-Poedit-Country: UNITED KINGDOM\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
 
-#: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:164
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "My Web Accounts"
 
@@ -28,65 +28,59 @@ msgstr "My Web Accounts"
 msgid "myzone & status"
 msgstr "myzone & status"
 
-#: ../src/bisho-pane.c:86
+#: ../src/bisho-pane.c:82
 msgid "Launch site for more information."
 msgstr "Launch site for more information."
 
-#: ../src/bisho-pane.c:90
+#: ../src/bisho-pane.c:86
 #, c-format
 msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 msgstr "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
 
-#: ../src/bisho-pane.c:204
+#: ../src/bisho-pane.c:223
 #, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Sorry, we can't log in to %s. %s"
 
-#: ../src/bisho-pane.c:208
+#: ../src/bisho-pane.c:227
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Sorry, we can't log in to %s"
 
-#: ../src/bisho-pane-username.c:57
-#, c-format
-msgid "%s login changed."
-msgstr "%s login changed."
-
-#: ../src/bisho-window.c:74
-#: ../src/bisho-window.c:80
-msgid "Username:"
-msgstr "Username:"
-
-#: ../src/bisho-window.c:82
-msgid "Password:"
-msgstr "Password:"
-
-#: ../src/bisho-window.c:188
+#: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "Quit"
 
+#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "Username:"
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "Password:"
+
 #. Please don't translate 'myzone'
-#: ../src/bisho-window.c:199
+#: ../src/bisho-frame.c:214
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Set up your social networks to see new updates in myzone and the status panel."
 
-#: ../panes/flickr.c:248
-#: ../panes/oauth.c:307
+#: ../panes/flickr.c:286 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Log me in"
 
-#: ../panes/flickr.c:252
-#: ../panes/oauth.c:311
+#: ../panes/flickr.c:290 ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Connecting..."
 
-#: ../panes/flickr.c:256
-#: ../panes/oauth.c:347
+#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
+msgid "Continue"
+msgstr "Continue"
+
+#: ../panes/flickr.c:295 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Log in succeeded. You'll see new items in a couple of minutes."
 
-#: ../panes/flickr.c:259
-#: ../panes/oauth.c:349
+#: ../panes/flickr.c:298 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Log me out"
 
@@ -107,11 +101,6 @@ msgstr "You could try again."
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Once you have logged in to %s, press Continue."
 
-#: ../panes/oauth.c:325
-#: ../panes/oauth.c:342
-msgid "Continue"
-msgstr "Continue"
-
 #: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
@@ -121,3 +110,14 @@ msgstr "Once you have logged in to %s, enter the code you see and press Continue
 msgid "Code:"
 msgstr "Code:"
 
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Log in succeeded. You'll see new items from %s  in a couple of minutes."
+
+#: ../src/bisho-pane-username.c:108
+msgid "Log in"
+msgstr "Log in"
+
+#~ msgid "%s login changed."
+#~ msgstr "%s login changed."
