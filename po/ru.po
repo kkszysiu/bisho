@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-08 10:24+0000\n"
+"POT-Creation-Date: 2010-04-05 09:24+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yuri Nazarenko <yuri.nazarenko@gmail.com>\n"
 "Language-Team: \n"
@@ -46,10 +46,10 @@ msgstr "Невозможно зайти на  %s"
 
 #: ../src/bisho-pane-username.c:69
 #, c-format
-msgid "%s login changed."
-msgstr "Учетная запись %s изменена."
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Вы успешно вошли. Новые пункты из  %s появятся через несколько минут."
 
-#: ../src/bisho-pane-username.c:98
+#: ../src/bisho-pane-username.c:108
 msgid "Log in"
 msgstr "Войти"
 
@@ -71,28 +71,28 @@ msgstr "Пароль:"
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Измените настройки социальных сетей для того, чтобы видеть изменения в myzone и статусной панели."
 
-#: ../panes/flickr.c:282
+#: ../panes/flickr.c:286
 #: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Войти"
 
-#: ../panes/flickr.c:286
+#: ../panes/flickr.c:290
 #: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Подключение..."
 
-#: ../panes/flickr.c:287
+#: ../panes/flickr.c:291
 #: ../panes/oauth.c:325
 #: ../panes/oauth.c:342
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ../panes/flickr.c:291
+#: ../panes/flickr.c:295
 #: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Вы успешно вошли. Новые пункты появятся через несколько минут."
 
-#: ../panes/flickr.c:294
+#: ../panes/flickr.c:298
 #: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Выйти"
@@ -123,3 +123,5 @@ msgstr "После входа на %s введите предоставленн�
 msgid "Code:"
 msgstr "Код:"
 
+#~ msgid "%s login changed."
+#~ msgstr "Учетная запись %s изменена."
