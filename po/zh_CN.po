@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 03:25+0000\n"
+"POT-Creation-Date: 2010-04-05 09:24+0000\n"
 "PO-Revision-Date: 2009-10-02 11:57-0800\n"
 "Last-Translator: Yun Nie <yun.nie@ptiglobal.net>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
@@ -44,27 +44,44 @@ msgstr "抱歉，我们无法登录到 %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我们无法登录到 %s"
 
+#: ../src/bisho-pane-username.c:108
+msgid "Log in"
+msgstr "登录"
+
 #: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "退出"
 
-#: ../panes/flickr.c:282 ../panes/oauth.c:307
+#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+msgid "Username:"
+msgstr "用户名："
+
+#: ../src/bisho-frame.c:83
+msgid "Password:"
+msgstr "密码："
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-frame.c:214
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "设置您的社交网络以便在 myzone 和状态面板中显示最近更新。"
+
+#: ../panes/flickr.c:286 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "登录"
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:311
+#: ../panes/flickr.c:290 ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "正在连接..."
 
-#: ../panes/flickr.c:287 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
 msgid "Continue"
 msgstr "继续"
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:347
+#: ../panes/flickr.c:295 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "登录成功。您马上就会看到新的项目。"
 
-#: ../panes/flickr.c:294 ../panes/oauth.c:349
+#: ../panes/flickr.c:298 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "登出"
 
@@ -96,25 +113,11 @@ msgstr "代码："
 
 #: ../src/bisho-pane-username.c:69
 #, c-format
-msgid "%s login changed."
-msgstr "%s 的登录已经改变。"
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "登录成功。您马上就会在%s里看到新的项目。"
 
-#: ../src/bisho-pane-username.c:98
-msgid "Log in"
-msgstr "登录"
-
-#: ../src/bisho-frame.c:83
-msgid "Password:"
-msgstr "密码："
-
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
-msgid "Username:"
-msgstr "用户名："
-
-#. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "设置您的社交网络以便在 myzone 和状态面板中显示最近更新。"
+#~ msgid "%s login changed."
+#~ msgstr "%s 的登录已经改变。"
 
 #~ msgid "Log in pending"
 #~ msgstr "等待登录"
