@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-01 10:26+0000\n"
+"POT-Creation-Date: 2010-04-05 09:24+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: takashi <takashi.kazami@novuscom.net>\n"
+"Last-Translator: Takashi Kazami <tkazami@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,10 +46,10 @@ msgstr "%s にログインできません"
 
 #: ../src/bisho-pane-username.c:69
 #, c-format
-msgid "%s login changed."
-msgstr "ログインが変更されました：%s"
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "ログインに成功しました。数分内に %s からの新しいアイテムが表示されます。"
 
-#: ../src/bisho-pane-username.c:98
+#: ../src/bisho-pane-username.c:108
 msgid "Log in"
 msgstr "ログイン"
 
@@ -71,28 +71,28 @@ msgstr "パスワード："
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "ソーシャル ネットワークを設定すると、myzone やステータスパネルに新しいアップデートが表示されます。"
 
-#: ../panes/flickr.c:282
+#: ../panes/flickr.c:286
 #: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "ログインする"
 
-#: ../panes/flickr.c:286
+#: ../panes/flickr.c:290
 #: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "接続中です..."
 
-#: ../panes/flickr.c:287
+#: ../panes/flickr.c:291
 #: ../panes/oauth.c:325
 #: ../panes/oauth.c:342
 msgid "Continue"
 msgstr "コンティニュー"
 
-#: ../panes/flickr.c:291
+#: ../panes/flickr.c:295
 #: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "ログインに成功しました。数分内に新しいアイテムが表示されます。"
 
-#: ../panes/flickr.c:294
+#: ../panes/flickr.c:298
 #: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "ログアウトする"
@@ -122,6 +122,9 @@ msgstr "%s にログイン後、受け取ったコードを入力し、コンテ
 #: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "コード："
+
+#~ msgid "%s login changed."
+#~ msgstr "ログインが変更されました：%s"
 
 #~ msgid "Log in pending"
 #~ msgstr "ログイン中です"
