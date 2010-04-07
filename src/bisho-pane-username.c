@@ -37,7 +37,7 @@ struct _BishoPaneUsernamePrivate {
 G_DEFINE_TYPE (BishoPaneUsername, bisho_pane_username, BISHO_TYPE_PANE);
 
 static void
-widget_foreach (GtkWidget *widget, gpointer user_data)
+login_widget_foreach (GtkWidget *widget, gpointer user_data)
 {
   BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
   const char *key;
@@ -61,7 +61,7 @@ on_login_clicked (GtkButton *button, gpointer user_data)
   char *message;
 
   gtk_container_foreach (GTK_CONTAINER (pane->priv->table),
-                         widget_foreach, pane);
+                         login_widget_foreach, pane);
 
   g_object_get (pane, "service", &info, NULL);
   g_assert (info);
@@ -82,16 +82,57 @@ on_entry_activated (GtkEntry *entry, gpointer user_data)
 }
 
 static void
+logout_widget_foreach (GtkWidget *widget, gpointer user_data)
+{
+  BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
+  const char *key;
+
+  if (!GTK_IS_ENTRY (widget))
+    return;
+
+  gtk_entry_set_text (GTK_ENTRY (widget), "");
+
+  key = g_object_get_data (G_OBJECT (widget), DATA_GCONF_KEY);
+  g_assert (key);
+
+  gconf_client_unset (pane->priv->gconf, key, NULL);
+}
+
+static void
+on_logout_clicked (GtkButton *button, gpointer user_data)
+{
+  BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
+  ServiceInfo *info = NULL;
+  char *message;
+
+  gtk_container_foreach (GTK_CONTAINER (pane->priv->table),
+                         logout_widget_foreach, pane);
+
+  g_object_get (pane, "service", &info, NULL);
+  g_assert (info);
+
+  message = g_strdup_printf (_("Log out succeeded. "
+                               "All trace of %s has been removed from your computer."),
+                             info->display_name);
+  bisho_pane_set_banner (BISHO_PANE (pane), message);
+  g_free (message);
+}
+
+static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
-  GtkWidget *box, *align;
+  GtkWidget *hbox, *vbox, *align, *vbox2, *image, *remove;
 
   self->priv = GET_PRIVATE (self);
   self->priv->gconf = gconf_client_get_default ();
 
-  box = gtk_vbox_new (FALSE, 6);
-  gtk_widget_show (box);
-  gtk_container_add (GTK_CONTAINER (BISHO_PANE (self)->content), box);
+  hbox = gtk_hbox_new (FALSE, 6);
+  gtk_widget_show (hbox);
+  gtk_container_add (GTK_CONTAINER (BISHO_PANE (self)->content), hbox);
+
+  vbox = gtk_vbox_new (FALSE, 6);
+  gtk_widget_show (vbox);
+  gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
 
   self->priv->table = gtk_table_new (0, 0, FALSE);
   g_object_set (self->priv->table,
@@ -99,16 +140,29 @@ bisho_pane_username_init (BishoPaneUsername *self)
                 "column-spacing", 6,
                 NULL);
   gtk_widget_show (self->priv->table);
-  gtk_container_add (GTK_CONTAINER (box), self->priv->table);
+  gtk_container_add (GTK_CONTAINER (vbox), self->priv->table);
 
   align = gtk_alignment_new (1, 0, 0, 0);
   gtk_widget_show (align);
-  gtk_box_pack_start (GTK_BOX (box), align, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 0);
 
   self->priv->button = gtk_button_new_with_label (_("Log in"));
   g_signal_connect (self->priv->button, "clicked", G_CALLBACK (on_login_clicked), self);
   gtk_widget_show (self->priv->button);
   gtk_container_add (GTK_CONTAINER (align), self->priv->button);
+
+  vbox2 = gtk_vbox_new (FALSE, 6);
+  gtk_widget_show (vbox2);
+  gtk_box_pack_start (GTK_BOX (hbox), vbox2, FALSE, FALSE, 0);
+
+  remove = gtk_button_new ();
+  g_signal_connect (remove, "clicked", G_CALLBACK (on_logout_clicked), self);
+  gtk_button_set_relief (GTK_BUTTON (remove), GTK_RELIEF_NONE);
+  image = gtk_image_new_from_stock (GTK_STOCK_REMOVE, GTK_ICON_SIZE_BUTTON);
+  gtk_widget_show (image);
+  gtk_container_add (GTK_CONTAINER (remove), image);
+  gtk_widget_show (remove);
+  gtk_box_pack_start (GTK_BOX (vbox2), remove, FALSE, FALSE, 0);
 }
 
 static void
