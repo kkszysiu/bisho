@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 03:25+0000\n"
+"POT-Creation-Date: 2010-04-07 09:31+0000\n"
 "PO-Revision-Date: 2009-11-04 12:01+0200\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
 "Language-Team: Finnish <laatu@lokalisointi.org>\n"
@@ -46,10 +46,9 @@ msgstr "Kohteeseen %s ei voi kirjautua sisään. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Ei voida kirjautua kohteeseen %s"
 
-#: ../src/bisho-pane-username.c:69
-#, c-format
-msgid "%s login changed."
-msgstr "Kirjautumistiedot vaihdettu: %s"
+#: ../src/bisho-pane-username.c:108
+msgid "Log in"
+msgstr "Kirjaudu sisään"
 
 #: ../src/bisho-window.c:65
 msgid "Quit"
@@ -68,24 +67,24 @@ msgstr "Salasana:"
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja tilapaneelissa."
 
-#: ../panes/flickr.c:282 ../panes/oauth.c:307
+#: ../panes/flickr.c:286 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Kirjaudu sisään"
 
 # wait
-#: ../panes/flickr.c:286 ../panes/oauth.c:311
+#: ../panes/flickr.c:290 ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Yhdistetään..."
 
-#: ../panes/flickr.c:287 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:347
+#: ../panes/flickr.c:295 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Kirjautuminen onnistui. Näet uutta sisältöä muutaman minuutin kuluessa."
 
-#: ../panes/flickr.c:294 ../panes/oauth.c:349
+#: ../panes/flickr.c:298 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Kirjaudu ulos"
 
@@ -115,9 +114,13 @@ msgstr "Kun olet kirjautunut palveluun %s, anna koodi joka sinulle annetaan ja p
 msgid "Code:"
 msgstr "Koodi:"
 
-#: ../src/bisho-pane-username.c:98
-msgid "Log in"
-msgstr "Kirjaudu sisään"
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Kirjautuminen onnistui. Näet uutta sisältöä kohteesta %s muutaman minuutin kuluessa."
+
+#~ msgid "%s login changed."
+#~ msgstr "Kirjautumistiedot vaihdettu: %s"
 
 #~ msgid "Log in pending"
 #~ msgstr "Kirjautuminen käynnissä"
