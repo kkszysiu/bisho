@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-26 03:25+0000\n"
+"POT-Creation-Date: 2010-04-07 09:31+0000\n"
 "PO-Revision-Date: 2009-11-25 21:54+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -46,13 +46,10 @@ msgstr "Impossibile accedere a %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Impossibile accedere a %s"
 
-# (ndt) un po' lunga e libera, ma c'è spazio
-# si vede quando si modificano le credenziali
-# di un servizio web
-#: ../src/bisho-pane-username.c:69
-#, c-format
-msgid "%s login changed."
-msgstr "Informazioni di accesso di %s modificate."
+# (ndt) pulsante
+#: ../src/bisho-pane-username.c:108
+msgid "Log in"
+msgstr "Accedi"
 
 #: ../src/bisho-window.c:65
 msgid "Quit"
@@ -72,24 +69,24 @@ msgid "Set up your social networks to see new updates in myzone and the status p
 msgstr "Impostare i social network a cui si partecipa per visualizzare aggiornamenti all'interno della myzone e nel pannello di stato."
 
 # (ndt) pulsante
-#: ../panes/flickr.c:282 ../panes/oauth.c:307
+#: ../panes/flickr.c:286 ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Accedi"
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:311
+#: ../panes/flickr.c:290 ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Connessione..."
 
 # (ndt) pulsante
-#: ../panes/flickr.c:287 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
 msgid "Continue"
 msgstr "Continua"
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:347
+#: ../panes/flickr.c:295 ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi."
 
-#: ../panes/flickr.c:294 ../panes/oauth.c:349
+#: ../panes/flickr.c:298 ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Disconnetti"
 
@@ -119,10 +116,13 @@ msgstr "Una volta eseguito l'accesso a %s, inserire il codice fornito e fare cli
 msgid "Code:"
 msgstr "Codice:"
 
-# (ndt) pulsante
-#: ../src/bisho-pane-username.c:98
-msgid "Log in"
-msgstr "Accedi"
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi da %s."
+
+#~ msgid "%s login changed."
+#~ msgstr "Informazioni di accesso di %s modificate."
 
 #~ msgid "Log in pending"
 #~ msgstr "Accesso in corso"
