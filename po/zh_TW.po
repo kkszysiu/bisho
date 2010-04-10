@@ -47,11 +47,6 @@ msgstr "抱歉，我們無法登入到 %s"
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "已成功登入。在幾分鐘之內您就會從 %s 看到新的東西。"
 
-#: ../src/bisho-pane-username.c:114
-#, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr ""
-
 #: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "登入"
@@ -118,6 +113,11 @@ msgstr "一旦您登入到 %s ，請輸入他們給予您的代碼接著按下�
 #: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "代碼："
+
+#: ../src/bisho-pane-username.c:114
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "成功登出。所有 %s 的蹤跡已經從您的電腦中移除。"
 
 #~ msgid "%s login changed."
 #~ msgstr "%s 登入已改變。"
