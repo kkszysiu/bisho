@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Moblin Bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-22 09:23+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: 2009-11-19 15:55-0800\n"
 "Last-Translator: Margie Foster <margie@linux.intel.com>\n"
 "Language-Team: /n <margie@linux.intel.com>\n"
@@ -46,6 +46,15 @@ msgstr "Sorry, we can't log in to %s. %s"
 #, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Sorry, we can't log in to %s"
+
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Log in succeeded. You'll see new items from %s  in a couple of minutes."
+
+#: ../src/bisho-pane-username.c:149
+msgid "Log in"
+msgstr "Log in"
 
 #: ../src/bisho-window.c:65
 msgid "Quit"
@@ -110,14 +119,10 @@ msgstr "Once you have logged in to %s, enter the code you see and press Continue
 msgid "Code:"
 msgstr "Code:"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:114
 #, c-format
-msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
-msgstr "Log in succeeded. You'll see new items from %s  in a couple of minutes."
-
-#: ../src/bisho-pane-username.c:108
-msgid "Log in"
-msgstr "Log in"
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Log out succeeded. All trace of %s has been removed from your computer."
 
 #~ msgid "%s login changed."
 #~ msgstr "%s login changed."
