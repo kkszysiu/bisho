@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-12 09:25+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gonzalo <gonzalo.velasquez@ptiglobal.net>\n"
 "Language-Team: \n"
@@ -48,9 +48,10 @@ msgstr "No se puede entrar en %s"
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Te has conectado. Verás lo nuevo de %s en unos minutos."
 
-#: ../src/bisho-pane-username.c:149
-msgid "Log in"
-msgstr "Ingresar"
+#: ../src/bisho-pane-username.c:114
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Te has desconectado. Se ha eliminado todo lo referente a %s."
 
 #: ../src/bisho-window.c:65
 msgid "Quit"
@@ -115,10 +116,9 @@ msgstr "Cuando te hayas conectado a %s, introduce el código que te dieron y pul
 msgid "Code:"
 msgstr "Código:"
 
-#: ../src/bisho-pane-username.c:114
-#, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Te has desconectado. Se ha eliminado todo lo referente a %s."
+#: ../src/bisho-pane-username.c:149
+msgid "Log in"
+msgstr "Entrar"
 
 #~ msgid "%s login changed."
 #~ msgstr "Se ha cambiado el nombre de acceso a %s."
