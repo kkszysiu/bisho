@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-07 09:31+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Loïc Dufresne de Virel <loic.dufresne.de.virel@intel.com>\n"
 "Language-Team: \n"
@@ -49,7 +49,7 @@ msgstr "Désolé, impossible de connecter à %s"
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Connexion réussie. Vous allez voir de nouveaux articles de %s  dans quelques minutes."
 
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "Connecter"
 
@@ -64,6 +64,11 @@ msgstr "Nom d'utilisateur :"
 #: ../src/bisho-frame.c:83
 msgid "Password:"
 msgstr "Mot de passe :"
+
+#. Please don't translate 'myzone'
+#: ../src/bisho-frame.c:214
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans myzone et le panneau statuts."
 
 #: ../panes/flickr.c:286 ../panes/oauth.c:307
 msgid "Log me in"
@@ -111,10 +116,10 @@ msgstr "Une fois connecté à %s, saisissez le code qui vous est fourni et appuy
 msgid "Code:"
 msgstr "Code :"
 
-#. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans myzone et le panneau statuts."
+#: ../src/bisho-pane-username.c:114
+#, c-format, fuzzy
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Déconnection réussie. Toute trace de %s a été effacé de votre ordinateur."
 
 #~ msgid "%s login changed."
 #~ msgstr "%s login changé."
