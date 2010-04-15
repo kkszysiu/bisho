@@ -117,7 +117,7 @@ msgid "Code:"
 msgstr "Code :"
 
 #: ../src/bisho-pane-username.c:114
-#, c-format, fuzzy
+#, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
 msgstr "Déconnection réussie. Toute trace de %s a été effacé de votre ordinateur."
 
