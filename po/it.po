@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-07 09:31+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: 2009-11-25 21:54+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -46,8 +46,13 @@ msgstr "Impossibile accedere a %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Impossibile accedere a %s"
 
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi da %s."
+
 # (ndt) pulsante
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "Accedi"
 
@@ -116,10 +121,10 @@ msgstr "Una volta eseguito l'accesso a %s, inserire il codice fornito e fare cli
 msgid "Code:"
 msgstr "Codice:"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:114
 #, c-format
-msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
-msgstr "Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi da %s."
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Logout eseguito con successo. Tuttle le tracce di %s sono state rimosse dal computer."
 
 #~ msgid "%s login changed."
 #~ msgstr "Informazioni di accesso di %s modificate."
