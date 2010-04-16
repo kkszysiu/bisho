@@ -1,15 +1,15 @@
 # Finnish Translation of bisho
-# 
+#
 # Paju <PajuPekka@gmail.com>, 2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-07 09:31+0000\n"
-"PO-Revision-Date: 2009-11-04 12:01+0200\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@iki.fi>\n"
-"Language-Team: Finnish <laatu@lokalisointi.org>\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"PO-Revision-Date: 2010-04-16 16:34-0500\n"
+"Last-Translator: Eija <eija@wimma.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,10 +17,11 @@ msgstr ""
 "X-Poedit-Language: Finnish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:39
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
-msgstr "WWW-käyttäjätilit"
+msgstr "Omat Web-tilit"
 
 #. Please don't translate "myzone"
 #: ../data/bisho.desktop.in.h:3
@@ -46,7 +47,17 @@ msgstr "Kohteeseen %s ei voi kirjautua sisään. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Ei voida kirjautua kohteeseen %s"
 
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "Kirjautuminen onnistui. Näet uutta sisältöä kohteesta %s muutaman minuutin kuluessa."
+
+#: ../src/bisho-pane-username.c:114
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Uloskirjautuminen onnistui. Kaikki %s jäljet on poistettu tietokoneeltasi."
+
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
@@ -54,7 +65,8 @@ msgstr "Kirjaudu sisään"
 msgid "Quit"
 msgstr "Lopeta"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:75
+#: ../src/bisho-frame.c:81
 msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
@@ -67,24 +79,30 @@ msgstr "Salasana:"
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja tilapaneelissa."
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:307
+#: ../panes/flickr.c:286
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "Kirjaudu sisään"
 
 # wait
-#: ../panes/flickr.c:290 ../panes/oauth.c:311
+#: ../panes/flickr.c:290
+#: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "Yhdistetään..."
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../panes/flickr.c:295 ../panes/oauth.c:347
+#: ../panes/flickr.c:295
+#: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Kirjautuminen onnistui. Näet uutta sisältöä muutaman minuutin kuluessa."
 
-#: ../panes/flickr.c:298 ../panes/oauth.c:349
+#: ../panes/flickr.c:298
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "Kirjaudu ulos"
 
@@ -113,11 +131,6 @@ msgstr "Kun olet kirjautunut palveluun %s, anna koodi joka sinulle annetaan ja p
 #: ../panes/oauth.c:446
 msgid "Code:"
 msgstr "Koodi:"
-
-#: ../src/bisho-pane-username.c:69
-#, c-format
-msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
-msgstr "Kirjautuminen onnistui. Näet uutta sisältöä kohteesta %s muutaman minuutin kuluessa."
 
 #~ msgid "%s login changed."
 #~ msgstr "Kirjautumistiedot vaihdettu: %s"
@@ -149,8 +162,12 @@ msgstr "Kirjautuminen onnistui. Näet uutta sisältöä kohteesta %s muutaman mi
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Paina Jatka, kun olet kirjautunut Flickr-palveluun."
 
-#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
-#~ msgstr "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, jossa on %s."
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, "
+#~ "jossa on %s."
 
 #~ msgid "Cannot login to %s"
 #~ msgstr "Ei voida kirjautua kohteeseen %s"
