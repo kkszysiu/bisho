@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-07 09:31+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSKOR_SunKim <sunx.kim@intel.com>\n"
 "Language-Team: \n"
@@ -43,7 +43,12 @@ msgstr "죄송합니다. %s에 로그인 할수 없습니다. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "죄송합니다. %s에 로그인 할수 없습니다."
 
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 %s에서 새 항목이 나타날 것입니다. "
+
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "로그인"
 
@@ -110,10 +115,10 @@ msgstr "일단 %s에 로그인 했으면, 주어진 코드를 입력하고 [계�
 msgid "Code:"
 msgstr "코드:"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:114
 #, c-format
-msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
-msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 %s에서 새 항목이 나타날 것입니다. "
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "성공적으로 로그아웃되었습니다. %s의 모든 트레이스가 컴퓨터에서 제거되었습니다."
 
 #~ msgid "%s login changed."
 #~ msgstr "%s 로그인이 변경되었습니다."
