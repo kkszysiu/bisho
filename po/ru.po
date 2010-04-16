@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 09:24+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yuri Nazarenko <yuri.nazarenko@gmail.com>\n"
 "Language-Team: \n"
@@ -49,7 +49,12 @@ msgstr "Невозможно зайти на  %s"
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Вы успешно вошли. Новые пункты из  %s появятся через несколько минут."
 
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:114
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Выход из системы прошел успешно. Все следы %s удалены из вашего компьютера."
+
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "Войти"
 
