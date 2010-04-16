@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-05 09:24+0000\n"
+"POT-Creation-Date: 2010-04-14 09:26+0000\n"
 "PO-Revision-Date: 2009-10-02 11:57-0800\n"
 "Last-Translator: Yun Nie <yun.nie@ptiglobal.net>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
@@ -44,7 +44,12 @@ msgstr "抱歉，我们无法登录到 %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我们无法登录到 %s"
 
-#: ../src/bisho-pane-username.c:108
+#: ../src/bisho-pane-username.c:69
+#, c-format
+msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
+msgstr "登录成功。您马上就会在%s里看到新的项目。"
+
+#: ../src/bisho-pane-username.c:149
 msgid "Log in"
 msgstr "登录"
 
@@ -111,10 +116,10 @@ msgstr "一旦您登录到 %s，输入他们给您的代码，然后按“继续
 msgid "Code:"
 msgstr "代码："
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:114
 #, c-format
-msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
-msgstr "登录成功。您马上就会在%s里看到新的项目。"
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "登出成功。%s的所有痕迹已经从您的计算机中删除。"
 
 #~ msgid "%s login changed."
 #~ msgstr "%s 的登录已经改变。"
