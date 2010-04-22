@@ -157,8 +157,7 @@ bisho_pane_username_init (BishoPaneUsername *self)
 
   remove = gtk_button_new ();
   g_signal_connect (remove, "clicked", G_CALLBACK (on_logout_clicked), self);
-  gtk_button_set_relief (GTK_BUTTON (remove), GTK_RELIEF_NONE);
-  image = gtk_image_new_from_stock (GTK_STOCK_REMOVE, GTK_ICON_SIZE_BUTTON);
+  image = gtk_image_new_from_stock (GTK_STOCK_CLEAR, GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image);
   gtk_container_add (GTK_CONTAINER (remove), image);
   gtk_widget_show (remove);
