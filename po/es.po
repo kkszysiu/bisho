@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-04-21 09:25+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gonzalo <gonzalo.velasquez@ptiglobal.net>\n"
 "Language-Team: \n"
@@ -53,6 +53,10 @@ msgstr "Te has conectado. Verás lo nuevo de %s en unos minutos."
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
 msgstr "Te has desconectado. Se ha eliminado todo lo referente a %s."
 
+#: ../src/bisho-pane-username.c:149
+msgid "Log in"
+msgstr "Entrar"
+
 #: ../src/bisho-window.c:65
 msgid "Quit"
 msgstr "Salir"
@@ -90,10 +94,6 @@ msgstr "Te has conectado. Verás los nuevos elementos en unos minutos."
 msgid "Log me out"
 msgstr "Quiero desconectarme"
 
-#: ../panes/oauth.c:95
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Parece que no tienes conexión a ninguna red. Esto no va a funcionar."
-
 #: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
 msgstr "Verifica que el miniportátil esté en hora."
@@ -116,9 +116,9 @@ msgstr "Cuando te hayas conectado a %s, introduce el código que te dieron y pul
 msgid "Code:"
 msgstr "Código:"
 
-#: ../src/bisho-pane-username.c:149
-msgid "Log in"
-msgstr "Entrar"
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Parece que no tienes conexión a ninguna red. Así no se puede."
 
 #~ msgid "%s login changed."
 #~ msgstr "Se ha cambiado el nombre de acceso a %s."
