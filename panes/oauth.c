@@ -18,7 +18,7 @@
  */
 
 #include <config.h>
-#include <glib/gi18n.h>
+#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <gnome-keyring.h>
 #include <libsoup/soup.h>

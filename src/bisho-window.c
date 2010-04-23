@@ -17,7 +17,8 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <glib/gi18n.h>
+#include <config.h>
+#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include "bisho-window.h"
 #include "bisho-frame.h"

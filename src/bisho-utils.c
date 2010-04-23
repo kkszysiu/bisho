@@ -18,7 +18,6 @@
  */
 
 #include <string.h>
-#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include "mux-expanding-item.h"
 #include "bisho-utils.h"
