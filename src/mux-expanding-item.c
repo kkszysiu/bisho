@@ -17,7 +17,7 @@
  */
 
 #include <gtk/gtk.h>
-#include <mx/mx-gtk.h>
+#include <mx-gtk/mx-gtk.h>
 #include "mux-expanding-item.h"
 #include "mux-expander.h"
 
