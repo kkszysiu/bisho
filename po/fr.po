@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Loïc Dufresne de Virel <loic.dufresne.de.virel@intel.com>\n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,-1,14,-1,-1,-1,-1\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mes comptes Web"
@@ -44,29 +44,35 @@ msgstr "Désolé, impossible de connecter à %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Désolé, impossible de connecter à %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Connexion réussie. Vous allez voir de nouveaux articles de %s  dans quelques minutes."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Déconnection réussie. Toute trace de %s a été effacé de votre ordinateur."
+
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Connecter"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Nom d'utilisateur :"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Mot de passe :"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Configurez vos réseaux sociaux pour voir les dernières mises à jour dans myzone et le panneau statuts."
 
@@ -116,10 +122,14 @@ msgstr "Une fois connecté à %s, saisissez le code qui vous est fourni et appuy
 msgid "Code:"
 msgstr "Code :"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Déconnection réussie. Toute trace de %s a été effacé de votre ordinateur."
+msgid "Sorry, we can't log into %s."
+msgstr "Désolé, impossible de connecter à %s."
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Mettre à jour"
 
 #~ msgid "%s login changed."
 #~ msgstr "%s login changé."
