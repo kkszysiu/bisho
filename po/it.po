@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: 2009-11-25 21:54+0100\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Account web"
@@ -46,30 +46,36 @@ msgstr "Impossibile accedere a %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Impossibile accedere a %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Accesso eseguito. In un paio di minuti verranno visualizzati nuovi elementi da %s."
 
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Logout eseguito con successo. Tuttle le tracce di %s sono state rimosse dal computer."
+
 # (ndt) pulsante
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Accedi"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Esci"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Nome utente:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Password:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Impostare i social network a cui si partecipa per visualizzare aggiornamenti all'interno della myzone e nel pannello di stato."
 
@@ -121,10 +127,14 @@ msgstr "Una volta eseguito l'accesso a %s, inserire il codice fornito e fare cli
 msgid "Code:"
 msgstr "Codice:"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Logout eseguito con successo. Tuttle le tracce di %s sono state rimosse dal computer."
+msgid "Sorry, we can't log into %s."
+msgstr "Impossibile accedere a %s."
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Aggiornamento"
 
 #~ msgid "%s login changed."
 #~ msgstr "Informazioni di accesso di %s modificate."
