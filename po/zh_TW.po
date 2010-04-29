@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-10 09:38+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "我的網路帳號"
@@ -42,29 +42,35 @@ msgstr "抱歉，我們無法登入到 %s。%s"
 msgid "Sorry, we can't log in to %s"
 msgstr "抱歉，我們無法登入到 %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "已成功登入。在幾分鐘之內您就會從 %s 看到新的東西。"
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "成功登出。所有 %s 的蹤跡已經從您的電腦中移除。"
+
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "登入"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "離開"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "使用者："
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "密碼："
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "設置您的社交網絡來查看 myzone 上以及狀態面板上的最新動態吧。"
 
@@ -114,10 +120,14 @@ msgstr "一旦您登入到 %s ，請輸入他們給予您的代碼接著按下�
 msgid "Code:"
 msgstr "代碼："
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "成功登出。所有 %s 的蹤跡已經從您的電腦中移除。"
+msgid "Sorry, we can't log into %s."
+msgstr "抱歉，我們無法登入 %s。"
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "更新"
 
 #~ msgid "%s login changed."
 #~ msgstr "%s 登入已改變。"
