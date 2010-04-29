@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-17 09:33+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Annika Olsson <AnnikaNbpt@gmail.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Language: Swedish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mina webbkonton"
@@ -43,29 +43,35 @@ msgstr "Kan inte logga in till %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Kan inte logga in till %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Inloggningen lyckades. Om några minuter kommer du att se nya saker från %s."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Utloggningen lyckades. Alla spår av %s har tagits bort från datorn."
+
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Logga in "
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Lämna"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Lösenord:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Konfigurera nätverksinställningarna så att du kan se uppdateringar i MyZone och statusfältet."
 
@@ -115,10 +121,14 @@ msgstr "När du loggat in på %s, ange koden de ger dig och klicka på Fortsätt
 msgid "Code:"
 msgstr "Kod:"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Utloggningen lyckades. Alla spår av %s har tagits bort från datorn."
+msgid "Sorry, we can't log into %s."
+msgstr "Kan inte logga in till %s"
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Uppdatera"
 
 #~ msgid "%s login changed."
 #~ msgstr "Inloggning ändrad för: %s"
