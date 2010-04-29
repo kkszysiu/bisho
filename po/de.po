@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Clara Steiner-Jay <csteiner@aracnet.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Meine Webkonten"
@@ -43,29 +43,35 @@ msgstr "Anmeldung bei %s leider nicht möglich. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Anmeldung bei %s leider nicht möglich"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Anmeldung erfolgreich. Du wirst in ein paar Minuten neue Elemente von %s sehen."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Abmeldung war erfolgreich. Jede Spur von %s wurde von deinem Computer gelöscht."
+
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Anmeldung"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Beenden"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Kennwort:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Richte bitte deine sozialen Netzwerke ein, um Updates in Myzone und dem Statusfeld zu sehen."
 
@@ -119,10 +125,14 @@ msgstr "Nach der Anmeldung bei %s gebe den Code ein und drücke auf Weiter."
 msgid "Code:"
 msgstr "Code:"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Abmeldung war erfolgreich. Jede Spur von %s wurde von deinem Computer gelöscht."
+msgid "Sorry, we can't log into %s."
+msgstr "Anmeldung bei %s ist leider nicht möglich."
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Update"
 
 #~ msgid "%s login changed."
 #~ msgstr "Die Anmeldungsdaten für %s wurden geändert."
