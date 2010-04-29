@@ -56,11 +56,6 @@ msgstr "Błąd logowania do %s"
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Logowanie zakończone powodzeniem. Za chwilę zobaczysz nowe elementy z %s."
 
-#: ../src/bisho-pane-username.c:57
-#, fuzzy, c-format
-msgid "Sorry, we can't log into %s."
-msgstr "Błąd logowania do %s"
-
 #: ../src/bisho-pane-username.c:136
 #, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
@@ -137,6 +132,11 @@ msgstr "Kod:"
 #: ../src/bisho-pane-username.c:153
 msgid "Update"
 msgstr "Aktualizuj"
+
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "Sorry, we can't log into %s."
+msgstr "Błąd logowania do %s."
 
 #~ msgid "%s login changed."
 #~ msgstr "Login na %s został zmieniony."
