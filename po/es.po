@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-21 09:25+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gonzalo <gonzalo.velasquez@ptiglobal.net>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mis cuentas web"
@@ -43,34 +43,35 @@ msgstr "No se puede entrar en %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "No se puede entrar en %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Te has conectado. Verás lo nuevo de %s en unos minutos."
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:136
 #, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
 msgstr "Te has desconectado. Se ha eliminado todo lo referente a %s."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Entrar"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Salir"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Usuario:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Contraseña:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en myzone y en el panel de estado."
 
@@ -94,6 +95,10 @@ msgstr "Te has conectado. Verás los nuevos elementos en unos minutos."
 msgid "Log me out"
 msgstr "Quiero desconectarme"
 
+#: ../panes/oauth.c:95
+msgid "You don't seem to have a network connection, this won't work."
+msgstr "Parece que no tienes conexión a ninguna red. Así no se puede."
+
 #: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
 msgstr "Verifica que el miniportátil esté en hora."
@@ -116,9 +121,14 @@ msgstr "Cuando te hayas conectado a %s, introduce el código que te dieron y pul
 msgid "Code:"
 msgstr "Código:"
 
-#: ../panes/oauth.c:95
-msgid "You don't seem to have a network connection, this won't work."
-msgstr "Parece que no tienes conexión a ninguna red. Así no se puede."
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "Sorry, we can't log into %s."
+msgstr "No se puede entrar en %s."
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Actualizar"
 
 #~ msgid "%s login changed."
 #~ msgstr "Se ha cambiado el nombre de acceso a %s."
