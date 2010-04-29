@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
-"PO-Revision-Date: 2010-04-16 16:34-0500\n"
-"Last-Translator: Eija <eija@wimma.com>\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
+"PO-Revision-Date: 2010-04-29 11:31-0800\n"
+"Last-Translator: Anna Bergman <anna.b.bergman@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:39
+#: ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Omat Web-tilit"
@@ -47,35 +47,46 @@ msgstr "Kohteeseen %s ei voi kirjautua sisään. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Ei voida kirjautua kohteeseen %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Kirjautuminen onnistui. Näet uutta sisältöä kohteesta %s muutaman minuutin kuluessa."
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "Sorry, we can't log into %s."
+msgstr "Ei voida kirjautua kohteeseen %s."
+
+#: ../src/bisho-pane-username.c:136
 #, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
 msgstr "Uloskirjautuminen onnistui. Kaikki %s jäljet on poistettu tietokoneeltasi."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "Päivitys"
+
+#: ../src/bisho-pane-username.c:156
+#: ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Lopeta"
 
-#: ../src/bisho-frame.c:75
-#: ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76
+#: ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Salasana:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Määritä sosiaaliset verkkosi nähdäksesi päivityksiä myzone:ssa ja tilapaneelissa."
 
@@ -134,40 +145,30 @@ msgstr "Koodi:"
 
 #~ msgid "%s login changed."
 #~ msgstr "Kirjautumistiedot vaihdettu: %s"
-
 #~ msgid "Log in pending"
 #~ msgstr "Kirjautuminen käynnissä"
-
 #~ msgid "Log in pending..."
 #~ msgstr "Kirjautuminen käynnissä..."
-
 #~ msgid "Logged in as %s"
 #~ msgstr "Kirjauduttu nimellä %s"
-
 #~ msgid "Logged in"
 #~ msgstr "Kirjauduttu"
-
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>Tila:</b>"
-
 #~ msgid "Web Services"
 #~ msgstr "Verkkopalvelut"
-
 #~ msgid "Press Continue to continue the log in."
 #~ msgstr "Paina Jatka jatkaaksesi sisäänkirjautumista."
-
 #~ msgid "Web Services Settings"
 #~ msgstr "Verkkopalveluasetukset"
-
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "Paina Jatka, kun olet kirjautunut Flickr-palveluun."
-
 #~ msgid ""
 #~ "You'll need an account with %s and an Internet connection to use this web "
 #~ "service."
 #~ msgstr ""
 #~ "Käyttääksesi tätä verkkopalvelua tarvitset internet-yhteyden ja tilin, "
 #~ "jossa on %s."
-
 #~ msgid "Cannot login to %s"
 #~ msgstr "Ei voida kirjautua kohteeseen %s"
+
