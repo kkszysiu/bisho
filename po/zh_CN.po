@@ -2,20 +2,21 @@
 # Copyright (C) 2009 Intel
 # This file is distributed under the same license as the PACKAGE package.
 # Zhu Yanhai <yanhai.zhu@intel.com>, 2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-28 09:28+0000\n"
-"PO-Revision-Date: 2009-10-02 11:57-0800\n"
-"Last-Translator: Yun Nie <yun.nie@ptiglobal.net>\n"
+"PO-Revision-Date: 2010-04-29 17:38-0800\n"
+"Last-Translator: mackey tian <mackeyx.tian@ptiglobal.net>\n"
 "Language-Team: zh_CN <yanhai.zhu@intel.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "我的网络账户"
@@ -56,9 +57,10 @@ msgstr "登出成功。%s的所有痕迹已经从您的计算机中删除。"
 
 #: ../src/bisho-pane-username.c:153
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
-#: ../src/bisho-pane-username.c:156 ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:156
+#: ../src/bisho-pane-username.c:160
 #: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "登录"
@@ -67,7 +69,8 @@ msgstr "登录"
 msgid "Quit"
 msgstr "退出"
 
-#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
+#: ../src/bisho-frame.c:76
+#: ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "用户名："
 
@@ -80,23 +83,29 @@ msgstr "密码："
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "设置您的社交网络以便在 myzone 和状态面板中显示最近更新。"
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:307
+#: ../panes/flickr.c:286
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "登录"
 
-#: ../panes/flickr.c:290 ../panes/oauth.c:311
+#: ../panes/flickr.c:290
+#: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "正在连接..."
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
 msgid "Continue"
 msgstr "继续"
 
-#: ../panes/flickr.c:295 ../panes/oauth.c:347
+#: ../panes/flickr.c:295
+#: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "登录成功。您马上就会看到新的项目。"
 
-#: ../panes/flickr.c:298 ../panes/oauth.c:349
+#: ../panes/flickr.c:298
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "登出"
 
@@ -120,7 +129,7 @@ msgstr "当您已登录%s时,请按回车键."
 #: ../panes/oauth.c:337
 #, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "一旦您登录到 %s，输入他们给您的代码，然后按“继续”。"
+msgstr "一旦您登录到%s，输入他们给您的代码，然后按“继续”。"
 
 #: ../panes/oauth.c:446
 msgid "Code:"
@@ -129,7 +138,7 @@ msgstr "代码："
 #: ../src/bisho-pane-username.c:57
 #, c-format
 msgid "Sorry, we can't log into %s."
-msgstr "抱歉，我们无法登录到 %s。"
+msgstr "抱歉，我们无法登录到%s。"
 
 #~ msgid "%s login changed."
 #~ msgstr "%s 的登录已经改变。"
