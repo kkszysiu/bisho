@@ -32,6 +32,7 @@ struct _BishoPaneUsernamePrivate {
   GConfClient *gconf;
   GtkWidget *table;
   GtkWidget *button;
+  GtkWidget *logout_button;
   char *key;
   guint rows;
 };
@@ -101,6 +102,30 @@ on_entry_activated (GtkEntry *entry, gpointer user_data)
   gtk_widget_child_focus (GTK_WIDGET (pane), GTK_DIR_TAB_FORWARD);
   /* TODO: examine the focus chain and if the next widget is the button,
      activate it */
+}
+
+static void
+entries_have_content (GtkWidget *widget, gpointer user_data)
+{
+  gboolean *has_content = user_data;
+
+  if (!GTK_IS_ENTRY (widget))
+    return;
+
+  if (gtk_entry_get_text_length (GTK_ENTRY (widget)) > 0)
+    *has_content = TRUE;
+}
+
+static void
+on_entry_changed (GtkEditable *editable, gpointer user_data)
+{
+  BishoPaneUsername *pane = BISHO_PANE_USERNAME (user_data);
+  gboolean has_content = FALSE;
+
+  gtk_container_foreach (GTK_CONTAINER (pane->priv->table),
+                         entries_have_content, &has_content);
+
+  gtk_widget_set_sensitive (pane->priv->logout_button, has_content);
 }
 
 static void
@@ -202,7 +227,7 @@ got_static_caps_cb (SwClientService  *service,
 static void
 bisho_pane_username_init (BishoPaneUsername *self)
 {
-  GtkWidget *hbox, *vbox, *align, *vbox2, *image, *remove;
+  GtkWidget *hbox, *vbox, *align, *vbox2, *image;
 
   self->priv = GET_PRIVATE (self);
   self->priv->gconf = gconf_client_get_default ();
@@ -238,13 +263,13 @@ bisho_pane_username_init (BishoPaneUsername *self)
   gtk_widget_show (vbox2);
   gtk_box_pack_start (GTK_BOX (hbox), vbox2, FALSE, FALSE, 0);
 
-  remove = gtk_button_new ();
-  g_signal_connect (remove, "clicked", G_CALLBACK (on_logout_clicked), self);
+  self->priv->logout_button = gtk_button_new ();
+  g_signal_connect (self->priv->logout_button, "clicked", G_CALLBACK (on_logout_clicked), self);
   image = gtk_image_new_from_stock (GTK_STOCK_CLEAR, GTK_ICON_SIZE_BUTTON);
   gtk_widget_show (image);
-  gtk_container_add (GTK_CONTAINER (remove), image);
-  gtk_widget_show (remove);
-  gtk_box_pack_start (GTK_BOX (vbox2), remove, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (self->priv->logout_button), image);
+  gtk_widget_show (self->priv->logout_button);
+  gtk_box_pack_start (GTK_BOX (vbox2), self->priv->logout_button, FALSE, FALSE, 0);
 }
 
 static void
@@ -302,6 +327,7 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   gtk_entry_set_visibility (GTK_ENTRY (entry), visible);
   gtk_entry_set_width_chars (GTK_ENTRY (entry), 30);
   g_signal_connect (entry, "activate", G_CALLBACK (on_entry_activated), pane);
+  g_signal_connect (entry, "changed", G_CALLBACK (on_entry_changed), pane);
   gtk_widget_show (entry);
   gtk_table_attach (GTK_TABLE (priv->table), entry,
                     1, 2, priv->rows, priv->rows + 1, GTK_FILL, GTK_FILL, 0, 0);
@@ -310,10 +336,10 @@ bisho_pane_username_add_entry (BishoPaneUsername *pane, const char *label, const
   g_object_set_data_full (G_OBJECT (entry), DATA_GCONF_KEY, gconf_key, g_free);
 
   value = gconf_client_get_string (priv->gconf, gconf_key, NULL);
-  if (value) {
-    gtk_entry_set_text (GTK_ENTRY (entry), value);
-    g_free (value);
-  }
+  /* Even though we may be setting the text to NULL that isn't a problem because
+     it ensures that the changed handler is fired. */
+  gtk_entry_set_text (GTK_ENTRY (entry), value);
+  g_free (value);
 
   priv->rows++;
 }
