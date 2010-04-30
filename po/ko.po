@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-04-28 09:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: GLSKOR_SunKim <sunx.kim@intel.com>\n"
 "Language-Team: \n"
@@ -14,7 +14,8 @@ msgstr ""
 "X-Poedit-Language: Korean\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1
+#: ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "내 웹 계정"
@@ -43,49 +44,72 @@ msgstr "죄송합니다. %s에 로그인 할수 없습니다. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "죄송합니다. %s에 로그인 할수 없습니다."
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:53
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 %s에서 새 항목이 나타날 것입니다. "
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:57
+#, c-format
+msgid "Sorry, we can't log into %s."
+msgstr "죄송합니다. %s에 로그인 할 수 없습니다."
+
+#: ../src/bisho-pane-username.c:136
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "성공적으로 로그아웃되었습니다. %s의 모든 트레이스가 컴퓨터에서 제거되었습니다."
+
+#: ../src/bisho-pane-username.c:153
+msgid "Update"
+msgstr "업데이트"
+
+#: ../src/bisho-pane-username.c:156
+#: ../src/bisho-pane-username.c:160
+#: ../src/bisho-pane-username.c:232
 msgid "Log in"
 msgstr "로그인"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "종료"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76
+#: ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "암호:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "myzone의 새로운 업데이트 및 상태 패널을 보기 위해 귀하의 소셜 네트워크를 설정하십시오. "
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:307
+#: ../panes/flickr.c:286
+#: ../panes/oauth.c:307
 msgid "Log me in"
 msgstr "로그인"
 
-#: ../panes/flickr.c:290 ../panes/oauth.c:311
+#: ../panes/flickr.c:290
+#: ../panes/oauth.c:311
 msgid "Connecting..."
 msgstr "연결중..."
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:291
+#: ../panes/oauth.c:325
+#: ../panes/oauth.c:342
 msgid "Continue"
 msgstr "계속"
 
-#: ../panes/flickr.c:295 ../panes/oauth.c:347
+#: ../panes/flickr.c:295
+#: ../panes/oauth.c:347
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "성공적으로 로그인 하셨습니다. 몇 분 후에 새 항목이 나타날 것입니다. "
 
-#: ../panes/flickr.c:298 ../panes/oauth.c:349
+#: ../panes/flickr.c:298
+#: ../panes/oauth.c:349
 msgid "Log me out"
 msgstr "로그아웃"
 
@@ -115,43 +139,31 @@ msgstr "일단 %s에 로그인 했으면, 주어진 코드를 입력하고 [계�
 msgid "Code:"
 msgstr "코드:"
 
-#: ../src/bisho-pane-username.c:114
-#, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "성공적으로 로그아웃되었습니다. %s의 모든 트레이스가 컴퓨터에서 제거되었습니다."
-
 #~ msgid "%s login changed."
 #~ msgstr "%s 로그인이 변경되었습니다."
-
 #~ msgid "Log in pending"
 #~ msgstr "로그인 보류"
-
 #~ msgid "Log in pending..."
 #~ msgstr "로그인 보류..."
-
 #~ msgid "Logged in as %s"
 #~ msgstr "%s으로 로그인됨"
-
 #~ msgid "Logged in"
 #~ msgstr "로그인됨"
-
 #~ msgid "<b>Status:</b>"
 #~ msgstr "<b>상태:</b>"
-
-#~ msgid "You'll need an account with %s and an Internet connection to use this web service."
-#~ msgstr "%s 계정 및 이 웹 서비스를 사용할 수 있는 인터넷 연결기능이 필요합니다. "
-
+#~ msgid ""
+#~ "You'll need an account with %s and an Internet connection to use this web "
+#~ "service."
+#~ msgstr ""
+#~ "%s 계정 및 이 웹 서비스를 사용할 수 있는 인터넷 연결기능이 필요합니다. "
 #~ msgid "Cannot login to %s"
 #~ msgstr "%s에 로그인 할수 없음"
-
 #~ msgid "Web Services"
 #~ msgstr "웹 서비스"
-
 #~ msgid "Press Continue to continue the log in."
 #~ msgstr "로그인을 계속하려면 [계속]을 선택하십시오. "
-
 #~ msgid "Web Services Settings"
 #~ msgstr "웹 서비스 설정"
-
 #~ msgid "Once you have logged in to Flickr, press Continue."
 #~ msgstr "일단 Flickr에 로그인 했으면 [계속]을 선택하십시오. "
+
