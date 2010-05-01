@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho.master.bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-19 09:28+0000\n"
+"POT-Creation-Date: 2010-05-01 09:30+0000\n"
 "PO-Revision-Date: 2010-03-20 10:01+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-Language: Walloon\n"
 "X-Generator: Lokalize 0.3\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Mes contes waibe"
@@ -46,29 +46,35 @@ msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Dji rgrete, nos n' savans nén ns elodjî e %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:54
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "L' elodjaedje a st comifåt. Vos alez vey des noveas cayets %s dins kékès munutes."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:161
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "L' elodjaedje a stî comifåt. Totes les traces di %s ont stî oistêyes di vosse copiutrece."
+
+#: ../src/bisho-pane-username.c:181 ../src/bisho-pane-username.c:185
+#: ../src/bisho-pane-username.c:257
 msgid "Log in"
 msgstr "S' elodjî"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Moussî foû"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "No d' uzeu :"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Sicret :"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Metoz a pont vos rantoeles sociåles po vey des noveas metaedjes a djoû dins myzone eyet l' sicriftôr d' estat."
 
@@ -118,10 +124,14 @@ msgstr "On côp k' vos vs avoz elodjî e %s, dinez l' côde k' i vs dinèt eyet 
 msgid "Code:"
 msgstr "Côde :"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:58
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "L' elodjaedje a stî comifåt. Totes les traces di %s ont stî oistêyes di vosse copiutrece."
+msgid "Sorry, we can't log into %s."
+msgstr "Dji rgrete, nos n' nos savans nén elodjî e %s."
+
+#: ../src/bisho-pane-username.c:178
+msgid "Update"
+msgstr "Mete a djoû"
 
 #~ msgid "%s login changed."
 #~ msgstr "Li login di %s a candjî."
