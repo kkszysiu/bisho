@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 09:26+0000\n"
+"POT-Creation-Date: 2010-05-03 09:26+0000\n"
 "PO-Revision-Date: 2009-08-25 16:48+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Akun Webku"
@@ -43,29 +43,35 @@ msgstr "Maaf, kami tak bisa log masuk ke %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Maaf, kami tak bisa log masuk ke %s"
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:54
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Sukses log masuk. Anda akan melihat hal-hal baru dari %s dalam beberapa menit."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:161
+#, c-format
+msgid "Log out succeeded. All trace of %s has been removed from your computer."
+msgstr "Log keluar sukses. Semua jejak dari %s telah dihapus dari komputer Anda."
+
+#: ../src/bisho-pane-username.c:181 ../src/bisho-pane-username.c:185
+#: ../src/bisho-pane-username.c:257
 msgid "Log in"
 msgstr "Log masuk"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Keluar"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Nama pengguna:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Kata sandi:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
+#: ../src/bisho-frame.c:215
 msgid "Set up your social networks to see new updates in myzone and the status panel."
 msgstr "Siapkan jejaring sosial anda untuk melihat pembaruan di myzone dan panel status."
 
@@ -115,10 +121,14 @@ msgstr "Setelah Anda masuk ke %s, masukkan kode yang mereka berikan padamu dan t
 msgid "Code:"
 msgstr "Kode:"
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:58
 #, c-format
-msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr "Log keluar sukses. Semua jejak dari %s telah dihapus dari komputer Anda."
+msgid "Sorry, we can't log into %s."
+msgstr "Maaf, kami tak bisa log masuk ke %s."
+
+#: ../src/bisho-pane-username.c:178
+msgid "Update"
+msgstr "Mutakhirkan"
 
 #~ msgid "%s login changed."
 #~ msgstr "Login %s diubah."
