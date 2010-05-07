@@ -140,9 +140,13 @@ static void
 delete_done_cb (GnomeKeyringResult result, gpointer user_data)
 {
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (user_data);
+  SwClientService *service;
 
-  if (result == GNOME_KEYRING_RESULT_OK)
+  if (result == GNOME_KEYRING_RESULT_OK){
     update_widgets (pane, LOGGED_OUT);
+    service = sw_client_get_service (BISHO_PANE (pane)->socialweb, BISHO_PANE (pane)->info->name);
+    sw_client_service_credentials_updated (service);
+  }
   else
     update_widgets (pane, LOGGED_IN);
 }
@@ -184,6 +188,7 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   BishoPaneFlickr *pane = BISHO_PANE_FLICKR (_pane);
   BishoPaneFlickrPrivate *priv = pane->priv;
   ServiceInfo *info = BISHO_PANE (pane)->info;
+  SwClientService *service;
   RestProxyCall *call;
   RestXmlNode *node;
   const char *token;
@@ -261,6 +266,9 @@ bisho_pane_flickr_continue_auth (BishoPane *_pane, GHashTable *params)
   }
 
   rest_xml_node_unref (node);
+
+  service = sw_client_get_service (BISHO_PANE (pane)->socialweb, info->name);
+  sw_client_service_credentials_updated (service);
 }
 
 static void

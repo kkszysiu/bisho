@@ -165,11 +165,15 @@ static void
 delete_done_cb (GnomeKeyringResult result, gpointer user_data)
 {
   BishoPaneOauth *pane = BISHO_PANE_OAUTH (user_data);
+  SwClientService *service;
 
-  if (result == GNOME_KEYRING_RESULT_OK)
+  if (result == GNOME_KEYRING_RESULT_OK){
     update_widgets (pane, LOGGED_OUT);
-  else
+    service = sw_client_get_service (BISHO_PANE (pane)->socialweb, BISHO_PANE (pane)->info->name);
+    sw_client_service_credentials_updated (service);
+  } else {
     update_widgets (pane, LOGGED_IN);
+  }
 }
 
 static void
@@ -196,6 +200,7 @@ access_token_cb (OAuthProxy   *proxy,
   ServiceInfo *info = BISHO_PANE (pane)->info;
   BishoPaneOauthPrivate *priv = pane->priv;
   char *encoded;
+  SwClientService *service;
 
   if (error) {
     update_widgets (pane, LOGGED_OUT);
@@ -228,6 +233,8 @@ access_token_cb (OAuthProxy   *proxy,
                                                  LIBEXECDIR "/libsocialweb-core",
                                                  id, GNOME_KEYRING_ACCESS_READ);
     update_widgets (pane, LOGGED_IN);
+    service = sw_client_get_service (BISHO_PANE (pane)->socialweb, info->name);
+    sw_client_service_credentials_updated (service);
   } else {
     g_message ("Cannot update keyring: %s", gnome_keyring_result_to_message (result));
     update_widgets (pane, LOGGED_OUT);
