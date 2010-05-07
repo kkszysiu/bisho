@@ -29,7 +29,7 @@ AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL([0.40], [no-xml])
 
 PKG_CHECK_MODULES(DEPS, gmodule-export-2.0
-                        libsocialweb-client
+                        libsocialweb-client >= 0.24.8
                         libsocialweb-keystore
                         gtk+-2.0
                         gconf-2.0
