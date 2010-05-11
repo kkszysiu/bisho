@@ -1,8 +1,12 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 includedir=@includedir@
+libdir=@libdir@
+modulesdir=@MODULESDIR@
 
 Name: bisho
 Description: My Web Accounts pane module
 Version: @VERSION@
 Cflags: -I${includedir}
+Libs: -L${libdir} -lbisho-common
+Requires: libsocialweb-client gtk+-2.0

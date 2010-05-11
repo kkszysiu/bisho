@@ -40,6 +40,9 @@ PKG_CHECK_MODULES(DEPS, gmodule-export-2.0
                         unique-1.0
                         mx-gtk-1.0)
 
+MODULESDIR=$libdir/AC_PACKAGE_NAME
+AC_SUBST([MODULESDIR])
+
 PKG_CHECK_MODULES(CC, libgnome-control-center-extension)
 EXTENSIONSDIR=$($PKG_CONFIG libgnome-control-center-extension --variable=extensiondir)
 AC_SUBST(EXTENSIONSDIR)
