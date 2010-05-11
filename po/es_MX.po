@@ -35,27 +35,27 @@ msgid "<small>You'll need an account with %s and an Internet connection to use t
 msgstr "<small>Necesitarás un cuenta de %s y una conexión a Internet para usar este servicio web.</small>"
 
 #: ../src/bisho-pane.c:223
-#, fuzzy, c-format
+#, c-format
 msgid "Sorry, we can't log in to %s. %s"
 msgstr "Lo sentimos, no se pudo iniciar sesión en %s. %s"
 
 #: ../src/bisho-pane.c:227
-#, fuzzy, c-format
+#, c-format
 msgid "Sorry, we can't log in to %s"
 msgstr "Lo sentimos, no se pudo iniciar sesión en %s"
 
 #: ../src/bisho-pane-username.c:53
-#, fuzzy, c-format
+#, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Inicio de sesión exitoso. Verás lo nuevo de %s  en unos minutos."
 
 #: ../src/bisho-pane-username.c:57
-#, fuzzy, c-format
+#, c-format
 msgid "Sorry, we can't log into %s."
 msgstr "Lo sentimos, no se pudo iniciar sesión en %s."
 
 #: ../src/bisho-pane-username.c:136
-#, fuzzy, c-format
+#, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
 msgstr "Sesión cerrada exitosamente. Cualquier rastro de %s ha sido removido de tu computadora."
 
@@ -66,7 +66,6 @@ msgstr "Actualizar"
 #: ../src/bisho-pane-username.c:156
 #: ../src/bisho-pane-username.c:160
 #: ../src/bisho-pane-username.c:232
-#, fuzzy
 msgid "Log in"
 msgstr "Iniciar sesión"
 
@@ -90,9 +89,8 @@ msgstr "Configura tus redes sociales para ver las nuevas actualizaciones en myzo
 
 #: ../panes/flickr.c:286
 #: ../panes/oauth.c:307
-#, fuzzy
 msgid "Log me in"
-msgstr "Iniciar sesión"
+msgstr "Inicia mi sesión"
 
 #: ../panes/flickr.c:290
 #: ../panes/oauth.c:311
@@ -107,15 +105,13 @@ msgstr "Continuar"
 
 #: ../panes/flickr.c:295
 #: ../panes/oauth.c:347
-#, fuzzy
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Inicio de sesión exitoso. Verás los nuevos elementos en unos minutos."
 
 #: ../panes/flickr.c:298
 #: ../panes/oauth.c:349
-#, fuzzy
 msgid "Log me out"
-msgstr "Cerrar sesión"
+msgstr "Cierra mi sesión"
 
 #: ../panes/oauth.c:95
 msgid "You don't seem to have a network connection, this won't work."
@@ -130,12 +126,12 @@ msgid "You could try again."
 msgstr "Inténtalo de nuevo."
 
 #: ../panes/oauth.c:320
-#, fuzzy, c-format
+#, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Cuando hayas iniciado sesión en %s, presiona Continuar."
 
 #: ../panes/oauth.c:337
-#, fuzzy, c-format
+#, c-format
 msgid "Once you have logged in to %s, enter the code they give you and press Continue."
 msgstr "Cuando hayas iniciado sesión en %s, ingresa el código que te dieron y presiona Continuar."
 
