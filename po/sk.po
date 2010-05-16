@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Tomáš Virgl <tomas@virgl.net>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: bisho.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-19 09:28+0000\n"
+"POT-Creation-Date: 2010-05-15 09:31+0000\n"
 "PO-Revision-Date: 2010-04-20 18:03+0200\n"
 "Last-Translator: Tomáš Virgl <tomas@virgl.net>\n"
 "Language-Team: slovak <sk-i18n@lists.linux.sk>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:39
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Moje webové účty"
@@ -31,12 +31,8 @@ msgstr "Pre viac informácií navštívte webové stránky."
 
 #: ../src/bisho-pane.c:86
 #, c-format
-msgid ""
-"<small>You'll need an account with %s and an Internet connection to use this "
-"web service.</small>"
-msgstr ""
-"<small>Ak chcete používať túto webovú službu potrebujete účet s %s a "
-"pripojenie k internetu.</small>"
+msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
+msgstr "<small>Ak chcete používať túto webovú službu potrebujete účet s %s a pripojenie k internetu.</small>"
 
 #: ../src/bisho-pane.c:223
 #, c-format
@@ -48,67 +44,61 @@ msgstr "Prepáčte, ale nemôžeme sa prihlásiť k %s. %s"
 msgid "Sorry, we can't log in to %s"
 msgstr "Prepáčte, ale nemôžeme sa prihlásiť k %s."
 
-#: ../src/bisho-pane-username.c:69
+#: ../src/bisho-pane-username.c:54
 #, c-format
 msgid "Log in succeeded. You'll see new things from %s in a couple of minutes."
 msgstr "Prihlásenie prebehlo úspešne. Za pár minút uvidíte nové položky z %s."
 
-#: ../src/bisho-pane-username.c:114
+#: ../src/bisho-pane-username.c:161
 #, c-format
 msgid "Log out succeeded. All trace of %s has been removed from your computer."
-msgstr ""
-"Odhlásenie prebehlo úspešne. Všetky stopy z %s boli odstránené z vašeho "
-"počítača."
+msgstr "Odhlásenie prebehlo úspešne. Všetky stopy z %s boli odstránené z vašeho počítača."
 
-#: ../src/bisho-pane-username.c:149
+#: ../src/bisho-pane-username.c:181 ../src/bisho-pane-username.c:185
+#: ../src/bisho-pane-username.c:257
 msgid "Log in"
 msgstr "Prihlásiť sa"
 
-#: ../src/bisho-window.c:65
+#: ../src/bisho-window.c:66
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: ../src/bisho-frame.c:75 ../src/bisho-frame.c:81
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Používateľské meno:"
 
-#: ../src/bisho-frame.c:83
+#: ../src/bisho-frame.c:84
 msgid "Password:"
 msgstr "Heslo:"
 
 #. Please don't translate 'myzone'
-#: ../src/bisho-frame.c:214
-msgid ""
-"Set up your social networks to see new updates in myzone and the status "
-"panel."
-msgstr ""
-"Nastavte si svoje sociálne siete, aby ste videli nové zmeny v myzone a na "
-"stavovom panely."
+#: ../src/bisho-frame.c:215
+msgid "Set up your social networks to see new updates in myzone and the status panel."
+msgstr "Nastavte si svoje sociálne siete, aby ste videli nové zmeny v myzone a na stavovom panely."
 
-#: ../panes/flickr.c:286 ../panes/oauth.c:307
+#: ../panes/flickr.c:294 ../panes/oauth.c:314
 msgid "Log me in"
 msgstr "Prihlásiť ma"
 
-#: ../panes/flickr.c:290 ../panes/oauth.c:311
+#: ../panes/flickr.c:298 ../panes/oauth.c:318
 msgid "Connecting..."
 msgstr "Pripája sa..."
 
-#: ../panes/flickr.c:291 ../panes/oauth.c:325 ../panes/oauth.c:342
+#: ../panes/flickr.c:299 ../panes/oauth.c:332 ../panes/oauth.c:349
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: ../panes/flickr.c:295 ../panes/oauth.c:347
+#: ../panes/flickr.c:303 ../panes/oauth.c:354
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Prihlásenie prebehlo úspešne.Za pár minút uvidíte nové položky."
 
-#: ../panes/flickr.c:298 ../panes/oauth.c:349
+#: ../panes/flickr.c:306 ../panes/oauth.c:356
 msgid "Log me out"
 msgstr "Odhlásiť ma"
 
 #: ../panes/oauth.c:95
 msgid "You don't seem to have a network connection, this won't work."
-msgstr ""
-"Vyzerá to tak, že nie ste pripojený k sieti - bez toho to nebude fungovať."
+msgstr "Vyzerá to tak, že nie ste pripojený k sieti - bez toho to nebude fungovať."
 
 #: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
@@ -118,19 +108,25 @@ msgstr "Mali by ste skontrolovať,či je čas na vašom počítači správny."
 msgid "You could try again."
 msgstr "Môžete to skúsiť znovu."
 
-#: ../panes/oauth.c:320
+#: ../panes/oauth.c:327
 #, c-format
 msgid "Once you have logged in to %s, press Continue."
 msgstr "Po prihlásení do %s stlačte Pokračovať."
 
-#: ../panes/oauth.c:337
+#: ../panes/oauth.c:344
 #, c-format
-msgid ""
-"Once you have logged in to %s, enter the code they give you and press "
-"Continue."
-msgstr ""
-"Po prihlásení do %s vložte kód, ktorý ste obdržali, a stlačte Pokračovať."
+msgid "Once you have logged in to %s, enter the code they give you and press Continue."
+msgstr "Po prihlásení do %s vložte kód, ktorý ste obdržali, a stlačte Pokračovať."
 
-#: ../panes/oauth.c:446
+#: ../panes/oauth.c:453
 msgid "Code:"
 msgstr "Kód:"
+
+#: ../src/bisho-pane-username.c:58
+#, c-format
+msgid "Sorry, we can't log into %s."
+msgstr "Prepáčte, ale nemôžeme sa prihlásiť k %s."
+
+#: ../src/bisho-pane-username.c:178
+msgid "Update"
+msgstr "Aktualizovať"
