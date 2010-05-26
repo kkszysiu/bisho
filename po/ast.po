@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bisho\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-17 21:48+0000\n"
+"POT-Creation-Date: 2010-05-26 09:19+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: astur <malditoastur@gmail.com>\n"
 "Language-Team: asturian <alministradores@softastur.org>\n"
@@ -14,8 +14,7 @@ msgstr ""
 "X-Poedit-Language: asturian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../data/bisho.desktop.in.h:1
-#: ../src/bisho-window.c:40
+#: ../data/bisho.desktop.in.h:1 ../src/bisho-window.c:40
 #: ../src/bisho-cc-panel.c:69
 msgid "My Web Accounts"
 msgstr "Les mios cuentes web"
@@ -31,8 +30,12 @@ msgstr "Si quies más información, empobina al sitiu web"
 
 #: ../src/bisho-pane.c:86
 #, c-format
-msgid "<small>You'll need an account with %s and an Internet connection to use this web service.</small>"
-msgstr "<small>Pa usar esti serviciu web tienes de tener cuenta en %s y una conexón de Internet.</small>"
+msgid ""
+"<small>You'll need an account with %s and an Internet connection to use this "
+"web service.</small>"
+msgstr ""
+"<small>Pa usar esti serviciu web tienes de tener cuenta en %s y una conexón "
+"de Internet.</small>"
 
 #: ../src/bisho-pane.c:223
 #, c-format
@@ -63,8 +66,7 @@ msgstr "Desconeutáu. Desanicióse tolo referente a %s del to equipu."
 msgid "Update"
 msgstr "Anovar"
 
-#: ../src/bisho-pane-username.c:181
-#: ../src/bisho-pane-username.c:185
+#: ../src/bisho-pane-username.c:181 ../src/bisho-pane-username.c:185
 #: ../src/bisho-pane-username.c:257
 msgid "Log in"
 msgstr "Coneutase"
@@ -73,8 +75,7 @@ msgstr "Coneutase"
 msgid "Quit"
 msgstr "colar"
 
-#: ../src/bisho-frame.c:76
-#: ../src/bisho-frame.c:82
+#: ../src/bisho-frame.c:76 ../src/bisho-frame.c:82
 msgid "Username:"
 msgstr "Usuariu:"
 
@@ -84,38 +85,37 @@ msgstr "Contraseña:"
 
 #. Please don't translate 'myzone'
 #: ../src/bisho-frame.c:215
-msgid "Set up your social networks to see new updates in myzone and the status panel."
-msgstr "Configura les tos redes sociales pa ver nuevos anovamientos en myzone y nel panel d'estáu."
+msgid ""
+"Set up your social networks to see new updates in myzone and the status "
+"panel."
+msgstr ""
+"Configura les tos redes sociales pa ver nuevos anovamientos en myzone y nel "
+"panel d'estáu."
 
-#: ../panes/flickr.c:294
-#: ../panes/oauth.c:314
+#: ../panes/flickr.c:294 ../panes/oauth.c:314
 msgid "Log me in"
 msgstr "Quiero entrar"
 
-#: ../panes/flickr.c:298
-#: ../panes/oauth.c:318
+#: ../panes/flickr.c:298 ../panes/oauth.c:318
 msgid "Connecting..."
 msgstr "Coneutándose..."
 
-#: ../panes/flickr.c:299
-#: ../panes/oauth.c:332
-#: ../panes/oauth.c:349
+#: ../panes/flickr.c:299 ../panes/oauth.c:332 ../panes/oauth.c:349
 msgid "Continue"
 msgstr "Siguir"
 
-#: ../panes/flickr.c:303
-#: ../panes/oauth.c:354
+#: ../panes/flickr.c:303 ../panes/oauth.c:354
 msgid "Log in succeeded. You'll see new items in a couple of minutes."
 msgstr "Tas coneutáu. Verás los nuevos elementos nunos minutos."
 
-#: ../panes/flickr.c:306
-#: ../panes/oauth.c:356
+#: ../panes/flickr.c:306 ../panes/oauth.c:356
 msgid "Log me out"
 msgstr "Quiero desconeutame"
 
 #: ../panes/oauth.c:95
 msgid "You don't seem to have a network connection, this won't work."
-msgstr "Paez que nun tienes denguna conexón a denguna rede. Esto nun va funcionar."
+msgstr ""
+"Paez que nun tienes denguna conexón a denguna rede. Esto nun va funcionar."
 
 #: ../panes/oauth.c:96
 msgid "You could check that the computer's clock is correct."
@@ -132,39 +132,13 @@ msgstr "Cuando consigas coneutate a %s, calca Siguir."
 
 #: ../panes/oauth.c:344
 #, c-format
-msgid "Once you have logged in to %s, enter the code they give you and press Continue."
-msgstr "Cuando te coneutes a %s, introduz el códigu que te dieron y calca Siguir."
+msgid ""
+"Once you have logged in to %s, enter the code they give you and press "
+"Continue."
+msgstr ""
+"Cuando te coneutes a %s, introduz el códigu que te dieron y calca Siguir."
 
 #: ../panes/oauth.c:453
 msgid "Code:"
 msgstr "Códigu:"
-
-#~ msgid "%s login changed."
-#~ msgstr "Camudóse'l nome d'accesu a %s."
-#~ msgid "Log in pending"
-#~ msgstr "Acceso pendiente"
-#~ msgid "Log in pending..."
-#~ msgstr "Acceso pendiente..."
-#~ msgid "Logged in as %s"
-#~ msgstr "Conectado como %s"
-#~ msgid "Logged in"
-#~ msgstr "Conectado"
-#~ msgid "<b>Status:</b>"
-#~ msgstr "<b>Estado:</b>"
-#~ msgid ""
-#~ "You'll need an account with %s and an Internet connection to use this web "
-#~ "service."
-#~ msgstr ""
-#~ "Para usar este servicio web debes tener una cuenta en %s y una conexión "
-#~ "de Internet."
-#~ msgid "Cannot login to %s"
-#~ msgstr "No se puede entrar en %s"
-#~ msgid "Web Services"
-#~ msgstr "Servicios web"
-#~ msgid "Press Continue to continue the log in."
-#~ msgstr "Pulsa Continuar para proseguir."
-#~ msgid "Web Services Settings"
-#~ msgstr "Configuración de los servicios web"
-#~ msgid "Once you have logged in to Flickr, press Continue."
-#~ msgstr "Cuando te hayas conectado a Flickr, pulsa Continuar."
 
