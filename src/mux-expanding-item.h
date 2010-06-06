@@ -20,7 +20,6 @@
 #define __MUX_EXPANDING_ITEM_H__
 
 #include <gtk/gtk.h>
-#include <mx-gtk/mx-gtk.h>
 
 G_BEGIN_DECLS
 
@@ -50,12 +49,12 @@ typedef struct _MuxExpandingItem      MuxExpandingItem;
 typedef struct _MuxExpandingItemClass MuxExpandingItemClass;
 
 struct _MuxExpandingItem {
-  MxGtkFrame parent;
+  GtkFrame parent;
   MuxExpandingItemPrivate *priv;
 };
 
 struct _MuxExpandingItemClass {
-  MxGtkFrameClass parent_class;
+  GtkFrameClass parent_class;
 };
 
 GType mux_expanding_item_get_type (void) G_GNUC_CONST;

@@ -37,8 +37,7 @@ PKG_CHECK_MODULES(DEPS, gmodule-export-2.0
                         libsoup-2.4
                         rest-0.6
                         rest-extras-0.6
-                        unique-1.0
-                        mx-gtk-1.0)
+                        unique-1.0)
 
 MODULESDIR=$libdir/AC_PACKAGE_NAME
 AC_SUBST([MODULESDIR])
